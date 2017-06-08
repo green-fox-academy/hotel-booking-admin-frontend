@@ -4,7 +4,6 @@
   "description": "",
   "main": "cheer.js",
   "scripts": {
-    "start": "ng serve"
   },
   "repository": {
     "type": "git",
