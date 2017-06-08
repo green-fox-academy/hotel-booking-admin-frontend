@@ -4,7 +4,7 @@
   "description": "",
   "main": "cheer.js",
   "scripts": {
-    
+    "start": "admin-frontend/ng serve"
   },
   "repository": {
     "type": "git",
