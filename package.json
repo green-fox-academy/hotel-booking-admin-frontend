@@ -3,13 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "debug-log": "^1.0.1"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./hotel-booking-admin-frontend/adminFrontend/src/app/app.component.spec.ts"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -20,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/greenfox-academy/hotel-booking-admin-frontend/issues"
   },
-  "homepage": "https://github.com/greenfox-academy/hotel-booking-admin-frontend#readme"
+  "homepage": "https://github.com/greenfox-academy/hotel-booking-admin-frontend#readme",
+  "dependencies": {
+    "debug-log": "^1.0.1"
+  }
 }
