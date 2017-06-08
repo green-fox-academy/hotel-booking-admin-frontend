@@ -1,22 +1,19 @@
 {
-  "name": "hotel-booking-admin-frontend",
+  "name": "ds",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "cheer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/greenfox-academy/hotel-booking-admin-frontend.git"
+    "url": "git+https://github.com/greenfox-academy/SiriusTest.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/greenfox-academy/hotel-booking-admin-frontend/issues"
+    "url": "https://github.com/greenfox-academy/SiriusTest/issues"
   },
-  "homepage": "https://github.com/greenfox-academy/hotel-booking-admin-frontend#readme",
-  "dependencies": {
-    "debug-log": "^1.0.1"
-  }
+  "homepage": "https://github.com/greenfox-academy/SiriusTest#readme"
 }
