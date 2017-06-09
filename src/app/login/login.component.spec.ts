@@ -1,37 +1,37 @@
-// import { TestBed, async } from '@angular/core/testing';
-// import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
-// import { LoginComponent } from './login.component';
+import { LoginComponent } from './login.component';
 
 
-// describe('AppComponent', () => {
-//   beforeEach(async(() => {
-//     TestBed.configureTestingModule({
-//         imports: [
-//             RouterTestingModule
-//         ],
-//       declarations: [
-//         AppComponent
-//       ],
-//     }).compileComponents();
-//   }));
+describe('LoginComponent', () => {
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+        imports: [
+            RouterTestingModule
+        ],
+      declarations: [
+        LoginComponent
+      ],
+    }).compileComponents();
+  }));
 
-//   it('should create the app', async(() => {
-//     const fixture = TestBed.createComponent(AppComponent);
-//     const app = fixture.debugElement.componentInstance;
-//     expect(app).toBeTruthy();
-//   }));
+  it('should create the login', async(() => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const login = fixture.debugElement.componentInstance;
+    expect(login).toBeTruthy();
+  }));
 
-//   it(`should have as title 'Hotel Booking Admin'`, async(() => {
-//     const fixture = TestBed.createComponent(AppComponent);
-//     const app = fixture.debugElement.componentInstance;
-//     expect(app.title).toEqual('Hotel Booking Admin');
-//   }));
+  it(`should have as title 'Login'`, async(() => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const login = fixture.debugElement.componentInstance;
+    expect(login.title).toEqual('Login');
+  }));
 
-//   it('should render title in a h1 tag', async(() => {
-//     const fixture = TestBed.createComponent(AppComponent);
-//     fixture.detectChanges();
-//     const compiled = fixture.debugElement.nativeElement;
-//     expect(compiled.querySelector('h1').textContent).toContain('Hotel Booking Admin');
-//   }));
-// });
+  it('should render title in a h2 tag', async(() => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h2').textContent).toContain('Login');
+  }));
+});
