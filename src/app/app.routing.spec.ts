@@ -2,15 +2,12 @@ import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { fakeAsync, async, inject, TestBed, getTestBed } from '@angular/core/testing';
+import { async, inject, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { appRouting } from './app.routing';
 
 @Component ({
-  template:`
-  <router-outlet></router-outlet>
-  `
+  templateUrl: './app.component.html'
 })
 class RoutingComponent {  }
 
@@ -33,7 +30,7 @@ describe('component: RoutingComponent', () => {
   }));
 
   it('should go home', async(() => {
-    let fixture = TestBed.createComponent(RoutingComponent);
+    const fixture = TestBed.createComponent(RoutingComponent);
     fixture.detectChanges();
     routing.navigate(['/']).then(() => {
       expect(location.path()).toBe('/');
@@ -42,7 +39,7 @@ describe('component: RoutingComponent', () => {
   }));
 
   it('should go to the login page', async(() => {
-    let fixture = TestBed.createComponent(RoutingComponent);
+    const fixture = TestBed.createComponent(RoutingComponent);
     fixture.detectChanges();
     routing.navigate(['login']).then(() => {
       expect(location.path()).toBe('/login');
