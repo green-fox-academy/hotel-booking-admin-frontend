@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port $PORT",
+    "test": "ng test",
     "build": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e"
