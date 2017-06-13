@@ -3,7 +3,6 @@
 const MockServer = function () {
     const express = require('express');
     const bodyParser = require('body-parser');
-    const mockServer = require('./mock-server.js');
 
     const app = express();
 
@@ -23,11 +22,11 @@ const MockServer = function () {
 
     app.use(bodyParser.json());
 
-    app.get('/*', (req, res) => {
+    app.get('/login', (req, res) => {
         res.send(process.env);
     });
 
-    app.post('/api/login/', (req, res) => {
+    app.get('/api/login/', (req, res) => {
         const username = req.body.username;
         const password = req.body.password;
         if (username === user.username && password === user.password) {
