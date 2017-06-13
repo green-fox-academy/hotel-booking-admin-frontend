@@ -9,6 +9,10 @@ const app = express();
 
 app.use(express.static(__dirname + '/dist'));
 
+app.get('/info', (req, res) => {
+    res.send(process.env);
+});
+
 if (process.env.APP_ENV === 'MOCK') {
     // mockServer();
     const user = {
