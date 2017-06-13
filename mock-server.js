@@ -3,6 +3,7 @@
 const MockServer = function () {
     const express = require('express');
     const bodyParser = require('body-parser');
+    const path = require('path');
 
     const app = express();
 
@@ -22,11 +23,11 @@ const MockServer = function () {
 
     app.use(bodyParser.json());
 
-    app.get('/login', (req, res) => {
-        res.send(process.env);
+    app.get('/*', (req, res) => {
+        res.sendFile(path.join(__dirname + '/dist/index.html'));
     });
 
-    app.get('/api/login/', (req, res) => {
+    app.post('/api/login/', (req, res) => {
         const username = req.body.username;
         const password = req.body.password;
         if (username === user.username && password === user.password) {
