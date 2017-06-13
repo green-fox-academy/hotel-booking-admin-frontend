@@ -23,9 +23,7 @@ const MockServer = function () {
 
     app.use(bodyParser.json());
 
-    app.get('/*', (req, res) => {
-        res.sendFile(path.join(__dirname + '/dist/index.html'));
-    });
+    app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
 
     app.post('/api/login/', (req, res) => {
         const username = req.body.username;

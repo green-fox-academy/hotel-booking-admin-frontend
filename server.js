@@ -7,8 +7,8 @@ const path = require('path');
 
 const app = express();
 
-const forceSSL = function() {
-    return function (req, res, next) {
+const forceSSL = () => {
+    return (req, res, next) => {
         if (req.headers['x-forwarded-proto'] !== 'https') {
             return res.redirect(
                 ['https://', req.get('Host'), req.url].join('')
@@ -40,9 +40,7 @@ if (process.env.APP_ENV === 'MOCK') {
 
     app.use(bodyParser.json());
 
-    app.get('/*', (req, res) => {
-        res.sendFile(path.join(__dirname + '/dist/index.html'));
-    });
+    app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
 
     app.post('/api/login/', (req, res) => {
         const username = req.body.username;
