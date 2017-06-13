@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "postinstall": "ng build --aot -prod",
-    "start": "http-server dist -p $PORT",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test --single-run",
     "lint": "ng lint",
@@ -29,7 +29,6 @@
     "express": "^4.15.3",
     "http-server": "^0.10.0",
     "node-wget": "^0.4.2",
-    "process-env": "^1.1.0",
     "rxjs": "^5.1.0",
     "wget": "0.0.1",
     "zone.js": "^0.8.4"
