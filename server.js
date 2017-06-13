@@ -13,7 +13,7 @@ app.get('/info', (req, res) => {
     res.send(process.env.APP_ENV);
 });
 
-if (process.env.APP_ENV === 'MOCK') {
+if (process.env.APP_ENV === 'nem mock') {
     // mockServer();
     const user = {
         username: 'Test Admin',
@@ -35,7 +35,7 @@ if (process.env.APP_ENV === 'MOCK') {
         res.sendFile(path.join(__dirname + '/dist/index.html'));
     });
 
-    app.get('/api/login/', (req, res) => {
+    app.post('/api/login/', (req, res) => {
         const username = req.body.username;
         const password = req.body.password;
         if (username === user.username && password === user.password) {
