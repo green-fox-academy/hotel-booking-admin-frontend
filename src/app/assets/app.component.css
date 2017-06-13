@@ -1,17 +1,21 @@
 .page {
     margin: auto;
+    width: 60vw;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     font-family: Arial, sans-serif;
+    color: #353637;
 }
 
 .header h1 {
-    color: #353637;
-    padding-top: 30px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    font-size: 3rem;
 }
 
 .header__navbar {
     position: fixed;
+    top: 0;
     left: 0;
     right: 0;
     padding: 10px;
@@ -22,4 +26,15 @@
     text-decoration: none;
     color: white;
     padding: 5px;
+}
+
+.main {
+    width: 100%;
+}
+
+.main h2 {
+    padding-top: 20px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
 }
