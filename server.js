@@ -9,11 +9,7 @@ const app = express();
 
 app.use(express.static(__dirname + '/dist'));
 
-app.get('/info', (req, res) => {
-    res.send(process.env.APP_ENV);
-});
-
-if (process.env.APP_ENV === 'nem mock') {
+if (process.env.APP_ENV === 'MOCK') {
     // mockServer();
     const user = {
         username: 'Test Admin',
@@ -46,6 +42,6 @@ if (process.env.APP_ENV === 'nem mock') {
     });
 } else {
     // mockServer();
-};
+}
 
 app.listen(process.env.PORT || 8080, () => console.log('server is running'));
