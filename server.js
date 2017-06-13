@@ -9,6 +9,7 @@ const app = express();
 app.use(express.static(__dirname + '/dist'));
 
 if (process.env.APP_ENV === 'MOCK') {
+    console.log(process.env.APP_ENV);
     mockServer();
 } else {
 
