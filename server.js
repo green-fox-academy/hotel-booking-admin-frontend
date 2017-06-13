@@ -9,14 +9,10 @@ const app = express();
 
 app.use(express.static(__dirname + '/dist'));
 
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/dist/index.html'));
-});
-
-// if (process.env.APP_ENV === 'MOCK') {
-//     mockServer();
-// } else {
-//     mockServer();
-// };
+if (process.env.APP_ENV === 'MOCK') {
+    mockServer();
+} else {
+    mockServer();
+};
 
 app.listen(process.env.PORT || 8080, () => console.log('server is running'));
