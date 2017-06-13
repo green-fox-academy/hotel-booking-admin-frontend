@@ -1,6 +1,12 @@
 'use strict';
 
 const MockServer = function () {
+    const express = require('express');
+    const bodyParser = require('body-parser');
+    const mockServer = require('./mock-server.js');
+
+    const app = express();
+
     const user = {
         username: 'Test Admin',
         password: '1234'
