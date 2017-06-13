@@ -24,7 +24,7 @@ const MockServer = function () {
     app.use(bodyParser.json());
 
     app.get('/*', (req, res) => {
-        res.send('alma');
+        res.send(process.env);
     });
 
     app.post('/api/login/', (req, res) => {

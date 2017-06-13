@@ -9,11 +9,9 @@ const app = express();
 app.use(express.static(__dirname + '/dist'));
 
 console.log('alma?????');
-if (process.env.APP_ENV === 'MOCK') {
+if (process.env.APP_ENV === 'ALMA') {
     mockServer();
-    console.log('alma');
 } else {
-    console.log('korte');
 };
 
 app.listen(process.env.PORT || 8080, () => console.log('server is running'));
