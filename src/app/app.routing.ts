@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent},
-    { path: '', component: HomeComponent}
+    { path: 'home', component: HomeComponent}
 ];
 
 export const appRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes);

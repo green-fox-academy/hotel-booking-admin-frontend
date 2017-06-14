@@ -3,8 +3,8 @@
         <header class="header">
 
             <nav class="header__navbar">
-                <a routerLink="/">Go to home</a>
-                <a routerLink="/login">Go to login</a>
+                <a routerLink="/home" (click)="setIsItLogin()">Home</a>
+                <a routerLink="/login" (click)="setIsItLogin()">Login</a>
             </nav>
 
             <h1>
@@ -12,6 +12,7 @@
             </h1>
 
         </header>
+        <home-page [hidden]="isItLogin"></home-page>
         <router-outlet></router-outlet>
     </div>
 </body>

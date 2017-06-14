@@ -17,7 +17,7 @@ describe('component: RoutingComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule.withRoutes([
-          {path: '', component: HomeComponent},
+          {path: 'home', component: HomeComponent},
           {path: 'login', component: LoginComponent}
         ])],
         declarations: [RoutingComponent, HomeComponent, LoginComponent]
@@ -32,8 +32,8 @@ describe('component: RoutingComponent', () => {
   it('should go home', async(() => {
     const fixture = TestBed.createComponent(RoutingComponent);
     fixture.detectChanges();
-    routing.navigate(['/']).then(() => {
-      expect(location.path()).toBe('/');
+    routing.navigate(['home']).then(() => {
+      expect(location.path()).toBe('/home');
       console.log('after expect');
     });
   }));
