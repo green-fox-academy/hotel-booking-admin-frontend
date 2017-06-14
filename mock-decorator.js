@@ -1,7 +1,7 @@
 'use strict';
 
 const MockServer = function(app) {
-    const mockApp = app;
+    const path = require('path');
     const user = {
         email: 'test@example.com',
         password: '1234'
@@ -16,9 +16,9 @@ const MockServer = function(app) {
         message: 'Mismatched username and password'
     };
 
-    mockApp.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
+    app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
 
-    mockApp.post('/api/login/', (req, res) => {
+    app.post('/api/login/', (req, res) => {
         const username = req.body.username;
         const password = req.body.password;
         if (username === user.username && password === user.password) {
