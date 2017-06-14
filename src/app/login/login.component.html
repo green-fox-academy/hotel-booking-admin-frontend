@@ -3,27 +3,26 @@
         {{title}}
     </h2>
 
-    <form #form="ngForm">
+    <form class="login-form" #form="ngForm">
 
         <!--{{form.valid}}-->
 
         <div class="form-group">
-            <span class="requiredMessage" *ngIf="email.touched || email.dirty">Email is required</span>
-            <span [hidden]="!email.errors.pattern">*Invalid email</span>
-            
-            <input type="email" placeholder="Email Address" class="form-control" name="email"
+            <span class="error-message" *ngIf="email.touched || email.dirty">Email is required</span>
+            <span class="error-message" [hidden]="!email.errors.pattern">*Invalid email</span>
+
+            <input class="input" type="email" placeholder="Email Address" class="form-control" name="email"
             required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="user.email" #email="ngModel">
         </div>
 
         <div class="form-group">
-            <span class="requiredMessage" *ngIf="password.invalid && (password.touched || password.dirty)">password is required</span>
-            
-            <input type="password" placeholder="password" class="form-control" name="password"
+            <span class="error-message" *ngIf="password.invalid && (password.touched || password.dirty)">password is required</span>
+
+            <input class="input" type="password" placeholder="password" class="form-control" name="password"
             required [(ngModel)]="user.password" #password="ngModel">
         </div>
 
-        <button class="loginButton" [disabled]="form.invalid">Login</button>
+        <button class="login-button" [disabled]="form.invalid">Login</button>
 
     </form>
 </main>
-
