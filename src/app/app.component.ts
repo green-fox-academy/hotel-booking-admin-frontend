@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { appRouting } from './app.routing';
 import { Routes, RouterModule } from '@angular/router';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
