@@ -2,7 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const mockServer = require('./mock-server.js');
+const mockServer = require('./mock-decorator.js');
 const path = require('path');
 
 const app = express();
