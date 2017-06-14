@@ -15,8 +15,6 @@ const MockServer = function(app) {
         message: 'Mismatched username and password'
     };
 
-    app.use(bodyParser.json());
-
     app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
 
     app.post('/api/login/', (req, res) => {
