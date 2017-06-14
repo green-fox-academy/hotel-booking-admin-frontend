@@ -1,14 +1,8 @@
 'use strict';
 
-const MockServer = function () {
-    const express = require('express');
-    const bodyParser = require('body-parser');
-    const path = require('path');
-
-    const app = express();
-
+const MockServer = function(app) {
     const user = {
-        username: 'Test Admin',
+        email: 'test@example.com',
         password: '1234'
     };
     const validResponse = {
@@ -34,6 +28,6 @@ const MockServer = function () {
             res.send(invalidResponse);
         }
     });
-};
+}
 
 module.exports = MockServer;
