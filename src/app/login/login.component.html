@@ -8,7 +8,6 @@
         <!--{{form.valid}}-->
 
         <div class="form-group">
-<<<<<<< HEAD
             
             <span class="requiredMessage" *ngIf="email.errors && (email.touched || email.dirty)">
                 <span [hidden]="!email.errors.required">Email is required</span>
@@ -16,12 +15,6 @@
             </span>
 
             <input type="email" placeholder="Email Address" class="form-control" name="email"
-=======
-            <span class="error-message" *ngIf="email.touched || email.dirty">Email is required</span>
-            <span class="error-message" [hidden]="!email.errors.pattern">*Invalid email</span>
-
-            <input class="input" type="email" placeholder="Email Address" class="form-control" name="email"
->>>>>>> 14aeb3a6af6bb0d3580007700f2c519cdd5f7b74
             required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="user.email" #email="ngModel">
         
         </div>
