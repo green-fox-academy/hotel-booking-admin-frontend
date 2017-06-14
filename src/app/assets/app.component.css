@@ -11,6 +11,8 @@
     padding-top: 50px;
     padding-bottom: 10px;
     font-size: 3rem;
+    display: flex;
+    justify-content: center;
 }
 
 .header__navbar {
