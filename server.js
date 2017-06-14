@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 if (process.env.APP_ENV === 'MOCK') {
     mockServer(app);
 } else {
-    // mockServer(app);
+    mockServer(app);
 }
 
 app.listen(process.env.PORT || 8080, () => console.log('server is running'));
