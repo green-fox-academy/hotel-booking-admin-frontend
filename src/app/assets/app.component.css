@@ -9,6 +9,10 @@
     color: #353637;
 }
 
+.header {
+    background-color: white;
+}
+
 .header h1 {
     padding-top: 50px;
     padding-bottom: 10px;

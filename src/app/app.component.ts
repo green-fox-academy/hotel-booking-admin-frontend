@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { appRouting } from './app.routing';
 import { Routes, RouterModule } from '@angular/router';
+
+import { appRouting } from './app.routing';
 
 @Component({
   selector: 'app-root',
@@ -31,6 +32,3 @@ export class AppComponent implements OnInit {
       this.endpointChecker();
   }
 }
-
-//   const app = new AppComponent();
-//   app.endpointChecker()
