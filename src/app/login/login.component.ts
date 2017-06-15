@@ -32,7 +32,7 @@ export class LoginComponent {
                     } else {
                         this.isValid = true;
                     } 
-                    // this.loading = false;
+                    this.loading = false;
                 }
             );
     }    
