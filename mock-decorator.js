@@ -16,9 +16,12 @@ const MockServer = function(app) {
         message: 'Mismatched email and password'
     };
 
-    // app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
-    app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/src/index.html')));
-
+    if (process.env.APP_ENV === 'MOCK') {
+        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
+    } else {
+        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/src/index.html')));
+    }
+    
     app.post('/api/login/', (req, res) => {
         const email = req.body.email;
         const password = req.body.password;

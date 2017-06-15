@@ -24,7 +24,6 @@ export class AppComponent implements OnInit {
 
   setIsItLogin = () => {
       this.isItLogin = true
-      console.log(this.isItLogin)
   }
 
   ngOnInit() {
