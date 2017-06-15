@@ -15,24 +15,24 @@ export class LoginComponent {
     user = new User;
     token;
     isValid = true;
+    loading = false;
     constructor (private loginservice: LoginService) {
         
     } 
     onUserLogin() {
+        this.loading = true;
         this.loginservice.postLoginDetails(this.user)
             .subscribe(
                 response => this.token = JSON.stringify(response),
                 error => alert(error),
                 () => {
                     this.token = JSON.parse(this.token)
-                    console.log(this.token)
-                    console.log(this.token.status)
-                    console.log(this.isValid)
                     if (this.token.status == 'error') {
                                 this.isValid = false;
                     } else {
                         this.isValid = true;
-                    }
+                    } 
+                    // this.loading = false;
                 }
             );
     }    

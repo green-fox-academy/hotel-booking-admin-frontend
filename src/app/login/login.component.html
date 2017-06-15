@@ -31,6 +31,7 @@
 
         <div class="button-group">
             <button class="login-button" [disabled]="form.invalid" (click)="onUserLogin()">LOGIN</button>
+            <span class="spinner" [hidden]="!loading"></span>
         </div>
 
     </form>
