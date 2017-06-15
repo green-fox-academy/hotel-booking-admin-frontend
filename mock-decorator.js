@@ -23,10 +23,8 @@ const MockServer = function(app) {
         const email = req.body.email;
         const password = req.body.password;
         if (email === user.email && password === user.password) {
-            console.log('alma')
             res.send(validResponse);
         } else {
-            console.log('almfsdsdfa')
             res.send(invalidResponse);
         }
     });

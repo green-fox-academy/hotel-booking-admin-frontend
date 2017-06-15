@@ -12,14 +12,13 @@ import { LoginService } from '../loginservice.service';
 
 export class LoginComponent {
     title = 'Login';
-    user = User;
+    user = new User;
     token;
- 
     constructor (private loginservice: LoginService) {
         
     } 
     onUserLogin() {
-        this.loginservice.postLoginDetails()
+        this.loginservice.postLoginDetails(this.user)
             .subscribe(
                 response => this.token = JSON.stringify(response),
                 error => alert(error),
