@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { appRouting } from './app.routing';
 import { Routes, RouterModule } from '@angular/router';
+
+import { appRouting } from './app.routing';
 
 
 @Component({
@@ -15,23 +16,17 @@ export class AppComponent implements OnInit {
   endpointChecker = () => {
       if (location.href.slice(-5) === 'login') {
           this.isItLogin = true;
-          console.log(this.isItLogin)
       } else {
           this.isItLogin = false;
-          console.log(this.isItLogin)
       }
       return this.isItLogin;
   }
 
   setIsItLogin = () => {
       this.isItLogin = true
-      console.log(this.isItLogin)
   }
 
   ngOnInit() {
       this.endpointChecker();
   }
 }
-
-//   const app = new AppComponent();
-//   app.endpointChecker()
