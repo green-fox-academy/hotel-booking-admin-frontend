@@ -15,7 +15,6 @@ export class LoginService {
 
   postLoginDetails(loginDetails): Observable<Comment[]> {
     let endpoint = 'http://localhost:8080/api/login';
- //   let bodyString = JSON.stringify(body);
     let bodyString = loginDetails;
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});

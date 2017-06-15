@@ -9,6 +9,9 @@
 
         <div class="form-group">
 
+            <span [hidden]="isValid">
+                <span class="error-message"  >Mismatching email and password</span>
+            </span>
             <span class="error-message" *ngIf="email.errors && (email.touched || email.dirty)">
                 <span [hidden]="!email.errors.required">Email is required.</span>
                 <span [hidden]="!email.errors.pattern">Invalid email.</span>
