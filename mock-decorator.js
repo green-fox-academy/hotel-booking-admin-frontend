@@ -16,14 +16,17 @@ const MockServer = function(app) {
         message: 'Mismatched email and password'
     };
 
-    app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
+    // app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
+    app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/src/index.html')));
 
     app.post('/api/login/', (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
         if (email === user.email && password === user.password) {
+            console.log('alma')
             res.send(validResponse);
         } else {
+            console.log('almfsdsdfa')
             res.send(invalidResponse);
         }
     });
