@@ -14,6 +14,7 @@ export class LoginComponent {
     title = 'Login';
     user = new User;
     token;
+    isValid = true;
     constructor (private loginservice: LoginService) {
         
     } 
@@ -22,7 +23,17 @@ export class LoginComponent {
             .subscribe(
                 response => this.token = JSON.stringify(response),
                 error => alert(error),
-                () => console.log(this.token)
+                () => {
+                    this.token = JSON.parse(this.token)
+                    console.log(this.token)
+                    console.log(this.token.status)
+                    console.log(this.isValid)
+                    if (this.token.status == 'error') {
+                                this.isValid = false;
+                    } else {
+                        this.isValid = true;
+                    }
+                }
             );
     }    
 }
