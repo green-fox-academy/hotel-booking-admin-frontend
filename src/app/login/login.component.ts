@@ -33,6 +33,7 @@ export class LoginComponent {
                         this.isValid = true;
                     } 
                     this.loading = false;
+                    sessionStorage.setItem('CurrentUser', this.token.token);
                 }
             );
     }    
