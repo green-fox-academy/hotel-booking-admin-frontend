@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-//import { Comment } from '..';
 import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map';
@@ -14,10 +13,10 @@ export class LoginService {
 
 
   postLoginDetails(loginDetails): Observable<Comment[]> {
-    let endpoint = 'http://localhost:8080/api/login';
-    let bodyString = loginDetails;
-    let headers = new Headers({ 'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers});
+    const endpoint = 'http://localhost:8080/api/login';
+    const bodyString = loginDetails;
+    const headers = new Headers({ 'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
 
     return this.http.post(endpoint, bodyString, options)
       .map((res: Response) => res.json())

@@ -5,36 +5,29 @@ import { appRouting } from './app.routing';
 import { LoginComponent } from './login/login.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./assets/app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./assets/app.component.css']
 })
 
 export class AppComponent implements OnInit {
-  title = 'Hotel Booking Admin';
-  isItLogin = true;
+    title = 'Hotel Booking Admin';
+    isItLogin = true;
 
-  endpointChecker = () => {
-      console.log(sessionStorage.CurrentUser);
-      console.log(sessionStorage);
+    endpointChecker = () => {
+        if (location.href.slice(-5) === 'login') {
+            this.isItLogin = true;
+        } else {
+            this.isItLogin = false;
+        }
+        return this.isItLogin;
+    }
 
-      if (sessionStorage.CurrentUser === undefined) {
-        
-      }
-      
-      if (location.href.slice(-5) === 'login') {
-          this.isItLogin = true;
-      } else {
-          this.isItLogin = false;
-      }
-      return this.isItLogin;
-  }
+    setIsItLogin = () => {
+        this.isItLogin = true
+    }
 
-  setIsItLogin = () => {
-      this.isItLogin = true
-  }
-
-  ngOnInit() {
-      this.endpointChecker();
-  }
+    ngOnInit() {
+        this.endpointChecker();
+    }
 }
