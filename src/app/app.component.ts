@@ -27,6 +27,18 @@ export class AppComponent implements OnInit {
         this.isItLogin = true
     }
 
+    isItLoggedIn = () => {
+        let loggedOut = true
+        if (sessionStorage.CurrentUser === undefined) {
+            loggedOut = false;
+        }
+        return loggedOut;
+    }
+
+    clearSessionStorage = () => {
+        sessionStorage.clear()
+    }
+
     ngOnInit() {
         this.endpointChecker();
     }
