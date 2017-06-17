@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
+
 import { User } from './user';
 import { LoginService } from '../loginservice.service';
 
@@ -17,8 +18,8 @@ export class LoginComponent {
     isValid = true;
     loading = false;
     constructor (private loginservice: LoginService) {
-        
-    } 
+
+    }
     onUserLogin() {
         this.loading = true;
         this.loginservice.postLoginDetails(this.user)
@@ -27,13 +28,13 @@ export class LoginComponent {
                 error => alert(error),
                 () => {
                     this.token = JSON.parse(this.token)
-                    if (this.token.status == 'error') {
+                    if (this.token.status === 'error') {
                                 this.isValid = false;
                     } else {
                         this.isValid = true;
-                    } 
+                    }
                     this.loading = false;
                 }
             );
-    }    
+    }
 }
