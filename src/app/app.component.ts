@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
         this.isItLogin = true
     }
 
-    isItLoggedIn = () => {
+    setLoggedOut = () => {
         let loggedOut = true
         if (sessionStorage.CurrentUser === undefined) {
             loggedOut = false;

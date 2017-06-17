@@ -4,8 +4,8 @@
 
             <nav class="header__navbar">
                 <a routerLink="/home" (click)="setIsItLogin()">Home</a>
-                <a [hidden]="isItLoggedIn()" routerLink="/login" (click)="setIsItLogin()">Login</a>
-                <a [hidden]="!isItLoggedIn()" routerLink="/login" (click)="clearSessionStorage()">Logout</a>
+                <a [hidden]="setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Login</a>
+                <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Logout</a>
             </nav>
 
             <h1>
