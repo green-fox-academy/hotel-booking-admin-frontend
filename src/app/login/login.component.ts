@@ -17,8 +17,9 @@ export class LoginComponent {
     isValid = true;
     loading = false;
     constructor (private loginservice: LoginService) {
-        
-    } 
+
+    }
+
     onUserLogin() {
         this.loading = true;
         this.loginservice.postLoginDetails(this.user)
@@ -27,14 +28,14 @@ export class LoginComponent {
                 error => alert(error),
                 () => {
                     this.token = JSON.parse(this.token)
-                    if (this.token.status == 'error') {
+                    sessionStorage.setItem('CurrentUser', this.token.token);
+                    if (this.token.status === 'error') {
                                 this.isValid = false;
                     } else {
                         this.isValid = true;
-                    } 
+                    }
                     this.loading = false;
-                    sessionStorage.setItem('CurrentUser', this.token.token);
                 }
             );
-    }    
+    }
 }
