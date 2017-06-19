@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { appRouting } from './app.routing';
@@ -10,18 +10,9 @@ import { LoginComponent } from './login/login.component';
     styleUrls: ['./assets/app.component.scss']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
     title = 'Hotel Booking Admin';
     isItLogin = true;
-
-    endpointChecker = () => {
-        if (location.href.slice(-5) === 'login') {
-            this.isItLogin = true;
-        } else {
-            this.isItLogin = false;
-        }
-        return this.isItLogin;
-    }
 
     setIsItLogin = () => {
         this.isItLogin = true
@@ -30,7 +21,6 @@ export class AppComponent implements OnInit {
     setLoggedOut = () => {
         let loggedOut = true;
         const currentUser = sessionStorage.Status;
-        console.log(currentUser)
         if (currentUser === 'ok') {
             loggedOut = false;
         }
@@ -39,9 +29,5 @@ export class AppComponent implements OnInit {
 
     clearSessionStorage = () => {
         sessionStorage.clear()
-    }
-
-    ngOnInit() {
-        this.endpointChecker();
     }
 }

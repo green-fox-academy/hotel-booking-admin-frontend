@@ -12,13 +12,13 @@ export class RoutingService implements CanActivate {
         let loggedOut = true;
         const currentUser = sessionStorage.CurrentUser;
         if (currentUser !== undefined) {
-            this.redirect()
+            this.redirect('home')
             loggedOut = false;
         }
         return loggedOut;
     }
 
-    redirect() {
-        this.router.navigate(['home']);
+    redirect(to) {
+        this.router.navigate([to]);
     }
 }
