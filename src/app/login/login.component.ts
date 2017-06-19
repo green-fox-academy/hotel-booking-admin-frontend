@@ -32,10 +32,9 @@ export class LoginComponent {
         this.loading = true;
         this.loginservice.postLoginDetails(this.user)
             .subscribe(
-                response => this.token = JSON.stringify(response),
+                response => this.token = response,
                 error => alert(error),
                 () => {
-                    this.token = JSON.parse(this.token)
                     sessionStorage.setItem('CurrentUser', this.token.token);
                     if (this.token.status === 'error') {
                                 this.isValid = false;
