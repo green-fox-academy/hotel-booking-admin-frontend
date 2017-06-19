@@ -3,8 +3,10 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { async, inject, TestBed } from '@angular/core/testing';
+
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { RoutingService } from './routing.service';
 
 @Component ({
   templateUrl: './app.component.html'
@@ -17,7 +19,7 @@ describe('component: RoutingComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule.withRoutes([
-          {path: 'home', component: HomeComponent},
+          {path: 'home', component: HomeComponent, canActivate: [RoutingService]},
           {path: 'login', component: LoginComponent}
         ])],
         declarations: [RoutingComponent, HomeComponent, LoginComponent]
