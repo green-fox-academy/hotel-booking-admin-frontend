@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { User } from './user';
-import { LoginService } from '../loginservice.service';
+import { LoginService } from './loginservice.service';
 
 @Component({
     selector: 'login-page',
@@ -18,6 +18,14 @@ export class LoginComponent {
     loading = false;
     constructor (private loginservice: LoginService) {
 
+    }
+
+    checkError(inputField) {
+        let formError = false
+        if (inputField.errors && (inputField.touched || inputField.dirty)) {
+            formError = true;
+        }
+        return formError;
     }
 
     onUserLogin() {
