@@ -9,16 +9,9 @@ export class RoutingService implements CanActivate {
     }
 
     canActivate() {
-        let loggedOut = true;
-        const currentUser = sessionStorage.CurrentUser;
-        if (currentUser !== undefined) {
-            this.redirect('home')
-            loggedOut = false;
-        }
-        return loggedOut;
-    }
 
-    redirect(to) {
-        this.router.navigate([to]);
+    if (sessionStorage.Status === 'ok') { return true; }
+        this.router.navigate(['/login']);
+        return false;
     }
-}
+ }

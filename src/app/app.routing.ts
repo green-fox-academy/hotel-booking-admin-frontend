@@ -7,8 +7,8 @@ import { RoutingService } from './routing.service';
 
 
 const appRoutes: Routes = [
-    { path: 'login', component: LoginComponent, canActivate: [RoutingService] },
-    { path: 'home', component: HomeComponent }
+    { path: 'login', component: LoginComponent },
+    { path: '', component: HomeComponent, canActivate: [RoutingService] }
 ];
 
 export const appRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes);

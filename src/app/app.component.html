@@ -3,8 +3,8 @@
         <header class="header">
 
             <nav class="header__navbar">
-                <a routerLink="/home" (click)="setIsItLogin()">Home</a>
-                <a routerLink="/login" (click)="setIsItLogin()">Login</a>
+                <a routerLink="/" (click)="setIsItLogin()">Home</a>
+                <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Login</a>
                 <a [hidden]="setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Logout</a>
             </nav>
 

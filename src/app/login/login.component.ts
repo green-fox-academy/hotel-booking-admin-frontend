@@ -36,7 +36,7 @@ export class LoginComponent {
                 response => {
                     this.token = response;
                     if (this.token.status !== 'error') {
-                        this.router.navigate(['home']);
+                        this.router.navigate(['']);
                     }
                 },
                 error => alert(error),
