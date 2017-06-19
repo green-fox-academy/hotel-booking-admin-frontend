@@ -28,12 +28,14 @@ export class AppComponent implements OnInit {
     }
 
     setLoggedOut = () => {
-        let loggedOut = true
-        if (sessionStorage.CurrentUser === undefined) {
+        let loggedOut = true;
+        const currentUser = sessionStorage.Status;
+        console.log(currentUser)
+        if (currentUser === 'ok') {
             loggedOut = false;
         }
         return loggedOut;
-    }
+     }
 
     clearSessionStorage = () => {
         sessionStorage.clear()

@@ -35,11 +35,14 @@ export class LoginComponent {
             .subscribe(
                 response => {
                     this.token = response;
-                    this.router.navigate(['home'])
+                    if (this.token.status !== 'error') {
+                        this.router.navigate(['home']);
+                    }
                 },
                 error => alert(error),
                 () => {
                     sessionStorage.setItem('CurrentUser', this.token.token);
+                    sessionStorage.setItem('Status', this.token.status);
                     if (this.token.status === 'error') {
                                 this.isValid = false;
                     } else {
