@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { User } from './user';
 import { LoginService } from './loginservice.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'login-page',
@@ -16,9 +17,9 @@ export class LoginComponent {
     token;
     isValid = true;
     loading = false;
-    constructor (private loginservice: LoginService) {
-
-    }
+    constructor (
+        private loginservice: LoginService,
+        public router: Router) { }
 
     checkError(inputField) {
         let formError = false
@@ -32,7 +33,10 @@ export class LoginComponent {
         this.loading = true;
         this.loginservice.postLoginDetails(this.user)
             .subscribe(
-                response => this.token = response,
+                response => {
+                    this.token = response;
+                    this.router.navigate(['home'])
+                },
                 error => alert(error),
                 () => {
                     sessionStorage.setItem('CurrentUser', this.token.token);
