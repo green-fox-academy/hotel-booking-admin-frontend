@@ -3,14 +3,18 @@
         <header class="header">
 
             <nav class="header__navbar">
-                <a routerLink="/" (click)="setIsItLogin()">Home</a>
-                <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Login</a>
-                <a [hidden]="setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Logout</a>
+                <div class="main-icon"></div>
+                <div class="navbar-links">
+                    <a routerLink="/" (click)="setIsItLogin()">Home</a>
+                    <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Login</a>
+                    <a [hidden]="setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Logout</a>
+                </div>
             </nav>
 
             <h1>
                 {{title}}
             </h1>
+
 
         </header>
         <!-- <home-page [hidden]="isItLogin"></home-page> -->

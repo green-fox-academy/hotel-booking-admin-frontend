@@ -1,3 +1,5 @@
+$coolGray: #353637;
+
 /* INDEX.HTML */
 
 .page {
@@ -6,7 +8,7 @@
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
-    color: #353637;
+    color: $coolGray;
 }
 
 .header {
@@ -14,7 +16,7 @@
 }
 
 .header h1 {
-    padding-top: 50px;
+    padding-top: 65px;
     padding-bottom: 10px;
     font-size: 3rem;
     display: flex;
@@ -27,13 +29,31 @@
     left: 0;
     right: 0;
     padding: 10px;
-    background-color: #353637;
+    background-color: $coolGray;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-links {
+    display: flex;
+
 }
 
 .header__navbar a {
     text-decoration: none;
     color: white;
     padding: 5px;
+    align-self: center;
+}
+
+.main-icon {
+    display: inline-block;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    background-image: url(hotel-1.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 /* LOGIN & HOME */
@@ -69,7 +89,7 @@
     justify-content: center;
     margin: auto;
     border: none;
-    border-bottom: solid 2px #353637;
+    border-bottom: solid 2px $coolGray;
 }
 
 .form-group input:focus {
@@ -119,11 +139,11 @@
     background: none;
     cursor: pointer;
     color: white;
-    background-color: #353637;
+    background-color: $coolGray;
 }
 
 .login-button:not([disabled]):hover {
-  color: #353637;
+  color: $coolGray;
   background-color: white;
 }
 
