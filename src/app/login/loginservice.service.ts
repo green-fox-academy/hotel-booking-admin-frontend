@@ -19,7 +19,7 @@ export class LoginService {
         const options = new RequestOptions({headers: headers});
 
         return this.http.post(endpoint, bodyString, options)
-            .map((res: Response) => JSON.parse(JSON.stringify(res.json())))
+            .map((res: Response) => res.json())
             .catch((error: any) =>  Observable.throw(error.json().error || 'server error'));
     }
 }
