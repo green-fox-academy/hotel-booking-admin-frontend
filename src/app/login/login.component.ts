@@ -31,7 +31,7 @@ export class LoginComponent {
     redirectHome() {
         if (sessionStorage.Status === 'ok'){
                 this.router.navigate(['']);
-        }  
+            }  
     }
 
     onUserLogin() {
