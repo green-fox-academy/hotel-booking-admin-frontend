@@ -19,7 +19,7 @@ export class LoginComponent {
     loading = false;
     constructor (
         private loginservice: LoginService,
-        public router: Router) { }
+        public router: Router) { this.redirectHome() }
 
     checkError(inputField) {
         let formError = false
@@ -27,6 +27,11 @@ export class LoginComponent {
             formError = true;
         }
         return formError;
+    }
+    redirectHome() {
+        if (sessionStorage.Status === 'ok'){
+                this.router.navigate(['']);
+        }  
     }
 
     onUserLogin() {
