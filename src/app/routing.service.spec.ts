@@ -1,19 +1,24 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 import { RoutingService } from './routing.service';
 
-describe('RoutingService', () => {
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            providers: [
-                Router,
-                RoutingService
-            ]
-        });
-    });
+class Routing {
+    public routermodule: RouterModule
+    }
 
-    it('should be created', inject([RoutingService], (service: RoutingService) => {
-        expect(service).toBeTruthy();
-    }));
+describe('RoutingService', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+        providers: [
+            RoutingService,
+            {provide: Router, useClass: Routing}
+        ],
+        
+    });
+  });
+
+  it('should be created', inject([RoutingService], (service: RoutingService) => {
+    expect(service).toBeTruthy();
+  }));
 });
