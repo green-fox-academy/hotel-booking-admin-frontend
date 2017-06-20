@@ -18,7 +18,11 @@ class requestoptions {
 @Component ({
     templateUrl: './app.component.html'
 })
-class RoutingComponent {  }
+class RoutingComponent { 
+    setLoggedOut() {
+       return true;
+    }
+ }
 
 describe('component: RoutingComponent', () => {
     let location, routing;
@@ -59,17 +63,6 @@ describe('component: RoutingComponent', () => {
             console.log('after expect');
         });
     }));
-
-    // it('should go home when logged in', async(() => { 
-    //     const fixture = TestBed.createComponent(RoutingComponent);
-    //     fixture.detectChanges();
-    //     if (sessionStorage.status === 'ok'){
-    //         routing.navigate(['login']).then(() => {
-    //             expect(location.path()).toBe('/');
-    //             console.log('after expect');
-    //         });
-    //     }
-    // }));
 
     it('should go to the login page', async(() => {
         const fixture = TestBed.createComponent(RoutingComponent);

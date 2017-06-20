@@ -14,11 +14,11 @@ export class AppComponent {
     title = 'Hotel Booking Admin';
     isItLogin = true;
 
-    setIsItLogin = () => {
+    setIsItLogin() {
         this.isItLogin = true
     }
 
-    setLoggedOut = () => {
+    setLoggedOut() {
         let loggedOut = true;
         const currentUser = sessionStorage.Status;
         if (currentUser === 'ok') {
@@ -27,7 +27,7 @@ export class AppComponent {
         return loggedOut;
      }
 
-    clearSessionStorage = () => {
+    clearSessionStorage() {
         sessionStorage.clear()
     }
 }
