@@ -9,8 +9,6 @@ import {
 } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
-import { LoginService } from './loginservice.service';
-
 describe('LoginService', () => {
 
     beforeEach(() => {
@@ -25,22 +23,12 @@ describe('LoginService', () => {
         });
     });
 
-    it('should be created', inject([LoginService], (service: LoginService) => {
-        expect(service).toBeTruthy();
-    }));
-
     describe('postLoginDetails()', () => {
         it('should return an Observable<Comment[]>', inject([LoginService, XHRBackend], (LoginService, mockBackend) => {
             const mockResponse = {
                     status: 'ok',
                     token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3RBZG1pbiIsImFkbWluIjp0cnVlfQ.nhC1EDI5xLGM4yZL2VMZyvHcbcWiXM2RVS7Y8Pt0Zuk'
             };
-
-        mockBackend.connections.subscribe((connection) => {
-            connection.mockRespond(new Response(new ResponseOptions({
-                body: mockResponse
-            })));
-        });
 
         mockBackend.connections.subscribe((connection) => {
             const loginDetails = {
