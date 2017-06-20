@@ -75,7 +75,8 @@
 .form-group input:focus {
     outline-color: transparent;
     outline-style: none;
-    border-bottom: solid 2px #0948d5;
+    background-color: #f0f0f0;
+    transition: 0.3s linear;
 }
 
 .form-group input:-webkit-autofill {
@@ -84,10 +85,12 @@
 
 .form-group input.ng-touched {
     border-bottom: solid 2px tomato;
+    transition: none;
 }
 
 .form-group input.ng-valid {
     border-bottom: solid 2px #20d1ac;
+    transition: none;
 }
 
 .error-message {
