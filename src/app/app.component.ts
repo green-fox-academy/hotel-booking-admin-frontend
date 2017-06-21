@@ -1,37 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { appRouting } from './app.routing';
+import { Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { appRouting } from './app.routing';
+import { LoginComponent } from './login/login.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./assets/app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./assets/app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'Hotel Booking Admin';
-  isItLogin = true;
 
-  endpointChecker = () => {
-      if (location.href.slice(-5) === 'login') {
-          this.isItLogin = true;
-          console.log(this.isItLogin)
-      } else {
-          this.isItLogin = false;
-          console.log(this.isItLogin)
-      }
-      return this.isItLogin;
-  }
+export class AppComponent {
+    title = 'Hotel Booking Admin';
+    isItLogin = true;
 
-  setIsItLogin = () => {
-      this.isItLogin = true
-      console.log(this.isItLogin)
-  }
+    setIsItLogin() {
+        this.isItLogin = true
+    }
 
-  ngOnInit() {
-      this.endpointChecker();
-  }
+    setLoggedOut() {
+        let loggedOut = true;
+        const currentUser = sessionStorage.Status;
+        if (currentUser === 'ok') {
+            loggedOut = false;
+        }
+        return loggedOut;
+     }
+
+    clearSessionStorage() {
+        sessionStorage.clear()
+    }
 }
-
-//   const app = new AppComponent();
-//   app.endpointChecker()

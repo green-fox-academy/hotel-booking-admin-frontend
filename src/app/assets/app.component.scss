@@ -1,0 +1,162 @@
+$coolGray: #353637;
+
+/* INDEX.HTML */
+
+.page {
+    margin: auto;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    color: $coolGray;
+}
+
+.header {
+    background-color: white;
+}
+
+.header h1 {
+    padding-top: 65px;
+    padding-bottom: 10px;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.header__navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: $coolGray;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-links {
+    display: flex;
+
+}
+
+.header__navbar a {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    align-self: center;
+}
+
+.main-icon {
+    display: inline-block;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    background-image: url(hotel-1.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* LOGIN & HOME */
+
+.main {
+    width: 100%;
+}
+
+.main h2 {
+    padding-top: 20px;
+    padding-bottom: 60px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* LOGIN FORM */
+
+.login-form {
+    margin: auto;
+    font-size: .8rem
+}
+
+.form-group {
+    padding: 20px;
+}
+
+.form-group input {
+    font-size: 1.1rem;
+    padding-left: 5px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    border: none;
+    border-bottom: solid 2px $coolGray;
+}
+
+.form-group input:focus {
+    outline-color: transparent;
+    outline-style: none;
+    background-color: #f0f0f0;
+    transition: 0.3s linear;
+}
+
+.form-group input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+.form-group input.ng-touched {
+    border-bottom: solid 2px tomato;
+    transition: none;
+}
+
+.form-group input.ng-valid {
+    border-bottom: solid 2px #20d1ac;
+    transition: none;
+}
+
+.error-message {
+    color: tomato;
+    background-color: #ffd0d0;
+    padding: 5px;
+    display: block;
+    width: 60%;
+    border-radius: 4px;
+    margin: auto;
+}
+
+.button-group {
+    padding: 20px;
+    display: flex;
+    margin: 0;
+    justify-content: center;
+}
+
+.login-button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: white;
+    background-color: $coolGray;
+}
+
+.login-button:not([disabled]):hover {
+  color: $coolGray;
+  background-color: white;
+}
+
+.login-button[disabled] {
+  color : rgba(0, 0, 0, 0.26);
+  background-color: transparent;
+}
+
+.spinner {
+    background-image: url("spinner.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+}

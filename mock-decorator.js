@@ -13,15 +13,19 @@ const MockServer = function(app) {
 
     const invalidResponse = {
         status: 'error',
-        message: 'Mismatched username and password'
+        message: 'Mismatched email and password'
     };
 
-    app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
-
+    if (process.env.APP_ENV === 'MOCK') {
+        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
+    } else {
+        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/src/index.html')));
+    }
+    
     app.post('/api/login/', (req, res) => {
-        const username = req.body.username;
+        const email = req.body.email;
         const password = req.body.password;
-        if (username === user.username && password === user.password) {
+        if (email === user.email && password === user.password) {
             res.send(validResponse);
         } else {
             res.send(invalidResponse);
