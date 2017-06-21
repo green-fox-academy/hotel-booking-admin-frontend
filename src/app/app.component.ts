@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { appRouting } from './app.routing';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @Component({
     selector: 'app-root',
