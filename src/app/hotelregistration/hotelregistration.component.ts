@@ -11,7 +11,8 @@ import { Hotel } from './hotels'
     providers: [HotelregistrationService]
 })
 
-export class LoginComponent {
+export class HotelComponent {
+    title = 'Add Hotel';
     hotel = new Hotel;
     constructor (
         private hotelregistrationservice: HotelregistrationService,
