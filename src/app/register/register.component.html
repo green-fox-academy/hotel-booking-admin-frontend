@@ -1,3 +1,4 @@
+<p>{{user}}</p>
 <main class="main">
     <h2>
         {{title}}
@@ -13,34 +14,32 @@
             </span>
 
             <input type="email" placeholder="Email Address" class="form-control" name="email"
-            required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$" [(ngModel)]="user.email" #email="ngModel">
+            required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$" [(ngModel)]="user.data.attributes.email" #email="ngModel">
 
         </div>
 
         <div class="form-group">
 
             <span [hidden]="isValid">
-                <span class="error-message">Mismatching email and password</span>
+                <span class="error-message">Mismatching passwords</span>
             </span>
             <span class="error-message" *ngIf="checkError(password)">Password is required.</span>
 
             <input class="input" type="password" placeholder="password" class="form-control" name="password"
-            required [(ngModel)]="user.passwordCheck" #password="ngModel">
+            required [(ngModel)]="user.data.attributes.password" #password="ngModel">
 
         </div>
 
         <div class="form-group">
 
-            <span [hidden]="isValid">
-                <span class="error-message">Mismatching email and password</span>
-            </span>
             <span class="error-message" *ngIf="checkError(password)">Password is required.</span>
 
             <input class="input" type="password" placeholder="password" class="form-control" name="password"
-            required [(ngModel)]="user.password" #password="ngModel">
+            required [(ngModel)]="user.data.attributes.passwordCheck" #password="ngModel">
 
         </div>
-
+        <p>{{user.data.attributes.password}}</p>
+        <p>{{user.data.attributes.passwordCheck}}</p>
         <div class="button-group">
             <button class="login-button" [disabled]="form.invalid" (click)="onUserRegister()">REGISTER</button>
             <span class="spinner" [hidden]="!loading"></span>

@@ -18,9 +18,12 @@ export class RegisterComponent {
     token;
     isValid = true;
     loading = false;
+
     constructor (
         private register: RegisterService,
-        public router: Router) { this.redirectHome() }
+        public router: Router) {
+            this.redirectHome()
+        }
 
     checkError(inputField) {
         let formError = false
