@@ -6,6 +6,11 @@ const MockServer = function(app) {
         email: 'test@example.com',
         password: '1234'
     };
+    
+    let user2 = {
+        email: '',
+        password: '',
+    } 
 
     const validResponse = {
         data: {
@@ -26,7 +31,7 @@ const MockServer = function(app) {
 
     const regResponse = {
         data: {
-            type: 'user',
+            type: '',
             attributes: {
                 id: 1,
                 email: 'john.doe@example.org',
@@ -54,8 +59,8 @@ const MockServer = function(app) {
 
     app.post('/api/register/', (req, res) => {
         const type = req.body.data.type
-        const email = req.body.attributes.email;
-        const password = req.body.attributes.password;
+        user2.email = req.body.attributes.email;
+        user2.password = req.body.attributes.password;
         res.send(regResponse);
     });
 }
