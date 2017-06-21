@@ -18,11 +18,13 @@ const MockServer = function(app) {
 
     const invalidResponse = {
         errors: {
-            status: '400',
+            status: '400',
             title: 'Bad Request',
             detail: 'Mismatched email and password'
         }
     };
+
+    
 
     if (process.env.APP_ENV === 'MOCK') {
         app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
@@ -38,6 +40,13 @@ const MockServer = function(app) {
         } else {
             res.status(400).send(invalidResponse);
         }
+    });
+
+    app.post('/api/register/', (req, res) => {
+        const type = req.body.data.type
+        const email = req.body.attributes.email;
+        const password = req.body.attributes.password;
+        res.send();
     });
 }
 
