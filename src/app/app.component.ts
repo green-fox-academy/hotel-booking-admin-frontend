@@ -7,12 +7,13 @@ import { LoginComponent } from './login/login.component';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./assets/app.component.scss']
+    styleUrls: ['./assets/app.component.scss'],
 })
 
 export class AppComponent {
     title = 'Hotel Booking Admin';
     isItLogin = true;
+    menuStateOut = true;
 
     setIsItLogin() {
         this.isItLogin = true
@@ -29,5 +30,9 @@ export class AppComponent {
 
     clearSessionStorage() {
         sessionStorage.clear()
+    }
+
+    toggleMenu() {
+        this.menuStateOut = this.menuStateOut === true ? false : true;
     }
 }
