@@ -11,14 +11,14 @@ import { LoginComponent } from './login/login.component';
 import { RoutingService } from './routing.service';
 import { AppComponent } from './app.component';
 
-class requestoptions {
+class RequestOptions {
     public requestoption: RequestOptions
 }
 
 @Component ({
     templateUrl: './app.component.html'
 })
-class RoutingComponent { 
+class RoutingComponent {
     setLoggedOut() {
        return true;
     }
@@ -41,7 +41,7 @@ describe('component: RoutingComponent', () => {
                 RoutingComponent,
                 HomeComponent,
                 LoginComponent
-            ], 
+            ],
             providers: [
                 RoutingService,
                 {provide: Http, useClass: requestoptions},

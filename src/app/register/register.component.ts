@@ -1,46 +1,61 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { User } from './user';
-import { LoginService } from './loginservice.service';
 import { Router } from '@angular/router';
 
+import { User } from '../login/user';
+import { RegisterService } from './register.service';
+
 @Component({
-    selector: 'login-page',
-    templateUrl: './login.component.html',
+    selector: 'register-page',
+    templateUrl: './register.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [LoginService]
+    providers: [RegisterService]
 })
 
-export class LoginComponent {
-    title = 'Login';
+export class RegisterComponent {
+    title = 'Register';
     user = new User;
     token;
-    isValid = true;
+    samePassword = false;
     loading = false;
+
     constructor (
-        private loginservice: LoginService,
-        public router: Router) { this.redirectHome() }
+        private register: RegisterService,
+        public router: Router) {
+            this.redirectHome();
+        }
 
     checkError(inputField) {
-        let formError = false
+        let formError = false;
         if (inputField.errors && (inputField.touched || inputField.dirty)) {
             formError = true;
         }
         return formError;
     }
+
+    passwordChecker(password1, password2) {
+        if (password1 !== password2) {
+            this.samePassword = true;
+        } else {
+            this.samePassword = false;
+        }
+        console.log(this.samePassword)
+        return this.samePassword;
+    }
+
     redirectHome() {
-        if (sessionStorage.Status === undefined){
+        if (sessionStorage.Status === undefined) {
                 this.router.navigate(['']);
             }
     }
 
-    onUserLogin() {
+    onUserRegister() {
         this.loading = true;
-        this.loginservice.postLoginDetails(this.user)
+        this.register.postLoginDetails(this.user)
             .subscribe(
                 response => {
                     this.token = response;
-                    if (this.token.status !== 'error') {
+                    if (this.token.errors.status !== 400) {
                         this.router.navigate(['']);
                     }
                 },
@@ -48,11 +63,6 @@ export class LoginComponent {
                 () => {
                     sessionStorage.setItem('CurrentUser', this.token.data.attributes.token);
                     sessionStorage.setItem('Status', this.token.errors.status);
-                    if (this.token.status === 'error') {
-                                this.isValid = false;
-                    } else {
-                        this.isValid = true;
-                    }
                     this.loading = false;
                 }
             );
