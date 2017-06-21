@@ -29,9 +29,9 @@ export class LoginComponent {
         return formError;
     }
     redirectHome() {
-        if (sessionStorage.Status === 'ok'){
+        if (sessionStorage.Status === undefined){
                 this.router.navigate(['']);
-            }  
+            }
     }
 
     onUserLogin() {
@@ -46,8 +46,8 @@ export class LoginComponent {
                 },
                 error => alert(error),
                 () => {
-                    sessionStorage.setItem('CurrentUser', this.token.token);
-                    sessionStorage.setItem('Status', this.token.status);
+                    sessionStorage.setItem('CurrentUser', this.token.data.attributes.token);
+                    sessionStorage.setItem('Status', this.token.errors.status);
                     if (this.token.status === 'error') {
                                 this.isValid = false;
                     } else {

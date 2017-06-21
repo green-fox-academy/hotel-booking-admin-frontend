@@ -44,7 +44,7 @@ export class RegisterComponent {
     }
 
     redirectHome() {
-        if (sessionStorage.Status === 'ok') {
+        if (sessionStorage.Status === undefined) {
                 this.router.navigate(['']);
             }
     }
@@ -55,14 +55,14 @@ export class RegisterComponent {
             .subscribe(
                 response => {
                     this.token = response;
-                    if (this.token.status !== 'error') {
+                    if (this.token.errors.status !== 400) {
                         this.router.navigate(['']);
                     }
                 },
                 error => alert(error),
                 () => {
-                    sessionStorage.setItem('CurrentUser', this.token.token);
-                    sessionStorage.setItem('Status', this.token.status);
+                    sessionStorage.setItem('CurrentUser', this.token.data.attributes.token);
+                    sessionStorage.setItem('Status', this.token.errors.status);
                     this.loading = false;
                 }
             );
