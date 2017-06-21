@@ -6,14 +6,22 @@ const MockServer = function(app) {
         email: 'test@example.com',
         password: '1234'
     };
+
     const validResponse = {
-        status: 'ok',
-        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3RBZG1pbiIsImFkbWluIjp0cnVlfQ.nhC1EDI5xLGM4yZL2VMZyvHcbcWiXM2RVS7Y8Pt0Zuk'
+        data: {
+            type: 'auth',
+            attributes: {
+                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3RBZG1pbiIsImFkbWluIjp0cnVlfQ.nhC1EDI5xLGM4yZL2VMZyvHcbcWiXM2RVS7Y8Pt0Zuk'
+            }
+        }
     };
 
     const invalidResponse = {
-        status: 'error',
-        message: 'Mismatched email and password'
+        errors: {
+            status: '400',
+            title: 'Bad Request',
+            detail: 'Mismatched email and password'
+        }
     };
 
     if (process.env.APP_ENV === 'MOCK') {
@@ -28,7 +36,7 @@ const MockServer = function(app) {
         if (email === user.email && password === user.password) {
             res.send(validResponse);
         } else {
-            res.send(invalidResponse);
+            res.status(400).send(invalidResponse);
         }
     });
 }
