@@ -14,19 +14,27 @@ import { Hotel } from './hotels'
 export class HotelComponent {
     title = 'Add Hotel';
     hotel = new Hotel;
+    loading = false;
+
     constructor (
         private hotelregistrationservice: HotelregistrationService,
-        public router: Router) { }
+        public router: Router) { 
+        console.log(this.hotel);
+        console.log(this.hotel.data.attributes);
+        
+        }
 
 
     onRegistration() {
+        this.loading = true;
         this.hotelregistrationservice.addHotels(this.hotel)
             .subscribe(
                 response => {
-                    this.hotel.attributes
+                    this.hotel.data = response
                 },
                 error => alert(error),
                 () => {
+                this.loading = false;
                 }
             );
     }

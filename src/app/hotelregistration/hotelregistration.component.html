@@ -8,15 +8,54 @@
         <div class="form-group">
             <label for="">Hotel Name</label>
             <input type="text" placeholder="Your Hotel" class="form-control" name="name"
-            required [(ngModel)]="hotel.name" #name="ngModel">
+            required [(ngModel)]="hotel.data.attributes.name" #name="ngModel">
         </div>
 
         <div class="form-group">
             <label for="">Locatiton</label>
             <input type="text" placeholder="Budapest" class="form-control" name="location"
-            required [(ngModel)]="hotel.location" #location="ngModel">
+            required [(ngModel)]="hotel.data.attributes.location" #location="ngModel">
         </div>
 
+        <div class="form-group">
+            <label for="">Stars:</label>
+            <output name="amount" for="stars">3</output>
+            <input type="range" min="1" max="5" step="1" name="stars" value="0" oninput="amount.value=stars.value" [(ngModel)]="hotel.data.attributes.stars" #stars="ngModel">
+        </div>
+
+        <div class="form-group">
+            <input type="checkbox" name="wifi" [(ngModel)]="hotel.data.attributes.has_wifi" #wifi="ngModel">
+            <label for="">Wifi</label>
+
+            <input type="checkbox" name="parking" [(ngModel)]="hotel.data.attributes.has_parking" #parking="ngModel">
+            <label for="">Parking</label>
+
+            <input type="checkbox" name="pets" [(ngModel)]="hotel.data.attributes.has_pets" #pets="ngModel">
+            <label for="">Pets allowed</label>
+
+            <input type="checkbox" name="restaurant" [(ngModel)]="hotel.data.attributes.has_restaurant" #restaurant="ngModel">
+            <label for="">Restaurant</label>
+
+            <input type="checkbox" name="bar" [(ngModel)]="hotel.data.attributes.has_bar" #bar="ngModel">
+            <label for="">Bar</label>
+
+            <input type="checkbox" name="swimmingpool" [(ngModel)]="hotel.data.attributes.has_swimming_pool" #swimmingpool="ngModel">
+            <label for="">Swimming Pool</label>
+
+            <input type="checkbox" name="airconditioning" [(ngModel)]="hotel.data.attributes.has_air_conditioning" #airconditioning="ngModel">
+            <label for="">Air conditioning</label>
+
+            <input type="checkbox" name="gym" [(ngModel)]="hotel.data.attributes.has_gym" #gym="ngModel">
+            <label for="">Gym</label>
+        </div>
+
+        <div class="button-group">
+            <button class="" [disabled]="form.invalid" (click)="onRegistration()">Add</button>
+            <span class="spinner" [hidden]="!loading"></span>
+        </div>
+
+
+        
     </form>
 
 </main>
