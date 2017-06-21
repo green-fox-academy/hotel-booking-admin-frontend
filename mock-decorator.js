@@ -18,13 +18,23 @@ const MockServer = function(app) {
 
     const invalidResponse = {
         errors: {
-            status: '400',
+            status: 400,
             title: 'Bad Request',
             detail: 'Mismatched email and password'
         }
     };
 
-    
+    const regResponse = {
+        data: {
+            type: 'user',
+            attributes: {
+                id: 1,
+                email: 'john.doe@example.org',
+                admin: 'true',
+                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUub3JnIiwiYWRtaW4iOmZhbHNlfQ.UK8Z1BNeHWvaFElWrrSxhO6oxTRaMW_66DO5yjkqOhM'
+            }
+        }
+    }
 
     if (process.env.APP_ENV === 'MOCK') {
         app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
@@ -46,7 +56,7 @@ const MockServer = function(app) {
         const type = req.body.data.type
         const email = req.body.attributes.email;
         const password = req.body.attributes.password;
-        res.send();
+        res.send(regResponse);
     });
 }
 
