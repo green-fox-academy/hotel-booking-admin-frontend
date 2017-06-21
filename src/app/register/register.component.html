@@ -1,4 +1,3 @@
-<p>{{user}}</p>
 <main class="main">
     <h2>
         {{title}}
@@ -20,11 +19,11 @@
 
         <div class="form-group">
 
-            <span [hidden]="isValid">
+            <span [hidden]="!passwordChecker(user.data.attributes.password, user.data.attributes.passwordCheck)">
                 <span class="error-message">Mismatching passwords</span>
             </span>
-            <span class="error-message" *ngIf="checkError(password)">Password is required.</span>
 
+            <span class="error-message" *ngIf="checkError(password)">Password is required.</span>
             <input class="input" type="password" placeholder="password" class="form-control" name="password"
             required [(ngModel)]="user.data.attributes.password" #password="ngModel">
 
@@ -32,14 +31,12 @@
 
         <div class="form-group">
 
-            <span class="error-message" *ngIf="checkError(password)">Password is required.</span>
-
-            <input class="input" type="password" placeholder="password" class="form-control" name="password"
-            required [(ngModel)]="user.data.attributes.passwordCheck" #password="ngModel">
+            <span class="error-message" *ngIf="checkError(passwordCheck)">Password is required.</span>
+            <input class="input" type="password" placeholder="password" class="form-control" name="passwordCheck"
+            required [(ngModel)]="user.data.attributes.passwordCheck" #passwordCheck="ngModel">
 
         </div>
-        <p>{{user.data.attributes.password}}</p>
-        <p>{{user.data.attributes.passwordCheck}}</p>
+
         <div class="button-group">
             <button class="login-button" [disabled]="form.invalid" (click)="onUserRegister()">REGISTER</button>
             <span class="spinner" [hidden]="!loading"></span>

@@ -16,22 +16,33 @@ export class RegisterComponent {
     title = 'Register';
     user = new User;
     token;
-    isValid = true;
+    samePassword = false;
     loading = false;
 
     constructor (
         private register: RegisterService,
         public router: Router) {
-            this.redirectHome()
+            this.redirectHome();
         }
 
     checkError(inputField) {
-        let formError = false
+        let formError = false;
         if (inputField.errors && (inputField.touched || inputField.dirty)) {
             formError = true;
         }
         return formError;
     }
+
+    passwordChecker(password1, password2) {
+        if (password1 !== password2) {
+            this.samePassword = true;
+        } else {
+            this.samePassword = false;
+        }
+        console.log(this.samePassword)
+        return this.samePassword;
+    }
+
     redirectHome() {
         if (sessionStorage.Status === 'ok') {
                 this.router.navigate(['']);
@@ -52,11 +63,6 @@ export class RegisterComponent {
                 () => {
                     sessionStorage.setItem('CurrentUser', this.token.token);
                     sessionStorage.setItem('Status', this.token.status);
-                    if (this.token.status === 'error') {
-                                this.isValid = false;
-                    } else {
-                        this.isValid = true;
-                    }
                     this.loading = false;
                 }
             );
