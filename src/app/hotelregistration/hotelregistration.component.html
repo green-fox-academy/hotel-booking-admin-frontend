@@ -24,6 +24,14 @@
         </div>
 
         <div class="form-group">
+            <label for="">Meal Plan</label>
+            <select name="meals">
+                <option value="american_plan" name="meals" value="0" [(ngModel)]="hotel.data.attributes.meal_plan" #meals="ngModel">American-plan</option> 
+            </select>
+
+        </div>
+
+        <div class="form-group">
             <input type="checkbox" name="wifi" [(ngModel)]="hotel.data.attributes.has_wifi" #wifi="ngModel">
             <label for="">Wifi</label>
 

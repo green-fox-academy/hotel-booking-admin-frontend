@@ -15,13 +15,11 @@ export class HotelComponent {
     title = 'Add Hotel';
     hotel = new Hotel;
     loading = false;
+    hotelDetails;
 
     constructor (
         private hotelregistrationservice: HotelregistrationService,
-        public router: Router) { 
-        console.log(this.hotel);
-        console.log(this.hotel.data.attributes);
-        
+        public router: Router) {     
         }
 
 
@@ -30,7 +28,7 @@ export class HotelComponent {
         this.hotelregistrationservice.addHotels(this.hotel)
             .subscribe(
                 response => {
-                    this.hotel.data = response
+                    this.hotelDetails = response;
                 },
                 error => alert(error),
                 () => {
