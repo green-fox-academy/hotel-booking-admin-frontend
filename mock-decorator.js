@@ -51,18 +51,18 @@ const MockServer = function(app) {
             type: 'hotels',
             id: '1',
             attributes: {
-                location: 'Budapest',
-                name: 'Hotel Ipoly utca',
-                has_wifi: true,
-                has_parking: true,
-                has_pets: true,
-                has_restaurant: true,
-                has_bar: true,
-                has_swimming_pool: true,
-                has_air_conditioning: true,
-                has_gym: true,
-                meal_plan: 'american-plan',
-                stars: 5
+                location: string,
+                name: string,
+                has_wifi: boolean,
+                has_parking: boolean,
+                has_pets: boolean,
+                has_restaurant: boolean,
+                has_bar: boolean,
+                has_swimming_pool: boolean,
+                has_air_conditioning: boolean,
+                has_gym: boolean,
+                meal_plan: string,
+                stars: number
             }
         }
     }
@@ -76,7 +76,7 @@ const MockServer = function(app) {
     app.post('/api/login/', (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
-        if (email === user.email && password === user.password || email === user2.email && password === user2.password) {
+        if ((email === user.email && password === user.password) || (email === user2.email && password === user2.password)) {
             res.send(validResponse);
         } else {
             res.status(400).send(invalidResponse);
@@ -93,7 +93,7 @@ const MockServer = function(app) {
         res.send(regResponse);
     });
 
-    app.post('/hotel/', (req, res) => {
+    app.post('/hotels/', (req, res) => {
         hotelResponse.data.type = req.body.data.type;
         hotelResponse.data.attributes.location = req.body.data.attributes.location;
         hotelResponse.data.attributes.name = req.body.data.attributes.name;
