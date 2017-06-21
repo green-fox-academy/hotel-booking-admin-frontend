@@ -33,8 +33,8 @@ const MockServer = function(app) {
         data: {
             type: '',
             attributes: {
-                id: 1,
-                email: 'john.doe@example.org',
+                id: 2,
+                email: '',
                 admin: 'true',
                 token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUub3JnIiwiYWRtaW4iOmZhbHNlfQ.UK8Z1BNeHWvaFElWrrSxhO6oxTRaMW_66DO5yjkqOhM'
             }
@@ -50,7 +50,7 @@ const MockServer = function(app) {
     app.post('/api/login/', (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
-        if (email === user.email && password === user.password) {
+        if (email === user.email && password === user.password || email === user2.email && password === user2.password) {
             res.send(validResponse);
         } else {
             res.status(400).send(invalidResponse);
@@ -58,9 +58,12 @@ const MockServer = function(app) {
     });
 
     app.post('/api/register/', (req, res) => {
-        const type = req.body.data.type
-        user2.email = req.body.attributes.email;
-        user2.password = req.body.attributes.password;
+        regResponse.data.type = req.body.data.type
+        regResponse.data.attributes.email = req.body.data.attributes.email;
+
+        user2.email = req.body.data.attributes.email;
+        user2.password = req.body.data.attributes.password;
+
         res.send(regResponse);
     });
 }
