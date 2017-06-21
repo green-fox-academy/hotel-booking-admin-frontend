@@ -7,14 +7,13 @@ import 'rxjs/add/operator/catch';
 
 
 @Injectable()
-export class LoginService {
+export class RegisterService {
 
     constructor(private http: Http) { }
 
-
-    postLoginDetails(loginDetails): Observable<Comment[]> {
-        const endpoint = 'http://localhost:8080/api/login';
-        const bodyString = loginDetails;
+    postLoginDetails(registerDetails): Observable<Comment[]> {
+        const endpoint = 'http://localhost:8080/api/register';
+        const bodyString = registerDetails;
         const headers = new Headers({ 'Content-Type': 'application/json'});
         const options = new RequestOptions({headers: headers});
 

@@ -1,24 +1,25 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { User } from './user';
-import { LoginService } from './loginservice.service';
 import { Router } from '@angular/router';
 
+import { User } from '../login/user';
+import { RegisterService } from './register.service';
+
 @Component({
-    selector: 'login-page',
-    templateUrl: './login.component.html',
+    selector: 'register-page',
+    templateUrl: './register.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [LoginService]
+    providers: [RegisterService]
 })
 
-export class LoginComponent {
-    title = 'Login';
+export class RegisterComponent {
+    title = 'Register';
     user = new User;
     token;
     isValid = true;
     loading = false;
     constructor (
-        private loginservice: LoginService,
+        private register: RegisterService,
         public router: Router) { this.redirectHome() }
 
     checkError(inputField) {
@@ -29,14 +30,14 @@ export class LoginComponent {
         return formError;
     }
     redirectHome() {
-        if (sessionStorage.Status === 'ok'){
+        if (sessionStorage.Status === 'ok') {
                 this.router.navigate(['']);
-            }  
+            }
     }
 
-    onUserLogin() {
+    onUserRegister() {
         this.loading = true;
-        this.loginservice.postLoginDetails(this.user)
+        this.register.postLoginDetails(this.user)
             .subscribe(
                 response => {
                     this.token = response;
