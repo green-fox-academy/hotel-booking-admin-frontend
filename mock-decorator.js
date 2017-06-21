@@ -2,15 +2,40 @@
 
 const MockServer = function(app) {
     const path = require('path');
+    
     const user = {
         email: 'test@example.com',
         password: '1234'
     };
     
     let user2 = {
-        email: '',
-        password: '',
-    } 
+        email: string,
+        password: string,
+    }
+
+    let hotel = {
+        links: {
+            self: 'https://your-hostname.com/hotels/1'
+        },
+        data: {
+            type: 'hotels',
+            id: '1',
+            attributes: {
+                location: 'Budapest',
+                name: 'Hotel Ipoly utca',
+                has_wifi: true,
+                has_parking: true,
+                has_pets: true,
+                has_restaurant: true,
+                has_bar: true,
+                has_swimming_pool: true,
+                has_air_conditioning: true,
+                has_gym: true,
+                meal_plan: 'american-plan',
+                stars: 5
+            }
+        }
+    }
 
     const validResponse = {
         data: {
@@ -58,6 +83,16 @@ const MockServer = function(app) {
     });
 
     app.post('/api/register/', (req, res) => {
+        regResponse.data.type = req.body.data.type
+        regResponse.data.attributes.email = req.body.data.attributes.email;
+
+        user2.email = req.body.data.attributes.email;
+        user2.password = req.body.data.attributes.password;
+
+        res.send(regResponse);
+    });
+
+    app.post('/hotel/', (req, res) => {
         regResponse.data.type = req.body.data.type
         regResponse.data.attributes.email = req.body.data.attributes.email;
 
