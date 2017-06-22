@@ -2,12 +2,12 @@
 
 const MockServer = function(app) {
     const path = require('path');
-    
+
     const user = {
         email: 'test@example.com',
         password: '1234'
     };
-    
+
     let user2 = {
         email: '',
         password: '',
@@ -72,7 +72,7 @@ const MockServer = function(app) {
     } else {
         app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/src/index.html')));
     }
-    
+
     app.post('/api/login/', (req, res) => {
         const email = req.body.data.attributes.email;
         const password = req.body.data.attributes.password;

@@ -12,56 +12,68 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { PostService } from './postrequest.service';
 
-describe('LoginService', () => {
+describe('PostService', () => {
 
     beforeEach(() => {
 
         TestBed.configureTestingModule({
             imports: [HttpModule],
             providers: [
-                LoginService,
+                PostService,
                 { provide: XHRBackend, useClass: MockBackend },
             ]
         });
     });
 
-    describe('postLoginDetails()', () => {
-        it('should return an Observable<Comment[]> with ok status', inject([LoginService, XHRBackend], (LoginService, MockBackend) => {
+    describe('postRequest()', () => {
+        it('should return an Observable<Comment[]> with auth type', inject([PostService, XHRBackend], (PostService, MockBackend) => {
             const mockResponse = {
-                    status: 'ok',
-                    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3RBZG1pbiIsImFkbWluIjp0cnVlfQ.nhC1EDI5xLGM4yZL2VMZyvHcbcWiXM2RVS7Y8Pt0Zuk'
+                data: {
+                    type: 'auth',
+                    attributes: {
+                        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3RBZG1pbiIsImFkbWluIjp0cnVlfQ.nhC1EDI5xLGM4yZL2VMZyvHcbcWiXM2RVS7Y8Pt0Zuk'
+                    }
                 }
-
-            const loginDetails = {
+            };
+            const userDetails = {
                 email: 'test@example.com',
                 password: '1234'
-                };
+            };
+            const endpoint = 'http://localhost:8080/api/login'
+
             MockBackend.connections.subscribe((connection) => {
                 connection.mockRespond(new Response(new ResponseOptions({
                     body: JSON.stringify(mockResponse)
                 })));
             });
-            LoginService.postLoginDetails(loginDetails).subscribe((mockResponse) => {
-                expect(mockResponse.status).toEqual('ok');
+            PostService.postRequest(userDetails, endpoint).subscribe((mockResponse) => {
+                expect(mockResponse.data.type).toEqual('auth');
             });
         }));
 
-        it('should return an Observable<Comment[]> with error status', inject([LoginService, XHRBackend], (LoginService, MockBackend) => {
+        it('should return an Observable<Comment[]> with errors', inject([PostService, XHRBackend], (PostService, MockBackend) => {
             const falseMockResponse = {
-                status: 'error'
-            }
-
-            const falseLoginDetails = {
+                errors: {
+                    status: 400,
+                    title: 'Bad Request',
+                    detail: 'Mismatched email and password'
+                }
+            };
+            const falseUserDetails = {
                 email: 'test@example.com',
                 password: '123'
-                };
+            };
+            const endpoint = 'http://localhost:8080/api/login'
+
             MockBackend.connections.subscribe((connection) => {
                 connection.mockRespond(new Response(new ResponseOptions({
                     body: JSON.stringify(falseMockResponse)
                 })));
             });
-            LoginService.postLoginDetails(falseLoginDetails).subscribe((falseMockResponse) => {
-                expect(falseMockResponse.status).toEqual('error');
+            PostService.postRequest(falseUserDetails, endpoint).subscribe((falseMockResponse) => {
+                expect(falseMockResponse.errors.status).toEqual(400);
+                expect(falseMockResponse.errors.title).toEqual('Bad Request');
+                expect(falseMockResponse.errors.detail).toEqual('Mismatched email and password');
             });
         }));
     });
