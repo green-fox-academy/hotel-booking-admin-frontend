@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { RoutingService } from './routing.service';
 import { AppComponent } from './app.component';
 
-class RequestOptions {
+class RequestOption {
     public requestoption: RequestOptions
 }
 
@@ -44,7 +44,7 @@ describe('component: RoutingComponent', () => {
             ],
             providers: [
                 RoutingService,
-                {provide: Http, useClass: requestoptions},
+                {provide: Http, useClass: RequestOption },
                 ConnectionBackend
             ]
         });

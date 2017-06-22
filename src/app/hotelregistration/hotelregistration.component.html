@@ -33,8 +33,8 @@
             </select>
 
         </div>
-
-        <div class="form-group">
+        <hotel-attributes></hotel-attributes>
+        <!--<div class="form-group">
             <input type="checkbox" name="wifi" [(ngModel)]="hotel.data.attributes.has_wifi" #wifi="ngModel">
             <label for="">Wifi</label>
 
@@ -58,7 +58,7 @@
 
             <input type="checkbox" name="gym" [(ngModel)]="hotel.data.attributes.has_gym" #gym="ngModel">
             <label for="">Gym</label>
-        </div>
+        </div>-->
 
         <div class="button-group">
             <button class="login-button" [disabled]="form.invalid" (click)="onRegistration()">Add</button>
