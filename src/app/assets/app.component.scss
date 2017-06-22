@@ -111,7 +111,7 @@ $coolGray: #353637;
     }
 }
 
-/* LOGIN FORM */
+/* FORMS */
 
 .login-form {
     margin: auto;
@@ -120,6 +120,8 @@ $coolGray: #353637;
 
 .form-group {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group input {
@@ -127,6 +129,7 @@ $coolGray: #353637;
     padding-left: 5px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin: auto;
     border: none;
     border-bottom: solid 2px $coolGray;
@@ -205,15 +208,29 @@ $coolGray: #353637;
     margin-left: 5px;
 }
 
-// star
+/* MEAL PLAN */
+
+.meal {
+    width: 40%;
+}
+
+/* STAR */
 
 .rating {
-    float:left;
-    width:300px;
+    // float:left;
+    // width:300px;
+    display: flex;
+    flex-direction: row;
 }
-.rating span { 
-    float:right; 
-    position:relative; }
+
+.container__star {
+    margin: auto;
+}
+
+.rating span {
+    float:right;
+    position:relative;
+}
 
 .rating span input {
     position:absolute;
@@ -221,6 +238,7 @@ $coolGray: #353637;
     left:0px;
     opacity:0;
 }
+
 .star {
     display:inline-block;
     width:50px;
@@ -236,6 +254,7 @@ $coolGray: #353637;
     border-radius:50%;
     -webkit-border-radius:50%;
 }
+
 .rating span:hover ~ span label,
 .rating span:hover label,
 .rating span.checked label,
