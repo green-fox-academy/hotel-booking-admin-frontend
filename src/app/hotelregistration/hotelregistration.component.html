@@ -25,9 +25,11 @@
 
         <div class="form-group">
             <label for="">Meal Plan</label>
-            <select name="meals">
-                <option value="american_plan" name="meal1" value="0" [(ngModel)]="hotel.data.attributes.meal_plan" #meal1="ngModel">American-plan</option>
-                <option value="american_plan2" name="meal2" value="0" [(ngModel)]="hotel.data.attributes.meal_plan" #meal2="ngModel">American-plan2</option> 
+            <select name="meals" [(ngModel)]="hotel.data.attributes.meal_plan"  #meal1="ngModel">
+                <option value="american_plan">American Plan</option>
+                <option value="modified_american_plan" name="meal2">Modified American Plan</option>
+                <option value="continental_plan" name="meal2">Continental Plan</option>
+                <option value="european_plan" name="meal2">European Plan</option> 
             </select>
 
         </div>

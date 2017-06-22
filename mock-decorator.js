@@ -51,17 +51,17 @@ const MockServer = function(app) {
             type: 'hotels',
             id: '1',
             attributes: {
-                location: '',
-                name: '',
-                has_wifi: '',
-                has_parking: '',
-                has_pets: '',
-                has_restaurant: '',
-                has_bar: '',
-                has_swimming_pool: '',
-                has_air_conditioning: '',
-                has_gym: '',
-                meal_plan: '',
+                location: false,
+                name: false,
+                has_wifi: false,
+                has_parking: false,
+                has_pets: false,
+                has_restaurant: false,
+                has_bar: false,
+                has_swimming_pool: false,
+                has_air_conditioning: false,
+                has_gym: false,
+                meal_plan: false,
                 stars: ''
             }
         }
