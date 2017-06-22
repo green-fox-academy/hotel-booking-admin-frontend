@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from './register.component';
 import { PostService } from '../postrequest.service';
 
 describe('LoginComponent', () => {
@@ -15,28 +15,28 @@ describe('LoginComponent', () => {
             HttpModule
         ],
         declarations: [
-            LoginComponent
+            RegisterComponent
         ],
         providers: [PostService]
     }).compileComponents();
   }));
 
-  it('should create the login', async(() => {
-    const fixture = TestBed.createComponent(LoginComponent);
-    const login = fixture.debugElement.componentInstance;
-    expect(login).toBeTruthy();
+  it('should create the register', async(() => {
+    const fixture = TestBed.createComponent(RegisterComponent);
+    const signUp = fixture.debugElement.componentInstance;
+    expect(signUp).toBeTruthy();
   }));
 
-  it(`should have as title 'Login'`, async(() => {
-    const fixture = TestBed.createComponent(LoginComponent);
-    const login = fixture.debugElement.componentInstance;
-    expect(login.title).toEqual('Login');
+  it(`should have as title 'Sign up'`, async(() => {
+    const fixture = TestBed.createComponent(RegisterComponent);
+    const signUp = fixture.debugElement.componentInstance;
+    expect(signUp.title).toEqual('Sign-up');
   }));
 
   it('should render title in a h2 tag', async(() => {
-    const fixture = TestBed.createComponent(LoginComponent);
+    const fixture = TestBed.createComponent(RegisterComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Login');
+    expect(compiled.querySelector('h2').textContent).toContain('Sign-up');
   }));
 });
