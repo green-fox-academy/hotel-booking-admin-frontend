@@ -8,13 +8,15 @@
                     <a routerLink="/" (click)="setIsItLogin()">Home</a>
                     <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Login</a>
                     <a [hidden]="setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Logout</a>
-                    <a routerLink="/register">Sign-up</a>
+                    <a routerLink="/register" [hidden]="!setLoggedOut()">Sign-up</a>
                     <a routerLink="/hotels" [hidden]="setLoggedOut()">Add Hotel</a>
                     <div (click)="toggleMenu()" class="hamburger-icon"></div>
                     <div [hidden]="menuStateOut" class="hamburger-menu">
                         <a routerLink="/" (click)="setIsItLogin()">Home</a>
                         <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Login</a>
                         <a [hidden]="setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Logout</a>
+                        <a routerLink="/register" [hidden]="!setLoggedOut()">Sign-up</a>
+                        <a routerLink="/hotels" [hidden]="setLoggedOut()">Add Hotel</a>
                     </div>
                 </div>
             </nav>
