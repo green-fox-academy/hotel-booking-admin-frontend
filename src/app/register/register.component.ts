@@ -13,16 +13,16 @@ import { RegisterService } from './register.service';
 })
 
 export class RegisterComponent {
-    title = 'Register';
+    title = 'Sign-up';
     user = new User;
     token;
     samePassword = false;
     loading = false;
+    isValid;
 
     constructor (
         private register: RegisterService,
         public router: Router) {
-         //   this.redirectHome();
         }
 
     checkError(inputField) {
@@ -39,7 +39,6 @@ export class RegisterComponent {
         } else {
             this.samePassword = false;
         }
-        console.log(this.samePassword)
         return this.samePassword;
     }
 
@@ -55,17 +54,17 @@ export class RegisterComponent {
             .subscribe(
                 response => {
                     this.token = response;
-                    console.log(this.token);
-                    // if (this.token.errors.status !== 400) {
-                    //     this.router.navigate(['']);
-                    // }
+                    this.router.navigate(['']);
+                    this.loading = false; 
                 },
-                error => alert(error),
+                error => {
+                    console.log(error)
+                    this.isValid = false;
+                    this.loading = false;
+                },
                 () => {
                     sessionStorage.setItem('CurrentUser', this.token.data.attributes.token);
-                    sessionStorage.setItem('Status', this.token.errors.status);
-                    this.loading = false;
-                }
-            );
+                    sessionStorage.setItem('Status', 'ok');
+                });
     }
 }
