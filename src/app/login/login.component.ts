@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { User } from './user';
-import { LoginService } from './loginservice.service';
+import { PostService } from '../postrequest.service';
 import { Router } from '@angular/router';
 
 @Component({
     selector: 'login-page',
     templateUrl: './login.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [LoginService]
+    providers: [PostService]
 })
 
 export class LoginComponent {
@@ -17,9 +17,11 @@ export class LoginComponent {
     token;
     isValid = true;
     loading = false;
+    endpoint = 'http://localhost:8080/api/login';
+
     constructor (
-        private loginservice: LoginService,
-        public router: Router) { this.redirectHome() }
+        private loginservice: PostService,
+        public router: Router) { }
 
     checkError(inputField) {
         let formError = false
@@ -28,21 +30,15 @@ export class LoginComponent {
         }
         return formError;
     }
-    redirectHome() {
-        if (sessionStorage.Status === undefined){
-                //this.router.navigate(['']);
-                
-            }
-    }
 
     onUserLogin() {
         this.loading = true;
-        this.loginservice.postLoginDetails(this.user)
+        this.loginservice.postRequest(this.user, this.endpoint)
             .subscribe(
                 response => {
                     this.token = response;
                     this.router.navigate(['']);
-                    this.loading = false;    
+                    this.loading = false;
                 },
                 error => {
                     console.log(error)

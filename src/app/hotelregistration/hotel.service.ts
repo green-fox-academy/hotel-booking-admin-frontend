@@ -4,5 +4,5 @@ import { Hotel } from './hotels'
 
 @Injectable()
 export class HotelService {
-  hotel = new Hotel;
+    hotel = new Hotel;
 }

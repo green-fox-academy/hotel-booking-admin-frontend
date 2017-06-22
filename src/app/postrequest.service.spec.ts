@@ -10,7 +10,7 @@ import {
 } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
-import { LoginService } from './loginservice.service';
+import { PostService } from './postrequest.service';
 
 describe('LoginService', () => {
 

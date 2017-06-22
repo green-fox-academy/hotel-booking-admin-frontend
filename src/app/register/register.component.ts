@@ -3,13 +3,13 @@ import { FormsModule } from '@angular/forms'
 import { Router } from '@angular/router';
 
 import { User } from '../login/user';
-import { RegisterService } from './register.service';
+import { PostService } from '../postrequest.service';
 
 @Component({
     selector: 'register-page',
     templateUrl: './register.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [RegisterService]
+    providers: [PostService]
 })
 
 export class RegisterComponent {
@@ -19,9 +19,10 @@ export class RegisterComponent {
     samePassword = false;
     loading = false;
     isValid;
+    endpoint = 'http://localhost:8080/api/register';
 
     constructor (
-        private register: RegisterService,
+        private register: PostService,
         public router: Router) {
         }
 
@@ -42,20 +43,14 @@ export class RegisterComponent {
         return this.samePassword;
     }
 
-    redirectHome() {
-        if (sessionStorage.Status === undefined) {
-                this.router.navigate(['']);
-            }
-    }
-
     onUserRegister() {
         this.loading = true;
-        this.register.postLoginDetails(this.user)
+        this.register.postRequest(this.user, this.endpoint)
             .subscribe(
                 response => {
                     this.token = response;
                     this.router.navigate(['']);
-                    this.loading = false; 
+                    this.loading = false;
                 },
                 error => {
                     console.log(error)
