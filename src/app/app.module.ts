@@ -11,8 +11,8 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { RoutingService } from './routing.service';
 import { HotelComponent } from './hotelregistration/hotelregistration.component';
-import { AttributesComponent } from './hotelregistration/attributes/attributes.component'
-
+import { AttributesComponent } from './hotelregistration/attributes/attributes.component';
+import { StarratingComponent } from './hotelregistration/starrating/starrating.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +21,8 @@ import { AttributesComponent } from './hotelregistration/attributes/attributes.c
         LoginComponent,
         RegisterComponent,
         HotelComponent,
-        AttributesComponent
+        AttributesComponent,
+        StarratingComponent
     ],
     imports: [
         BrowserModule,

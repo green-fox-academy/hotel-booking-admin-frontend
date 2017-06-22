@@ -1,0 +1,28 @@
+<div class="form-group rating">
+    <p>Stars: {{starMaker}}</p>
+
+    <span>
+        <input type="radio" name="stars" id="str5" value="5" [(ngModel)]="hotelservice.hotel.data.attributes.stars"  #stars="ngModel">
+        <label class="star" for="str5" (click)="starAdder(5)" [ngClass]="{'selected': starMaker >= 5 }"></label>
+    </span>
+
+    <span>
+        <input type="radio" name="stars" id="str4" value="4" [(ngModel)]="hotelservice.hotel.data.attributes.stars"  #stars="ngModel">
+        <label class="star" for="str4" (click)="starAdder(4)" [ngClass]="{'selected': starMaker >= 4 }"></label>
+    </span>
+
+    <span>
+        <input type="radio" name="stars" id="str3" value="3" [(ngModel)]="hotelservice.hotel.data.attributes.stars"  #stars="ngModel">
+        <label for="str3" class="star" (click)="starAdder(3)" [ngClass]="{'selected': starMaker >= 3 }"></label>
+    </span>
+
+    <span>
+        <input type="radio" name="stars" id="str2" value="2" [(ngModel)]="hotelservice.hotel.data.attributes.stars"  #stars="ngModel">
+        <label for="str2" class="star" (click)="starAdder(2)" [ngClass]="{'selected': starMaker >= 2 }"></label>
+    </span>
+
+    <span>
+        <input type="radio" name="stars" id="str1" value="1" [(ngModel)]="hotelservice.hotel.data.attributes.stars"  #stars="ngModel">
+        <label for="str1" class="star" (click)="starAdder(1)" [ngClass]="{'selected': starMaker >= 1 }"></label>
+    </span>
+</div>

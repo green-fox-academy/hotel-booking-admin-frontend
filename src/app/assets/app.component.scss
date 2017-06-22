@@ -204,3 +204,46 @@ $coolGray: #353637;
     width: 30px;
     margin-left: 5px;
 }
+
+// star
+
+.rating {
+    float:left;
+    width:300px;
+}
+.rating span { 
+    float:right; 
+    position:relative; }
+
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.star {
+    display:inline-block;
+    width:50px;
+    height:50px;
+    text-align:center;
+    color:#FFF;
+    background-image: url(starempty.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size:30px;
+    margin-right:2px;
+    line-height:30px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    background-image: url(star.png);
+    color:#FFF;
+}
+
+.selected {
+    background-image: url(star.png);
+}
