@@ -22,7 +22,7 @@ export class RegisterComponent {
     constructor (
         private register: RegisterService,
         public router: Router) {
-            this.redirectHome();
+         //   this.redirectHome();
         }
 
     checkError(inputField) {
@@ -55,9 +55,10 @@ export class RegisterComponent {
             .subscribe(
                 response => {
                     this.token = response;
-                    if (this.token.errors.status !== 400) {
-                        this.router.navigate(['']);
-                    }
+                    console.log(this.token);
+                    // if (this.token.errors.status !== 400) {
+                    //     this.router.navigate(['']);
+                    // }
                 },
                 error => alert(error),
                 () => {

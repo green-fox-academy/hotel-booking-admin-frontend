@@ -28,7 +28,8 @@ export class HotelComponent {
         this.hotelregistrationservice.addHotels(this.hotel)
             .subscribe(
                 response => {
-                    this.hotelDetails = response;
+                    // this.hotelDetails = response;
+                    console.log(response)
                 },
                 error => alert(error),
                 () => {

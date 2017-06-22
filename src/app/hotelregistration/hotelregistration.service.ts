@@ -12,7 +12,7 @@ export class HotelregistrationService {
           const bodyString = newHotel;
           const headers = new Headers({ 'Content-Type': 'application/json'});
           const options = new RequestOptions({headers: headers});
-
+          console.log('kacsa')
           return this.http.post(endpoint, bodyString, options)
               .map((res: Response) => res.json())
               .catch((error: any) =>  Observable.throw(error.json().error || 'server error'));

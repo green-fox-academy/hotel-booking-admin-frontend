@@ -9,8 +9,8 @@ const MockServer = function(app) {
     };
     
     let user2 = {
-        email: string,
-        password: string,
+        email: '',
+        password: '',
     }
 
 
@@ -51,18 +51,18 @@ const MockServer = function(app) {
             type: 'hotels',
             id: '1',
             attributes: {
-                location: string,
-                name: string,
-                has_wifi: boolean,
-                has_parking: boolean,
-                has_pets: boolean,
-                has_restaurant: boolean,
-                has_bar: boolean,
-                has_swimming_pool: boolean,
-                has_air_conditioning: boolean,
-                has_gym: boolean,
-                meal_plan: string,
-                stars: number
+                location: '',
+                name: '',
+                has_wifi: '',
+                has_parking: '',
+                has_pets: '',
+                has_restaurant: '',
+                has_bar: '',
+                has_swimming_pool: '',
+                has_air_conditioning: '',
+                has_gym: '',
+                meal_plan: '',
+                stars: ''
             }
         }
     }
@@ -74,8 +74,8 @@ const MockServer = function(app) {
     }
     
     app.post('/api/login/', (req, res) => {
-        const email = req.body.email;
-        const password = req.body.password;
+        const email = req.body.data.attributes.email;
+        const password = req.body.data.attributes.password;
         if ((email === user.email && password === user.password) || (email === user2.email && password === user2.password)) {
             res.send(validResponse);
         } else {

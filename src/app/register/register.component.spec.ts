@@ -3,8 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { LoginComponent } from './login.component';
-import { LoginService } from './loginservice.service';
+import { LoginComponent } from '../login/login.component';
+import { LoginService } from '../login/loginservice.service';
 
 describe('LoginComponent', () => {
   beforeEach(async(() => {

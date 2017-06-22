@@ -30,7 +30,8 @@ export class LoginComponent {
     }
     redirectHome() {
         if (sessionStorage.Status === undefined){
-                this.router.navigate(['']);
+                //this.router.navigate(['']);
+                
             }
     }
 
@@ -40,21 +41,17 @@ export class LoginComponent {
             .subscribe(
                 response => {
                     this.token = response;
-                    if (this.token.status !== 'error') {
-                        this.router.navigate(['']);
-                    }
+                    this.router.navigate(['']);
+                    this.loading = false;    
                 },
-                error => alert(error),
+                error => {
+                    console.log(error)
+                    this.isValid = false;
+                    this.loading = false;
+                },
                 () => {
                     sessionStorage.setItem('CurrentUser', this.token.data.attributes.token);
-                    sessionStorage.setItem('Status', this.token.errors.status);
-                    if (this.token.status === 'error') {
-                                this.isValid = false;
-                    } else {
-                        this.isValid = true;
-                    }
-                    this.loading = false;
-                }
-            );
+                    sessionStorage.setItem('Status', 'ok');
+                });
     }
 }
