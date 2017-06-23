@@ -19,7 +19,7 @@ export class RegisterComponent {
     samePassword = false;
     loading = false;
     isValid;
-    endpoint = 'http://localhost:8080/api/register';
+    endpoint = 'https://cake-cup.glitch.me/api/register';
 
     constructor (
         private register: PostService,

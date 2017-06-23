@@ -17,7 +17,7 @@ export class HotelComponent {
     title = 'Add Hotel';
     loading = false;
     hotelDetails;
-    endpoint = 'http://localhost:8080/hotels';
+    endpoint = 'https://cake-cup.glitch.me/hotels';
 
     constructor (
         private hotelregistrationservice: PostService,
