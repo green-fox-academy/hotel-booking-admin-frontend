@@ -39,14 +39,13 @@ describe('PostService', () => {
                 email: 'test@example.com',
                 password: '1234'
             };
-            const endpoint = 'http://localhost:8080/api/login'
 
             MockBackend.connections.subscribe((connection) => {
                 connection.mockRespond(new Response(new ResponseOptions({
                     body: JSON.stringify(mockResponse)
                 })));
             });
-            PostService.postRequest(userDetails, endpoint).subscribe((mockResponse) => {
+            PostService.postRequest(userDetails).subscribe((mockResponse) => {
                 expect(mockResponse.data.type).toEqual('auth');
             });
         }));
@@ -63,14 +62,13 @@ describe('PostService', () => {
                 email: 'test@example.com',
                 password: '123'
             };
-            const endpoint = 'http://localhost:8080/api/login'
 
             MockBackend.connections.subscribe((connection) => {
                 connection.mockRespond(new Response(new ResponseOptions({
                     body: JSON.stringify(falseMockResponse)
                 })));
             });
-            PostService.postRequest(falseUserDetails, endpoint).subscribe((falseMockResponse) => {
+            PostService.postRequest(falseUserDetails).subscribe((falseMockResponse) => {
                 expect(falseMockResponse.errors.status).toEqual(400);
                 expect(falseMockResponse.errors.title).toEqual('Bad Request');
                 expect(falseMockResponse.errors.detail).toEqual('Mismatched email and password');

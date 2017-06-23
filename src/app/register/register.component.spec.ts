@@ -30,13 +30,13 @@ describe('LoginComponent', () => {
   it(`should have as title 'Sign up'`, async(() => {
     const fixture = TestBed.createComponent(RegisterComponent);
     const signUp = fixture.debugElement.componentInstance;
-    expect(signUp.title).toEqual('Sign-up');
+    expect(signUp.title).toEqual('Sign up');
   }));
 
   it('should render title in a h2 tag', async(() => {
     const fixture = TestBed.createComponent(RegisterComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Sign-up');
+    expect(compiled.querySelector('h2').textContent).toContain('Sign up');
   }));
 });
