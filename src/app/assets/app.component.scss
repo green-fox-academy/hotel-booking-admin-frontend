@@ -50,6 +50,13 @@ $coolGray: #353637;
     }
 }
 
+.header__navbar a:hover {
+    color: $coolGray;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 3px -3px 0px 0px rgba(143,143,143,1);
+}
+
 .main-icon {
     display: inline-block;
     margin-left: 10px;
@@ -192,6 +199,8 @@ $coolGray: #353637;
 .login-button:not([disabled]):hover {
   color: $coolGray;
   background-color: white;
+  box-shadow: 2px -2px 0px 0px rgba(143,143,143,1);
+  border: .5px solid rgba(143,143,143,1);
 }
 
 .login-button[disabled] {
