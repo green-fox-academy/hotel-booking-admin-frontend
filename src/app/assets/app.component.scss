@@ -16,7 +16,7 @@ $coolGray: #353637;
 }
 
 .header h1 {
-    padding-top: 65px;
+    padding-top: 75px;
     padding-bottom: 10px;
     font-size: 3rem;
     display: flex;
@@ -43,6 +43,7 @@ $coolGray: #353637;
     color: white;
     padding: 5px;
     align-self: center;
+    font-weight: bold;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
@@ -79,6 +80,7 @@ $coolGray: #353637;
     font-size: 2rem;
     display: flex;
     justify-content: center;
+    text-transform: uppercase;
 }
 
 // HAMBURGER
