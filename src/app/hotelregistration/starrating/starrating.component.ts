@@ -15,12 +15,10 @@ export class StarratingComponent {
     public hotelservice: HotelService,
   ) { }
 
-
   starAdder(value: number) {
     if (this.starMaker === value) {
       this.starMaker = 0;
-    }
-    else {
+    } else {
       this.starMaker = value;
     }
   }
