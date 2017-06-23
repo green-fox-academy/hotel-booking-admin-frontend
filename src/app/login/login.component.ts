@@ -39,15 +39,13 @@ export class LoginComponent {
                     this.token = response;
                     this.loading = false;
                     this.router.navigate(['']);
+                    sessionStorage.setItem('CurrentUser', this.token.data.attributes.token);
+                    sessionStorage.setItem('Status', 'ok');
                 },
                 error => {
                     console.log(error);
                     this.isValid = false;
                     this.loading = false;
-                },
-                () => {
-                    sessionStorage.setItem('CurrentUser', this.token.data.attributes.token);
-                    sessionStorage.setItem('Status', 'ok');
                 });
     }
 }

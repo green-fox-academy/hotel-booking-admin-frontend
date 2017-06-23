@@ -51,15 +51,13 @@ export class RegisterComponent {
                     this.token = response;
                     this.router.navigate(['']);
                     this.loading = false;
+                    sessionStorage.setItem('CurrentUser', this.token.data.attributes.token);
+                    sessionStorage.setItem('Status', 'ok');
                 },
                 error => {
                     console.log(error)
                     this.isValid = false;
                     this.loading = false;
-                },
-                () => {
-                    sessionStorage.setItem('CurrentUser', this.token.data.attributes.token);
-                    sessionStorage.setItem('Status', 'ok');
                 });
     }
 }

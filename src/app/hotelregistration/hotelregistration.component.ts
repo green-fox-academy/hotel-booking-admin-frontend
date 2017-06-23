@@ -31,11 +31,11 @@ export class HotelComponent {
                 response => {
                     // this.hotelDetails = response;
                     console.log(response)
+                    this.loading = false;
                 },
-                error => alert(error),
-                () => {
-                this.loading = false;
-                }
-            );
+                error => {
+                    console.log(error)
+                    this.loading = false;
+                });
     }
 }
