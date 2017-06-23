@@ -13,7 +13,7 @@ import { PostService } from '../postrequest.service';
 })
 
 export class RegisterComponent {
-    title = 'Sign-up';
+    title = 'Sign up';
     user = new User;
     token;
     samePassword = false;

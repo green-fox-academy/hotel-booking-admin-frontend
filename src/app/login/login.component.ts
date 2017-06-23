@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent {
-    title = 'Login';
+    title = 'Sign in';
     user = new User;
     token;
     isValid = true;
