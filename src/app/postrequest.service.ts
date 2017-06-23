@@ -17,6 +17,6 @@ export class PostService {
 
         return this.http.post(endpoint, bodyString, options)
             .map((res: Response) => res.json())
-            .catch((error: any) =>  Observable.throw(error.json().error || 'server error'));
+            .catch((error: any) =>  Observable.throw(error.json() || 'server error'));
     }
 }

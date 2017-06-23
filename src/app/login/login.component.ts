@@ -37,11 +37,11 @@ export class LoginComponent {
             .subscribe(
                 response => {
                     this.token = response;
-                    this.router.navigate(['']);
                     this.loading = false;
+                    this.router.navigate(['']);
                 },
                 error => {
-                    console.log(error)
+                    console.log(error);
                     this.isValid = false;
                     this.loading = false;
                 },
