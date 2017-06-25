@@ -3,7 +3,7 @@
         <header class="header">
 
             <nav class="header__navbar">
-                <div class="main-icon"></div>
+                <div class="main-icon" routerLink="/" (click)="setIsItLogin()"></div>
                 <div class="navbar-links">
                     <a routerLink="/" (click)="setIsItLogin()">Home</a>
                     <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Sign in</a>
