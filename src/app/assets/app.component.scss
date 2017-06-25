@@ -45,6 +45,7 @@ $coolGray: #353637;
     align-self: center;
     font-weight: bold;
     border-radius: 4px;
+    transition: .5s;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
@@ -197,20 +198,21 @@ $coolGray: #353637;
     cursor: pointer;
     color: white;
     background-color: $coolGray;
+    transition: .5s;
 }
 
 .login-button:not([disabled]):hover {
-  color: $coolGray;
-  background-color: white;
-  box-shadow: 0px 4px 0px 0px rgba(143,143,143,1);
-  transform: translateY(-3px);
-  border: .5px solid rgba(143,143,143,1);
-  transition: .5s;
+    color: $coolGray;
+    background-color: white;
+    box-shadow: 0px 4px 0px 0px rgba(143,143,143,1);
+    transform: translateY(-3px);
+    border: .5px solid rgba(143,143,143,1);
+    transition: .5s;
 }
 
 .login-button[disabled] {
-  color : rgba(0, 0, 0, 0.26);
-  background-color: transparent;
+    color : rgba(0, 0, 0, 0.26);
+    background-color: transparent;
 }
 
 .spinner {
