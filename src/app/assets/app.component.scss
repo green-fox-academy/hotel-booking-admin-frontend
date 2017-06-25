@@ -285,10 +285,9 @@ label {
 /* STAR */
 
 .rating {
-    // float:left;
-    // width:300px;
-    display: flex;
-    flex-direction: row;
+    label {
+        padding-bottom: 10px;
+    }
 }
 
 .container__star {
@@ -302,9 +301,10 @@ label {
 
 .rating span input {
     position:absolute;
-    top:0px;
-    left:0px;
+    top:0;
+    left:0;
     opacity:0;
+    width: auto;
 }
 
 .star {
