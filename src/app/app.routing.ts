@@ -6,6 +6,8 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { RoutingService } from './routing.service';
 import { HotelComponent} from './hotelregistration/hotelregistration.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 
 const appRoutes: Routes = [

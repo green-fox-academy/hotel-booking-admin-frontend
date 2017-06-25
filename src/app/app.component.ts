@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { appRouting } from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
     selector: 'app-root',
@@ -13,27 +14,5 @@ import { RegisterComponent } from './register/register.component';
 
 export class AppComponent {
     title = 'Hotel Booking Admin';
-    isItLogin = true;
-    menuStateOut = true;
-
-    setIsItLogin() {
-        this.isItLogin = true
-    }
-
-    setLoggedOut() {
-        let loggedOut = true;
-        const currentUser = sessionStorage.Status;
-        if (currentUser === 'ok') {
-            loggedOut = false;
-        }
-        return loggedOut;
-     }
-
-    clearSessionStorage() {
-        sessionStorage.clear()
-    }
-
-    toggleMenu() {
-        this.menuStateOut = this.menuStateOut === true ? false : true;
-    }
+    
 }

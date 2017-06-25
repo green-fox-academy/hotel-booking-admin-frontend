@@ -13,6 +13,7 @@ import { RoutingService } from './routing.service';
 import { HotelComponent } from './hotelregistration/hotelregistration.component';
 import { AttributesComponent } from './hotelregistration/attributes/attributes.component';
 import { StarratingComponent } from './hotelregistration/starrating/starrating.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { StarratingComponent } from './hotelregistration/starrating/starrating.c
         RegisterComponent,
         HotelComponent,
         AttributesComponent,
-        StarratingComponent
+        StarratingComponent,
+        NavbarComponent
     ],
     imports: [
         BrowserModule,

@@ -1,31 +1,8 @@
 <body>
     <div class="page">
         <header class="header">
-
-            <nav class="header__navbar">
-                <div class="main-icon" routerLink="/" (click)="setIsItLogin()"></div>
-                <div class="navbar-links">
-                    <a routerLink="/" (click)="setIsItLogin()">Home</a>
-                    <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Sign in</a>
-                    <a [hidden]="setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Sign out</a>
-                    <a routerLink="/register" [hidden]="!setLoggedOut()">Sign up</a>
-                    <a routerLink="/hotels" [hidden]="setLoggedOut()">Add Hotel</a>
-                    <div (click)="toggleMenu()" class="hamburger-icon"></div>
-                    <div [hidden]="menuStateOut" class="hamburger-menu">
-                        <a routerLink="/" (click)="setIsItLogin()">Home</a>
-                        <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Sign in</a>
-                        <a [hidden]="setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Sign out</a>
-                        <a routerLink="/register" [hidden]="!setLoggedOut()">Sign up</a>
-                        <a routerLink="/hotels" [hidden]="setLoggedOut()">Add Hotel</a>
-                    </div>
-                </div>
-            </nav>
-
-            <h1>
-                {{title}}
-            </h1>
-
-
+            <app-navbar></app-navbar>
+            <h1>{{title}}</h1>
         </header>
         <!-- <home-page [hidden]="isItLogin"></home-page> -->
         <router-outlet></router-outlet>
