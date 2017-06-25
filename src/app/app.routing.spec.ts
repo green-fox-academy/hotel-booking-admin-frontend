@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RoutingService } from './routing.service';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 class RequestOption {
     public requestoption: RequestOptions
@@ -40,7 +41,8 @@ describe('component: RoutingComponent', () => {
                 AppComponent,
                 RoutingComponent,
                 HomeComponent,
-                LoginComponent
+                LoginComponent,
+                NavbarComponent
             ],
             providers: [
                 RoutingService,
