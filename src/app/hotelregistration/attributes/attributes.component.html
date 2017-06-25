@@ -5,28 +5,43 @@
 
 </div> -->
 
-<div class="form-group">
-    <label for="">Wifi</label>
-    <input type="checkbox" name="wifi" [(ngModel)]="hotelservice.hotel.data.attributes.has_wifi" #wifi="ngModel">
+<div class="form-group container__checkbox">
+    <div class="form-group-checkbox">
+        <label for="">Wifi</label>
+        <input type="checkbox" name="wifi" [(ngModel)]="hotelservice.hotel.data.attributes.has_wifi" #wifi="ngModel">
+    </div>
 
-    <label for="">Parking</label>
-    <input type="checkbox" name="parking" [(ngModel)]="hotelservice.hotel.data.attributes.has_parking" #parking="ngModel">
+    <div class="form-group-checkbox">
+        <label for="">Parking</label>
+        <input type="checkbox" name="parking" [(ngModel)]="hotelservice.hotel.data.attributes.has_parking" #parking="ngModel">
+    </div>
 
-    <label for="">Pets allowed</label>
-    <input type="checkbox" name="pets" [(ngModel)]="hotelservice.hotel.data.attributes.has_pets" #pets="ngModel">
+    <div class="form-group-checkbox">
+        <label for="">Pets allowed</label>
+        <input type="checkbox" name="pets" [(ngModel)]="hotelservice.hotel.data.attributes.has_pets" #pets="ngModel">
+    </div>
+    <div class="form-group-checkbox">
+        <label for="">Restaurant</label>
+        <input type="checkbox" name="restaurant" [(ngModel)]="hotelservice.hotel.data.attributes.has_restaurant" #restaurant="ngModel">
+    </div>
 
-    <label for="">Restaurant</label>
-    <input type="checkbox" name="restaurant" [(ngModel)]="hotelservice.hotel.data.attributes.has_restaurant" #restaurant="ngModel">
+    <div class="form-group-checkbox">
+        <label for="">Bar</label>
+        <input type="checkbox" name="bar" [(ngModel)]="hotelservice.hotel.data.attributes.has_bar" #bar="ngModel">
+    </div>
 
-    <label for="">Bar</label>
-    <input type="checkbox" name="bar" [(ngModel)]="hotelservice.hotel.data.attributes.has_bar" #bar="ngModel">
+    <div class="form-group-checkbox">
+        <label for="">Swimming Pool</label>
+        <input type="checkbox" name="swimmingpool" [(ngModel)]="hotelservice.hotel.data.attributes.has_swimming_pool" #swimmingpool="ngModel">
+    </div>
 
-    <label for="">Swimming Pool</label>
-    <input type="checkbox" name="swimmingpool" [(ngModel)]="hotelservice.hotel.data.attributes.has_swimming_pool" #swimmingpool="ngModel">
+    <div class="form-group-checkbox">
+        <label for="">Air conditioning</label>
+        <input type="checkbox" name="airconditioning" [(ngModel)]="hotelservice.hotel.data.attributes.has_air_conditioning" #airconditioning="ngModel">
+    </div>
 
-    <label for="">Air conditioning</label>
-    <input type="checkbox" name="airconditioning" [(ngModel)]="hotelservice.hotel.data.attributes.has_air_conditioning" #airconditioning="ngModel">
-
-    <label for="">Gym</label>
-    <input type="checkbox" name="gym" [(ngModel)]="hotelservice.hotel.data.attributes.has_gym" #gym="ngModel">
+    <div class="form-group-checkbox">
+        <label for="">Gym</label>
+        <input type="checkbox" name="gym" [(ngModel)]="hotelservice.hotel.data.attributes.has_gym" #gym="ngModel">
+    </div>
 </div>
