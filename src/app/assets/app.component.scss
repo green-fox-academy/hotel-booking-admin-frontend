@@ -259,6 +259,29 @@ label {
     background-color: white;
 }
 
+/* CHECKBOX */
+
+.form-group-checkbox {
+    margin-left: 15%;
+}
+
+.container__checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    height: 70px;
+    align-items: baseline;
+
+    input {
+        display: inline;
+        width: auto;
+        margin-right: 20px
+    }
+
+    label {
+        margin-right: 20px;
+    }
+}
+
 /* STAR */
 
 .rating {
