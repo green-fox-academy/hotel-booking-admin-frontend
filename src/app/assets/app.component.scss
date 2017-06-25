@@ -9,6 +9,7 @@ $coolGray: #353637;
     flex-direction: column;
     font-family: 'Josefin Sans', sans-serif;
     color: $coolGray;
+    padding-bottom: 50px;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
@@ -191,6 +192,8 @@ $coolGray: #353637;
     margin: auto;
 }
 
+/* BUTTON */
+
 .button-group {
     padding: 20px;
     display: flex;
@@ -209,6 +212,7 @@ $coolGray: #353637;
     color: white;
     background-color: $coolGray;
     transition: .5s;
+    position: absolute;
 }
 
 .login-button:not([disabled]):hover {
@@ -226,6 +230,8 @@ $coolGray: #353637;
 }
 
 .spinner {
+    position: relative;
+    left: 60px;
     background-image: url("spinner.gif");
     background-repeat: no-repeat;
     background-size: contain;
