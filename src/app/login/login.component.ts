@@ -21,7 +21,15 @@ export class LoginComponent {
 
     constructor (
         private loginservice: PostService,
-        public router: Router) { }
+        public router: Router) { 
+            this.redirectHome()
+        }
+
+    redirectHome() {
+        if (sessionStorage.Status === 'ok'){
+            this.router.navigate(['']);
+        }  
+    }
 
     checkError(inputField) {
         let formError = false
