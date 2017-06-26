@@ -79,6 +79,7 @@ $coolGray: #353637;
     background-image: url(hotel-1.svg);
     background-repeat: no-repeat;
     background-size: contain;
+    cursor: pointer;
 }
 
 /* LOGIN & HOME */
@@ -255,21 +256,18 @@ label {
 .meal {
     font-size: .9rem;
     color: $coolGray;
-    width: 50%;
+    max-width: 40%;
     background-color: white;
 }
 
 /* CHECKBOX */
-
-.form-group-checkbox {
-    margin-left: 15%;
-}
 
 .container__checkbox {
     display: flex;
     flex-wrap: wrap;
     height: 70px;
     align-items: baseline;
+    align-content: center;
 
     input {
         display: inline;
