@@ -32,16 +32,16 @@ describe('HotelComponent', () => {
     expect(hotel).toBeTruthy();
   }));
 
-  it(`should have as title 'Add Hotel'`, async(() => {
+  it(`should have as title 'Hotels'`, async(() => {
     const fixture = TestBed.createComponent(HotelComponent);
     const hotel = fixture.debugElement.componentInstance;
-    expect(hotel.title).toEqual('Add Hotel');
+    expect(hotel.title).toEqual('Hotels');
   }));
 
   it('should render title in a h2 tag', async(() => {
     const fixture = TestBed.createComponent(HotelComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Add Hotel');
+    expect(compiled.querySelector('h2').textContent).toContain('Hotels');
   }));
 });

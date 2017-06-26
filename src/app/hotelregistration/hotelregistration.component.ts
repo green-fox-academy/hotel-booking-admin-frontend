@@ -14,7 +14,7 @@ import { AttributesComponent } from './attributes/attributes.component';
 })
 
 export class HotelComponent {
-    title = 'Add Hotel';
+    title = 'Hotels';
     loading = false;
     hotelDetails;
     endpoint = 'https://cake-cup.glitch.me/hotels';
