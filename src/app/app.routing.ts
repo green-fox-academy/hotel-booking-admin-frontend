@@ -13,7 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'hotels', component: HotelComponent },
+    { path: 'hotels', component: HotelComponent, canActivate: [RoutingService] },
     { path: '', component: HomeComponent, canActivate: [RoutingService] }
 ];
 

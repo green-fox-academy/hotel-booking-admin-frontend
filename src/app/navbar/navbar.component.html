@@ -6,7 +6,7 @@
         <a [hidden]="setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Sign out</a>
         <a routerLink="/register" [hidden]="!setLoggedOut()">Sign up</a>
         <a routerLink="/hotels" [hidden]="setLoggedOut()">Add Hotel</a>
-
+        
         <span (click)="toggleMenu()" class="hamburger-icon"></span>
         <div [hidden]="menuStateOut" class="hamburger-menu">
             <a routerLink="/" (click)="setIsItLogin()">Home</a>
