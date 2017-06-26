@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { HotelComponent } from './hotelregistration.component';
-import { PostService } from '../postrequest.service';
+import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 import { StarratingComponent } from './starrating/starrating.component';
@@ -22,7 +22,7 @@ describe('HotelComponent', () => {
             AttributesComponent,
             StarratingComponent
         ],
-        providers: [PostService, HotelService]
+        providers: [HttpService, HotelService]
     }).compileComponents();
   }));
 

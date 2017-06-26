@@ -3,13 +3,13 @@ import { FormsModule } from '@angular/forms'
 import { Router } from '@angular/router';
 
 import { User } from '../login/user';
-import { PostService } from '../postrequest.service';
+import { HttpService } from '../httprequest.service';
 
 @Component({
     selector: 'register-page',
     templateUrl: './register.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [PostService]
+    providers: [HttpService]
 })
 
 export class RegisterComponent {
@@ -22,7 +22,7 @@ export class RegisterComponent {
     endpoint = 'https://cake-cup.glitch.me/api/register';
 
     constructor (
-        private register: PostService,
+        private register: HttpService,
         public router: Router) {
         }
 
@@ -45,7 +45,7 @@ export class RegisterComponent {
 
     onUserRegister() {
         this.loading = true;
-        this.register.postRequest(this.user, this.endpoint)
+        this.register.httpRequest(this.user, this.endpoint, 'post')
             .subscribe(
                 response => {
                     this.token = response;

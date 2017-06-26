@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { User } from './user';
-import { PostService } from '../postrequest.service';
+import { HttpService } from '../httprequest.service';
 import { Router } from '@angular/router';
 
 @Component({
     selector: 'login-page',
     templateUrl: './login.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [PostService]
+    providers: [HttpService]
 })
 
 export class LoginComponent {
@@ -20,7 +20,7 @@ export class LoginComponent {
     endpoint = 'https://cake-cup.glitch.me/api/login';
 
     constructor (
-        private loginservice: PostService,
+        private loginservice: HttpService,
         public router: Router) { 
             this.redirectHome()
         }
@@ -41,7 +41,7 @@ export class LoginComponent {
 
     onUserLogin() {
         this.loading = true;
-        this.loginservice.postRequest(this.user, this.endpoint)
+        this.loginservice.httpRequest(this.user, this.endpoint, 'post')
             .subscribe(
                 response => {
                     this.token = response;

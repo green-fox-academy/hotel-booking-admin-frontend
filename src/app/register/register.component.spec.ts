@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { RegisterComponent } from './register.component';
-import { PostService } from '../postrequest.service';
+import { HttpService } from '../httprequest.service';
 
 describe('LoginComponent', () => {
   beforeEach(async(() => {
@@ -17,7 +17,7 @@ describe('LoginComponent', () => {
         declarations: [
             RegisterComponent
         ],
-        providers: [PostService]
+        providers: [HttpService]
     }).compileComponents();
   }));
 

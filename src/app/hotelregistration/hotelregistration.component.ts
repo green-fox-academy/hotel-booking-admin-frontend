@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { Router } from '@angular/router';
 
-import { PostService } from '../postrequest.service';
+import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 
@@ -10,7 +10,7 @@ import { AttributesComponent } from './attributes/attributes.component';
     selector: 'addhotel-page',
     templateUrl: './hotelregistration.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [PostService, HotelService]
+    providers: [HttpService, HotelService]
 })
 
 export class HotelComponent {
@@ -20,13 +20,13 @@ export class HotelComponent {
     endpoint = 'https://cake-cup.glitch.me/hotels';
 
     constructor (
-        private hotelregistrationservice: PostService,
+        private hotelregistrationservice: HttpService,
         public hotelservice: HotelService,
         public router: Router) {  }
 
     onRegistration() {
         this.loading = true;
-        this.hotelregistrationservice.postRequest(this.hotelservice.hotel, this.endpoint)
+        this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, this.endpoint, 'post')
             .subscribe(
                 response => {
                     // this.hotelDetails = response;

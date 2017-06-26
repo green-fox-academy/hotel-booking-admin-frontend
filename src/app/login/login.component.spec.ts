@@ -10,7 +10,7 @@ import {
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { LoginComponent } from './login.component';
-import { PostService } from '../postrequest.service';
+import { HttpService } from '../httprequest.service';
 
 describe('LoginComponent', () => {
     beforeEach(async(() => {
@@ -24,7 +24,7 @@ describe('LoginComponent', () => {
                 LoginComponent
             ],
             providers: [
-                PostService,
+                HttpService,
                 { provide: XHRBackend, useClass: MockBackend }
             ]
         }).compileComponents();
@@ -49,7 +49,7 @@ describe('LoginComponent', () => {
         expect(compiled.querySelector('h2').textContent).toContain('Sign in');
     }));
 
-    it('should save JWT to session storage', inject([PostService, XHRBackend], (PostService, MockBackend) => {
+    it('should save JWT to session storage', inject([HttpService, XHRBackend], (HttpService, MockBackend) => {
         const mockResponse = {
             data: {
                 type: 'auth',
