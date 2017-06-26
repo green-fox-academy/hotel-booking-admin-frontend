@@ -22,6 +22,7 @@ $coolGray: #353637;
 
 .header {
     background-color: white;
+    z-index: 100;
 }
 
 .header h1 {
@@ -271,6 +272,11 @@ label {
 
 .form-group-checkbox {
     margin-top: 5px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+    padding-left: 25%;
+    }
 }
 
 .container__checkbox {
@@ -279,11 +285,22 @@ label {
     height: 90px;
     align-items: baseline;
     align-content: center;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        flex-wrap: nowrap;
+        height: auto;
+    }
 
     input {
         display: inline;
         width: auto;
-        margin-right: 20px
+        margin-right: 20px;
+        @media screen
+        and (max-width: 667px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+            min-width: auto;
+        }
     }
 
     label {
@@ -314,6 +331,11 @@ label {
     left:0;
     opacity:0;
     width: auto;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        min-width: auto;
+    }
 }
 
 .star {
