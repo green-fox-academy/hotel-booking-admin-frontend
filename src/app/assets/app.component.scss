@@ -269,10 +269,14 @@ label {
 
 /* CHECKBOX */
 
+.form-group-checkbox {
+    margin-top: 5px;
+}
+
 .container__checkbox {
     display: flex;
     flex-wrap: wrap;
-    height: 70px;
+    height: 90px;
     align-items: baseline;
     align-content: center;
 
