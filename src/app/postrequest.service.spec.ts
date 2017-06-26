@@ -1,12 +1,9 @@
 import { TestBed, inject } from '@angular/core/testing';
 import {
     HttpModule,
-    Http,
-    BaseRequestOptions,
     XHRBackend,
     ResponseOptions,
-    Response,
-    Headers
+    Response
 } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
