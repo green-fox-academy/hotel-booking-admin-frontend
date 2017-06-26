@@ -9,8 +9,11 @@ export class RoutingService implements CanActivate {
     }
 
     canActivate() {
-        if (sessionStorage.Status === 'ok') { return true; }
-        this.redirect('login')
+        if (sessionStorage.Status === 'ok') { 
+            return true; 
+        } else {
+            this.redirect('login')
+        }
         return false;
     }
 
