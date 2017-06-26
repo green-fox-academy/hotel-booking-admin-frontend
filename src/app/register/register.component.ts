@@ -1,57 +1,61 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { User } from './user';
-import { HttpService } from '../httprequest.service';
 import { Router } from '@angular/router';
 
+import { User } from '../login/user';
+import { HttpService } from '../httprequest.service';
+
 @Component({
-    selector: 'login-page',
-    templateUrl: './login.component.html',
+    selector: 'register-page',
+    templateUrl: './register.component.html',
     styleUrls: ['../assets/app.component.scss'],
     providers: [HttpService]
 })
 
-export class LoginComponent {
-    title = 'Sign in';
+export class RegisterComponent {
+    title = 'Sign up';
     user = new User;
     token;
-    isValid = true;
+    samePassword = false;
     loading = false;
-    endpoint = 'https://cake-cup.glitch.me/api/login';
+    isValid;
+    endpoint = 'https://cake-cup.glitch.me/api/register';
 
     constructor (
-        private loginservice: HttpService,
-        public router: Router) { 
-            this.redirectHome()
+        private register: HttpService,
+        public router: Router) {
         }
 
-    redirectHome() {
-        if (sessionStorage.Status === 'ok'){
-            this.router.navigate(['']);
-        }  
-    }
-
     checkError(inputField) {
-        let formError = false
+        let formError = false;
         if (inputField.errors && (inputField.touched || inputField.dirty)) {
             formError = true;
         }
         return formError;
     }
 
-    onUserLogin() {
+    passwordChecker(password1, password2) {
+        if (password1 !== password2) {
+            this.samePassword = true;
+        } else {
+            this.samePassword = false;
+        }
+        return this.samePassword;
+    }
+
+    onUserRegister() {
         this.loading = true;
-        this.loginservice.httpRequest(this.user, this.endpoint, 'post')
+        this.register.httpRequest(this.user, this.endpoint, 'post')
             .subscribe(
                 response => {
                     this.token = response;
-                    this.loading = false;
                     this.router.navigate(['']);
+                    this.loading = false;
                     sessionStorage.setItem('CurrentUser', this.token.data.attributes.token);
                     sessionStorage.setItem('Status', 'ok');
                 },
                 error => {
-                    console.log(error);
+                    console.log(error)
                     this.isValid = false;
                     this.loading = false;
                 });
