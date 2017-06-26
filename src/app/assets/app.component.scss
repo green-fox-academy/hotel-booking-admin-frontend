@@ -125,10 +125,8 @@ $coolGray: #353637;
     position: absolute;
     top: 60px;
     right:0px;
-    width: 60%;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: $coolGray;
+    width: 65%;
+    box-shadow: -200px 200px 0px 200px rgba(0,0,0,0.2);
 }
 
 .hamburger-menu a {
@@ -141,6 +139,27 @@ $coolGray: #353637;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
+        border-radius: 0;
+        padding: 5px 20px;
+        justify-content: center;
+        background-color: $coolGray;
+    }
+}
+
+.hamburger-menu a:nth-of-type(odd) {
+    background-color: #4f4f4f;
+}
+
+.hamburger-menu a:hover {
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        box-shadow: none;
+        transform: none;
+        border: 1px solid $coolGray;
+        transition: none;
+        background-color: white;
+        color: $coolGray;
     }
 }
 
