@@ -10,6 +10,9 @@ $coolGray: #353637;
     font-family: 'Josefin Sans', sans-serif;
     color: $coolGray;
     padding-bottom: 50px;
+    @media screen and (max-width: 675px) {
+        width: auto;
+    }
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
@@ -27,6 +30,9 @@ $coolGray: #353637;
     font-size: 3rem;
     display: flex;
     justify-content: center;
+    @media screen and (max-width: 675px) {
+        font-size: 2rem;
+    }
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
