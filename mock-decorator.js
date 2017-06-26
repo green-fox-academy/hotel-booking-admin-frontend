@@ -11,8 +11,7 @@ const MockServer = function(app) {
     let user2 = {
         email: '',
         password: '',
-    }
-
+    };
 
     const validResponse = {
         data: {
@@ -41,9 +40,9 @@ const MockServer = function(app) {
                 token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUub3JnIiwiYWRtaW4iOmZhbHNlfQ.UK8Z1BNeHWvaFElWrrSxhO6oxTRaMW_66DO5yjkqOhM'
             }
         }
-    }
+    };
 
-    let hotelResponse = {
+    const hotelResponseOne = {
         links: {
             self: 'https://your-hostname.com/hotels/1'
         },
@@ -51,8 +50,56 @@ const MockServer = function(app) {
             type: 'hotels',
             id: '1',
             attributes: {
-                location: false,
-                name: false,
+                location: 'Dog Heaven',
+                name: 'Bone City',
+                has_wifi: true,
+                has_parking: false,
+                has_pets: true,
+                has_restaurant: false,
+                has_bar: false,
+                has_swimming_pool: false,
+                has_air_conditioning: false,
+                has_gym: true,
+                meal_plan: 'american plan',
+                stars: '3'
+            }
+        }
+    };
+
+    const hotelResponseTwo = {
+        links: {
+            self: 'https://your-hostname.com/hotels/2'
+        },
+        data: {
+            type: 'hotels',
+            id: '2',
+            attributes: {
+                location: 'near Sirius',
+                name: 'Space Hotel',
+                has_wifi: true,
+                has_parking: true,
+                has_pets: true,
+                has_restaurant: true,
+                has_bar: true,
+                has_swimming_pool: false,
+                has_air_conditioning: true,
+                has_gym: true,
+                meal_plan: 'continental plan',
+                stars: '5'
+            }
+        }
+    };
+
+    let hotelResponse = {
+        links: {
+            self: 'https://your-hostname.com/hotels/3'
+        },
+        data: {
+            type: 'hotels',
+            id: '3',
+            attributes: {
+                location: '',
+                name: '',
                 has_wifi: false,
                 has_parking: false,
                 has_pets: false,
@@ -110,6 +157,6 @@ const MockServer = function(app) {
 
         res.status(201).send(hotelResponse);
     });
-}
+};
 
 module.exports = MockServer;
