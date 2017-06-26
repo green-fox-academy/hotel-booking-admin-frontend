@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+
 import { HotelService } from '../hotel.service';
-import { HotelComponent } from '../hotelregistration.component'
+import { HotelComponent } from '../hotelregistration.component';
+import { Starrates } from './starrates';
 
 @Component({
   selector: 'app-starrating',
@@ -10,6 +12,7 @@ import { HotelComponent } from '../hotelregistration.component'
 
 export class StarratingComponent {
    starMaker: number;
+   starrates = new Starrates;
 
   constructor(
     public hotelservice: HotelService,
