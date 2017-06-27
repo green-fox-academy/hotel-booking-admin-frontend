@@ -52,6 +52,7 @@ const MockServer = function(app) {
             attributes: {
                 location: 'Bone City',
                 name: 'Dog Heaven',
+                main_image_src: 'https://placebear.com/200/300',
                 has_wifi: true,
                 has_parking: false,
                 has_pets: true,
@@ -76,6 +77,7 @@ const MockServer = function(app) {
             attributes: {
                 location: 'near Sirius',
                 name: 'Space Hotel',
+                main_image_src: 'https://placebear.com/200/300',
                 has_wifi: true,
                 has_parking: true,
                 has_pets: true,
@@ -100,6 +102,7 @@ const MockServer = function(app) {
             attributes: {
                 location: '',
                 name: '',
+                main_image_src: 'https://placebear.com/200/300',
                 has_wifi: false,
                 has_parking: false,
                 has_pets: false,
@@ -157,21 +160,29 @@ const MockServer = function(app) {
     app.post('/hotels/', (req, res) => {
         hotelResponse.data = Object.assign(req.body.data);
         hotels.push(hotelResponse);
-
         res.status(201).send(hotelResponse);
     });
 
-    app.get('/api/hotels/:id', (req, res) => {
+    app.get('/hotels/:id', (req, res) => {
         const hotelID = req.params.id;
-        console.log(hotelID);
         hotels.forEach((hotel) => {
             if (hotelID === hotel.data.id) {
                 res.status(200).send(hotel);
-            } else {
-                res.status(404).send(hotelError);
-            }
+            } 
         });
+        res.status(404).send(hotelError);
     });
+
+    // app.get('/hotels/:id', (req, res) => {
+    //     const hotelID = req.params.id;
+    //     hotels.forEach((hotel) => {
+    //         if (hotelID === hotel.data.id) {
+    //             res.status(200).send(hotel.links.self);
+    //         } else {
+    //             res.status(404).send(hotelError);
+    //         }
+    //     });
+    // });
 };
 
 module.exports = MockServer;
