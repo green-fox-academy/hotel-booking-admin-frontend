@@ -44,14 +44,14 @@ const MockServer = function(app) {
 
     const hotelResponseOne = {
         links: {
-            self: 'https://your-hostname.com/hotels/1'
+            self: 'https://cake-cup.glitch.me/hotels/1'
         },
         data: {
             type: 'hotels',
             id: '1',
             attributes: {
-                location: 'Dog Heaven',
-                name: 'Bone City',
+                location: 'Bone City',
+                name: 'Dog Heaven',
                 has_wifi: true,
                 has_parking: false,
                 has_pets: true,
@@ -68,7 +68,7 @@ const MockServer = function(app) {
 
     const hotelResponseTwo = {
         links: {
-            self: 'https://your-hostname.com/hotels/2'
+            self: 'https://cake-cup.glitch.me/hotels/2'
         },
         data: {
             type: 'hotels',
@@ -92,7 +92,7 @@ const MockServer = function(app) {
 
     let hotelResponse = {
         links: {
-            self: 'https://your-hostname.com/hotels/3'
+            self: 'https://cake-cup.glitch.me/hotels/3'
         },
         data: {
             type: 'hotels',
@@ -114,11 +114,21 @@ const MockServer = function(app) {
         }
     }
 
-    if (process.env.APP_ENV === 'MOCK') {
-        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
-    } else {
-        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/src/index.html')));
+    const hotels = [hotelResponseOne, hotelResponseTwo]
+
+    const hotelError = {
+        errors: {
+            status: '404',
+            title: 'Not Found',
+            detail: 'No hotels found by id: 1'
+        }
     }
+
+    // if (process.env.APP_ENV === 'MOCK') {
+    //     app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
+    // } else {
+    //     app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/src/index.html')));
+    // }
 
     app.post('/api/login/', (req, res) => {
         const email = req.body.data.attributes.email;
@@ -140,6 +150,10 @@ const MockServer = function(app) {
         res.send(regResponse);
     });
 
+    app.get('/hotels/', (req, res) => {
+        res.send(hotels);
+    });
+
     app.post('/hotels/', (req, res) => {
         hotelResponse.data.type = req.body.data.type;
         hotelResponse.data.attributes.location = req.body.data.attributes.location;
@@ -155,7 +169,21 @@ const MockServer = function(app) {
         hotelResponse.data.attributes.meal_plan = req.body.data.attributes.meal_plan;
         hotelResponse.data.attributes.stars = req.body.data.attributes.stars;
 
+        hotels.push(hotelResponse);
+
         res.status(201).send(hotelResponse);
+    });
+
+    app.get('/api/hotels/:id', (req, res) => {
+        const hotelID = req.params.id;
+        console.log(hotelID);
+        hotels.forEach((hotel) => {
+            if (hotelID === hotel.data.id) {
+                res.status(200).send(hotel);
+            } else {
+                res.status(404).send(hotelError);
+            }
+        });
     });
 };
 
