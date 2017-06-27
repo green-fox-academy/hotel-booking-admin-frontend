@@ -132,7 +132,7 @@ const MockServer = function(app) {
         }
     }
 
-    const hotels = [hotelResponseOne, hotelResponseTwo]
+    let hotels = [hotelResponseOne, hotelResponseTwo]
 
     const hotelError = {
         errors: {
