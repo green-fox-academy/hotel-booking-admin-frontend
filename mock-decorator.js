@@ -142,11 +142,11 @@ const MockServer = function(app) {
         }
     }
 
-    // if (process.env.APP_ENV === 'MOCK') {
-    //     app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
-    // } else {
-    //     app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/src/index.html')));
-    // }
+    if (process.env.APP_ENV === 'MOCK') {
+        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
+    } else {
+        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/src/index.html')));
+    }
 
     app.post('/api/login/', (req, res) => {
         const email = req.body.data.attributes.email;
@@ -161,10 +161,7 @@ const MockServer = function(app) {
     app.post('/api/register/', (req, res) => {
         regResponse.data.type = req.body.data.type;
         regResponse.data.attributes.email = req.body.data.attributes.email;
-
-        user2.email = req.body.data.attributes.email;
-        user2.password = req.body.data.attributes.password;
-
+        user2 = Object.assign(req.body.data.attributes);
         res.send(regResponse);
     });
 
