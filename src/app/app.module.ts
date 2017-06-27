@@ -3,6 +3,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { Router } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { appRouting } from './app.routing';
 import { AppComponent } from './app.component';
@@ -31,7 +32,8 @@ import { NavbarComponent } from './navbar/navbar.component';
         FormsModule,
         appRouting,
         HttpModule,
-        JsonpModule
+        JsonpModule,
+        BrowserAnimationsModule
     ],
     providers: [RoutingService],
     bootstrap: [AppComponent]

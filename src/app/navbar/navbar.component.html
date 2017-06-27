@@ -8,13 +8,13 @@
         <a routerLink="/hotels" [hidden]="setLoggedOut()">Hotels</a>
 
         <span (click)="toggleMenu()" class="hamburger-icon"></span>
-        <div [hidden]="menuStateOut" class="hamburger-menu">
+        <div [@activateMenu]="state" class="hamburger-menu">
             <a routerLink="/" (click)="setIsItLogin()">Home</a>
             <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Sign in</a>
             <a [hidden]="setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Sign out</a>
             <a routerLink="/register" [hidden]="!setLoggedOut()">Sign up</a>
             <a routerLink="/hotels" [hidden]="setLoggedOut()">Hotels</a>
         </div>
-        <div [hidden]="menuStateOut" (click)="!toggleMenu()" class="blur"></div>
+        <div [@blurBackground]="state" (click)="!toggleMenu()" class="blur"></div>
     </div>
 </nav>
