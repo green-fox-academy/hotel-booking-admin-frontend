@@ -1,0 +1,10 @@
+<div class="form-group rating">
+    <label>Stars: {{starMaker}}</label>
+
+    <div class="container__star">
+        <span *ngFor="let id of starrates.container">
+            <input type="radio" name="stars" id={{id.id}} value={{id.id}} [(ngModel)]="hotelservice.hotel.data.attributes.stars"  #stars="ngModel">
+            <label class="star" for={{id.id}} (click)=starAdder(id.id) [ngClass]="{'selected': starMaker >= id.id}"></label>
+        </span>
+    </div>
+</div>

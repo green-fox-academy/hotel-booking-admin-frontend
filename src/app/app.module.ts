@@ -7,14 +7,24 @@ import { Router } from '@angular/router';
 import { appRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { RoutingService } from './routing.service';
+import { HotelComponent } from './hotelregistration/hotelregistration.component';
+import { AttributesComponent } from './hotelregistration/attributes/attributes.component';
+import { StarratingComponent } from './hotelregistration/starrating/starrating.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
-        LoginComponent
+        LoginComponent,
+        RegisterComponent,
+        HotelComponent,
+        AttributesComponent,
+        StarratingComponent,
+        NavbarComponent
     ],
     imports: [
         BrowserModule,

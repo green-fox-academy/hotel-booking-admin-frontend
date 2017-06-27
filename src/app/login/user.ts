@@ -1,4 +1,10 @@
 export class User {
-        email: string;
-        password: string;
+    data = {
+        type: 'user',
+        attributes: {
+            email: '',
+            password: '',
+            passwordCheck: '',
+        }
+    }
 }

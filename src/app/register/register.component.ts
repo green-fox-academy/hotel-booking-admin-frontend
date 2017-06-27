@@ -1,53 +1,51 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { User } from './user';
-import { HttpService } from '../httprequest.service';
 import { Router } from '@angular/router';
 
+import { User } from '../login/user';
+import { HttpService } from '../httprequest.service';
+
 @Component({
-    selector: 'login-page',
-    templateUrl: './login.component.html',
+    selector: 'register-page',
+    templateUrl: './register.component.html',
     styleUrls: ['../assets/app.component.scss'],
     providers: [HttpService]
 })
 
-export class LoginComponent {
-    title = 'Sign in';
+export class RegisterComponent {
+    title = 'Sign up';
     user = new User;
     token;
-    isValid = true;
     loading = false;
-    endpoint = 'https://cake-cup.glitch.me/api/login';
+    isValid;
+    endpoint = 'https://cake-cup.glitch.me/api/register';
 
     constructor (
-        private loginservice: HttpService,
+        private register: HttpService,
         public router: Router) {
-            this.redirectHome()
         }
-
-    redirectHome() {
-        if (sessionStorage.Status === 'ok'){
-            this.router.navigate(['']);
-        }
-    }
 
     checkError(inputField) {
-        return inputField.errors && (inputField.touched || inputField.dirty) ? true : false
+        return inputField.errors && (inputField.touched || inputField.dirty) ? true : false;
     }
 
-    onUserLogin() {
+    passwordChecker(password1, password2) {
+        return password1 !== password2 ? true : false;
+    }
+
+    onUserRegister() {
         this.loading = true;
-        this.loginservice.httpRequest(this.user, this.endpoint, 'post')
+        this.register.httpRequest(this.user, this.endpoint, 'post')
             .subscribe(
                 response => {
                     this.token = response;
-                    this.loading = false;
                     this.router.navigate(['']);
+                    this.loading = false;
                     sessionStorage.setItem('CurrentUser', this.token.data.attributes.token);
                     sessionStorage.setItem('Status', 'ok');
                 },
                 error => {
-                    console.error(error);
+                    console.error(error)
                     this.isValid = false;
                     this.loading = false;
                 });

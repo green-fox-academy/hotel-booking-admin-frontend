@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-
+import { NavbarComponent } from './navbar/navbar.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -13,7 +13,8 @@ describe('AppComponent', () => {
         ],
       declarations: [
         AppComponent,
-        HomeComponent
+        HomeComponent,
+        NavbarComponent
       ],
     }).compileComponents();
   }));
