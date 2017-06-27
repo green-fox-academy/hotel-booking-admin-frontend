@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { Http, ConnectionBackend, RequestOptions } from '@angular/http';
 import { AttributesComponent } from './hotelregistration/attributes/attributes.component';
 import { StarratingComponent } from './hotelregistration/starrating/starrating.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -41,7 +42,8 @@ describe('component: RoutingComponent', () => {
                     { path: 'register', component: RegisterComponent },
                     { path: 'hotels', component: HotelComponent },
                     { path: '', component: HomeComponent, canActivate: [RoutingService] }
-                ])
+                ]),
+                BrowserAnimationsModule
             ],
             declarations: [
                 AppComponent,
@@ -51,7 +53,7 @@ describe('component: RoutingComponent', () => {
                 NavbarComponent,
                 RegisterComponent,
                 HotelComponent,
-                StarratingComponent, 
+                StarratingComponent,
                 AttributesComponent
             ],
             providers: [
