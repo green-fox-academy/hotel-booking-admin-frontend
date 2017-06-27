@@ -27,11 +27,7 @@ export class RegisterComponent {
         }
 
     checkError(inputField) {
-        let formError = false;
-        if (inputField.errors && (inputField.touched || inputField.dirty)) {
-            formError = true;
-        }
-        return formError;
+        return inputField.errors && (inputField.touched || inputField.dirty) ? true : false
     }
 
     passwordChecker(password1, password2) {
