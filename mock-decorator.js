@@ -42,7 +42,7 @@ const MockServer = function(app) {
         }
     };
 
-    const hotelResponseOne = {
+    let hotelResponseOne = {
         links: {
             self: 'https://cake-cup.glitch.me/hotels/1'
         },
@@ -67,7 +67,7 @@ const MockServer = function(app) {
         }
     };
 
-    const hotelResponseTwo = {
+    let hotelResponseTwo = {
         links: {
             self: 'https://cake-cup.glitch.me/hotels/2'
         },
@@ -168,21 +168,21 @@ const MockServer = function(app) {
         hotels.forEach((hotel) => {
             if (hotelID === hotel.data.id) {
                 res.status(200).send(hotel);
-            } 
+            }
         });
         res.status(404).send(hotelError);
     });
 
-    // app.get('/hotels/:id', (req, res) => {
-    //     const hotelID = req.params.id;
-    //     hotels.forEach((hotel) => {
-    //         if (hotelID === hotel.data.id) {
-    //             res.status(200).send(hotel.links.self);
-    //         } else {
-    //             res.status(404).send(hotelError);
-    //         }
-    //     });
-    // });
+    app.delete('/hotels/:id', (req, res) => {
+        const hotelID = req.params.id;
+        hotels.forEach((hotel) => {
+            if (hotelID === hotel.data.id) {
+                res.status(200).send(hotel.links.self);
+            }
+        });
+        hotelResponseTwo = {};
+        res.status(404).send(hotelError);
+    });
 };
 
 module.exports = MockServer;
