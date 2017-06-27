@@ -15,14 +15,14 @@ export class HttpService {
         const headers = new Headers({ 'Content-Type': 'application/json'});
         const options = new RequestOptions({headers: headers});
         let request;
-        
+
         switch(method) {
             case 'post': {
-                request = this.http.post(endpoint, bodyString, options);       
+                request = this.http.post(endpoint, bodyString, options);
                 break;
             }
             case 'get': {
-                request = this.http.post(endpoint, bodyString, options);
+                request = this.http.get(endpoint options);
                 break;
             }
             case 'patch': {
