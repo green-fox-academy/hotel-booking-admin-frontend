@@ -94,19 +94,22 @@ const MockServer = function(app) {
     });
 
     app.post('/hotels/', (req, res) => {
-        hotelResponse.data.type = req.body.data.type;
-        hotelResponse.data.attributes.location = req.body.data.attributes.location;
-        hotelResponse.data.attributes.name = req.body.data.attributes.name;
-        hotelResponse.data.attributes.has_wifi = req.body.data.attributes.has_wifi;
-        hotelResponse.data.attributes.has_parking = req.body.data.attributes.has_parking;
-        hotelResponse.data.attributes.has_pets = req.body.data.attributes.has_pets;
-        hotelResponse.data.attributes.has_restaurant = req.body.data.attributes.has_restaurant;
-        hotelResponse.data.attributes.has_bar = req.body.data.attributes.has_bar;
-        hotelResponse.data.attributes.has_swimming_pool = req.body.data.attributes.has_swimming_pool;
-        hotelResponse.data.attributes.has_air_conditioning = req.body.data.attributes.has_air_conditioning;
-        hotelResponse.data.attributes.has_gym = req.body.data.attributes.has_gym;
-        hotelResponse.data.attributes.meal_plan = req.body.data.attributes.meal_plan;
-        hotelResponse.data.attributes.stars = req.body.data.attributes.stars;
+        // hotelResponse.data.type = req.body.data.type;
+        // hotelResponse.data.attributes.location = req.body.data.attributes.location;
+        // hotelResponse.data.attributes.name = req.body.data.attributes.name;
+        // hotelResponse.data.attributes.has_wifi = req.body.data.attributes.has_wifi;
+        // hotelResponse.data.attributes.has_parking = req.body.data.attributes.has_parking;
+        // hotelResponse.data.attributes.has_pets = req.body.data.attributes.has_pets;
+        // hotelResponse.data.attributes.has_restaurant = req.body.data.attributes.has_restaurant;
+        // hotelResponse.data.attributes.has_bar = req.body.data.attributes.has_bar;
+        // hotelResponse.data.attributes.has_swimming_pool = req.body.data.attributes.has_swimming_pool;
+        // hotelResponse.data.attributes.has_air_conditioning = req.body.data.attributes.has_air_conditioning;
+        // hotelResponse.data.attributes.has_gym = req.body.data.attributes.has_gym;
+        // hotelResponse.data.attributes.meal_plan = req.body.data.attributes.meal_plan;
+        // hotelResponse.data.attributes.stars = req.body.data.attributes.stars;
+
+        // req.body.data = Object.assign({}, hotelResponse.data);
+        hotelResponse.data = Object.assign(req.body.data);
 
         res.status(201).send(hotelResponse);
     });
