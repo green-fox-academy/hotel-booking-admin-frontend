@@ -55,7 +55,7 @@ export class RegisterComponent {
                     sessionStorage.setItem('Status', 'ok');
                 },
                 error => {
-                    console.log(error)
+                    console.error(error)
                     this.isValid = false;
                     this.loading = false;
                 });
