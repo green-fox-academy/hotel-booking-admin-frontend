@@ -62,6 +62,11 @@ const MockServer = function(app) {
                 has_air_conditioning: false,
                 has_gym: true,
                 meal_plan: 'american plan',
+                user_id: '1',
+                booking_id: '1',
+                amount: '50',
+                currency: 'USD',
+                status: 'pending',
                 stars: '3'
             }
         }
@@ -87,6 +92,11 @@ const MockServer = function(app) {
                 has_air_conditioning: true,
                 has_gym: true,
                 meal_plan: 'continental plan',
+                user_id: '1',
+                booking_id: '1',
+                amount: '50',
+                currency: 'USD',
+                status: 'pending',
                 stars: '5'
             }
         }
@@ -111,7 +121,12 @@ const MockServer = function(app) {
                 has_swimming_pool: false,
                 has_air_conditioning: false,
                 has_gym: false,
-                meal_plan: false,
+                meal_plan: '',
+                user_id: '1',
+                booking_id: '1',
+                amount: '50',
+                currency: 'USD',
+                status: 'pending',
                 stars: ''
             }
         }
@@ -178,9 +193,20 @@ const MockServer = function(app) {
         hotels.forEach((hotel) => {
             if (hotelID === hotel.data.id) {
                 res.status(200).send(hotel.links.self);
+                hotel = {};
             }
         });
-        hotelResponseTwo = {};
+        res.status(404).send(hotelError);
+    });
+
+    app.patch('/hotels/:id', (req, res) => {
+        const hotelID = req.params.id;
+        hotels.forEach((hotel) => {
+            if (hotelID === hotel.data.id) {
+                hotel.data = Object.assign(req.body.data);
+                res.status(200).send(hotel);
+            }
+        });
         res.status(404).send(hotelError);
     });
 };
