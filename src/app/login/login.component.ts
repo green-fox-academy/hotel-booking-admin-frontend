@@ -21,14 +21,14 @@ export class LoginComponent {
 
     constructor (
         private loginservice: HttpService,
-        public router: Router) { 
+        public router: Router) {
             this.redirectHome()
         }
 
     redirectHome() {
         if (sessionStorage.Status === 'ok'){
             this.router.navigate(['']);
-        }  
+        }
     }
 
     checkError(inputField) {
@@ -51,7 +51,7 @@ export class LoginComponent {
                     sessionStorage.setItem('Status', 'ok');
                 },
                 error => {
-                    console.log(error);
+                    console.error(error);
                     this.isValid = false;
                     this.loading = false;
                 });
