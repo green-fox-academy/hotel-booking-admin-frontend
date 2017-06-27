@@ -15,5 +15,6 @@
             <a routerLink="/register" [hidden]="!setLoggedOut()">Sign up</a>
             <a routerLink="/hotels" [hidden]="setLoggedOut()">Hotels</a>
         </div>
+        <div [hidden]="menuStateOut" (click)="!toggleMenu()" class="blur"></div>
     </div>
 </nav>
