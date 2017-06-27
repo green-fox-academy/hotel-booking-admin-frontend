@@ -16,7 +16,6 @@ export class RegisterComponent {
     title = 'Sign up';
     user = new User;
     token;
-    samePassword = false;
     loading = false;
     isValid;
     endpoint = 'https://cake-cup.glitch.me/api/register';
@@ -27,20 +26,11 @@ export class RegisterComponent {
         }
 
     checkError(inputField) {
-        let formError = false;
-        if (inputField.errors && (inputField.touched || inputField.dirty)) {
-            formError = true;
-        }
-        return formError;
+        return inputField.errors && (inputField.touched || inputField.dirty) ? true : false;
     }
 
     passwordChecker(password1, password2) {
-        if (password1 !== password2) {
-            this.samePassword = true;
-        } else {
-            this.samePassword = false;
-        }
-        return this.samePassword;
+        return password1 !== password2 ? true : false;
     }
 
     onUserRegister() {
@@ -55,7 +45,7 @@ export class RegisterComponent {
                     sessionStorage.setItem('Status', 'ok');
                 },
                 error => {
-                    console.log(error)
+                    console.error(error)
                     this.isValid = false;
                     this.loading = false;
                 });

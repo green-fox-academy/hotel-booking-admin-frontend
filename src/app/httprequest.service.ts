@@ -16,13 +16,13 @@ export class HttpService {
         const options = new RequestOptions({headers: headers});
         let request;
 
-        switch(method) {
+        switch (method) {
             case 'post': {
                 request = this.http.post(endpoint, bodyString, options);
                 break;
             }
             case 'get': {
-                request = this.http.get(endpoint options);
+                request = this.http.get(endpoint, options);
                 break;
             }
             case 'patch': {

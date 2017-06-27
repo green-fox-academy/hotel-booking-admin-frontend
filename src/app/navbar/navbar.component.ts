@@ -30,7 +30,7 @@ export class NavbarComponent {
     }
 
     toggleMenu() {
-        this.menuStateOut = this.menuStateOut === true ? false : true;
+        this.menuStateOut = this.menuStateOut !== true;
     }
 
 }

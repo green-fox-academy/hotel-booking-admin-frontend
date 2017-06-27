@@ -29,12 +29,11 @@ export class HotelComponent {
         this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, this.endpoint, 'post')
             .subscribe(
                 response => {
-                    // this.hotelDetails = response;
                     console.log(response)
                     this.loading = false;
                 },
                 error => {
-                    console.log(error)
+                    console.error(error)
                     this.loading = false;
                 });
     }
