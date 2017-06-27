@@ -142,12 +142,6 @@ const MockServer = function(app) {
         }
     }
 
-    if (process.env.APP_ENV === 'MOCK') {
-        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
-    } else {
-        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/src/index.html')));
-    }
-
     app.post('/api/login/', (req, res) => {
         const email = req.body.data.attributes.email;
         const password = req.body.data.attributes.password;
