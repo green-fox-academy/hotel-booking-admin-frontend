@@ -36,7 +36,6 @@ import {
 })
 export class NavbarComponent {
     isItLogin = true;
-    // menuStateOut = true;
     state = 'inactive';
 
     constructor() { }
@@ -58,12 +57,7 @@ export class NavbarComponent {
         sessionStorage.clear()
     }
 
-    // toggleMenu() {
-    //     this.menuStateOut = this.menuStateOut !== true;
-    // }
-
     toggleMenu() {
         this.state = (this.state === 'inactive' ? 'active' : 'inactive');
-        // this.menuStateOut = this.menuStateOut !== true;
     }
 }
