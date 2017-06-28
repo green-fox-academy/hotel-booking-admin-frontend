@@ -4,9 +4,10 @@
         <div class="drop_down" alt="arrow" (click)="changeShowStatus()" [ngClass]="{'up_arrow': showHide}"> </div>
     </div>
 
-    <div *ngFor="let hotel of hotelservice.hotel.hotelList">
+    <div class="new_hotels" *ngFor="let hotel of hotelservice.hotel.hotelList">
+        <img src="" alt="image">
+        <h1 (click)="getHotelId(hotel.data.id)">{{hotel.data.attributes.name}}</h1>
         <h3>{{hotel.data.attributes.location}}</h3>
-        <h4 (click)="getHotelId(hotel.data.id)">{{hotel.data.attributes.name}}</h4>
     </div>
 
     <form [hidden]="!showHide" class="login-form" #form="ngForm">
