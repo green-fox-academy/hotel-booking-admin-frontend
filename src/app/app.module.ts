@@ -15,6 +15,7 @@ import { HotelComponent } from './hotelregistration/hotelregistration.component'
 import { AttributesComponent } from './hotelregistration/attributes/attributes.component';
 import { StarratingComponent } from './hotelregistration/starrating/starrating.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SingleHotelComponent } from './hotelregistration/single-hotel/single-hotel.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { NavbarComponent } from './navbar/navbar.component';
         HotelComponent,
         AttributesComponent,
         StarratingComponent,
-        NavbarComponent
+        NavbarComponent,
+        SingleHotelComponent
     ],
     imports: [
         BrowserModule,
