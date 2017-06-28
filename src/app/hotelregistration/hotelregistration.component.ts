@@ -63,6 +63,7 @@ export class HotelComponent {
                 response => {
                     this.hotelWithId = response;
                     console.log(this.hotelWithId)
+                    this.router.navigate(['hotels/1'])
                 },
                 error => {
                     console.log(error)
