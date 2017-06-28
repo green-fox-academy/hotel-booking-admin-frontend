@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
     selector: 'addhotel-page',
     templateUrl: './hotelregistration.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [HttpService, HotelService],
+    providers: [HttpService],
 })
 
 export class HotelComponent {
@@ -63,16 +63,13 @@ export class HotelComponent {
             .subscribe(
                 response => {
                     this.hotelservice.hotel.hotelwithID2 = response;
-                    this.router.navigate(['hotels/1'])
                     console.log(this.hotelservice.hotel.hotelwithID2)
+                    this.router.navigate(['hotels/1'])
+  
                 },
                 error => {
                     console.error(error)
                 });
-    }
-
-    response() {
-        return this.hotelservice.hotel.hotelwithID2
     }
 
     changeShowStatus() {
