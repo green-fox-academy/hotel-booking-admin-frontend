@@ -11,8 +11,7 @@ const MockServer = function(app) {
     let user2 = {
         email: '',
         password: '',
-    }
-
+    };
 
     const validResponse = {
         data: {
@@ -41,18 +40,79 @@ const MockServer = function(app) {
                 token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUub3JnIiwiYWRtaW4iOmZhbHNlfQ.UK8Z1BNeHWvaFElWrrSxhO6oxTRaMW_66DO5yjkqOhM'
             }
         }
-    }
+    };
 
-    let hotelResponse = {
+    let hotelResponseOne = {
         links: {
-            self: 'https://your-hostname.com/hotels/1'
+            self: 'https://cake-cup.glitch.me/hotels/1'
         },
         data: {
             type: 'hotels',
             id: '1',
             attributes: {
-                location: false,
-                name: false,
+                location: 'Bone City',
+                name: 'Dog Heaven',
+                main_image_src: 'https://placebear.com/200/300',
+                has_wifi: true,
+                has_parking: false,
+                has_pets: true,
+                has_restaurant: false,
+                has_bar: false,
+                has_swimming_pool: false,
+                has_air_conditioning: false,
+                has_gym: true,
+                meal_plan: 'american plan',
+                user_id: '1',
+                booking_id: '1',
+                amount: '50',
+                currency: 'USD',
+                status: 'pending',
+                stars: '3'
+            }
+        }
+    };
+
+    let hotelResponseTwo = {
+        links: {
+            self: 'https://cake-cup.glitch.me/hotels/2'
+        },
+        data: {
+            type: 'hotels',
+            id: '2',
+            attributes: {
+                location: 'near Sirius',
+                name: 'Space Hotel',
+                main_image_src: 'https://placebear.com/200/300',
+                has_wifi: true,
+                has_parking: true,
+                has_pets: true,
+                has_restaurant: true,
+                has_bar: true,
+                has_swimming_pool: false,
+                has_air_conditioning: true,
+                has_gym: true,
+                meal_plan: 'continental plan',
+                user_id: '1',
+                booking_id: '1',
+                amount: '50',
+                currency: 'USD',
+                status: 'pending',
+                stars: '5'
+            }
+        }
+    };
+
+    let hotelResponse = {
+        links: {
+            self: 'https://cake-cup.glitch.me/hotels/3'
+        },
+        data: {
+            type: 'hotels',
+            id: '3',
+            attributes: {
+                location: '',
+                name: '',
+                main_image_src: 'https://placebear.com/200/300',
                 has_wifi: false,
                 has_parking: false,
                 has_pets: false,
@@ -61,16 +121,25 @@ const MockServer = function(app) {
                 has_swimming_pool: false,
                 has_air_conditioning: false,
                 has_gym: false,
-                meal_plan: false,
+                meal_plan: '',
+                user_id: '1',
+                booking_id: '1',
+                amount: '50',
+                currency: 'USD',
+                status: 'pending',
                 stars: ''
             }
         }
     }
 
-    if (process.env.APP_ENV === 'MOCK') {
-        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
-    } else {
-        app.get('/*', (req, res) => res.sendFile(path.join(__dirname + '/src/index.html')));
+    let hotels = [hotelResponseOne, hotelResponseTwo]
+
+    const hotelError = {
+        errors: {
+            status: '404',
+            title: 'Not Found',
+            detail: 'No hotels found by id: 1'
+        }
     }
 
     app.post('/api/login/', (req, res) => {
@@ -86,33 +155,51 @@ const MockServer = function(app) {
     app.post('/api/register/', (req, res) => {
         regResponse.data.type = req.body.data.type;
         regResponse.data.attributes.email = req.body.data.attributes.email;
-
-        user2.email = req.body.data.attributes.email;
-        user2.password = req.body.data.attributes.password;
-
+        user2 = Object.assign(req.body.data.attributes);
         res.send(regResponse);
     });
 
-    app.post('/hotels/', (req, res) => {
-        // hotelResponse.data.type = req.body.data.type;
-        // hotelResponse.data.attributes.location = req.body.data.attributes.location;
-        // hotelResponse.data.attributes.name = req.body.data.attributes.name;
-        // hotelResponse.data.attributes.has_wifi = req.body.data.attributes.has_wifi;
-        // hotelResponse.data.attributes.has_parking = req.body.data.attributes.has_parking;
-        // hotelResponse.data.attributes.has_pets = req.body.data.attributes.has_pets;
-        // hotelResponse.data.attributes.has_restaurant = req.body.data.attributes.has_restaurant;
-        // hotelResponse.data.attributes.has_bar = req.body.data.attributes.has_bar;
-        // hotelResponse.data.attributes.has_swimming_pool = req.body.data.attributes.has_swimming_pool;
-        // hotelResponse.data.attributes.has_air_conditioning = req.body.data.attributes.has_air_conditioning;
-        // hotelResponse.data.attributes.has_gym = req.body.data.attributes.has_gym;
-        // hotelResponse.data.attributes.meal_plan = req.body.data.attributes.meal_plan;
-        // hotelResponse.data.attributes.stars = req.body.data.attributes.stars;
+    app.get('/api/hotels/', (req, res) => {
+        res.send(hotels);
+    });
 
-        // req.body.data = Object.assign({}, hotelResponse.data);
+    app.post('/api/hotels/', (req, res) => {
         hotelResponse.data = Object.assign(req.body.data);
-
+        hotels.push(hotelResponse);
         res.status(201).send(hotelResponse);
     });
-}
+
+    app.get('/api/hotels/:id', (req, res) => {
+        const hotelID = req.params.id;
+        hotels.forEach((hotel) => {
+            if (hotelID === hotel.data.id) {
+                res.status(200).send(hotel);
+            }
+        });
+        res.status(404).send(hotelError);
+    });
+
+    app.delete('/api/hotels/:id', (req, res) => {
+        const hotelID = req.params.id;
+        hotels.forEach((hotel) => {
+            if (hotelID === hotel.data.id) {
+                res.status(200).send(hotel.links.self);
+                hotel = {};
+            }
+        });
+        res.status(404).send(hotelError);
+    });
+
+    app.patch('/api/hotels/:id', (req, res) => {
+        const hotelID = req.params.id;
+        hotels.forEach((hotel) => {
+            if (hotelID === hotel.data.id) {
+                hotel.data = Object.assign(req.body.data);
+                res.status(200).send(hotel);
+            }
+        });
+        res.status(404).send(hotelError);
+    });
+};
 
 module.exports = MockServer;
