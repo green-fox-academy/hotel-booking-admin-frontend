@@ -4,7 +4,7 @@
         <div class="drop_down" alt="arrow" (click)="changeShowStatus()" [ngClass]="{'up_arrow': showHide}"> </div>
     </div>
 
-    <form [hidden]="showHide" class="login-form" #form="ngForm">
+    <form [hidden]="!showHide" class="login-form" #form="ngForm">
 
         <div class="form-group">
             <label for="">Hotel Name</label>
