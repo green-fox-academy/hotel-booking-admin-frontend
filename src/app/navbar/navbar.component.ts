@@ -32,7 +32,7 @@ import {
             transition('inactive => active', animate('1s ease-in')),
             transition('active => inactive', animate('1s ease-out')),
         ]),
-    ]
+    ],
 })
 export class NavbarComponent {
     isItLogin = true;
@@ -57,10 +57,6 @@ export class NavbarComponent {
     clearSessionStorage() {
         sessionStorage.clear()
     }
-
-    // toggleMenu() {
-    //     this.menuStateOut = this.menuStateOut !== true;
-    // }
 
     toggleMenu() {
         this.state = (this.state === 'inactive' ? 'active' : 'inactive');

@@ -22,7 +22,9 @@ export class HotelComponent {
     constructor (
         private hotelregistrationservice: HttpService,
         public hotelservice: HotelService,
-        public router: Router) {  }
+        public router: Router) {
+            this.getHotels();
+        }
 
     onRegistration() {
         this.loading = true;
@@ -36,5 +38,23 @@ export class HotelComponent {
                     console.error(error)
                     this.loading = false;
                 });
+    }
+
+    getHotels() {
+        const endpoint = 'https://cake-cup.glitch.me/api/hotels'
+        this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
+            .subscribe(
+                response => {
+                    this.hotelservice.hotel.hotelList = response;
+                    // console.log(response);
+                    console.log(this.hotelservice.hotel.hotelList)
+                },
+                error => {
+                    console.log(error)
+                });
+    }
+
+    logging() {
+        console.log(this.hotelservice.hotel.hotelList);
     }
 }

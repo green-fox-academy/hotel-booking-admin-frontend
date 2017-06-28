@@ -1,6 +1,6 @@
 export class Hotel {
     data = {
-        type: "hotels",
+        type: 'hotels',
         attributes: {
             location: '',
             name: '',
@@ -16,4 +16,6 @@ export class Hotel {
             stars: ''
         }
     }
+
+    hotelList = []
 }
