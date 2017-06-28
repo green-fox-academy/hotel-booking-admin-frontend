@@ -15,7 +15,7 @@ export class SingleHotelComponent implements OnInit {
 
   constructor(
     public hotelservice: HotelService,
-  ) { }
+  ) { console.log(hotelservice.hotel.hotelwithID)}
 
   ngOnInit() {
   }

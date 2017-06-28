@@ -48,8 +48,6 @@ export class HotelComponent {
             .subscribe(
                 response => {
                     this.hotelservice.hotel.hotelList = response;
-                    // console.log(response);
-                    console.log(this.hotelservice.hotel.hotelList)
                 },
                 error => {
                     console.log(error)
@@ -61,9 +59,9 @@ export class HotelComponent {
         this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
             .subscribe(
                 response => {
-                    this.hotelWithId = response;
-                    console.log(this.hotelWithId)
+                    this.hotelservice.hotel.hotelwithID2 = response;
                     this.router.navigate(['hotels/1'])
+                    console.log(this.hotelservice.hotel.hotelwithID2)
                 },
                 error => {
                     console.log(error)

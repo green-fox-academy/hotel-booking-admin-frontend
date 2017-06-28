@@ -8,10 +8,10 @@
         <div class="form-group">
             <label for="">Hotel Name</label>
             <input type="text" class="form-control" name="name"
-            required [(ngModel)]="hotelservice.hotel.data.attributes.name" #name="ngModel">
+            required [(ngModel)]="hotelservice.hotel.hotelwithID.data.attributes.name" #name="ngModel">
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
             <label for="">Locatiton</label>
             <input type="text" class="form-control" name="location"
             required [(ngModel)]="hotelservice.hotel.data.attributes.location" #location="ngModel">
@@ -79,7 +79,7 @@
         <div class="button-group">
             <button class="login-button" [disabled]="form.invalid" (click)="onRegistration()">Add</button>
             <span class="spinner" [hidden]="!loading"></span>
-        </div>
+        </div>-->
 
     </form>
 
