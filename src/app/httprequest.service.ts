@@ -30,13 +30,13 @@ export class HttpService {
                 break;
             }
             case 'delete': {
-                request = this.http.delete(endpoint, options);
+                request = this.http.delete(endpoint);
                 break;
             }
         };
 
         return request
             .map((res: Response) => res.json())
-            .catch((error: any) =>  Observable.throw(error.json() || 'server error'));
+            .catch((error: any) => Observable.throw(error.json() || 'server error'));
     }
 }
