@@ -13,7 +13,7 @@ import { RoutingService } from './routing.service';
 class Routing {
     public routermodule: RouterModule
   }
-  
+
 describe('RoutingService', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
@@ -21,7 +21,6 @@ describe('RoutingService', () => {
               RoutingService,
               {provide: Router, useClass: Routing}
           ],
-          
       });
     });
 

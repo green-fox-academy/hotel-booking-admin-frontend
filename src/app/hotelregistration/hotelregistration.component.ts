@@ -6,6 +6,8 @@ import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 
+import 'rxjs/add/operator/map';
+
 @Component({
     selector: 'addhotel-page',
     templateUrl: './hotelregistration.component.html',
