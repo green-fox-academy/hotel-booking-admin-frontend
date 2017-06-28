@@ -8,6 +8,7 @@
         <img src="" alt="image">
         <h1 (click)="getHotelId(hotel.data.id)">{{hotel.data.attributes.name}}</h1>
         <h3>{{hotel.data.attributes.location}}</h3>
+        <p>{{hotel.data.attributes.meal_plan}}</p>
     </div>
 
     <form [hidden]="!showHide" class="login-form" #form="ngForm">
