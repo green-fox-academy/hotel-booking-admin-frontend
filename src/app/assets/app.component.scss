@@ -475,19 +475,24 @@ label {
 
 .hotel_information ul {
     margin: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
 }
 
 .marked {
-    width: 30px;
-    height: 50px;
+    display: flex;
+    width: 20px;
+    height: 20px;
     background-image: url(check.svg);
     background-repeat: no-repeat;
     background-size: contain;
 }
 
 .not_marked {
-    width: 30px;
-    height: 50px;
+    display: flex;
+    width: 20px;
+    height: 20px;
     background-image: url(close.svg);
     background-repeat: no-repeat;
     background-size: contain;

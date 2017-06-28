@@ -48,13 +48,13 @@
         <h4>{{hotel.data.attributes.location}}</h4>
         <p> <strong>meal plan:</strong> {{hotel.data.attributes.meal_plan}}</p>
         <ul>
-            <li [style.background-image]="isMarked(hotel.data.attributes.has_wifi)" class="not_marked">wifi</li>
-            <li [style.background-image]="isMarked(hotel.data.attributes.has_parking)" class="not_marked">parking</li>
-            <li>{{hotel.data.attributes.has_pets}} pets allowed</li>
-            <li>{{hotel.data.attributes.has_restaurant}} restaurant</li>
-            <li>{{hotel.data.attributes.has_bar}} bar</li>
-            <li [style.background-image]="isMarked(hotel.data.attributes.has_swimming_pool)" class="not_marked"> swimming pool</li>
-            <li [style.background-image]="isMarked(hotel.data.attributes.has_air_conditioning)" class="not_marked">air conditioning</li>
+            <li><span [ngClass]="{'marked': hotel.data.attributes.has_wifi, 'not_marked': !hotel.data.attributes.has_wifi}"></span>wifi</li>
+            <li><span [ngClass]="{ 'marked': hotel.data.attributes.has_parking, 'not_marked': !hotel.data.attributes.has_parking }"></span>parking</li>
+            <li><span [ngClass]="{ 'marked': hotel.data.attributes.has_pets, 'not_marked': !hotel.data.attributes.has_pets }"></span>pets allowed</li>
+            <li><span [ngClass]="{ 'marked': hotel.data.attributes.has_restaurant, 'not_marked': !hotel.data.attributes.has_restaurant }"></span>restaurant</li>
+            <li><span [ngClass]="{ 'marked': hotel.data.attributes.has_bar, 'not_marked': !hotel.data.attributes.has_bar }"></span>bar</li>
+            <li><span [ngClass]="{ 'marked': hotel.data.attributes.has_swimming_pool, 'not_marked': !hotel.data.attributes.has_swimming_pool }"></span>swimming pool</li>
+            <li><span [ngClass]="{ 'marked': hotel.data.attributes.has_air_conditioning, 'not_marked': !hotel.data.attributes.has_air_conditioning }"></span>air conditioning</li>
         </ul>
     </div>
     <span (click)="deleteHotelId(hotel.data.id)" class="delete_hotel"></span>
