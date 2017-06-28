@@ -422,10 +422,11 @@ label {
     color:#FFF;
 }
 
-/* HOTEL LISTING */
 .selected {
     background-image: url(zstar.svg);
 }
+
+/* HOTEL LISTING */
 
 .new_hotels {
     display: flex;
@@ -444,7 +445,9 @@ label {
     background-image: url(eraser.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    margin: 10px;
+    margin: 20px;
+    position: absolute;
+    right: 290px;
 }
 
 .hotel_information {
@@ -454,6 +457,7 @@ label {
 .hotel_information h3 {
     font-size: 2rem;
     margin: 5px;
+    margin-top: 10px;
     font-weight: bold;
 }
 
