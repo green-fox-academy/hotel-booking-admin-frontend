@@ -4,13 +4,6 @@
         <div class="drop_down" alt="arrow" (click)="changeShowStatus()" [ngClass]="{'up_arrow': showHide}"> </div>
     </div>
 
-    <div class="new_hotels" *ngFor="let hotel of hotelservice.hotel.hotelList">
-        <img src="" alt="image">
-        <h1 (click)="getHotelId(hotel.data.id)">{{hotel.data.attributes.name}}</h1>
-        <h3>{{hotel.data.attributes.location}}</h3>
-        <p>{{hotel.data.attributes.meal_plan}}</p>
-    </div>
-
     <form [hidden]="!showHide" class="login-form" #form="ngForm">
 
         <div class="form-group">
@@ -47,3 +40,22 @@
     </form>
 
 </main>
+
+<div class="new_hotels" *ngFor="let hotel of hotelservice.hotel.hotelList">
+    <img src="{{hotel.data.attributes.main_image_src}}" alt="hotel_image">
+    <div class="hotel_information">
+        <h3 (click)="getHotelId(hotel.data.id)">{{hotel.data.attributes.name}}</h3>
+        <h4>{{hotel.data.attributes.location}}</h4>
+        <p> <strong>meal plan:</strong> {{hotel.data.attributes.meal_plan}}</p>
+        <ul>
+            <li>{{hotel.data.attributes.has_wifi}} wifi</li>
+            <li>{{hotel.data.attributes.has_parking}} parking</li>
+            <li>{{hotel.data.attributes.has_pets}} pets allowed</li>
+            <li>{{hotel.data.attributes.has_restaurant}} restaurant</li>
+            <li>{{hotel.data.attributes.has_bar}} bar</li>
+            <li>{{hotel.data.attributes.has_swimming_pool}} swimming pool</li>
+            <li>{{hotel.data.attributes.has_air_conditioning}} air conditioning</li>
+        </ul>
+    </div>
+    <span class="delete_hotel"></span>
+</div>

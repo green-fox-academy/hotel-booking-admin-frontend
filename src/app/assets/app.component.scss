@@ -422,6 +422,7 @@ label {
     color:#FFF;
 }
 
+/* HOTEL LISTING */
 .selected {
     background-image: url(zstar.svg);
 }
@@ -429,4 +430,17 @@ label {
 .new_hotels {
     margin: 20px;
     border: 2px solid black;
+}
+
+.delete_hotel {
+    width: 30px;
+    height: 50px;
+    background-image: url(eraser.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.new_hotels {
+    display: flex;
+    justify-content: space-between;
 }
