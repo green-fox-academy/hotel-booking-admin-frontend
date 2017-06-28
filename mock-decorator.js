@@ -183,8 +183,8 @@ const MockServer = function(app) {
         const hotelID = req.params.id;
         hotels.forEach((hotel) => {
             if (hotelID === hotel.data.id) {
-                res.status(200).send(hotel.links.self);
-                hotel = {};
+                hotels.splice(hotelID - 1, 1)
+                res.status(200).send(hotel.links);
             }
         });
         res.status(404).send(hotelError);

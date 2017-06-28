@@ -57,5 +57,5 @@
             <li [style.background-image]="isMarked(hotel.data.attributes.has_air_conditioning)" class="not_marked">air conditioning</li>
         </ul>
     </div>
-    <span class="delete_hotel"></span>
+    <span (click)="deleteHotelId(hotel.data.id)" class="delete_hotel"></span>
 </div>
