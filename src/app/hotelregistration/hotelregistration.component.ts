@@ -10,7 +10,7 @@ import { AttributesComponent } from './attributes/attributes.component';
     selector: 'addhotel-page',
     templateUrl: './hotelregistration.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [HttpService, HotelService]
+    providers: [HttpService, HotelService],
 })
 
 export class HotelComponent {
@@ -29,12 +29,13 @@ export class HotelComponent {
 
     onRegistration() {
         this.loading = true;
-        const endpoint = 'https://cake-cup.glitch.me/hotels';
+        const endpoint = 'https://cake-cup.glitch.me/api/hotels';
         this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'post')
             .subscribe(
                 response => {
                     console.log(response)
                     this.loading = false;
+                    this.getHotels()
                 },
                 error => {
                     console.error(error)
@@ -55,7 +56,7 @@ export class HotelComponent {
     }
 
     getHotelId(id) {
-        const endpoint = 'https://cake-cup.glitch.me/api/hotels/1'
+        const endpoint = 'https://cake-cup.glitch.me/api/hotels/'+id;
         this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
             .subscribe(
                 response => {
@@ -66,6 +67,10 @@ export class HotelComponent {
                 error => {
                     console.log(error)
                 });
+    }
+
+    response() {
+        return this.hotelservice.hotel.hotelwithID2
     }
 
     changeShowStatus() {
