@@ -428,8 +428,14 @@ label {
 }
 
 .new_hotels {
+    display: flex;
+    justify-content: flex-start;
     margin: 20px;
     border: 2px solid black;
+}
+
+.new_hotels img {
+    margin: 10px;
 }
 
 .delete_hotel {
@@ -438,9 +444,32 @@ label {
     background-image: url(eraser.svg);
     background-repeat: no-repeat;
     background-size: contain;
+    margin: 10px;
 }
 
-.new_hotels {
-    display: flex;
-    justify-content: space-between;
+.hotel_information {
+    margin: 5px;
 }
+
+.hotel_information h3 {
+    font-size: 2rem;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.hotel_information h4 {
+    font-size: 1rem;
+    margin: 5px;
+    margin-bottom: 15px;
+}
+
+.hotel_information p {
+    margin: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hotel_information ul {
+    margin: 5px;
+}
+
