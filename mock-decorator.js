@@ -159,17 +159,17 @@ const MockServer = function(app) {
         res.send(regResponse);
     });
 
-    app.get('/hotels/', (req, res) => {
+    app.get('/api/hotels/', (req, res) => {
         res.send(hotels);
     });
 
-    app.post('/hotels/', (req, res) => {
+    app.post('/api/hotels/', (req, res) => {
         hotelResponse.data = Object.assign(req.body.data);
         hotels.push(hotelResponse);
         res.status(201).send(hotelResponse);
     });
 
-    app.get('/hotels/:id', (req, res) => {
+    app.get('/api/hotels/:id', (req, res) => {
         const hotelID = req.params.id;
         hotels.forEach((hotel) => {
             if (hotelID === hotel.data.id) {
@@ -179,7 +179,7 @@ const MockServer = function(app) {
         res.status(404).send(hotelError);
     });
 
-    app.delete('/hotels/:id', (req, res) => {
+    app.delete('/api/hotels/:id', (req, res) => {
         const hotelID = req.params.id;
         hotels.forEach((hotel) => {
             if (hotelID === hotel.data.id) {
@@ -190,7 +190,7 @@ const MockServer = function(app) {
         res.status(404).send(hotelError);
     });
 
-    app.patch('/hotels/:id', (req, res) => {
+    app.patch('/api/hotels/:id', (req, res) => {
         const hotelID = req.params.id;
         hotels.forEach((hotel) => {
             if (hotelID === hotel.data.id) {
