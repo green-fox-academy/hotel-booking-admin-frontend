@@ -446,7 +446,7 @@ label {
 }
 
 .delete_hotel {
-    min-width: 30px;
+    min-width: 40px;
     height: 50px;
     margin: 20px;
     background-image: url(eraser.svg);
@@ -454,6 +454,12 @@ label {
     background-size: contain;
     // right: 290px;
     position: sticky;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        align-self: flex-end;
+        min-width: 45px;
+    }
 }
 
 .hotel_information {
