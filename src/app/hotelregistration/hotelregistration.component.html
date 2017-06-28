@@ -48,13 +48,13 @@
         <h4>{{hotel.data.attributes.location}}</h4>
         <p> <strong>meal plan:</strong> {{hotel.data.attributes.meal_plan}}</p>
         <ul>
-            <li>{{hotel.data.attributes.has_wifi}} wifi</li>
-            <li>{{hotel.data.attributes.has_parking}} parking</li>
+            <li [style.background-image]="isMarked(hotel.data.attributes.has_wifi)" class="not_marked">wifi</li>
+            <li [style.background-image]="isMarked(hotel.data.attributes.has_parking)" class="not_marked">parking</li>
             <li>{{hotel.data.attributes.has_pets}} pets allowed</li>
             <li>{{hotel.data.attributes.has_restaurant}} restaurant</li>
             <li>{{hotel.data.attributes.has_bar}} bar</li>
-            <li>{{hotel.data.attributes.has_swimming_pool}} swimming pool</li>
-            <li>{{hotel.data.attributes.has_air_conditioning}} air conditioning</li>
+            <li [style.background-image]="isMarked(hotel.data.attributes.has_swimming_pool)" class="not_marked"> swimming pool</li>
+            <li [style.background-image]="isMarked(hotel.data.attributes.has_air_conditioning)" class="not_marked">air conditioning</li>
         </ul>
     </div>
     <span class="delete_hotel"></span>
