@@ -42,7 +42,7 @@
 </main>
 
 <div class="new_hotels" *ngFor="let hotel of hotelservice.hotel.hotelList">
-    <img src="{{hotel.data.attributes.main_image_src}}" alt="hotel_image">
+    <img class="hotel-image" src="{{hotel.data.attributes.main_image_src}}" alt="hotel_image">
     <div class="hotel_information">
         <h3 (click)="getHotelId(hotel.data.id)">{{hotel.data.attributes.name}}</h3>
         <h4>{{hotel.data.attributes.location}}</h4>

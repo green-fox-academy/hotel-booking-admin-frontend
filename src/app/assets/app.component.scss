@@ -432,7 +432,18 @@ label {
     display: flex;
     justify-content: flex-start;
     margin: 20px;
-    border: 2px solid black;
+    border: 2px solid $coolGray;
+    position: relative;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        flex-direction: column;
+    }
+}
+
+.hotel-image {
+    display: flex;
+    align-content: center;
 }
 
 .new_hotels img {
@@ -440,14 +451,14 @@ label {
 }
 
 .delete_hotel {
-    width: 30px;
+    min-width: 30px;
     height: 50px;
+    margin: 20px;
     background-image: url(eraser.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    margin: 20px;
-    position: absolute;
-    right: 290px;
+    // right: 290px;
+    position: sticky;
 }
 
 .hotel_information {
@@ -497,4 +508,3 @@ label {
     background-repeat: no-repeat;
     background-size: contain;
 }
-
