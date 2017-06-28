@@ -90,7 +90,12 @@ $coolGray: #353637;
     cursor: pointer;
 }
 
-/* LOGIN & HOME */
+/* LOGIN & HOME & REG & HOTEL*/
+
+.title_container {
+    display: flex;
+    justify-content: center;
+}
 
 .main {
     width: 100%;
@@ -105,7 +110,8 @@ $coolGray: #353637;
     text-transform: uppercase;
 }
 
-// HAMBURGER
+/* HAMBURGER */
+
 .hamburger-icon {
     @media screen
     and (max-width: 667px)
@@ -176,6 +182,26 @@ $coolGray: #353637;
     width: 100%;
     height: 2000%;
     }
+}
+
+/* DROP DOWN AND UP ARROW */
+
+.drop_down {
+    width: 30px;
+    height: 30px;
+    background-image: url(downarrow.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.up_arrow {
+    width: 30px;
+    height: 30px;
+    background-image: url(uparrow.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 /* FORMS */

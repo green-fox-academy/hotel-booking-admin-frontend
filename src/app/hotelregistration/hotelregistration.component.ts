@@ -17,7 +17,7 @@ export class HotelComponent {
     title = 'Hotels';
     loading = false;
     hotelDetails;
-    endpoint = 'https://cake-cup.glitch.me/hotels';
+    showHide: boolean;
 
     constructor (
         private hotelregistrationservice: HttpService,
@@ -28,7 +28,8 @@ export class HotelComponent {
 
     onRegistration() {
         this.loading = true;
-        this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, this.endpoint, 'post')
+        const endpoint = 'https://cake-cup.glitch.me/hotels';
+        this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'post')
             .subscribe(
                 response => {
                     console.log(response)
@@ -52,6 +53,10 @@ export class HotelComponent {
                 error => {
                     console.log(error)
                 });
+    }
+
+    changeShowStatus() {
+        this.showHide = !this.showHide;
     }
 
     logging() {
