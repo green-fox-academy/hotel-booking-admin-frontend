@@ -50,11 +50,9 @@ export class HotelComponent {
             .subscribe(
                 response => {
                     this.hotelservice.hotel.hotelList = response;
-                    // console.log(response);
-                    console.log(this.hotelservice.hotel.hotelList)
                 },
                 error => {
-                    console.log(error)
+                    console.error(error)
                 });
     }
 
@@ -67,15 +65,11 @@ export class HotelComponent {
                     console.log(this.hotelWithId)
                 },
                 error => {
-                    console.log(error)
+                    console.error(error)
                 });
     }
 
     changeShowStatus() {
         this.showHide = !this.showHide;
-    }
-
-    logging() {
-        console.log(this.hotelservice.hotel.hotelList);
     }
 }
