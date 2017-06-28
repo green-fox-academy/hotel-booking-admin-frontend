@@ -426,7 +426,54 @@ label {
     background-image: url(zstar.svg);
 }
 
+/* HOTEL LISTING */
+
 .new_hotels {
+    display: flex;
+    justify-content: flex-start;
     margin: 20px;
     border: 2px solid black;
 }
+
+.new_hotels img {
+    margin: 10px;
+}
+
+.delete_hotel {
+    width: 30px;
+    height: 50px;
+    background-image: url(eraser.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 20px;
+    position: absolute;
+    right: 290px;
+}
+
+.hotel_information {
+    margin: 5px;
+}
+
+.hotel_information h3 {
+    font-size: 2rem;
+    margin: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.hotel_information h4 {
+    font-size: 1rem;
+    margin: 5px;
+    margin-bottom: 15px;
+}
+
+.hotel_information p {
+    margin: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hotel_information ul {
+    margin: 5px;
+}
+

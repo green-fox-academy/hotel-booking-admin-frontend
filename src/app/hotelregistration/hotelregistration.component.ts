@@ -6,6 +6,8 @@ import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 
+import 'rxjs/add/operator/map';
+
 @Component({
     selector: 'addhotel-page',
     templateUrl: './hotelregistration.component.html',
@@ -51,7 +53,7 @@ export class HotelComponent {
                     this.hotelservice.hotel.hotelList = response;
                 },
                 error => {
-                    console.log(error)
+                    console.error(error)
                 });
     }
 
@@ -65,7 +67,7 @@ export class HotelComponent {
                     console.log(this.hotelservice.hotel.hotelwithID2)
                 },
                 error => {
-                    console.log(error)
+                    console.error(error)
                 });
     }
 
@@ -75,9 +77,5 @@ export class HotelComponent {
 
     changeShowStatus() {
         this.showHide = !this.showHide;
-    }
-
-    logging() {
-        console.log(this.hotelservice.hotel.hotelList);
     }
 }
