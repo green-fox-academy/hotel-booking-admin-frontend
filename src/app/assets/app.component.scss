@@ -165,6 +165,9 @@ $coolGray: #353637;
 }
 
 .blur {
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
     z-index: 5;
     position: absolute;
     left: 0;
@@ -172,6 +175,7 @@ $coolGray: #353637;
     bottom: 0px;
     width: 100%;
     height: 2000%;
+    }
 }
 
 /* FORMS */
