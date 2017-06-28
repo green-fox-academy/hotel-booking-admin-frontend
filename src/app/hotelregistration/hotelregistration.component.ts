@@ -15,6 +15,7 @@ import { AttributesComponent } from './attributes/attributes.component';
 
 export class HotelComponent {
     title = 'Hotels';
+    hotelWithId;
     loading = false;
     hotelDetails;
     showHide: boolean;
@@ -49,6 +50,19 @@ export class HotelComponent {
                     this.hotelservice.hotel.hotelList = response;
                     // console.log(response);
                     console.log(this.hotelservice.hotel.hotelList)
+                },
+                error => {
+                    console.log(error)
+                });
+    }
+
+    getHotelId(id) {
+        const endpoint = 'https://cake-cup.glitch.me/api/hotels/1'
+        this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
+            .subscribe(
+                response => {
+                    this.hotelWithId = response;
+                    console.log(this.hotelWithId)
                 },
                 error => {
                     console.log(error)
