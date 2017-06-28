@@ -186,22 +186,17 @@ $coolGray: #353637;
 
 /* DROP DOWN AND UP ARROW */
 
-.drop_down {
-    width: 30px;
-    height: 30px;
+.drop_down, .up_arrow {
+    width: 25px;
+    height: 25px;
     background-image: url(uparrow.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    margin-top: 20px;
-    margin-left: 5px;
+    margin: 20px;
 }
 
 .up_arrow {
-    width: 30px;
-    height: 30px;
     background-image: url(downarrow.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 /* FORMS */
