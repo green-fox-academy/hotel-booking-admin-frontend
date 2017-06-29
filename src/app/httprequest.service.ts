@@ -20,5 +20,3 @@ export class HttpService {
         .catch((error: any) => Observable.throw(error.json() || 'server error'));
     }
 }
-
-

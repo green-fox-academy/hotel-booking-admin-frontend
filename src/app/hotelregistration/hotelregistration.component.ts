@@ -47,7 +47,6 @@ export class HotelComponent {
 
     getHotelId(id) {
         const endpoint = 'https://cake-cup.glitch.me/api/hotels/'+id;
-        console.log(id)
         this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
             .subscribe(
                 response => {
@@ -56,7 +55,7 @@ export class HotelComponent {
                     this.router.navigate(['hotels/1'])
                 },
                 error => {
-                    console.error(error)
+                    console.error(error);
                 });
     }
 
@@ -68,7 +67,7 @@ export class HotelComponent {
                     this.gethotels.getHotels();
                 },
                 error => {
-                    console.error(error)
+                    console.error(error);
                 });
     }
 

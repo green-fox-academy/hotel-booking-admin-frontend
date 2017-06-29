@@ -11,11 +11,13 @@ export class GetHotelsService {
     ) { }
 
   getHotels() {
-    const endpoint = 'https://cake-cup.glitch.me/api/hotels'
+    const endpoint = 'https://two-ferns.glitch.me/api/hotels'
     this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
         .subscribe(
             response => {
+              console.log(response);
                 this.hotelservice.hotel.hotelList = response;
+                console.log(this.hotelservice.hotel.hotelList.data);
             },
             error => {
                 console.error(error)
