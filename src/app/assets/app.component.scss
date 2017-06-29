@@ -4,7 +4,7 @@ $coolGray: #353637;
 
 .page {
     margin: auto;
-    width: 60vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     font-family: 'Josefin Sans', sans-serif;
@@ -269,7 +269,7 @@ label {
 /* SEND-BUTTON */
 
 .button-group {
-    padding: 20px;
+    padding: 20px 0 60px 0;
     display: flex;
     margin: 0;
     justify-content: center;
@@ -423,17 +423,38 @@ label {
 
 /* HOTEL LISTING */
 
-.new_hotels {
+.allhotels {
     display: flex;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 30px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        padding: 0px;
+    }
+}
+
+.hotel {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 45%;
+    box-sizing: border-box;
     margin: 20px;
-    border: 2px solid $coolGray;
-    position: relative;
+    border: 1.5px solid $coolGray;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         flex-direction: column;
     }
+
+    img {
+        margin: 10px;
+    }
+}
+
+.hotel_details {
+    display: flex;
 }
 
 .hotel-image {
@@ -441,55 +462,49 @@ label {
     align-content: center;
 }
 
-.new_hotels img {
-    margin: 10px;
-}
-
-.delete_hotel {
-    min-width: 40px;
-    height: 50px;
-    margin: 20px;
-    background-image: url(eraser.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    // right: 290px;
-    position: sticky;
-    @media screen
-    and (max-width: 667px)
-    and (-webkit-min-device-pixel-ratio: 2) {
-        align-self: flex-end;
-        min-width: 45px;
-    }
-}
-
 .hotel_information {
     margin: 5px;
 }
 
-.hotel_information h3 {
+.hotel_information {
+
+    h3 {
     font-size: 2rem;
     margin: 5px;
     margin-top: 10px;
     font-weight: bold;
-}
+    }
 
-.hotel_information h4 {
-    font-size: 1rem;
-    margin: 5px;
-    margin-bottom: 15px;
-}
+    h4 {
+        font-size: 1.4rem;
+        margin: 5px;
+        margin-bottom: 15px;
+    }
 
-.hotel_information p {
-    margin: 5px;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
+    p {
+        font-size: 1.1rem;
+        margin: 5px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        strong {
+            font-weight: bold;
+        }
+    }
 
-.hotel_information ul {
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
+    ul {
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+    }
+
+    li {
+        font-size: 1.1rem;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        padding: 10px 10px;
+    }
 }
 
 .marked {
@@ -508,4 +523,35 @@ label {
     background-image: url(close.svg);
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+
+    .delete_hotel {
+        min-width: 40px;
+        height: 50px;
+        margin: 20px;
+        margin-bottom: 30px;
+        background-image: url(eraser.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        @media screen
+        and (max-width: 667px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+            align-self: flex-end;
+            min-width: 45px;
+        }
+    }
+
+    .hotel-star {
+        margin: 10px;
+        background-image: url(zstar.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        font-size: 2rem;
+        padding: 1.3rem;
+        padding-top: 1.1rem;
+    }
 }
