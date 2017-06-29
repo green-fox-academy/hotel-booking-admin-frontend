@@ -32,7 +32,7 @@ export class HotelComponent {
     onRegistration() {
         this.loading = true;
         const endpoint = 'https://cake-cup.glitch.me/api/hotels';
-        this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'post')
+        this.hotelregistrationservice.httpRequest(this.hotelservice.hotel.data.attributes, endpoint, 'post')
             .subscribe(
                 response => {
                     this.loading = false;
@@ -61,10 +61,8 @@ export class HotelComponent {
         this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
             .subscribe(
                 response => {
-                    this.hotelservice.hotel.hotelwithID2 = response;
-                    console.log(this.hotelservice.hotel.hotelwithID2)
+                    this.hotelservice.hotel.hotelWithId = response;
                     this.router.navigate(['hotels/1'])
-  
                 },
                 error => {
                     console.error(error)
@@ -73,12 +71,9 @@ export class HotelComponent {
 
     deleteHotelId(id) {
         const endpoint = 'https://cake-cup.glitch.me/api/hotels/' + id;
-        console.log(id)
         this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'delete')
             .subscribe(
                 response => {
-                    console.log('removed')
-                    console.log(response)
                     this.getHotels();
                 },
                 error => {

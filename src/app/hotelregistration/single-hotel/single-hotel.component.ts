@@ -17,14 +17,14 @@ export class SingleHotelComponent implements OnInit {
   constructor(
     private updateservice: HttpService,
     public hotelservice: HotelService,
-  ) { console.log(hotelservice.hotel.hotelwithID2)}
+  ) { }
 
   updateHotel() {
-        const endpoint = 'https://cake-cup.glitch.me/api/hotels/'+ this.hotelservice.hotel.hotelwithID2.data.id;
-        this.updateservice.httpRequest(this.hotelservice.hotel, endpoint, 'patch')
+        const endpoint = 'https://cake-cup.glitch.me/api/hotels/'+ 3;
+        this.updateservice.httpRequest(this.hotelservice.hotel.data.attributes, endpoint, 'patch')
             .subscribe(
                 response => {
-                    console.log(response)
+
                 },
                 error => {
                     console.error(error)
