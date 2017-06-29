@@ -193,6 +193,7 @@ $coolGray: #353637;
     background-repeat: no-repeat;
     background-size: contain;
     margin: 20px;
+    cursor: pointer;
 }
 
 .up_arrow {
@@ -496,10 +497,11 @@ label {
     }
 
     h3 {
-    font-size: 2rem;
-    margin: 5px;
-    margin-top: 10px;
-    font-weight: bold;
+        font-size: 2rem;
+        margin: 5px;
+        margin-top: 10px;
+        font-weight: bold;
+        cursor: pointer;
     }
 
     h4 {
@@ -564,6 +566,7 @@ label {
         background-image: url(eraser.svg);
         background-repeat: no-repeat;
         background-size: contain;
+        cursor: pointer;
         @media screen
         and (max-width: 667px)
         and (-webkit-min-device-pixel-ratio: 2) {
