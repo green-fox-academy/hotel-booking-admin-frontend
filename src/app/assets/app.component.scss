@@ -442,11 +442,6 @@ label {
     box-sizing: border-box;
     margin: 20px;
     border: 1.5px solid $coolGray;
-    @media screen
-    and (max-width: 667px)
-    and (-webkit-min-device-pixel-ratio: 2) {
-        flex-direction: column;
-    }
 
     img {
         margin: 10px;
@@ -455,6 +450,11 @@ label {
 
 .hotel_details {
     display: flex;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        flex-direction: column;
+    }
 }
 
 .hotel-image {
