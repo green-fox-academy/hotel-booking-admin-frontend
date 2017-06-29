@@ -11,9 +11,10 @@ export class HttpService {
     constructor( private http: Http ) { }
 
     httpRequest(bodies, endpoint, reqMethod): Observable<Comment[]> {
+        const serverEndpoint = 'https://two-ferns.glitch.me/';
         return this.http.request(new Request({
             method: reqMethod,
-            url: endpoint,
+            url: serverEndpoint + endpoint,
             body: bodies
         }))
         .map((res: Response) => res.json())
