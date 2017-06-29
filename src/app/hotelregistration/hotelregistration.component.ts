@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { Router } from '@angular/router';
+import {
+    trigger,
+    state,
+    style,
+    animate,
+    transition
+} from '@angular/animations';
 
 import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
@@ -14,6 +21,18 @@ import 'rxjs/add/operator/map';
     templateUrl: './hotelregistration.component.html',
     styleUrls: ['../assets/app.component.scss'],
     providers: [HttpService],
+    animations: [
+        trigger('activateMenu', [
+            state('inactive', style({
+                transform: 'translateY(-120%)'
+            })),
+            state('active', style({
+                transform: 'translateY(0)'
+            })),
+            transition('inactive => active', animate('1.5s ease-in')),
+            transition('active => inactive', animate('1.5s ease-out')),
+        ])
+    ]
 })
 
 export class HotelComponent {
@@ -22,6 +41,7 @@ export class HotelComponent {
     loading = false;
     hotelDetails;
     showHide: boolean;
+    state = 'inactive';
 
     constructor (
         public httpservice: HttpService,
@@ -73,5 +93,10 @@ export class HotelComponent {
 
     changeShowStatus() {
         this.showHide = !this.showHide;
+    }
+
+    dropMenu() {
+        this.state = (this.state === 'inactive' ? 'active' : 'inactive');
+        this.showHide = (this.showHide === true ? false : true);
     }
 }
