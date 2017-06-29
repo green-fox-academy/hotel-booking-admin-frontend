@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
+import { GetHotelsService } from './get-hotels.service';
 
 import 'rxjs/add/operator/map';
 
@@ -23,43 +24,32 @@ export class HotelComponent {
     showHide: boolean;
 
     constructor (
-        private hotelregistrationservice: HttpService,
+        public httpservice: HttpService,
         public hotelservice: HotelService,
+        public gethotels: GetHotelsService,
         public router: Router) {
-            this.getHotels();
+            // this.getHotels();
         }
 
     onRegistration() {
         this.loading = true;
         const endpoint = 'https://cake-cup.glitch.me/api/hotels';
-        this.hotelregistrationservice.httpRequest(this.hotelservice.hotel.data.attributes, endpoint, 'post')
+        this.httpservice.httpRequest(this.hotelservice.hotel.data.attributes, endpoint, 'post')
             .subscribe(
                 response => {
                     this.loading = false;
-                    this.getHotels()
+                    this.gethotels.getHotels()
                 },
                 error => {
                     console.error(error)
                     this.loading = false;
-                });
-    }
-
-    getHotels() {
-        const endpoint = 'https://cake-cup.glitch.me/api/hotels'
-        this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
-            .subscribe(
-                response => {
-                    this.hotelservice.hotel.hotelList = response;
-                },
-                error => {
-                    console.error(error)
                 });
     }
 
     getHotelId(id) {
         const endpoint = 'https://cake-cup.glitch.me/api/hotels/'+id;
         console.log(id)
-        this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
+        this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
             .subscribe(
                 response => {
                     this.hotelservice.hotel.hotelWithId = response;
@@ -73,10 +63,10 @@ export class HotelComponent {
 
     deleteHotelId(id) {
         const endpoint = 'https://cake-cup.glitch.me/api/hotels/' + id;
-        this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'delete')
+        this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'delete')
             .subscribe(
                 response => {
-                    this.getHotels();
+                    this.gethotels.getHotels();
                 },
                 error => {
                     console.error(error)
