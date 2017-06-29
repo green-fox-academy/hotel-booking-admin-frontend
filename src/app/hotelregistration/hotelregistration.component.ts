@@ -34,7 +34,6 @@ export class HotelComponent {
         this.loading = true;
         const endpoint = 'api/hotels';
         const message = { data: this.hotelservice.hotel.data }
-        console.log(message)
         this.httpservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {

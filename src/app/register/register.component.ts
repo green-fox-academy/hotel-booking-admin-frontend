@@ -18,7 +18,7 @@ export class RegisterComponent {
     token;
     loading = false;
     isValid;
-    endpoint = 'https://cake-cup.glitch.me/api/register';
+    endpoint = 'api/register';
 
     constructor (
         private register: HttpService,
