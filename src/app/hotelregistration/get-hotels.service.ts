@@ -7,7 +7,8 @@ export class GetHotelsService {
 
   constructor(
     public httpservice: HttpService,
-    public hotelservice: HotelService) { }
+    public hotelservice: HotelService
+    ) { }
 
   getHotels() {
     const endpoint = 'https://cake-cup.glitch.me/api/hotels'
