@@ -37,7 +37,6 @@ export class HotelComponent {
         this.httpservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
-                    console.log(response)
                     this.loading = false;
                     this.gethotels.getHotels()
                 },
@@ -48,12 +47,11 @@ export class HotelComponent {
     }
 
     getHotelId(id) {
-        const endpoint = 'https://two-ferns.glitch.me/api/hotels/'+id;
+        const endpoint = 'api/hotels/'+id;
         this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
             .subscribe(
                 response => {
                     this.hotelservice.hotel.hotelWithId = response;
-                    console.log(this.hotelservice.hotel.hotelWithId)
                     this.router.navigate(['hotels/1'])
                 },
                 error => {
@@ -63,7 +61,6 @@ export class HotelComponent {
 
     deleteHotelId(id) {
         const endpoint = 'api/hotels/' + id;
-        console.log(this.hotelservice.hotel.hotelList)
         this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'delete')
             .subscribe(
                 response => {
