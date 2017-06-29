@@ -7,6 +7,8 @@ import {
     transition
 } from '@angular/animations';
 
+import { GetHotelsService } from '../hotelregistration/get-hotels.service';
+
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
@@ -32,14 +34,15 @@ import {
             transition('inactive => active', animate('1s ease-in')),
             transition('active => inactive', animate('1s ease-out')),
         ]),
-    ],
+    ]
 })
 export class NavbarComponent {
     isItLogin = true;
     menuStateOut = true;
     state = 'inactive';
 
-    constructor() { }
+    constructor(
+        public gethotelsservice: GetHotelsService) { }
 
     setIsItLogin() {
         this.isItLogin = true

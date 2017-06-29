@@ -17,6 +17,8 @@ import { StarratingComponent } from './hotelregistration/starrating/starrating.c
 import { NavbarComponent } from './navbar/navbar.component';
 import { SingleHotelComponent } from './hotelregistration/single-hotel/single-hotel.component';
 import { HotelService } from './hotelregistration/hotel.service';
+import { GetHotelsService } from './hotelregistration/get-hotels.service';
+import { HttpService } from './httprequest.service';
 
 @NgModule({
     declarations: [
@@ -38,7 +40,7 @@ import { HotelService } from './hotelregistration/hotel.service';
         JsonpModule,
         BrowserAnimationsModule
     ],
-    providers: [RoutingService, HotelService],
+    providers: [RoutingService, HotelService, GetHotelsService, HttpService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

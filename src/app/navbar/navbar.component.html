@@ -5,7 +5,7 @@
         <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Sign in</a>
         <a [hidden]="setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Sign out</a>
         <a routerLink="/register" [hidden]="!setLoggedOut()">Sign up</a>
-        <a routerLink="/hotels" [hidden]="setLoggedOut()">Hotels</a>
+        <a routerLink="/hotels" [hidden]="setLoggedOut()" (click)="gethotelsservice.getHotels()">Hotels</a>
 
         <span (click)="toggleMenu()" class="hamburger-icon"></span>
         <div [@activateMenu]="state" class="hamburger-menu">
