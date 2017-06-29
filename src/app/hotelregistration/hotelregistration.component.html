@@ -57,5 +57,5 @@
             <li><span [ngClass]="{ 'marked': hotel.attributes.has_air_conditioning, 'not_marked': !hotel.attributes.has_air_conditioning }"></span>air conditioning</li>
         </ul>
     </div>
-    <span (click)="deleteHotelId(hotel.data.id)" class="delete_hotel"></span>
+    <span (click)="deleteHotelId(hotel.id)" class="delete_hotel"></span>
 </div>
