@@ -1,9 +1,9 @@
 export class Hotel {
     data = {
         type: 'hotels',
-        id: 3,
+        id: '',
         attributes: {
-             name: '',
+                name: '',
                 main_image_src: 'https://placebear.com/200/300',
                 has_wifi: false,
                 has_parking: false,

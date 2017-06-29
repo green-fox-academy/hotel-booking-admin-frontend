@@ -32,44 +32,47 @@ export class HotelComponent {
 
     onRegistration() {
         this.loading = true;
-        const endpoint = 'https://cake-cup.glitch.me/api/hotels';
-        this.httpservice.httpRequest(this.hotelservice.hotel.data.attributes, endpoint, 'post')
+        const endpoint = 'https://two-ferns.glitch.me/api/hotels';
+        const message = { data: this.hotelservice.hotel.data }
+        console.log(message)
+        this.httpservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
+                    console.log(response)
                     this.loading = false;
                     this.gethotels.getHotels()
                 },
                 error => {
-                    console.error(error)
+                    console.error(error);
                     this.loading = false;
                 });
     }
 
-    getHotelId(id) {
-        const endpoint = 'https://cake-cup.glitch.me/api/hotels/'+id;
-        this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
-            .subscribe(
-                response => {
-                    this.hotelservice.hotel.hotelWithId = response;
-                    console.log(this.hotelservice.hotel.hotelWithId)
-                    this.router.navigate(['hotels/1'])
-                },
-                error => {
-                    console.error(error);
-                });
-    }
+    // getHotelId(id) {
+    //     const endpoint = 'https://two-ferns.glitch.me/api/hotels/'+id;
+    //     this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
+    //         .subscribe(
+    //             response => {
+    //                 this.hotelservice.hotel.hotelWithId = response;
+    //                 console.log(this.hotelservice.hotel.hotelWithId)
+    //                 this.router.navigate(['hotels/1'])
+    //             },
+    //             error => {
+    //                 console.error(error);
+    //             });
+    // }
 
-    deleteHotelId(id) {
-        const endpoint = 'https://cake-cup.glitch.me/api/hotels/' + id;
-        this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'delete')
-            .subscribe(
-                response => {
-                    this.gethotels.getHotels();
-                },
-                error => {
-                    console.error(error);
-                });
-    }
+    // deleteHotelId(id) {
+    //     const endpoint = 'https://two-ferns.glitch.me/api/hotels/' + id;
+    //     this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'delete')
+    //         .subscribe(
+    //             response => {
+    //                 this.gethotels.getHotels();
+    //             },
+    //             error => {
+    //                 console.error(error);
+    //             });
+    // }
 
     changeShowStatus() {
         this.showHide = !this.showHide;

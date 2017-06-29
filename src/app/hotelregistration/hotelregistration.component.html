@@ -1,4 +1,4 @@
-<!--<main class="main">
+<main class="main">
     <div class="title_container">
         <h2>{{title}}</h2>
         <div class="drop_down" alt="arrow" (click)="changeShowStatus()" [ngClass]="{'up_arrow': showHide}"> </div>
@@ -37,9 +37,9 @@
             <span class="spinner" [hidden]="!loading"></span>
         </div>
 
-    </form>-->
+    </form>
 
-<!--</main>-->
+</main>
 
 <div class="new_hotels" *ngFor="let hotel of hotelservice.hotel.hotelList.data">
     <img class="hotel-image" src="{{hotel.attributes.main_image_src}}" alt="hotel_image">
