@@ -28,7 +28,6 @@ export class HotelComponent {
         public hotelservice: HotelService,
         public gethotels: GetHotelsService,
         public router: Router) {
-            // this.getHotels();
         }
 
     onRegistration() {
