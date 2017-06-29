@@ -32,7 +32,7 @@ export class HotelComponent {
 
     onRegistration() {
         this.loading = true;
-        const endpoint = 'https://two-ferns.glitch.me/api/hotels';
+        const endpoint = 'api/hotels';
         const message = { data: this.hotelservice.hotel.data }
         console.log(message)
         this.httpservice.httpRequest(message, endpoint, 'post')

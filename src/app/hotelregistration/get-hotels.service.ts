@@ -11,7 +11,7 @@ export class GetHotelsService {
     ) { }
 
   getHotels() {
-    const endpoint = 'https://two-ferns.glitch.me/api/hotels'
+    const endpoint = 'api/hotels';
     this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
         .subscribe(
             response => {
