@@ -427,11 +427,13 @@ label {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 30px;
+    padding: 25px;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         padding: 0px;
+        border-left: none;
+        border-right: none;
     }
 }
 
@@ -442,9 +444,28 @@ label {
     box-sizing: border-box;
     margin: 20px;
     border: 1.5px solid $coolGray;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        border-left: none;
+        border-right: none;
+    }
 
     img {
         margin: 10px;
+        margin-top: auto;
+        margin-bottom: auto;
+        @media screen
+        and (max-width: 667px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+            width: 255px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
     }
 }
 
@@ -467,6 +488,12 @@ label {
 }
 
 .hotel_information {
+
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        margin-top: 290px;
+    }
 
     h3 {
     font-size: 2rem;
@@ -542,6 +569,7 @@ label {
         and (-webkit-min-device-pixel-ratio: 2) {
             align-self: flex-end;
             min-width: 45px;
+            margin-top: 300px;
         }
     }
 
