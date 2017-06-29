@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 export class HttpService {
 
     constructor( private http: Http ) { }
-    
+
     httpRequest(bodies, endpoint, reqMethod): Observable<Comment[]> {
         return this.http.request(new Request({
             method: reqMethod,
