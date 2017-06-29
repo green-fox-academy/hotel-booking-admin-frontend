@@ -22,9 +22,11 @@ export class SingleHotelComponent implements OnInit {
 
   updateHotel(id) {
         const endpoint = 'https://cake-cup.glitch.me/api/hotels/'+ id;
-        this.updateservice.httpRequest(this.hotelservice.hotel.data, endpoint, 'patch')
+        console.log(this.hotelservice.hotel.hotelWithId.data)
+        this.updateservice.httpRequest(this.hotelservice.hotel.hotelWithId.data, endpoint, 'patch')
             .subscribe(
                 response => {
+                  console.log(response)
                   this.router.navigate(['hotels'])
                 },
                 error => {
