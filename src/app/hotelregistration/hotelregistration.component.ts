@@ -58,6 +58,7 @@ export class HotelComponent {
 
     getHotelId(id) {
         const endpoint = 'https://cake-cup.glitch.me/api/hotels/'+id;
+        console.log(id)
         this.hotelregistrationservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
             .subscribe(
                 response => {

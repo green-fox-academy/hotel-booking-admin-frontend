@@ -19,8 +19,8 @@ export class SingleHotelComponent implements OnInit {
     public hotelservice: HotelService,
   ) { }
 
-  updateHotel() {
-        const endpoint = 'https://cake-cup.glitch.me/api/hotels/'+ 3;
+  updateHotel(id) {
+        const endpoint = 'https://cake-cup.glitch.me/api/hotels/'+ id;
         this.updateservice.httpRequest(this.hotelservice.hotel.data.attributes, endpoint, 'patch')
             .subscribe(
                 response => {
