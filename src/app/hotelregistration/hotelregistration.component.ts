@@ -61,17 +61,17 @@ export class HotelComponent {
     //             });
     // }
 
-    // deleteHotelId(id) {
-    //     const endpoint = 'https://two-ferns.glitch.me/api/hotels/' + id;
-    //     this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'delete')
-    //         .subscribe(
-    //             response => {
-    //                 this.gethotels.getHotels();
-    //             },
-    //             error => {
-    //                 console.error(error);
-    //             });
-    // }
+    deleteHotelId(id) {
+        const endpoint = 'api/hotels/' + id;
+        this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'delete')
+            .subscribe(
+                response => {
+                    this.gethotels.getHotels();
+                },
+                error => {
+                    console.error(error);
+                });
+    }
 
     changeShowStatus() {
         this.showHide = !this.showHide;

@@ -23,6 +23,6 @@ export class Hotel {
         }
     };
 
-    hotelList;
+    hotelList = [];
     hotelWithId;
 }   

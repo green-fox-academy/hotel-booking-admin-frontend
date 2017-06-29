@@ -16,6 +16,7 @@ export class GetHotelsService {
         .subscribe(
             response => {
                 this.hotelservice.hotel.hotelList = response;
+                console.log(this.hotelservice.hotel.hotelList)
             },
             error => {
                 console.error(error)

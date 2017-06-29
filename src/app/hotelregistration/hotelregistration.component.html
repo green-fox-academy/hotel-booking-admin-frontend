@@ -42,20 +42,20 @@
 </main>
 
 <div class="new_hotels" *ngFor="let hotel of hotelservice.hotel.hotelList.data">
-    <img class="hotel-image" src="{{hotelservice.hotel.data.attributes.main_image_src}}" alt="hotel_image">
+    <img class="hotel-image" src="{{hotel.attributes.main_image_src}}" alt="hotel_image">
     <div class="hotel_information">
-        <h3 (click)="getHotelId(hotel.id)">{{hotelservice.hotel.data.attributes.name}}</h3>
-        <h4>{{hotelservice.hotel.data.attributes.location}}</h4>
-        <p> <strong>meal plan:</strong> {{hotelservice.hotel.data.attributes.meal_plan}}</p>
+        <h3 (click)="getHotelId(hotel.id)">{{hotel.attributes.name}}</h3>
+        <h4>{{hotel.attributes.location}}</h4>
+        <p> <strong>meal plan:</strong> {{hotel.attributes.meal_plan}}</p>
         <ul>
-            <li><span [ngClass]="{'marked': hotelservice.hotel.data.attributes.has_wifi, 'not_marked': !hotelservice.hotel.data.attributes.has_wifi}"></span>wifi</li>
-            <li><span [ngClass]="{ 'marked': hotelservice.hotel.data.attributes.has_parking, 'not_marked': !hotelservice.hotel.data.attributes.has_parking }"></span>parking</li>
-            <li><span [ngClass]="{ 'marked': hotelservice.hotel.data.attributes.has_pets, 'not_marked': !hotelservice.hotel.data.attributes.has_pets }"></span>pets allowed</li>
-            <li><span [ngClass]="{ 'marked': hotelservice.hotel.data.attributes.has_restaurant, 'not_marked': !hotelservice.hotel.data.attributes.has_restaurant }"></span>restaurant</li>
-            <li><span [ngClass]="{ 'marked': hotelservice.hotel.data.attributes.has_bar, 'not_marked': !hotelservice.hotel.data.attributes.has_bar }"></span>bar</li>
-            <li><span [ngClass]="{ 'marked': hotelservice.hotel.data.attributes.has_swimming_pool, 'not_marked': !hotelservice.hotel.data.attributes.has_swimming_pool }"></span>swimming pool</li>
-            <li><span [ngClass]="{ 'marked': hotelservice.hotel.data.attributes.has_air_conditioning, 'not_marked': !hotelservice.hotel.data.attributes.has_air_conditioning }"></span>air conditioning</li>
+            <li><span [ngClass]="{'marked': hotel.attributes.has_wifi, 'not_marked': !hotel.attributes.has_wifi}"></span>wifi</li>
+            <li><span [ngClass]="{ 'marked': hotel.attributes.has_parking, 'not_marked': !hotel.attributes.has_parking }"></span>parking</li>
+            <li><span [ngClass]="{ 'marked': hotel.attributes.has_pets, 'not_marked': !hotel.attributes.has_pets }"></span>pets allowed</li>
+            <li><span [ngClass]="{ 'marked': hotel.attributes.has_restaurant, 'not_marked': !hotel.attributes.has_restaurant }"></span>restaurant</li>
+            <li><span [ngClass]="{ 'marked': hotel.attributes.has_bar, 'not_marked': !hotel.attributes.has_bar }"></span>bar</li>
+            <li><span [ngClass]="{ 'marked': hotel.attributes.has_swimming_pool, 'not_marked': !hotel.attributes.has_swimming_pool }"></span>swimming pool</li>
+            <li><span [ngClass]="{ 'marked': hotel.attributes.has_air_conditioning, 'not_marked': !hotel.attributes.has_air_conditioning }"></span>air conditioning</li>
         </ul>
     </div>
-    <span (click)="deleteHotelId(hotel.id)" class="delete_hotel"></span>
+    <span (click)="deleteHotelId(hotel.data.id)" class="delete_hotel"></span>
 </div>
