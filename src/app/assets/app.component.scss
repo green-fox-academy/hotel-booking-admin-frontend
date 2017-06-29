@@ -201,7 +201,7 @@ $coolGray: #353637;
 
 /* FORMS */
 
-.login-form {
+.form {
     margin: auto;
     font-size: .8rem
 }
@@ -266,7 +266,7 @@ label {
     font-size: 1.1rem;
 }
 
-/* BUTTON */
+/* SEND-BUTTON */
 
 .button-group {
     padding: 20px;
@@ -275,7 +275,7 @@ label {
     justify-content: center;
 }
 
-.login-button {
+.send-button {
     font-size: 1rem;
     font-weight: bold;
     padding: 6px 8px;
@@ -289,7 +289,7 @@ label {
     position: absolute;
 }
 
-.login-button:not([disabled]):hover {
+.send-button:not([disabled]):hover {
     color: $coolGray;
     background-color: white;
     box-shadow: 0px 4px 0px 0px rgba(143,143,143,1);
@@ -298,7 +298,7 @@ label {
     transition: .5s;
 }
 
-.login-button[disabled] {
+.send-button[disabled] {
     color : rgba(0, 0, 0, 0.26);
     background-color: transparent;
 }

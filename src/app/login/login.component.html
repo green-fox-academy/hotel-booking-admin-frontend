@@ -3,7 +3,7 @@
         {{title}}
     </h2>
 
-    <form class="login-form" #form="ngForm">
+    <form class="form" #form="ngForm">
 
         <div class="form-group">
 
@@ -28,7 +28,7 @@
         </div>
 
         <div class="button-group">
-            <button class="login-button" [disabled]="form.invalid" (click)="onUserLogin()">SIGN IN</button>
+            <button class="send-button" [disabled]="form.invalid" (click)="onUserLogin()">SIGN IN</button>
             <span class="spinner" [hidden]="!loading"></span>
         </div>
 

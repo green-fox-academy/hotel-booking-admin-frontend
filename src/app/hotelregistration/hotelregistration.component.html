@@ -4,7 +4,7 @@
         <div class="drop_down" alt="arrow" (click)="changeShowStatus()" [ngClass]="{'up_arrow': showHide}"> </div>
     </div>
 
-    <form [hidden]="!showHide" class="login-form" #form="ngForm">
+    <form [hidden]="!showHide" class="form" #form="ngForm">
 
         <div class="form-group">
             <label for="">Hotel Name</label>
@@ -33,7 +33,7 @@
         <hotel-attributes></hotel-attributes>
 
         <div class="button-group">
-            <button class="login-button" [disabled]="form.invalid" (click)="onRegistration()">Add</button>
+            <button class="send-button" [disabled]="form.invalid" (click)="onRegistration()">Add</button>
             <span class="spinner" [hidden]="!loading"></span>
         </div>
 
