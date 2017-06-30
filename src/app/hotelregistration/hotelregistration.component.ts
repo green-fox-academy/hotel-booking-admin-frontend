@@ -24,13 +24,23 @@ import 'rxjs/add/operator/map';
     animations: [
         trigger('activateMenu', [
             state('inactive', style({
-                transform: 'translateY(-120%)'
+                transform: 'translateY(-100%)'
             })),
             state('active', style({
                 transform: 'translateY(0)'
             })),
-            transition('inactive => active', animate('1.5s ease-in')),
-            transition('active => inactive', animate('1.5s ease-out')),
+            transition('inactive => active', animate('1s ease-out')),
+            transition('active => inactive', animate('1s ease-out')),
+        ]),
+        trigger('moveHotels', [
+            state('inactive', style({
+                transform: 'translateY(-13%)'
+            })),
+            state('active', style({
+                margin: '0',
+            })),
+            transition('inactive => active', animate('1s ease-out')),
+            transition('active => inactive', animate('1s ease-out')),
         ])
     ]
 })
@@ -98,5 +108,10 @@ export class HotelComponent {
     dropMenu() {
         this.state = (this.state === 'inactive' ? 'active' : 'inactive');
         this.showHide = (this.showHide === true ? false : true);
+    }
+
+    moveHotel() {
+        this.state = (this.state === 'inactive' ? 'active' : 'inactive');
+        // this.showHide = (this.showHide === true ? false : true);
     }
 }

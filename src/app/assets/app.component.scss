@@ -31,6 +31,7 @@ $coolGray: #353637;
     font-size: 3rem;
     display: flex;
     justify-content: center;
+    padding-bottom: 20px;
     @media screen and (max-width: 675px) {
         font-size: 2rem;
     }
@@ -95,6 +96,10 @@ $coolGray: #353637;
 .title_container {
     display: flex;
     justify-content: center;
+    z-index: 15;
+    position: relative;
+    top: -15px;
+    background-color: white;
 }
 
 .main {
@@ -432,9 +437,10 @@ label {
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-        padding: 0px;
+        padding: 0;
         border-left: none;
         border-right: none;
+        margin-top: 340px;
     }
 }
 
