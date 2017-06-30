@@ -14,29 +14,44 @@ import { GetHotelsService } from '../get-hotels.service';
   providers: [HttpService],
 })
 export class SingleHotelComponent implements OnInit {
+  timeoutId;
+  timeRestarter;
 
   constructor(
-    private updateservice: HttpService,
-    public hotelservice: HotelService,
-    public gethotelservice: GetHotelsService,
-    public router: Router,
+      private updateservice: HttpService,
+      public hotelservice: HotelService,
+      public gethotelservice: GetHotelsService,
+      public router: Router,
   ) { }
 
   updateHotel(id) {
-        const endpoint = 'api/hotels/'+ id;
-        console.log(this.hotelservice.hotel.hotelWithId.data)
-        this.updateservice.httpRequest(this.hotelservice.hotel.hotelWithId.data, endpoint, 'patch')
-            .subscribe(
-                response => {
-                  console.log(response)
-                  this.router.navigate(['hotels'])
+      const endpoint = 'api/hotels/'+ id;
+      console.log(this.hotelservice.hotel.hotelWithId.data)
+      this.updateservice.httpRequest(this.hotelservice.hotel.hotelWithId.data, endpoint, 'patch')
+          .subscribe(
+              response => {
                   this.gethotelservice.getHotels()
                   
-                },
-                error => {
-                    console.error(error)
-                });
+              },
+              error => {
+                  console.error(error)
+              }
+          );
   }
+  
+  autoSave(id) {
+      this.timeRestarter = clearTimeout(this.timeoutId);
+      this.timeoutId = setTimeout(() => this.updateHotel(id), 1000);
+
+  }
+
+
+
+  redirect() {
+    this.router.navigate(['hotels'])
+  }
+
+
 
   ngOnInit(
   ) { }
