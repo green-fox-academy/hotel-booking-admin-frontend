@@ -35,7 +35,7 @@ export class SingleHotelComponent implements OnInit {
             .subscribe(
                 response => {
                     this.gethotelservice.getHotels()
-
+                    this.timeAgo = 0;
                 },
                 error => {
                     console.error(error)
@@ -48,7 +48,6 @@ export class SingleHotelComponent implements OnInit {
     };
 
     autoSave(id) {
-        this.timeAgo = 0;
         this.timeRestarter = clearTimeout(this.timeoutId);
         this.timeoutId = setTimeout(() => this.updateHotel(id), 1000);
     }
