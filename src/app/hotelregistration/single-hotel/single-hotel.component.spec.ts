@@ -1,8 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { Http,  ConnectionBackend, RequestOptions } from '@angular/http';
+import { HttpModule } from "@angular/http";
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { SingleHotelComponent } from './single-hotel.component';
 import { HotelService } from '../hotel.service';
+import { GetHotelsService } from '../get-hotels.service';
+import { HttpService } from '../../httprequest.service';
 
 describe('SingleHotelComponent', () => {
     let component: SingleHotelComponent;
@@ -10,9 +15,20 @@ describe('SingleHotelComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [ FormsModule ],
+            imports: [ 
+                FormsModule, 
+                HttpModule,
+                RouterTestingModule
+                ],
             declarations: [ SingleHotelComponent ],
-            providers: [ HotelService ]
+            providers: [ 
+                HotelService,
+                Http,
+                ConnectionBackend,
+                GetHotelsService,
+                HttpService,
+                HotelService
+                ]
         })
         .compileComponents();
     }));
