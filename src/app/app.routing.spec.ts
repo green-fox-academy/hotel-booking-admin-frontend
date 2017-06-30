@@ -27,6 +27,8 @@ import { HotelComponent } from './hotelregistration/hotelregistration.component'
 import { SingleHotelComponent } from './hotelregistration/single-hotel/single-hotel.component';
 
 import { HttpService } from './httprequest.service';
+import { GetHotelsService } from './hotelregistration/get-hotels.service';
+import { HotelService } from './hotelregistration/hotel.service';
 
 class RequestOption {
     public requestoption: RequestOptions
@@ -77,6 +79,8 @@ describe('RoutingComponent', () => {
                 ConnectionBackend,
                 HttpService,
                 { provide: XHRBackend, useClass: MockBackend },
+                GetHotelsService,
+                HotelService
             ]
         });
     });
