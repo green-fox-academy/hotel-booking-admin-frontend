@@ -23,19 +23,21 @@ export class SingleHotelComponent implements OnInit {
   ) { }
 
   updateHotel(id) {
-        const endpoint = 'api/hotels/'+ id;
-        console.log(this.hotelservice.hotel.hotelWithId.data)
-        this.updateservice.httpRequest(this.hotelservice.hotel.hotelWithId.data, endpoint, 'patch')
-            .subscribe(
-                response => {
-                  console.log(response)
-                  this.router.navigate(['hotels'])
-                  this.gethotelservice.getHotels()
-                  
-                },
-                error => {
-                    console.error(error)
-                });
+      const endpoint = 'api/hotels/'+ id;
+      console.log(this.hotelservice.hotel.hotelWithId.data)
+      this.updateservice.httpRequest(this.hotelservice.hotel.hotelWithId.data, endpoint, 'patch')
+          .subscribe(
+              response => {
+                  this.gethotelservice.getHotels() 
+              },
+              error => {
+                  console.error(error)
+              }
+          );
+  }
+
+  redirect() {
+    this.router.navigate(['hotels'])
   }
 
   ngOnInit(
