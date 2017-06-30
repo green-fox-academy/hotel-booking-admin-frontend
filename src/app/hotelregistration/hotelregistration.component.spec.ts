@@ -2,12 +2,14 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HotelComponent } from './hotelregistration.component';
 import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 import { StarratingComponent } from './starrating/starrating.component';
+import { GetHotelsService } from './get-hotels.service';
 
 describe('HotelComponent', () => {
   beforeEach(async(() => {
@@ -15,14 +17,19 @@ describe('HotelComponent', () => {
         imports: [
             RouterTestingModule,
             FormsModule,
-            HttpModule
+            HttpModule,
+            BrowserAnimationsModule
         ],
         declarations: [
             HotelComponent,
             AttributesComponent,
             StarratingComponent
         ],
-        providers: [HttpService, HotelService]
+        providers: [
+          HttpService, 
+          HotelService,
+          GetHotelsService
+          ]
     }).compileComponents();
   }));
 
