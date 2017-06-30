@@ -3,7 +3,10 @@
         Modify
     </h2>
 
+    <div [hidden]="autosaveVisible" class="autosave">Autosave {{counter}} seconds ago!</div>
+
     <form class="form" #form="ngForm">
+
 
         <div class="form-group">
             <label for="">Hotel Name</label>
