@@ -6,7 +6,6 @@ import { HotelService } from '../hotel.service';
 import { HttpService } from '../../httprequest.service';
 import { GetHotelsService } from '../get-hotels.service';
 
-
 @Component({
     selector: 'app-single-hotel',
     templateUrl: './single-hotel.component.html',
@@ -17,8 +16,8 @@ export class SingleHotelComponent implements OnInit {
     timeoutId;
     timeRestarter;
     autosaveVisible = true;
-    timeAgo = 0;
-    counter;
+    timeAgo = 1;
+    counter = setInterval(this.setTimeAgo.bind(this), 1000);
 
     constructor(
         private updateservice: HttpService,
@@ -45,14 +44,13 @@ export class SingleHotelComponent implements OnInit {
         }
 
     setTimeAgo () {
-        this.timeAgo++
+        this.timeAgo++;
     };
 
     autoSave(id) {
         this.timeAgo = 0;
         this.timeRestarter = clearTimeout(this.timeoutId);
         this.timeoutId = setTimeout(() => this.updateHotel(id), 1000);
-        this.counter = setInterval(this.setTimeAgo, 1000);
     }
 
     redirect() {
