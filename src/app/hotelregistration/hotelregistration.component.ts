@@ -34,7 +34,7 @@ import 'rxjs/add/operator/map';
         ]),
         trigger('moveHotels', [
             state('inactive', style({
-                transform: 'translateY(-13%)'
+                transform: 'translateY(-11%)'
             })),
             state('active', style({
                 margin: '0',
