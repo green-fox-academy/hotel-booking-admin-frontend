@@ -8,7 +8,7 @@
         <div class="form-group">
             <label for="">Hotel Name</label>
             <input type="text" class="form-control" name="name"
-            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.name" #name="ngModel" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.name" #name="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
         </div>
 
         <div class="form-group">

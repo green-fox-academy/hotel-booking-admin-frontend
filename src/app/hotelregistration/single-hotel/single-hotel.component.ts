@@ -14,12 +14,14 @@ import { GetHotelsService } from '../get-hotels.service';
   providers: [HttpService],
 })
 export class SingleHotelComponent implements OnInit {
+  timeoutId;
+  timeRestarter;
 
   constructor(
-    private updateservice: HttpService,
-    public hotelservice: HotelService,
-    public gethotelservice: GetHotelsService,
-    public router: Router,
+      private updateservice: HttpService,
+      public hotelservice: HotelService,
+      public gethotelservice: GetHotelsService,
+      public router: Router,
   ) { }
 
   updateHotel(id) {
@@ -35,10 +37,20 @@ export class SingleHotelComponent implements OnInit {
               }
           );
   }
+  
+  autoSave(id) {
+      this.timeRestarter = clearTimeout(this.timeoutId);
+      this.timeoutId = setTimeout(() => this.updateHotel(id), 3000);
+
+  }
+
+
 
   redirect() {
     this.router.navigate(['hotels'])
   }
+
+
 
   ngOnInit(
   ) { }
