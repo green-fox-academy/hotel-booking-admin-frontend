@@ -30,7 +30,8 @@ export class SingleHotelComponent implements OnInit {
       this.updateservice.httpRequest(this.hotelservice.hotel.hotelWithId.data, endpoint, 'patch')
           .subscribe(
               response => {
-                  this.gethotelservice.getHotels() 
+                  this.gethotelservice.getHotels()
+                  
               },
               error => {
                   console.error(error)
@@ -40,7 +41,7 @@ export class SingleHotelComponent implements OnInit {
   
   autoSave(id) {
       this.timeRestarter = clearTimeout(this.timeoutId);
-      this.timeoutId = setTimeout(() => this.updateHotel(id), 3000);
+      this.timeoutId = setTimeout(() => this.updateHotel(id), 1000);
 
   }
 

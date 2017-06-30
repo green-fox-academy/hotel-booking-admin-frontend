@@ -14,7 +14,7 @@
         <div class="form-group">
             <label for="">Locatiton</label>
             <input type="text" class="form-control" name="location"
-            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.location" #location="ngModel">
+            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.location" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
         </div>
 
        <div class="form-group">
