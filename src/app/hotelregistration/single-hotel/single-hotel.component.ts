@@ -15,7 +15,6 @@ import { GetHotelsService } from '../get-hotels.service';
 export class SingleHotelComponent implements OnInit {
     timeoutId;
     timeRestarter;
-    autosaveHidden = true;
     messageActive = true;
     messageInactive = false;
     saving = false;
@@ -33,19 +32,16 @@ export class SingleHotelComponent implements OnInit {
 
 
     updateHotel(id) {
-        // this.autosaveHidden = false;
         this.emptyAutosave = false;
         this.emptyMessage = false
         this.saving = true;
         this.messageActive = true;
-        console.log(this.autosaveHidden)
         const endpoint = 'api/hotels/' + id;
-        console.log(this.hotelservice.hotel.hotelWithId.data)
         this.updateservice.httpRequest(this.hotelservice.hotel.hotelWithId.data, endpoint, 'patch')
             .subscribe(
                 response => {
                     this.gethotelservice.getHotels()
-                    this.fadeMessage()
+                    this.fadeOutMessageTimer()
                     this.timeAgo = 0;
                     this.saving = false;
                     this.emptyAutosave = true;
@@ -66,11 +62,11 @@ export class SingleHotelComponent implements OnInit {
         this.timeoutId = setTimeout(() => this.updateHotel(id), 1000);
     }
 
-    fadeMessage() {
-        setTimeout(() => this.changeMessageActivity(), 4000)
+    fadeOutMessageTimer() {
+        setTimeout(() => this.fadeOutMessage(), 4000)
     }
 
-    changeMessageActivity() {
+    fadeOutMessage() {
         this.messageActive = false;
         this.messageInactive = true;
     }
