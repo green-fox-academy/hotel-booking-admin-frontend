@@ -116,20 +116,32 @@ $coolGray: #353637;
 
 }
 
-/* SINGLE HOTEL PAGE */
+/* SINGLE HOTEL PAGE
+    AUTOSAVE */
 
-h6{
+.autosave{
     font-size: 1rem;
-    color: #20d1ac;
-    background-color: #dbf9de;
+    color: white;
+    background-color: #20d1ac;
     padding: 5px;
     width: 200px;
     margin: auto;
     display: block;
-    border-radius: 3px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.autosave-message {
+    font-size: 1rem;
+    padding: 5px;
+    width: 200px;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
     transition: none;
     text-align: center;
 }
+
 
 /* HAMBURGER */
 

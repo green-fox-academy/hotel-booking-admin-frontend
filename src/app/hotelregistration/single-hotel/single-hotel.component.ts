@@ -15,7 +15,7 @@ import { GetHotelsService } from '../get-hotels.service';
 export class SingleHotelComponent implements OnInit {
     timeoutId;
     timeRestarter;
-    autosaveVisible = true;
+    autosaveHidden = true;
     timeAgo = 1;
     counter = setInterval(this.setTimeAgo.bind(this), 1000);
 
@@ -29,7 +29,7 @@ export class SingleHotelComponent implements OnInit {
 
     updateHotel(id) {
         const endpoint = 'api/hotels/' + id;
-        this.autosaveVisible = false;
+        this.autosaveHidden = false;
         console.log(this.hotelservice.hotel.hotelWithId.data)
         this.updateservice.httpRequest(this.hotelservice.hotel.hotelWithId.data, endpoint, 'patch')
             .subscribe(

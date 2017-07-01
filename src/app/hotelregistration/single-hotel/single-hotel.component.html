@@ -3,7 +3,9 @@
         Modify
     </h2>
 
-    <h6 [hidden]="autosaveVisible" class="autosave" >Autosave {{timeAgo}} seconds ago!</h6>
+    <h6 [hidden]="autosaveHidden" class="autosave" >Autosave...</h6>
+    <h6 [hidden]="!autosaveVisible" class="autosave-message" >Realax, autosave is working!</h6>
+
 
     <form class="form" #form="ngForm">
 
