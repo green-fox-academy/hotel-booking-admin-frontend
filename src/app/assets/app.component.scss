@@ -118,6 +118,13 @@ $coolGray: #353637;
 
 /* SINGLE HOTEL PAGE
     AUTOSAVE */
+.empty-field {
+    color: white;
+    padding: 5px;
+    font-size: 1rem;
+    width: 200px;
+    display: block;
+}
 
 .autosave{
     font-size: 1rem;
@@ -142,7 +149,7 @@ $coolGray: #353637;
 }
 
 .autosave-message-fade {
-    color: rgba(#353637, 0.61);
+    color: rgba(#353637, 0.4);
     font-size: 1rem;
     padding: 5px;
     width: 200px;
@@ -150,7 +157,7 @@ $coolGray: #353637;
     display: block;
     border-radius: 10px;
     text-align: center;
-    transition: 0.5s linear;
+    transition: all 0.5s linear;
 }
 
 /* HAMBURGER */

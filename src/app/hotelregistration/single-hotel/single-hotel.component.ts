@@ -18,6 +18,9 @@ export class SingleHotelComponent implements OnInit {
     autosaveHidden = true;
     messageActive = true;
     messageInactive = false;
+    saving = false;
+    emptyAutosave = true;
+    emptyMessage = true;
     timeAgo = 1;
     counter = setInterval(this.setTimeAgo.bind(this), 1000);
 
@@ -30,15 +33,23 @@ export class SingleHotelComponent implements OnInit {
 
 
     updateHotel(id) {
+        // this.autosaveHidden = false;
+        this.emptyAutosave = false;
+        this.emptyMessage = false
+        this.saving = true;
+        this.messageActive = true;
+        console.log(this.autosaveHidden)
         const endpoint = 'api/hotels/' + id;
         console.log(this.hotelservice.hotel.hotelWithId.data)
         this.updateservice.httpRequest(this.hotelservice.hotel.hotelWithId.data, endpoint, 'patch')
             .subscribe(
                 response => {
-                    this.autosaveHidden = false;
                     this.gethotelservice.getHotels()
                     this.fadeMessage()
                     this.timeAgo = 0;
+                    this.saving = false;
+                    this.emptyAutosave = true;
+                    this.messageInactive = false;
                 },
                 error => {
                     console.error(error)

@@ -3,8 +3,12 @@
         Modify
     </h2>
 
-    <p [hidden]="autosaveHidden" class="autosave" >Autosave...</p>
-    <p [hidden]="!autosaveHidden" [ngClass]="{'autosave-message' : messageActive, 'autosave-message-fade': messageInactive}">Realax, autosave is working!</p>
+    <div>
+        <p [ngClass]="{'autosave' : saving, 'empty-field': emptyAutosave}" >Autosave...</p>
+    </div>
+    <div >
+        <p [ngClass]="{'autosave-message' : messageActive, 'autosave-message-fade': messageInactive, 'empty-field': emptyMessage}">Realax, autosave is working!</p>
+    </div>
 
 
     <form class="form" #form="ngForm">
