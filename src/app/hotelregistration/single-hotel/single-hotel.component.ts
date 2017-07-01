@@ -16,6 +16,8 @@ export class SingleHotelComponent implements OnInit {
     timeoutId;
     timeRestarter;
     autosaveHidden = true;
+    messageActive = true;
+    messageInactive = false;
     timeAgo = 1;
     counter = setInterval(this.setTimeAgo.bind(this), 1000);
 
@@ -29,12 +31,13 @@ export class SingleHotelComponent implements OnInit {
 
     updateHotel(id) {
         const endpoint = 'api/hotels/' + id;
-        this.autosaveHidden = false;
         console.log(this.hotelservice.hotel.hotelWithId.data)
         this.updateservice.httpRequest(this.hotelservice.hotel.hotelWithId.data, endpoint, 'patch')
             .subscribe(
                 response => {
+                    this.autosaveHidden = false;
                     this.gethotelservice.getHotels()
+                    this.fadeMessage()
                     this.timeAgo = 0;
                 },
                 error => {
@@ -50,6 +53,15 @@ export class SingleHotelComponent implements OnInit {
     autoSave(id) {
         this.timeRestarter = clearTimeout(this.timeoutId);
         this.timeoutId = setTimeout(() => this.updateHotel(id), 1000);
+    }
+
+    fadeMessage() {
+        setTimeout(() => this.changeMessageActivity(), 4000)
+    }
+
+    changeMessageActivity() {
+        this.messageActive = false;
+        this.messageInactive = true;
     }
 
     redirect() {

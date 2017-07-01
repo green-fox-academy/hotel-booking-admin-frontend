@@ -138,10 +138,20 @@ $coolGray: #353637;
     margin: auto;
     display: block;
     border-radius: 10px;
-    transition: none;
     text-align: center;
 }
 
+.autosave-message-fade {
+    color: rgba(#353637, 0.61);
+    font-size: 1rem;
+    padding: 5px;
+    width: 200px;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.5s linear;
+}
 
 /* HAMBURGER */
 
