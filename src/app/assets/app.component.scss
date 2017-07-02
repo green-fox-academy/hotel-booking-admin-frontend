@@ -524,16 +524,23 @@ label {
         padding: 0;
         border-left: none;
         border-right: none;
-        // margin-top: 340px;
     }
 }
 
-.hotelsUp {
-
+.hotels-up {
+    transform: translateY(0);
+    transition: 1s ease-out;
 }
 
-.hotelsDown {
-
+.hotels-down {
+    transform: translateY(-13%);
+    transition: 1s ease-in;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        transform: translateY(-8.5%);
+        transition: 1s ease-in;
+    }
 }
 
 .hotel {

@@ -13,29 +13,7 @@ import 'rxjs/add/operator/map';
     selector: 'addhotel-page',
     templateUrl: './hotelregistration.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [HttpService],
-    // animations: [
-    //     trigger('activateMenu', [
-    //         state('inactive', style({
-    //             transform: 'translateY(-100%)'
-    //         })),
-    //         state('active', style({
-    //             transform: 'translateY(0)'
-    //         })),
-    //         transition('inactive => active', animate('1s ease-out')),
-    //         transition('active => inactive', animate('1s ease-out')),
-    //     ]),
-    //     trigger('moveHotels', [
-    //         state('inactive', style({
-    //             transform: 'translateY(-11%)'
-    //         })),
-    //         state('active', style({
-    //             margin: '0',
-    //         })),
-    //         transition('inactive => active', animate('1s ease-out')),
-    //         transition('active => inactive', animate('1s ease-out')),
-    //     ])
-    // ]
+    providers: [HttpService]
 })
 
 export class HotelComponent {
@@ -114,9 +92,4 @@ export class HotelComponent {
             this.hotelsDown = true;
         }
     }
-    //
-    // moveHotel() {
-    //     this.state = (this.state === 'inactive' ? 'active' : 'inactive');
-        // this.showHide = (this.showHide === true ? false : true);
-    // }
 }
