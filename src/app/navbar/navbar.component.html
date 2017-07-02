@@ -8,13 +8,13 @@
         <a routerLink="/hotels" [hidden]="setLoggedOut()" (click)="gethotelsservice.getHotels()">Hotels</a>
 
         <span (click)="toggleMenu()" class="hamburger-icon"></span>
-        <div [@activateMenu]="state" class="hamburger-menu">
+        <div [ngClass]="{'hamburger-menu': true, 'menu-in': menuIn, 'menu-out': menuOut}">
             <a routerLink="/" (click)="setIsItLogin()">Home</a>
             <a [hidden]="!setLoggedOut()" routerLink="/login" (click)="setIsItLogin()">Sign in</a>
             <a [hidden]="setLoggedOut()" routerLink="/login" (click)="clearSessionStorage()">Sign out</a>
             <a routerLink="/register" [hidden]="!setLoggedOut()">Sign up</a>
             <a routerLink="/hotels" [hidden]="setLoggedOut()" (click)="gethotelsservice.getHotels()">Hotels</a>
         </div>
-        <div [hidden]="menuStateOut" [@blurBackground]="state" (click)="!toggleMenu()" class="blur"></div>
+        <div [ngClass]="{'hamburger-menu': true, 'blur-on': blurOn, 'blur-off': blurOff}" (click)="!toggleMenu()" class="blur-in"></div>
     </div>
 </nav>
