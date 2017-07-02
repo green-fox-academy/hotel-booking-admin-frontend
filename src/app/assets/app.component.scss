@@ -93,7 +93,7 @@ $coolGray: #353637;
 
 /* LOGIN & HOME & REG & HOTEL*/
 
-.title_container {
+.title__container {
     display: flex;
     justify-content: center;
     z-index: 15;
@@ -107,8 +107,7 @@ $coolGray: #353637;
 }
 
 .main h2 {
-    padding-top: 20px;
-    padding-bottom: 60px;
+    padding: 20px;
     font-size: 2rem;
     display: flex;
     justify-content: center;
@@ -118,6 +117,7 @@ $coolGray: #353637;
 
 /* SINGLE HOTEL PAGE
     AUTOSAVE */
+
 .empty-field {
     color: white;
     padding: 5px;
@@ -284,6 +284,16 @@ $coolGray: #353637;
 .form {
     margin: auto;
     font-size: .8rem
+}
+
+.form-in {
+    transform: translateY(0);
+    transition: 1s ease-out;
+}
+
+.form-out {
+    transform: translateY(-100%);
+    transition: 1s ease-in;
 }
 
 .form-group {
@@ -514,8 +524,16 @@ label {
         padding: 0;
         border-left: none;
         border-right: none;
-        margin-top: 340px;
+        // margin-top: 340px;
     }
+}
+
+.hotelsUp {
+
+}
+
+.hotelsDown {
+
 }
 
 .hotel {

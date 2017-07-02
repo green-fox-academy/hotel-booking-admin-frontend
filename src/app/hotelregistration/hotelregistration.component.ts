@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { Router } from '@angular/router';
-import {
-    trigger,
-    state,
-    style,
-    animate,
-    transition
-} from '@angular/animations';
 
 import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
@@ -21,28 +14,28 @@ import 'rxjs/add/operator/map';
     templateUrl: './hotelregistration.component.html',
     styleUrls: ['../assets/app.component.scss'],
     providers: [HttpService],
-    animations: [
-        trigger('activateMenu', [
-            state('inactive', style({
-                transform: 'translateY(-100%)'
-            })),
-            state('active', style({
-                transform: 'translateY(0)'
-            })),
-            transition('inactive => active', animate('1s ease-out')),
-            transition('active => inactive', animate('1s ease-out')),
-        ]),
-        trigger('moveHotels', [
-            state('inactive', style({
-                transform: 'translateY(-11%)'
-            })),
-            state('active', style({
-                margin: '0',
-            })),
-            transition('inactive => active', animate('1s ease-out')),
-            transition('active => inactive', animate('1s ease-out')),
-        ])
-    ]
+    // animations: [
+    //     trigger('activateMenu', [
+    //         state('inactive', style({
+    //             transform: 'translateY(-100%)'
+    //         })),
+    //         state('active', style({
+    //             transform: 'translateY(0)'
+    //         })),
+    //         transition('inactive => active', animate('1s ease-out')),
+    //         transition('active => inactive', animate('1s ease-out')),
+    //     ]),
+    //     trigger('moveHotels', [
+    //         state('inactive', style({
+    //             transform: 'translateY(-11%)'
+    //         })),
+    //         state('active', style({
+    //             margin: '0',
+    //         })),
+    //         transition('inactive => active', animate('1s ease-out')),
+    //         transition('active => inactive', animate('1s ease-out')),
+    //     ])
+    // ]
 })
 
 export class HotelComponent {
@@ -51,7 +44,10 @@ export class HotelComponent {
     loading = false;
     hotelDetails;
     showHide: boolean;
-    state = 'inactive';
+    formIn = false;
+    formOut = true;
+    hotelsUp = false;
+    hotelsDown = true;
 
     constructor (
         public httpservice: HttpService,
@@ -77,7 +73,7 @@ export class HotelComponent {
     }
 
     getHotelId(id) {
-        const endpoint = 'api/hotels/'+id;
+        const endpoint = 'api/hotels/' + id;
         this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
             .subscribe(
                 response => {
@@ -105,13 +101,22 @@ export class HotelComponent {
         this.showHide = !this.showHide;
     }
 
-    dropMenu() {
-        this.state = (this.state === 'inactive' ? 'active' : 'inactive');
-        this.showHide = (this.showHide === true ? false : true);
+    dropForm() {
+        if (this.formOut) {
+            this.formIn = true;
+            this.formOut = false;
+            this.hotelsUp = true;
+            this.hotelsDown = false;
+        } else {
+            this.formIn = false;
+            this.formOut = true;
+            this.hotelsUp = false;
+            this.hotelsDown = true;
+        }
     }
-
-    moveHotel() {
-        this.state = (this.state === 'inactive' ? 'active' : 'inactive');
+    //
+    // moveHotel() {
+    //     this.state = (this.state === 'inactive' ? 'active' : 'inactive');
         // this.showHide = (this.showHide === true ? false : true);
-    }
+    // }
 }
