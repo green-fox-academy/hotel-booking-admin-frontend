@@ -681,14 +681,27 @@ label {
         }
     }
 }
-    .undo-delete {
-        background-color: #20d1ac;
-        width: 100%;
-        height: 50px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
+
+.undo-delete {
+    background-color: #20d1ac;
+    width: 100%;
+    height: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+
+    span {
+        padding-top: 10px;
     }
+
+    button {
+        background-color: #20d1ac;
+        border: none;
+    }
+}
+
+
 
 
     .hotel-star {
