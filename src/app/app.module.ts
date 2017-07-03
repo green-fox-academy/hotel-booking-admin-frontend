@@ -19,6 +19,7 @@ import { SingleHotelComponent } from './hotelregistration/single-hotel/single-ho
 import { HotelService } from './hotelregistration/hotel.service';
 import { GetHotelsService } from './hotelregistration/get-hotels.service';
 import { HttpService } from './httprequest.service';
+import { HotelAttributesService } from './hotelregistration/attributes/hotel-attributes.service'
 
 @NgModule({
     declarations: [
@@ -40,7 +41,13 @@ import { HttpService } from './httprequest.service';
         JsonpModule,
         BrowserAnimationsModule
     ],
-    providers: [RoutingService, HotelService, GetHotelsService, HttpService],
+    providers: [
+        RoutingService,
+        HotelService,
+        GetHotelsService,
+        HttpService,
+        HotelAttributesService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

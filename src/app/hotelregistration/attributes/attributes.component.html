@@ -1,7 +1,11 @@
-<!-- <div class="form-group" *ngFor="let attribute of attributes">
+<!-- <div class="form-group container__checkbox">
 
-    <label for="">alma</label>
-    <input type="checkbox" name="wifi" [(ngModel)]="hotelservice.hotel.data.attributes.has_wifi" #wifi="ngModel">
+    <div class="form-group-checkbox" *ngFor="let attribute of attributes, let i = index">
+
+        <input type="checkbox" name="{{attribute[0]}}" [(ngModel)]="attribute[1]" #{{attribute[0]}}="ngModel">
+        <label for="">{{attribute[0]}}</label>
+
+    </div>
 
 </div> -->
 
