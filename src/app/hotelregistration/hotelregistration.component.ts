@@ -79,14 +79,15 @@ export class HotelComponent {
     }
 
     startDeleteTimeOut(id) {
-        this.undoHidden = false;
+        this.undoHidden = !this.undoHidden;
+        clearTimeout(this.timeout)
         console.log(id)
         this.timeout = setTimeout(() => this.deleteHotelId(id), 5000)
     }
 
-    undoDeleteTimeout() {
+    undoDeleteTimeout(id) {
         clearTimeout(this.timeout)
-        this.undoHidden =true;
+        this.undoHidden = true;
     }
 
 
