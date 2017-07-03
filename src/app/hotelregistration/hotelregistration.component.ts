@@ -26,6 +26,8 @@ export class HotelComponent {
     formOut = true;
     hotelsUp = false;
     hotelsDown = true;
+    undoHidden = true;
+    timeout;
 
     constructor (
         public httpservice: HttpService,
@@ -69,11 +71,24 @@ export class HotelComponent {
             .subscribe(
                 response => {
                     this.gethotels.getHotels();
+                    this.undoHidden = true;
                 },
                 error => {
                     console.error(error);
                 });
     }
+
+    startDeleteTimeOut(id) {
+        this.undoHidden = false;
+        console.log(id)
+        this.timeout = setTimeout(() => this.deleteHotelId(id), 5000)
+    }
+
+    undoDeleteTimeout() {
+        clearTimeout(this.timeout)
+        this.undoHidden =true;
+    }
+
 
     changeShowStatus() {
         this.showHide = !this.showHide;

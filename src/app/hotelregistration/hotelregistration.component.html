@@ -57,11 +57,13 @@
                     <li><span [ngClass]="{ 'marked': hotel.attributes.has_bar, 'not_marked': !hotel.attributes.has_bar }"></span>bar</li>
                     <li><span [ngClass]="{ 'marked': hotel.attributes.has_swimming_pool, 'not_marked': !hotel.attributes.has_swimming_pool }"></span>swimming pool</li>
                     <li><span [ngClass]="{ 'marked': hotel.attributes.has_air_conditioning, 'not_marked': !hotel.attributes.has_air_conditioning }"></span>air conditioning</li>
+                    <li><span [ngClass]="{ 'marked': hotel.attributes.has_gym, 'not_marked': !hotel.attributes.gym }"></span>gym</li>
                 </ul>
             </div>
         </div>
         <div class="icons">
-            <span (click)="deleteHotelId(hotel.id)" class="delete_hotel"></span>
+            <span (click)="startDeleteTimeOut(hotel.id)" class="delete-hotel" [hidden]="!undoHidden"></span>
+            <span (click)="undoDeleteTimeout()" class="undo-delete-hotel" [hidden]="undoHidden"></span>
             <div>
                 <span class="hotel-star">{{hotel.attributes.stars}}</span>
             </div>
