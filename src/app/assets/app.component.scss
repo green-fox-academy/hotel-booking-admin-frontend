@@ -541,6 +541,11 @@ label {
         transform: translateY(-8.5%);
         transition: 1s ease-in;
     }
+    @media screen
+    and (min-width: 1225px) {
+        transform: translateY(-19%);
+        transition: 1s ease-in;
+    }
 }
 
 .hotel {
