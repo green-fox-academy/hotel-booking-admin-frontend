@@ -4,7 +4,7 @@ export class Hotel {
         id: '',
         attributes: {
                 name: '',
-                main_image_src: 'https://placebear.com/200/300',
+                main_image_src: 'https://placebear.com/300/300',
                 has_wifi: false,
                 has_parking: false,
                 has_pets: false,

@@ -31,6 +31,7 @@ $coolGray: #353637;
     font-size: 3rem;
     display: flex;
     justify-content: center;
+    padding-bottom: 20px;
     @media screen and (max-width: 675px) {
         font-size: 2rem;
     }
@@ -92,9 +93,13 @@ $coolGray: #353637;
 
 /* LOGIN & HOME & REG & HOTEL*/
 
-.title_container {
+.title__container {
     display: flex;
     justify-content: center;
+    z-index: 15;
+    position: relative;
+    top: -15px;
+    background-color: white;
 }
 
 .main {
@@ -102,12 +107,57 @@ $coolGray: #353637;
 }
 
 .main h2 {
-    padding-top: 20px;
-    padding-bottom: 60px;
+    padding: 20px;
     font-size: 2rem;
     display: flex;
     justify-content: center;
     text-transform: uppercase;
+
+}
+
+/* SINGLE HOTEL PAGE
+    AUTOSAVE */
+
+.empty-field {
+    color: white;
+    padding: 5px;
+    font-size: 1rem;
+    width: 200px;
+    display: block;
+}
+
+.autosave{
+    font-size: 1rem;
+    color: white;
+    background-color: #20d1ac;
+    padding: 5px;
+    width: 200px;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.autosave-message {
+    font-size: 1rem;
+    padding: 5px;
+    width: 200px;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.autosave-message-fade {
+    color: rgba(#353637, 0.4);
+    font-size: 1rem;
+    padding: 5px;
+    width: 200px;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.5s linear;
 }
 
 /* HAMBURGER */
@@ -133,6 +183,16 @@ $coolGray: #353637;
     right:0px;
     width: 70%;
     z-index: 10;
+}
+
+.menu-in {
+    transform: translateX(0);
+    transition: 1s ease-out;
+}
+
+.menu-out {
+    transform: translateX(100%);
+    transition: 1s ease-in;
 }
 
 .hamburger-menu a {
@@ -170,17 +230,36 @@ $coolGray: #353637;
     }
 }
 
-.blur {
+.blur-on {
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-    z-index: 5;
-    position: absolute;
-    left: 0;
-    top: 60px;
-    bottom: 0px;
-    width: 100%;
-    height: 2000%;
+        z-index: 5;
+        position: absolute;
+        left: 0;
+        top: 60px;
+        bottom: 0px;
+        width: 100%;
+        height: 2000%;
+        background-color: rgba(0, 0, 0, 0.20);
+        transition: background 1s ease;
+    }
+}
+
+.blur-off {
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        z-index: -10;
+        position: absolute;
+        left: 0;
+        top: 60px;
+        bottom: 0px;
+        width: 100%;
+        height: 2000%;
+        background-color: rgba(0, 0, 0, 0);
+        transform: translateX(100%);
+        transition: background 1s ease;
     }
 }
 
@@ -205,6 +284,16 @@ $coolGray: #353637;
 .form {
     margin: auto;
     font-size: .8rem
+}
+
+.form-in {
+    transform: translateY(0);
+    transition: 1s ease-out;
+}
+
+.form-out {
+    transform: translateY(-100%);
+    transition: 1s ease-in;
 }
 
 .form-group {
@@ -432,9 +521,25 @@ label {
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-        padding: 0px;
+        padding: 0;
         border-left: none;
         border-right: none;
+    }
+}
+
+.hotels-up {
+    transform: translateY(0);
+    transition: 1s ease-out;
+}
+
+.hotels-down {
+    transform: translateY(-13%);
+    transition: 1s ease-in;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        transform: translateY(-8.5%);
+        transition: 1s ease-in;
     }
 }
 

@@ -1,10 +1,10 @@
 <main class="main">
-    <div class="title_container">
+    <div class="title__container">
         <h2>{{title}}</h2>
-        <div class="drop_down" alt="arrow" (click)="dropMenu()" [ngClass]="{'up_arrow': showHide}"> </div>
+        <div class="drop_down" alt="arrow" (click)="dropForm()" [ngClass]="{'up_arrow': showHide}"> </div>
     </div>
 
-    <form [hidden]="!showHide" [@activateMenu]="state" class="form" #form="ngForm">
+    <form [ngClass]="{'form': true, 'form-in': formIn, 'form-out': formOut}" #form="ngForm">
 
         <div class="form-group">
             <label for="">Hotel Name</label>
@@ -41,7 +41,7 @@
 
 </main>
 
-<section class="allhotels">
+<section [ngClass]="{'allhotels': true, 'hotels-up': hotelsUp, 'hotels-down': hotelsDown}" class="allhotels">
     <div class="hotel" *ngFor="let hotel of hotelservice.hotel.hotelList.data">
         <div class="hotel_details">
             <img class="hotel-image" src="{{hotel.attributes.main_image_src}}" alt="hotel_image">
