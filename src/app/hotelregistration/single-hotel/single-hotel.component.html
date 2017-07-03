@@ -29,11 +29,11 @@
 
         <div class="form-group">
             <label for="">Meal Plan</label>
-            <select class="meal" name="meals" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.meal_plan"  #meal1="ngModel" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
-                <option value="american_plan" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">American Plan</option>
-                <option value="modified_american_plan" name="meal2" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">Modified American Plan</option>
-                <option value="continental_plan" name="meal2" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">Continental Plan</option>
-                <option value="european_plan" name="meal2" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">European Plan</option>
+            <select class="meal" name="meals" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.meal_plan"  #meal1="ngModel" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+                <option value="american_plan">American Plan</option>
+                <option value="modified_american_plan" name="meal2">Modified American Plan</option>
+                <option value="continental_plan" name="meal2">Continental Plan</option>
+                <option value="european_plan" name="meal2">European Plan</option>
             </select>
 
         </div>
