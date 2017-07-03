@@ -680,24 +680,16 @@ label {
             margin-top: 300px;
         }
     }
-
-     .undo-delete-hotel {
-        min-width: 40px;
+}
+    .undo-delete {
+        background-color: #20d1ac;
+        width: 100%;
         height: 50px;
-        margin: 20px;
-        margin-bottom: 30px;
-        background-image: url(pencil.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        cursor: pointer;
-        @media screen
-        and (max-width: 667px)
-        and (-webkit-min-device-pixel-ratio: 2) {
-            align-self: flex-end;
-            min-width: 45px;
-            margin-top: 300px;
-        }
+        position: fixed;
+        bottom: 0;
+        left: 0;
     }
+
 
     .hotel-star {
         margin: 10px;
@@ -708,4 +700,3 @@ label {
         padding: 1.3rem;
         padding-top: 1.1rem;
     }
-}

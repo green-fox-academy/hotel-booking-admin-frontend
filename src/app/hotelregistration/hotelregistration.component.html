@@ -62,10 +62,12 @@
             </div>
         </div>
         <div class="icons">
-            <span (click)="startDeleteTimeOut(hotel.id)" class="delete-hotel" [ngClass]="{'undo-delete-hotel': !undoHidden}"></span>
+            <span (click)="startDeleteTimeOut(hotel.id)" class="delete-hotel"></span>
             <div>
                 <span class="hotel-star">{{hotel.attributes.stars}}</span>
             </div>
         </div>
     </div>
 </section>
+
+<div class="undo-delete" [hidden]="undoHidden"><span>Are you sure you want to delete this?</span><button (click)="undoDeleteTimeout(id)">UNDO</button></div>
