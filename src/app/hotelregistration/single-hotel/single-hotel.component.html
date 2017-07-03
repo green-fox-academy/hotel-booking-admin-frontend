@@ -24,58 +24,58 @@
        <div class="form-group">
            <label for="">Stars:</label>
             <output name="amount" for="stars">3</output>
-            <input type="range" min="1" max="5" step="1" name="stars" value="0" oninput="amount.value=stars.value" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.stars" #stars="ngModel">
+            <input type="range" min="1" max="5" step="1" name="stars" value="0" oninput="amount.value=stars.value" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.stars" #stars="ngModel" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
         </div>
 
         <div class="form-group">
             <label for="">Meal Plan</label>
-            <select class="meal" name="meals" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.meal_plan"  #meal1="ngModel">
-                <option value="american_plan">American Plan</option>
-                <option value="modified_american_plan" name="meal2">Modified American Plan</option>
-                <option value="continental_plan" name="meal2">Continental Plan</option>
-                <option value="european_plan" name="meal2">European Plan</option>
+            <select class="meal" name="meals" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.meal_plan"  #meal1="ngModel" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+                <option value="american_plan" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">American Plan</option>
+                <option value="modified_american_plan" name="meal2" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">Modified American Plan</option>
+                <option value="continental_plan" name="meal2" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">Continental Plan</option>
+                <option value="european_plan" name="meal2" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">European Plan</option>
             </select>
 
         </div>
 
         <div class="form-group container__checkbox">
             <div class="form-group-checkbox">
-                <input type="checkbox" name="wifi" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_wifi" #wifi="ngModel">
+                <input type="checkbox" name="wifi" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_wifi" #wifi="ngModel" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
                 <label for="">Wifi</label>
             </div>
 
             <div class="form-group-checkbox">
-                <input type="checkbox" name="parking" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_parking" #parking="ngModel">
+                <input type="checkbox" name="parking" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_parking" #parking="ngModel" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
                 <label for="">Parking</label>
             </div>
 
             <div class="form-group-checkbox">
-                <input type="checkbox" name="pets" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_pets" #pets="ngModel">
+                <input type="checkbox" name="pets" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_pets" #pets="ngModel" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
                 <label for="">Pets allowed</label>
             </div>
 
             <div class="form-group-checkbox">
-                <input type="checkbox" name="restaurant" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_restaurant" #restaurant="ngModel">
+                <input type="checkbox" name="restaurant" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_restaurant" #restaurant="ngModel" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
                 <label for="">Restaurant</label>
             </div>
 
             <div class="form-group-checkbox">
-                <input type="checkbox" name="bar" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_bar" #bar="ngModel">
+                <input type="checkbox" name="bar" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_bar" #bar="ngModel" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
                 <label for="">Bar</label>
             </div>
 
             <div class="form-group-checkbox">
-                <input type="checkbox" name="swimmingpool" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_swimming_pool" #swimmingpool="ngModel">
+                <input type="checkbox" name="swimmingpool" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_swimming_pool" #swimmingpool="ngModel" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
                 <label for="">Swimming Pool</label>
             </div>
 
             <div class="form-group-checkbox">
-                <input type="checkbox" name="airconditioning" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_air_conditioning" #airconditioning="ngModel">
+                <input type="checkbox" name="airconditioning" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_air_conditioning" #airconditioning="ngModel" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
                 <label for="">Air conditioning</label>
             </div>
 
             <div class="form-group-checkbox">
-                <input type="checkbox" name="gym" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_gym" #gym="ngModel">
+                <input type="checkbox" name="gym" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.has_gym" #gym="ngModel" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
                 <label for="">Gym</label>
             </div>
         </div>
