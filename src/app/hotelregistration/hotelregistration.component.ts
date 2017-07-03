@@ -6,6 +6,8 @@ import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 import { GetHotelsService } from './get-hotels.service';
+import { Data } from './attributes/hotelattributes'
+import { HotelAttributesService } from './attributes/hotel-attributes.service'
 
 import 'rxjs/add/operator/map';
 
@@ -33,18 +35,18 @@ export class HotelComponent {
         public httpservice: HttpService,
         public hotelservice: HotelService,
         public gethotels: GetHotelsService,
-        public router: Router) {
-        }
+        public router: Router,
+        public hotelAttributes: HotelAttributesService) { }
 
     onRegistration() {
         this.loading = true;
         const endpoint = 'api/hotels';
-        const message = { data: this.hotelservice.hotel.data }
+        const message = { data: this.hotelservice.hotel.data };
         this.httpservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
                     this.loading = false;
-                    this.gethotels.getHotels()
+                    this.gethotels.getHotels();
                 },
                 error => {
                     console.error(error);
@@ -58,7 +60,7 @@ export class HotelComponent {
             .subscribe(
                 response => {
                     this.hotelservice.hotel.hotelWithId = response;
-                    this.router.navigate(['hotels/1'])
+                    this.router.navigate(['hotels/1']);
                 },
                 error => {
                     console.error(error);
@@ -108,4 +110,12 @@ export class HotelComponent {
             this.hotelsDown = true;
         }
     }
+
+    // logging() {
+    //     const wifi = this.hotelAttributes.data.attributes[0][1]
+    //     this.hotelservice.hotel.data.attributes.has_wifi = wifi
+    //     console.log(this.hotelservice.hotel.data)
+    //     console.log(typeof wifi)
+    //     console.log(typeof this.hotelservice.hotel.data.attributes.has_wifi)
+    // }
 }
