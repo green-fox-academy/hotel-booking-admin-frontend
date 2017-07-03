@@ -86,7 +86,7 @@ export class HotelComponent {
 
     undoDeleteTimeout() {
         clearTimeout(this.timeout)
-        this.undoHidden =true;
+        this.undoHidden = true;
     }
 
 
@@ -95,6 +95,7 @@ export class HotelComponent {
     }
 
     dropForm() {
+        this.changeShowStatus()
         if (this.formOut) {
             this.formIn = true;
             this.formOut = false;
