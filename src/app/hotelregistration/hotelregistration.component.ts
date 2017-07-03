@@ -26,6 +26,7 @@ export class HotelComponent {
     formOut = true;
     hotelsUp = false;
     hotelsDown = true;
+    undoHidden = true;
 
     constructor (
         public httpservice: HttpService,
@@ -73,6 +74,11 @@ export class HotelComponent {
                 error => {
                     console.error(error);
                 });
+    }
+
+    undoHotel(id) {
+        this.undoHidden = false;
+        setTimeout(this.deleteHotelId(id), 5000)
     }
 
     changeShowStatus() {
