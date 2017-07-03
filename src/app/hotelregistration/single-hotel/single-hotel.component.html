@@ -82,6 +82,7 @@
 
         <div class="button-group">
             <button class="send-button" [disabled]="form.invalid" (click)="redirect()" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">Modify</button>
+            <button class="send-button" [disabled]="form.invalid" (click)="redirect()">Cancel</button>
             <span class="spinner" [hidden]="!loading"></span>
         </div>
 

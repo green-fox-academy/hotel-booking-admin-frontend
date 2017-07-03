@@ -376,7 +376,8 @@ label {
     color: white;
     background-color: $coolGray;
     transition: .5s;
-    position: absolute;
+    margin-left: 10px;
+    border: .5px solid white;
 }
 
 .send-button:not([disabled]):hover {
