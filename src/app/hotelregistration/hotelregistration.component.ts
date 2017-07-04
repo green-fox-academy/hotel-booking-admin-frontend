@@ -86,10 +86,9 @@ export class HotelComponent {
     }
 
     undoDeleteTimeout(id) {
-        clearTimeout(this.timeout)
+        clearTimeout(this.timeout);        
         this.undoHidden = true;
     }
-
 
     changeShowStatus() {
         this.showHide = !this.showHide;

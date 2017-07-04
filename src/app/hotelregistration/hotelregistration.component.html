@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="icons">
-            <span (click)="startDeleteTimeOut(hotel.id)" class="delete-hotel"></span>
+            <span (click)="startDeleteTimeOut(hotel.id)" (dblclick)="deleteHotelId(hotel.id)" class="delete-hotel"></span>
             <div>
                 <span class="hotel-star">{{hotel.attributes.stars}}</span>
             </div>
