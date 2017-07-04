@@ -22,12 +22,9 @@ describe('SingleHotelComponent', () => {
                 ],
             declarations: [ SingleHotelComponent ],
             providers: [ 
-                HotelService,
-                Http,
-                ConnectionBackend,
-                GetHotelsService,
                 HttpService,
-                HotelService
+                HotelService,
+                GetHotelsService
                 ]
         })
         .compileComponents();
