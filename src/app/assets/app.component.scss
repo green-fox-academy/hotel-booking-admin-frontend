@@ -187,12 +187,12 @@ $coolGray: #353637;
 
 .menu-in {
     transform: translateX(0);
-    transition: 1s ease-out;
+    transition: .6s ease-out;
 }
 
 .menu-out {
     transform: translateX(100%);
-    transition: 1s ease-in;
+    transition: .6s ease-in;
 }
 
 .hamburger-menu a {
@@ -242,7 +242,7 @@ $coolGray: #353637;
         width: 100%;
         height: 2000%;
         background-color: rgba(0, 0, 0, 0.20);
-        transition: background 1s ease;
+        transition: background .6s ease;
     }
 }
 
@@ -259,7 +259,7 @@ $coolGray: #353637;
         height: 2000%;
         background-color: rgba(0, 0, 0, 0);
         transform: translateX(100%);
-        transition: background 1s ease;
+        transition: background .6s ease;
     }
 }
 
@@ -289,13 +289,13 @@ $coolGray: #353637;
 .form-in {
     position: relative;
     top: 0;
-    transition: 1s ease-out;
+    transition: .6s ease-out;
 }
 
 .form-out {
     position: relative;
     top: -550px;
-    transition: 1s ease-in;
+    transition: .6s ease-in;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
@@ -538,13 +538,13 @@ label {
 .hotels-up {
     position: relative;
     top: 0;
-    transition: 1s ease-out;
+    transition: .6s ease-out;
 }
 
 .hotels-down {
     position: relative;
     top: -600px;
-    transition: 1s ease-in;
+    transition: .6s ease-in;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
