@@ -10,7 +10,7 @@ export class Hotel {
                 has_bar: false,
                 has_swimming_pool: false,
                 has_air_conditioning: false,
-                hsa_gym: false,
+                has_gym: false,
                 name: '',
                 main_image_src: 'https://placebear.com/300/300',
                 meal_plan: '',
