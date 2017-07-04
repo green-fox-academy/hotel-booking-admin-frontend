@@ -27,6 +27,8 @@ import { StarratingComponent } from './hotelregistration/starrating/starrating.c
 import { GetHotelsService } from './hotelregistration/get-hotels.service'
 import { HotelService } from './hotelregistration/hotel.service'
 import { HttpService } from './httprequest.service';
+import { HotelAttributesService } from './hotelregistration/attributes/hotel-attributes.service'
+
 
 class RequestOption {
     public requestoption: RequestOptions
@@ -79,7 +81,8 @@ describe('RoutingComponent', () => {
                 HttpService,
                 { provide: XHRBackend, useClass: MockBackend },
                 GetHotelsService,
-                HotelService
+                HotelService,
+                HotelAttributesService
             ]
         });
     });
