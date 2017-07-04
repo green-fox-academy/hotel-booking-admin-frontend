@@ -26,11 +26,14 @@ describe('HttpService', () => {
         it('should return an Observable<Comment[]> with auth type', inject([HttpService, XHRBackend], (HttpService, MockBackend) => {
             const mockResponse = {
                 data: {
-                    type: 'auth',
+                    type: 'user',
                     attributes: {
+                        id: '1',
+                        email: 'test@example.com',
+                        admin: false,
                         token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3RBZG1pbiIsImFkbWluIjp0cnVlfQ.nhC1EDI5xLGM4yZL2VMZyvHcbcWiXM2RVS7Y8Pt0Zuk'
-                    }
-                }
+           }
+       }
             };
             const userDetails = {
                 email: 'test@example.com',
@@ -42,18 +45,20 @@ describe('HttpService', () => {
                     body: JSON.stringify(mockResponse)
                 })));
             });
-            HttpService.httpRequest(userDetails, '','post').subscribe((mockResponse) => {
-                expect(mockResponse.data.type).toEqual('auth');
+            HttpService.httpRequest(userDetails, '', 'post').subscribe((mockResponse) => {
+                expect(mockResponse.data.type).toEqual('user');
+                expect(mockResponse.data.attributes.id).toEqual('1');
+                expect(mockResponse.data.attributes.admin).toEqual(false);
             });
         }));
 
         it('should return an Observable<Comment[]> with errors', inject([HttpService, XHRBackend], (HttpService, MockBackend) => {
             const falseMockResponse = {
-                errors: {
+                errors: [{
                     status: 400,
                     title: 'Bad Request',
                     detail: 'Mismatched email and password'
-                }
+                }]
             };
             const falseUserDetails = {
                 email: 'test@example.com',
@@ -66,9 +71,9 @@ describe('HttpService', () => {
                 })));
             });
             HttpService.httpRequest(falseUserDetails, '','post').subscribe((falseMockResponse) => {
-                expect(falseMockResponse.errors.status).toEqual(400);
-                expect(falseMockResponse.errors.title).toEqual('Bad Request');
-                expect(falseMockResponse.errors.detail).toEqual('Mismatched email and password');
+                expect(falseMockResponse.errors[0].status).toEqual(400);
+                expect(falseMockResponse.errors[0].title).toEqual('Bad Request');
+                expect(falseMockResponse.errors[0].detail).toEqual('Mismatched email and password');
             });
         }));
 
@@ -113,7 +118,7 @@ describe('HttpService', () => {
                         meal_plan: 'american-plan',
                         stars: 5
         	        }
-                
+
                 }
             };
 
