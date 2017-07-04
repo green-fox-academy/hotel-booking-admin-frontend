@@ -10,7 +10,7 @@ import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 import { StarratingComponent } from './starrating/starrating.component';
 import { GetHotelsService } from './get-hotels.service';
-import { HotelAttributesService } from '../hotelregistration/attributes/hotel-attributes.service'
+import { HotelAttributesService } from '../hotels/attributes/hotel-attributes.service'
 
 
 describe('HotelComponent', () => {

@@ -4,8 +4,8 @@ import { Http, ConnectionBackend, RequestOptions } from '@angular/http';
 import { HttpModule } from "@angular/http";
 
 import { NavbarComponent } from './navbar.component';
-import { HotelService } from '../hotelregistration/hotel.service';
-import { GetHotelsService } from '../hotelregistration/get-hotels.service';
+import { HotelService } from '../hotels/hotel.service';
+import { GetHotelsService } from '../hotels/get-hotels.service';
 import { HttpService } from '../httprequest.service';
 
 describe('NavbarComponent', () => {

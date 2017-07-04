@@ -20,14 +20,14 @@ import { RoutingService } from './routing.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
-import { HotelComponent } from './hotelregistration/hotelregistration.component';
-import { SingleHotelComponent } from './hotelregistration/single-hotel/single-hotel.component';
-import { AttributesComponent } from './hotelregistration/attributes/attributes.component';
-import { StarratingComponent } from './hotelregistration/starrating/starrating.component';
-import { GetHotelsService } from './hotelregistration/get-hotels.service'
-import { HotelService } from './hotelregistration/hotel.service'
+import { HotelComponent } from './hotels/hotelregistration.component';
+import { SingleHotelComponent } from './hotels/single-hotel/single-hotel.component';
+import { AttributesComponent } from './hotels/attributes/attributes.component';
+import { StarratingComponent } from './hotels/starrating/starrating.component';
+import { GetHotelsService } from './hotels/get-hotels.service'
+import { HotelService } from './hotels/hotel.service'
 import { HttpService } from './httprequest.service';
-import { HotelAttributesService } from './hotelregistration/attributes/hotel-attributes.service'
+import { HotelAttributesService } from './hotels/attributes/hotel-attributes.service'
 
 
 class RequestOption {

@@ -7,6 +7,7 @@ import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 import { GetHotelsService } from './get-hotels.service';
 import { HotelAttributesService } from './attributes/hotel-attributes.service'
+import { ChangeDataFormatService } from './change-data-format.service'
 
 import 'rxjs/add/operator/map';
 
@@ -14,7 +15,7 @@ import 'rxjs/add/operator/map';
     selector: 'addhotel-page',
     templateUrl: './hotelregistration.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [HttpService]
+    providers: [HttpService, ChangeDataFormatService]
 })
 
 export class HotelComponent {
@@ -35,12 +36,14 @@ export class HotelComponent {
         public hotelservice: HotelService,
         public gethotels: GetHotelsService,
         public router: Router,
-        public hotelAttributes: HotelAttributesService) { }
+        public hotelAttributes: HotelAttributesService,
+        public changer: ChangeDataFormatService
+    ) { }
 
     onRegistration() {
         this.loading = true;
         const endpoint = 'api/hotels';
-        const message = { data: this.convertHotelAttributes() };
+        const message = { data: this.changer.convertHotelAttributes() };
         this.httpservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
@@ -106,16 +109,5 @@ export class HotelComponent {
             this.hotelsUp = false;
             this.hotelsDown = true;
         }
-    }
-
-    setKeyFormat(key) {
-        return 'has_' + key.toLowerCase().replace(/ /g, '_');
-    }
-
-    convertHotelAttributes() {
-        this.hotelAttributes.data.attributes.forEach ((attr) => {
-            this.hotelservice.hotel.data.attributes[this.setKeyFormat(attr.key)] = attr.value;
-        })
-        return(this.hotelservice.hotel.data)
     }
 }

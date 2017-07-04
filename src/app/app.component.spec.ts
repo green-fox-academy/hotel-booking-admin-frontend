@@ -7,9 +7,9 @@ import { HttpModule } from "@angular/http";
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { GetHotelsService } from './hotelregistration/get-hotels.service';
+import { GetHotelsService } from './hotels/get-hotels.service';
 import { HttpService } from './httprequest.service';
-import { HotelService } from './hotelregistration/hotel.service';
+import { HotelService } from './hotels/hotel.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -26,8 +26,8 @@ describe('AppComponent', () => {
       ],
       providers: [
         GetHotelsService,
-        HttpService, 
-        Http, 
+        HttpService,
+        Http,
         ConnectionBackend,
         HotelService
         ]
