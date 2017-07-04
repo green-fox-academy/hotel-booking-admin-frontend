@@ -395,8 +395,8 @@ label {
 }
 
 .spinner {
-    position: relative;
-    left: 60px;
+    position: absolute;
+    left: 465px;
     background-image: url("spinner.gif");
     background-repeat: no-repeat;
     background-size: contain;
@@ -539,7 +539,7 @@ label {
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-        transform: translateY(-8.5%);
+        transform: translateY(-8%);
         transition: 1s ease-in;
     }
     @media screen
