@@ -287,13 +287,20 @@ $coolGray: #353637;
 }
 
 .form-in {
-    transform: translateY(0);
+    position: relative;
+    top: 0;
     transition: 1s ease-out;
 }
 
 .form-out {
-    transform: translateY(-100%);
+    position: relative;
+    top: -550px;
     transition: 1s ease-in;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        top: -670px;
+    }
 }
 
 .form-group {
@@ -359,7 +366,7 @@ label {
 /* SEND-BUTTON */
 
 .button-group {
-    padding: 20px 0 60px 0;
+    padding: 20px 0 40px 0;
     display: flex;
     margin: 0;
     justify-content: center;
@@ -529,23 +536,19 @@ label {
 }
 
 .hotels-up {
-    transform: translateY(0);
+    position: relative;
+    top: 0;
     transition: 1s ease-out;
 }
 
 .hotels-down {
-    transform: translateY(-13%);
+    position: relative;
+    top: -600px;
     transition: 1s ease-in;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-        transform: translateY(-8%);
-        transition: 1s ease-in;
-    }
-    @media screen
-    and (min-width: 1225px) {
-        transform: translateY(-19%);
-        transition: 1s ease-in;
+        top: -680px;
     }
 }
 
