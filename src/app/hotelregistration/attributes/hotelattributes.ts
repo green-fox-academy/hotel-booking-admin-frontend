@@ -1,12 +1,12 @@
 export class Data {
     attributes = [
-        ['Wifi', false],
-        ['Parking', false],
-        ['Pets', false],
-        ['Restaurant', false],
-        ['Bar', false],
-        ['Swimming pool', false],
-        ['Air conditioning', false],
-        ['Gym', false],
+        {key: 'Wifi', value: false},
+        {key: 'Parking', value: false},
+        {key: 'Pets', value: false},
+        {key: 'Restaurant', value: false},
+        {key: 'Bar', value: false},
+        {key: 'Swimming pool', value: false},
+        {key: 'Air conditioning', value: false},
+        {key: 'Gym', value: false},
     ]
 }

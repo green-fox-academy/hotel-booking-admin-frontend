@@ -1,52 +1,10 @@
-<!-- <div class="form-group container__checkbox">
+<div class="form-group container__checkbox">
 
     <div class="form-group-checkbox" *ngFor="let attribute of attributes, let i = index">
 
-        <input type="checkbox" name="{{attribute[0]}}" [(ngModel)]="attribute[1]" #{{attribute[0]}}="ngModel">
-        <label for="">{{attribute[0]}}</label>
+        <input type="checkbox" name="{{attribute.key}}" [(ngModel)]="attribute.value" #{{attribute.key}}="ngModel">
+        <label for="">{{attribute.key}}</label>
 
     </div>
 
-</div> -->
-
-<div class="form-group container__checkbox">
-    <div class="form-group-checkbox">
-        <input type="checkbox" name="wifi" [(ngModel)]="hotelservice.hotel.data.attributes.has_wifi" #wifi="ngModel">
-        <label for="">Wifi</label>
-    </div>
-
-    <div class="form-group-checkbox">
-        <input type="checkbox" name="parking" [(ngModel)]="hotelservice.hotel.data.attributes.has_parking" #parking="ngModel">
-        <label for="">Parking</label>
-    </div>
-
-    <div class="form-group-checkbox">
-        <input type="checkbox" name="pets" [(ngModel)]="hotelservice.hotel.data.attributes.has_pets" #pets="ngModel">
-        <label for="">Pets allowed</label>
-    </div>
-
-    <div class="form-group-checkbox">
-        <input type="checkbox" name="restaurant" [(ngModel)]="hotelservice.hotel.data.attributes.has_restaurant" #restaurant="ngModel">
-        <label for="">Restaurant</label>
-    </div>
-
-    <div class="form-group-checkbox">
-        <input type="checkbox" name="bar" [(ngModel)]="hotelservice.hotel.data.attributes.has_bar" #bar="ngModel">
-        <label for="">Bar</label>
-    </div>
-
-    <div class="form-group-checkbox">
-        <input type="checkbox" name="swimmingpool" [(ngModel)]="hotelservice.hotel.data.attributes.has_swimming_pool" #swimmingpool="ngModel">
-        <label for="">Swimming Pool</label>
-    </div>
-
-    <div class="form-group-checkbox">
-        <input type="checkbox" name="airconditioning" [(ngModel)]="hotelservice.hotel.data.attributes.has_air_conditioning" #airconditioning="ngModel">
-        <label for="">Air conditioning</label>
-    </div>
-
-    <div class="form-group-checkbox">
-        <input type="checkbox" name="gym" [(ngModel)]="hotelservice.hotel.data.attributes.has_gym" #gym="ngModel">
-        <label for="">Gym</label>
-    </div>
 </div>

@@ -41,7 +41,8 @@ export class HotelComponent {
     onRegistration() {
         this.loading = true;
         const endpoint = 'api/hotels';
-        const message = { data: this.hotelservice.hotel.data };
+        const message = { data: this.convertHotelAttributes() };
+        console.log(message)
         this.httpservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
@@ -86,7 +87,7 @@ export class HotelComponent {
     }
 
     undoDeleteTimeout(id) {
-        clearTimeout(this.timeout);        
+        clearTimeout(this.timeout);
         this.undoHidden = true;
     }
 
@@ -109,11 +110,14 @@ export class HotelComponent {
         }
     }
 
-    // logging() {
-    //     const wifi = this.hotelAttributes.data.attributes[0][1]
-    //     this.hotelservice.hotel.data.attributes.has_wifi = wifi
-    //     console.log(this.hotelservice.hotel.data)
-    //     console.log(typeof wifi)
-    //     console.log(typeof this.hotelservice.hotel.data.attributes.has_wifi)
-    // }
+    setKeyFormat(key) {
+        return 'has_' + key.toLowerCase().replace(/ /g, '_');
+    }
+
+    convertHotelAttributes() {
+        this.hotelAttributes.data.attributes.forEach ((attr) => {
+            this.hotelservice.hotel.data.attributes[this.setKeyFormat(attr.key)] = attr.value;
+        })
+        return(this.hotelservice.hotel.data)
+    }
 }
