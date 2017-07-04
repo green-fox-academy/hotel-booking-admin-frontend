@@ -6,8 +6,8 @@ import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 import { GetHotelsService } from './get-hotels.service';
-import { Data } from './attributes/hotelattributes'
 import { HotelAttributesService } from './attributes/hotel-attributes.service'
+import { ChangeDataFormatService } from './change-data-format.service'
 
 import 'rxjs/add/operator/map';
 
@@ -15,7 +15,7 @@ import 'rxjs/add/operator/map';
     selector: 'addhotel-page',
     templateUrl: './hotelregistration.component.html',
     styleUrls: ['../assets/app.component.scss'],
-    providers: [HttpService]
+    providers: [HttpService, ChangeDataFormatService]
 })
 
 export class HotelComponent {
@@ -36,12 +36,14 @@ export class HotelComponent {
         public hotelservice: HotelService,
         public gethotels: GetHotelsService,
         public router: Router,
-        public hotelAttributes: HotelAttributesService) { }
+        public hotelAttributes: HotelAttributesService,
+        public changer: ChangeDataFormatService
+    ) { }
 
     onRegistration() {
         this.loading = true;
         const endpoint = 'api/hotels';
-        const message = { data: this.hotelservice.hotel.data };
+        const message = { data: this.changer.convertHotelAttributes() };
         this.httpservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
@@ -86,10 +88,9 @@ export class HotelComponent {
     }
 
     undoDeleteTimeout(id) {
-        clearTimeout(this.timeout)
+        clearTimeout(this.timeout);
         this.undoHidden = true;
     }
-
 
     changeShowStatus() {
         this.showHide = !this.showHide;
@@ -109,12 +110,4 @@ export class HotelComponent {
             this.hotelsDown = true;
         }
     }
-
-    // logging() {
-    //     const wifi = this.hotelAttributes.data.attributes[0][1]
-    //     this.hotelservice.hotel.data.attributes.has_wifi = wifi
-    //     console.log(this.hotelservice.hotel.data)
-    //     console.log(typeof wifi)
-    //     console.log(typeof this.hotelservice.hotel.data.attributes.has_wifi)
-    // }
 }

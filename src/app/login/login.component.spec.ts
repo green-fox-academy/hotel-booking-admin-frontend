@@ -58,8 +58,8 @@ describe('LoginComponent', () => {
                     email: 'john.doe@example.org',
                     admin: false,
                     token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3RBZG1pbiIsImFkbWluIjp0cnVlfQ.nhC1EDI5xLGM4yZL2VMZyvHcbcWiXM2RVS7Y8Pt0Zuk'
-           }
-       }
+                }
+            }
         };
 
         MockBackend.connections.subscribe((connection) => {

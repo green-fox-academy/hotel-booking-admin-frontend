@@ -4,7 +4,7 @@ import { HttpModule } from "@angular/http";
 
 import { GetHotelsService } from './get-hotels.service';
 import { HttpService } from '../httprequest.service';
-import { HotelService } from '../hotelregistration/hotel.service';
+import { HotelService } from '../hotels/hotel.service';
 
 describe('GetHotelsService', () => {
   beforeEach(() => {
@@ -13,8 +13,8 @@ describe('GetHotelsService', () => {
         HttpModule
       ],
       providers: [
-        GetHotelsService, 
-        HttpService, 
+        GetHotelsService,
+        HttpService,
         Http,
         ConnectionBackend,
         HotelService

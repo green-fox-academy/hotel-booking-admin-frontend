@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { GetHotelsService } from '../hotelregistration/get-hotels.service';
+import { GetHotelsService } from '../hotels/get-hotels.service';
 
 @Component({
     selector: 'app-navbar',

@@ -5,9 +5,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { RoutingService } from './routing.service';
-import { HotelComponent} from './hotelregistration/hotelregistration.component';
+import { HotelComponent} from './hotels/hotelregistration.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SingleHotelComponent } from './hotelregistration/single-hotel/single-hotel.component';
+import { SingleHotelComponent } from './hotels/single-hotel/single-hotel.component';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
