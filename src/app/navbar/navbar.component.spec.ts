@@ -25,7 +25,7 @@ describe('NavbarComponent', () => {
                 GetHotelsService,
                 HotelService,
                 HttpService,
-                Http, 
+                Http,
                 ConnectionBackend
             ]
     })
@@ -41,4 +41,19 @@ describe('NavbarComponent', () => {
     it('should be created', () => {
         expect(component).toBeTruthy();
     });
+
+    it('should change the form and hotel status', async(() => {
+        const fixture = TestBed.createComponent(NavbarComponent);
+        const navbar = fixture.debugElement.componentInstance;
+        navbar.toggleMenu('click', null);
+        expect(navbar.menuIn).toBeTruthy();
+        expect(navbar.menuOut).toBeFalsy();
+        expect(navbar.blurOn).toBeTruthy();
+        expect(navbar.blurOff).toBeFalsy();
+        navbar.toggleMenu('click', null);
+        expect(navbar.menuIn).toBeFalsy();
+        expect(navbar.menuOut).toBeTruthy();
+        expect(navbar.blurOn).toBeFalsy();
+        expect(navbar.blurOff).toBeTruthy();
+        }));
 });
