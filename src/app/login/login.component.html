@@ -29,7 +29,7 @@
 
         <div class="button-group">
             <button class="send-button" [disabled]="form.invalid" (click)="onUserLogin()">SIGN IN</button>
-            <span class="spinner" [hidden]="!loading"></span>
+            <span [ngClass]="{'spinner': loading, 'empty-spinner': !loading}"></span>
         </div>
 
     </form>
