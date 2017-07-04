@@ -14,44 +14,60 @@ import { HotelAttributesService } from '../hotelregistration/attributes/hotel-at
 
 
 describe('HotelComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-        imports: [
-            RouterTestingModule,
-            FormsModule,
-            HttpModule,
-            BrowserAnimationsModule
-        ],
-        declarations: [
-            HotelComponent,
-            AttributesComponent,
-            StarratingComponent
-        ],
-        providers: [
-          HttpService, 
-          HotelService,
-          GetHotelsService,
-          HotelAttributesService
-          ]
-    }).compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            imports: [
+                RouterTestingModule,
+                FormsModule,
+                HttpModule,
+                BrowserAnimationsModule
+            ],
+            declarations: [
+                HotelComponent,
+                AttributesComponent,
+                StarratingComponent
+            ],
+            providers: [
+                HttpService,
+                HotelService,
+                GetHotelsService,
+                HotelAttributesService
+                ]
+            }).compileComponents();
+        }));
 
-  it('should create the hotelregistration', async(() => {
-    const fixture = TestBed.createComponent(HotelComponent);
-    const hotel = fixture.debugElement.componentInstance;
-    expect(hotel).toBeTruthy();
-  }));
+    it('should create the hotelregistration', async(() => {
+        const fixture = TestBed.createComponent(HotelComponent);
+        const hotel = fixture.debugElement.componentInstance;
+        expect(hotel).toBeTruthy();
+    }));
 
-  it(`should have as title 'Hotels'`, async(() => {
-    const fixture = TestBed.createComponent(HotelComponent);
-    const hotel = fixture.debugElement.componentInstance;
-    expect(hotel.title).toEqual('Hotels');
-  }));
+    it(`should have as title 'Hotels'`, async(() => {
+        const fixture = TestBed.createComponent(HotelComponent);
+        const hotel = fixture.debugElement.componentInstance;
+        expect(hotel.title).toEqual('Hotels');
+    }));
 
-  it('should render title in a h2 tag', async(() => {
-    const fixture = TestBed.createComponent(HotelComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Hotels');
-  }));
+    it('should render title in a h2 tag', async(() => {
+        const fixture = TestBed.createComponent(HotelComponent);
+        fixture.detectChanges();
+        const compiled = fixture.debugElement.nativeElement;
+        expect(compiled.querySelector('h2').textContent).toContain('Hotels');
+    }));
+
+    it('should change the form and hotel status', async(() => {
+        const fixture = TestBed.createComponent(HotelComponent);
+        const hotel = fixture.debugElement.componentInstance;
+        hotel.dropForm('click', null);
+        expect(hotel.formIn).toBeTruthy();
+        expect(hotel.formOut).toBeFalsy();
+        expect(hotel.hotelsUp).toBeTruthy();
+        expect(hotel.hotelsDown).toBeFalsy();
+        hotel.dropForm('click', null);
+        expect(hotel.formIn).toBeFalsy();
+        expect(hotel.formOut).toBeTruthy();
+        expect(hotel.hotelsUp).toBeFalsy();
+        expect(hotel.hotelsDown).toBeTruthy();
+        }));
+
 });
