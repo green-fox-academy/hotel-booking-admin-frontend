@@ -6,7 +6,6 @@ import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 import { GetHotelsService } from './get-hotels.service';
-import { Data } from './attributes/hotelattributes'
 import { HotelAttributesService } from './attributes/hotel-attributes.service'
 
 import 'rxjs/add/operator/map';
@@ -42,7 +41,6 @@ export class HotelComponent {
         this.loading = true;
         const endpoint = 'api/hotels';
         const message = { data: this.convertHotelAttributes() };
-        console.log(message)
         this.httpservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
