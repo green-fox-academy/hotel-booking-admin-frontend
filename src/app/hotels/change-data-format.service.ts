@@ -5,41 +5,50 @@ import { HotelAttributesService } from './attributes/hotel-attributes.service';
 
 @Injectable()
 export class ChangeDataFormatService {
+    keyMapping = {
+        has_wifi: 'Wifi',
+        has_parking: 'Parking',
+        has_pets: 'Pets',
+        has_restaurant: 'Restaurant',
+        has_bar: 'Bar',
+        has_swimming_pool: 'Swimming pool',
+        has_air_conditioning: 'Air conditioning',
+        has_gym: 'Gym'
+    }
 
     constructor(
         public hotelservice: HotelService,
         public hotelAttributes: HotelAttributesService
     ) { }
 
+
     setKeyFormatObject(key) {
         return 'has_' + key.toLowerCase().replace(/ /g, '_');
     }
 
     convertHotelAttributes() {
-        this.hotelAttributes.data.attributes.forEach ((attr) => {
+        this.hotelAttributes.hotelFeatures.attributes.forEach ((attr) => {
             this.hotelservice.hotel.data.attributes[this.setKeyFormatObject(attr.key)] = attr.value;
         })
         return(this.hotelservice.hotel.data)
     }
 
     convertHotelAttributesID(hotelWithId) {
-        this.hotelAttributes.data.attributes.forEach ((attr) => {
+        this.hotelAttributes.hotelFeatures.attributes.forEach ((attr) => {
             hotelWithId.attributes[this.setKeyFormatObject(attr.key)] = attr.value;
         })
         return(hotelWithId.attributes)
     }
 
     convertResponse(response) {
-        // this.hotelAttributes.data.attributes.forEach ((attr, index) => {
-        //
-        // })
-        this.hotelAttributes.data.attributes[0].value = response.data.attributes.has_wifi;
-        this.hotelAttributes.data.attributes[1].value = response.data.attributes.has_parking;
-        this.hotelAttributes.data.attributes[2].value = response.data.attributes.has_pets;
-        this.hotelAttributes.data.attributes[3].value = response.data.attributes.has_restaurant;
-        this.hotelAttributes.data.attributes[4].value = response.data.attributes.has_bar;
-        this.hotelAttributes.data.attributes[5].value = response.data.attributes.has_swimming_pool;
-        this.hotelAttributes.data.attributes[6].value = response.data.attributes.has_air_conditioning;
-        this.hotelAttributes.data.attributes[7].value = response.data.attributes.has_gym
+        Object.keys(response.data.attributes).forEach((resEl) => {
+            Object.keys(this.keyMapping).forEach((keyEl, index) => {
+                if (resEl === keyEl) {
+                    if (this.keyMapping[keyEl] === this.hotelAttributes.hotelFeatures.attributes[index].key) {
+                        this.hotelAttributes.hotelFeatures.attributes[index].value = response.data.attributes[resEl]
+                    }
+                }
+            })
+        })
     }
 }

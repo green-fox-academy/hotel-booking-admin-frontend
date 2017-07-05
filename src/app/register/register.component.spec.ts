@@ -36,12 +36,6 @@ describe('RegisterComponent', () => {
         expect(signUp).toBeTruthy();
     }));
 
-    it(`should have as title 'Sign up'`, async(() => {
-        const fixture = TestBed.createComponent(RegisterComponent);
-        const signUp = fixture.debugElement.componentInstance;
-        expect(signUp.title).toEqual('Sign up');
-    }));
-
     it('should render title in a h2 tag', async(() => {
         const fixture = TestBed.createComponent(RegisterComponent);
         fixture.detectChanges();
