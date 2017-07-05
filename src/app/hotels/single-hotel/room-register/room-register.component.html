@@ -8,8 +8,9 @@
 
         <div class="form-group">
             <label for="">Desciptrion</label>
-            <input type="text" class="form-control" name="desciptrion"
-            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.desciptrion" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+            <textarea spellcheck="true" type="text" class="form-control" name="desciptrion"
+            [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.desciptrion" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)"></textarea>
+            <!--<input >-->
         </div>
 
         <div class="form-group">
@@ -24,17 +25,17 @@
         <div class="form-group">
             <label for="">Price</label>
             <input type="number" min="1" class="form-control" name="price" placeholder="1"
-            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.price" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+            [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.price" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
         </div>
 
         <div class="form-group">
             <label for="">Max Occupancy</label>
             <input type="number" min="1" class="form-control" name="occupancy" placeholder="12"
-            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.occupancy" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+            [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.occupancy" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
         </div>
 
         <div class="button-group">
-            <button class="send-button" [disabled]="form.invalid" (click)="redirect()" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">Add room</button>
+            <button class="send-button" [disabled]="form.invalid">Add room</button>
             <span class="spinner" [hidden]="!loading"></span>
         </div>
     </form>
