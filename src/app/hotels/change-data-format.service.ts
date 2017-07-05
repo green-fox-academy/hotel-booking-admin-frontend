@@ -16,14 +16,14 @@ export class ChangeDataFormatService {
     }
 
     convertHotelAttributes() {
-        this.hotelAttributes.data.attributes.forEach ((attr) => {
+        this.hotelAttributes.hotelFeatures.attributes.forEach ((attr) => {
             this.hotelservice.hotel.data.attributes[this.setKeyFormatObject(attr.key)] = attr.value;
         })
         return(this.hotelservice.hotel.data)
     }
 
     convertHotelAttributesID(hotelWithId) {
-        this.hotelAttributes.data.attributes.forEach ((attr) => {
+        this.hotelAttributes.hotelFeatures.attributes.forEach ((attr) => {
             hotelWithId.attributes[this.setKeyFormatObject(attr.key)] = attr.value;
         })
         return(hotelWithId.attributes)
@@ -33,13 +33,13 @@ export class ChangeDataFormatService {
         // this.hotelAttributes.data.attributes.forEach ((attr, index) => {
         //
         // })
-        this.hotelAttributes.data.attributes[0].value = response.data.attributes.has_wifi;
-        this.hotelAttributes.data.attributes[1].value = response.data.attributes.has_parking;
-        this.hotelAttributes.data.attributes[2].value = response.data.attributes.has_pets;
-        this.hotelAttributes.data.attributes[3].value = response.data.attributes.has_restaurant;
-        this.hotelAttributes.data.attributes[4].value = response.data.attributes.has_bar;
-        this.hotelAttributes.data.attributes[5].value = response.data.attributes.has_swimming_pool;
-        this.hotelAttributes.data.attributes[6].value = response.data.attributes.has_air_conditioning;
-        this.hotelAttributes.data.attributes[7].value = response.data.attributes.has_gym
+        this.hotelAttributes.hotelFeatures.attributes[0].value = response.data.attributes.has_wifi;
+        this.hotelAttributes.hotelFeatures.attributes[1].value = response.data.attributes.has_parking;
+        this.hotelAttributes.hotelFeatures.attributes[2].value = response.data.attributes.has_pets;
+        this.hotelAttributes.hotelFeatures.attributes[3].value = response.data.attributes.has_restaurant;
+        this.hotelAttributes.hotelFeatures.attributes[4].value = response.data.attributes.has_bar;
+        this.hotelAttributes.hotelFeatures.attributes[5].value = response.data.attributes.has_swimming_pool;
+        this.hotelAttributes.hotelFeatures.attributes[6].value = response.data.attributes.has_air_conditioning;
+        this.hotelAttributes.hotelFeatures.attributes[7].value = response.data.attributes.has_gym
     }
 }

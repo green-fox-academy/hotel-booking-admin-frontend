@@ -1,4 +1,4 @@
-export class Data {
+export class HotelFeatures {
     attributes = [
         {key: 'Wifi', value: false},
         {key: 'Parking', value: false},
