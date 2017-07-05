@@ -13,7 +13,7 @@
 
             <div class="form-group">
                 <label for="">Desciptrion</label>
-                <textarea spellcheck="true" type="text" class="form-control" name="desciptrion" rows="12" cols="40"
+                <textarea spellcheck="true" type="text" class="form-control" name="desciptrion" rows="10" cols="30"
                 [(ngModel)]="hotelservice.hotel.rooms.data.attributes.desciptrion" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.rooms.data.id)" (blur)="updateHotel(hotelservice.hotel.rooms.data.id)"></textarea>
             </div>
         </div>
@@ -37,13 +37,13 @@
 
             <div class="form-group">
                 <label for="">Price</label>
-                <input type="number" min="1" class="form-control" name="price"
+                <input type="number" min="1" class="form-control number" name="price"
                 [(ngModel)]="hotelservice.hotel.rooms.data.attributes.price" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.rooms.data.id)" (blur)="updateHotel(hotelservice.hotel.rooms.data.id)">
             </div>
 
             <div class="form-group">
                 <label for="">Max Occupancy</label>
-                <input type="number" min="1" class="form-control" name="occupancy"
+                <input type="number" min="1" class="form-control number" name="occupancy"
                 [(ngModel)]="hotelservice.hotel.rooms.data.attributes.occupancy" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.rooms.data.id)" (blur)="updateHotel(hotelservice.hotel.rooms.data.id)">
             </div>
         </div>

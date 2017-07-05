@@ -423,7 +423,7 @@ label {
 
 /* MEAL PLAN */
 
-.meal {
+.meal, .currencies{
     font-size: .9rem;
     color: $coolGray;
     max-width: 40%;
@@ -779,5 +779,19 @@ label {
             width: 100%;
             flex-direction: column;
         }
+    }
+
+    textarea {
+        font-size: .9rem;
+        border-radius: 4px;
+    }
+
+    textarea:focus {
+        background-color: #f0f0f0;
+        transition: all .2s linear;
+    }
+
+    .number {
+        text-align: center;
     }
 }
