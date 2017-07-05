@@ -15,7 +15,9 @@ export class GetHotelsService {
     this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'get')
         .subscribe(
             response => {
+                console.log(this.hotelservice.hotel.hotelList)
                 this.hotelservice.hotel.hotelList = response;
+                console.log(this.hotelservice.hotel.hotelList)
             },
             error => {
                 console.error(error)

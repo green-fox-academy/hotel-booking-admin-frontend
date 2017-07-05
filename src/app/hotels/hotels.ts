@@ -24,6 +24,6 @@ export class Hotel {
         }
     };
 
-    hotelList = [];
+    hotelList: any = [];
     hotelWithId;
 }
