@@ -756,3 +756,28 @@ label {
         padding: 1.3rem;
         padding-top: 1.1rem;
     }
+
+/* ROOMS */
+
+.room__container {
+
+    h3 {
+        display: flex;
+        justify-content: center;
+        font-size: 1.3rem;
+        font-variant-caps: small-caps;
+    }
+
+    .form {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        @media screen
+        and (max-width: 667px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+            width: 100%;
+            flex-direction: column;
+        }
+    }
+}
