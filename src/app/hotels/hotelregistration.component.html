@@ -1,7 +1,8 @@
 <main class="main">
     <div class="title__container">
         <h2>{{title}}</h2>
-        <div class="drop_down" alt="arrow" (click)="dropForm()" [ngClass]="{'up_arrow': showHide}"> </div>
+        <div class="drop_down" alt="arrow" (click)="dropForm()" [ngClass]="{'up_arrow': showHide}"><span class="add-hotel-msg">You can add new hotels here</span></div>
+
     </div>
 
     <form [ngClass]="{'form': true, 'form-in': formIn, 'form-out': formOut}" #form="ngForm">
