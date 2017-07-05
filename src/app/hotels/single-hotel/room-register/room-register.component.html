@@ -1,9 +1,9 @@
 <form class="form" #form="ngForm">
 
         <div class="form-group">
-            <label for="">Name</label>
+            <label for="">Room name</label>
             <input type="text" class="form-control" name="name" placeholder="Name"
-            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.name" #name="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.room_name" #name="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
         </div>
 
         <div class="form-group">
