@@ -1,5 +1,8 @@
 import { async, TestBed, inject } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+
 import { 
     HttpModule,
     XHRBackend,
@@ -8,23 +11,30 @@ import {
     Response } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
-
-// import { SingleHotelComponent } from './single-hotel.component';
+import { SingleHotelComponent } from './single-hotel.component';
 import { HotelService } from '../hotel.service';
-// import { GetHotelsService } from '../get-hotels.service';
+import { HotelAttributesService } from '../attributes/hotel-attributes.service';
 import { HttpService } from '../../httprequest.service';
+import { GetHotelsService } from '../get-hotels.service';
 
 describe('HttpService', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [ 
-                HttpModule, 
+                HttpModule,
+                FormsModule,
+                RouterTestingModule
                 ],
             providers: [
+                GetHotelsService,
+                HotelAttributesService,
                 HotelService, 
                 HttpService,
                 { provide: XHRBackend, useClass: MockBackend}
-                ]
+                ],
+            declarations: [
+                SingleHotelComponent
+            ]
         })
         .compileComponents();
     }));
@@ -94,6 +104,9 @@ describe('HttpService', () => {
                 expect(mockResponse.data.id).toEqual('11');
                 expect(mockResponse.data.attributes.status).toEqual('pending');
             });
+        // const fixture = TestBed.createComponent(SingleHotelComponent);
+        // const compiled = fixture.debugElement.nativeElement;
+        // expect(compiled.hotelservice.hotel.hotelWithId.data.attributes.status).toContain('pending');
         }));
     });
 });
