@@ -105,9 +105,11 @@ describe('HttpService', () => {
                 expect(mockResponse.data.id).toEqual('11');
                 expect(mockResponse.data.attributes.status).toEqual('pending');
             });
+        
         const fixture = TestBed.createComponent(SingleHotelComponent);
-        const compiled = fixture.debugElement.nativeElement;
-        // expect(compiled.hotelservice.hotelWithId.data.status).toContain('pending');
+        const singleHotel = fixture.debugElement.componentInstance;
+        singleHotel.autoSave('keypress', null);
+        expect(singleHotel.messageActive).toBeTruthy();
         }));
     });
 });
