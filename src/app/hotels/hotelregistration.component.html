@@ -36,7 +36,7 @@
 
         <div class="button-group">
             <button class="send-button" [disabled]="form.invalid" (click)="onRegistration()" (click)="changeShowStatus()">Add</button>
-            <span class="spinner" [hidden]="!loading"></span>
+            <span [ngClass]="{'spinner': loading, 'empty-spinner': !loading}"></span>
         </div>
 
     </form>
