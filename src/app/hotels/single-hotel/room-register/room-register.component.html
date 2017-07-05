@@ -1,41 +1,55 @@
-<form class="form" #form="ngForm">
+<main class="main room__container">
+    <h2>
+        Rooms
+    </h2>
+
+    <h3>Add new room</h3>
+
+    <form class="form" #form="ngForm">
 
         <div class="form-group">
             <label for="">Room name</label>
-            <input type="text" class="form-control" name="name" placeholder="Name"
+            <input type="text" class="form-control" name="name" placeholder="Room name"
             required [(ngModel)]="hotelservice.hotel.rooms.data.attributes.room_name" #name="ngModel" (keypress)="autoSave(hotelservice.hotel.rooms.data.id)" (blur)="updateHotel(hotelservice.hotel.rooms.data.id)">
         </div>
 
         <div class="form-group">
             <label for="">Desciptrion</label>
-            <textarea spellcheck="true" type="text" class="form-control" name="desciptrion"
+            <textarea spellcheck="true" type="text" class="form-control" name="desciptrion" rows="13" cols="40"
             [(ngModel)]="hotelservice.hotel.rooms.data.attributes.desciptrion" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.rooms.data.id)" (blur)="updateHotel(hotelservice.hotel.rooms.data.id)"></textarea>
-            <!--<input >-->
         </div>
 
         <div class="form-group">
             <label for="">Currency</label>
-            <select class="meal" name="currencies" [(ngModel)]="hotelservice.hotel.rooms.data.attributes.currency"  #meal1="ngModel" (clickgi)="updateHotel(hotelservice.hotel.rooms.data.id)">
+            <select class="currencies" name="currencies" [(ngModel)]="hotelservice.hotel.rooms.data.attributes.currency"  #meal1="ngModel" (clickgi)="updateHotel(hotelservice.hotel.rooms.data.id)">
+                <option value="US dollar">USD</option>
+                <option value="pound">GBP</option>
+                <option value="australian dollar">AUD</option>
+                <option value="canadian dollar">CAD</option>
                 <option value="euro">EUR</option>
-                <option value="dollar">USD</option>
                 <option value="forint">HUF</option>
+                <option value="svedish crown">SEK</option>
+                <option value="norvegian crown">NOK</option>
+                <option value="yen">JPY</option>
+                <option value="rubel">RUB</option>
             </select>
         </div>
 
         <div class="form-group">
             <label for="">Price</label>
-            <input type="number" min="1" class="form-control" name="price" placeholder="1"
+            <input type="number" min="1" class="form-control" name="price"
             [(ngModel)]="hotelservice.hotel.rooms.data.attributes.price" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.rooms.data.id)" (blur)="updateHotel(hotelservice.hotel.rooms.data.id)">
         </div>
 
         <div class="form-group">
             <label for="">Max Occupancy</label>
-            <input type="number" min="1" class="form-control" name="occupancy" placeholder="12"
+            <input type="number" min="1" class="form-control" name="occupancy"
             [(ngModel)]="hotelservice.hotel.rooms.data.attributes.occupancy" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.rooms.data.id)" (blur)="updateHotel(hotelservice.hotel.rooms.data.id)">
         </div>
 
         <div class="button-group">
             <button class="send-button" [disabled]="form.invalid" (click)="roomlister()">Add room</button>
-            <span class="spinner" [hidden]="!loading"></span>
+            <span [ngClass]="{'spinner': loading, 'empty-spinner': !loading}"></span>
         </div>
     </form>
+</main>
