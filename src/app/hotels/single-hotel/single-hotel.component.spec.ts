@@ -40,7 +40,8 @@ describe('HttpService', () => {
     }));
 
     describe('SingleHotel()', () => {
-        it('should return an Observable<Comment[]> with chosen hotel details', inject([HttpService, XHRBackend], (HttpService, MockBackend) => {
+        it('should return an Observable<Comment[]> with chosen hotel details', inject([HttpService, XHRBackend], (HttpService, MockBackend, hotelservice: HotelService) => {
+            console.log(hotelservice.hotel)            
             const mockRequest = {
                 type: 'hotels',
                 id: '11',
@@ -104,9 +105,9 @@ describe('HttpService', () => {
                 expect(mockResponse.data.id).toEqual('11');
                 expect(mockResponse.data.attributes.status).toEqual('pending');
             });
-        // const fixture = TestBed.createComponent(SingleHotelComponent);
-        // const compiled = fixture.debugElement.nativeElement;
-        // expect(compiled.hotelservice.hotel.hotelWithId.data.attributes.status).toContain('pending');
+        const fixture = TestBed.createComponent(SingleHotelComponent);
+        const compiled = fixture.debugElement.nativeElement;
+        // expect(compiled.hotelservice.hotelWithId.data.status).toContain('pending');
         }));
     });
 });
