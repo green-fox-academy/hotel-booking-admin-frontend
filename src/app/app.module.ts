@@ -19,7 +19,7 @@ import { SingleHotelComponent } from './hotels/single-hotel/single-hotel.compone
 import { HotelService } from './hotels/hotel.service';
 import { GetHotelsService } from './hotels/get-hotels.service';
 import { HttpService } from './httprequest.service';
-import { HotelAttributesService } from './hotels/attributes/hotel-attributes.service'
+import { HotelAttributesService } from './hotels/attributes/hotel-attributes.service';
 
 @NgModule({
     declarations: [
