@@ -3,19 +3,19 @@
         <div class="form-group">
             <label for="">Room name</label>
             <input type="text" class="form-control" name="name" placeholder="Name"
-            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.room_name" #name="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+            required [(ngModel)]="hotelservice.hotel.rooms.data.attributes.room_name" #name="ngModel" (keypress)="autoSave(hotelservice.hotel.rooms.data.id)" (blur)="updateHotel(hotelservice.hotel.rooms.data.id)">
         </div>
 
         <div class="form-group">
             <label for="">Desciptrion</label>
             <textarea spellcheck="true" type="text" class="form-control" name="desciptrion"
-            [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.desciptrion" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)"></textarea>
+            [(ngModel)]="hotelservice.hotel.rooms.data.attributes.desciptrion" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.rooms.data.id)" (blur)="updateHotel(hotelservice.hotel.rooms.data.id)"></textarea>
             <!--<input >-->
         </div>
 
         <div class="form-group">
             <label for="">Currency</label>
-            <select class="meal" name="currencies" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.currency"  #meal1="ngModel" (clickgi)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+            <select class="meal" name="currencies" [(ngModel)]="hotelservice.hotel.rooms.data.attributes.currency"  #meal1="ngModel" (clickgi)="updateHotel(hotelservice.hotel.rooms.data.id)">
                 <option value="euro">EUR</option>
                 <option value="dollar">USD</option>
                 <option value="forint">HUF</option>
@@ -25,17 +25,17 @@
         <div class="form-group">
             <label for="">Price</label>
             <input type="number" min="1" class="form-control" name="price" placeholder="1"
-            [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.price" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+            [(ngModel)]="hotelservice.hotel.rooms.data.attributes.price" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.rooms.data.id)" (blur)="updateHotel(hotelservice.hotel.rooms.data.id)">
         </div>
 
         <div class="form-group">
             <label for="">Max Occupancy</label>
             <input type="number" min="1" class="form-control" name="occupancy" placeholder="12"
-            [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.occupancy" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+            [(ngModel)]="hotelservice.hotel.rooms.data.attributes.occupancy" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.rooms.data.id)" (blur)="updateHotel(hotelservice.hotel.rooms.data.id)">
         </div>
 
         <div class="button-group">
-            <button class="send-button" [disabled]="form.invalid">Add room</button>
+            <button class="send-button" [disabled]="form.invalid" (click)="roomlister()">Add room</button>
             <span class="spinner" [hidden]="!loading"></span>
         </div>
     </form>
