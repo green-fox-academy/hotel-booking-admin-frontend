@@ -1,0 +1,57 @@
+<main class="main">
+    <h2>
+        Modify
+    </h2>
+
+    <p [ngClass]="{'autosave': saving, 'empty-field': emptyAutosave}" >Autosave...</p>
+    <p [ngClass]="{'autosave-message': messageActive, 'autosave-message-fade': messageInactive, 'empty-field': emptyMessage}">Realax, autosave is working!</p>
+
+    <form class="form" #form="ngForm">
+
+
+        <div class="form-group">
+            <label for="">Hotel Name</label>
+            <input type="text" class="form-control" name="name"
+            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.name" #name="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+        </div>
+
+        <div class="form-group">
+            <label for="">Locatiton</label>
+            <input type="text" class="form-control" name="location"
+            required [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.location" #location="ngModel" (keypress)="autoSave(hotelservice.hotel.hotelWithId.data.id)" (blur)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+        </div>
+
+       <div class="form-group">
+           <label for="">Stars:</label>
+            <output name="amount" for="stars">3</output>
+            <input type="range" min="1" max="5" step="1" name="stars" value="0" oninput="amount.value=stars.value" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.stars" #stars="ngModel" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+        </div>
+
+        <div class="form-group">
+            <label for="">Meal Plan</label>
+            <select class="meal" name="meals" [(ngModel)]="hotelservice.hotel.hotelWithId.data.attributes.meal_plan"  #meal1="ngModel" (clickgi)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">
+                <option value="american_plan">American Plan</option>
+                <option value="modified_american_plan" name="meal2">Modified American Plan</option>
+                <option value="continental_plan" name="meal2">Continental Plan</option>
+                <option value="european_plan" name="meal2">European Plan</option>
+            </select>
+        </div>
+
+        <div class="form-group container__checkbox">
+
+            <div class="form-group-checkbox" *ngFor="let attribute of hotelAttributes.hotelFeatures.attributes, let i = index">
+
+                <input (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)" type="checkbox" name="{{attribute.key}}" [(ngModel)]="attribute.value" #{{attribute.key}}="ngModel">
+                <label for="">{{attribute.key}}</label>
+
+            </div>
+
+        </div>
+
+        <div class="button-group">
+            <button class="send-button" [disabled]="form.invalid" (click)="redirect()" (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)">Modify</button>
+            <button class="send-button" [disabled]="form.invalid" (click)="redirect()">Cancel</button>
+        </div>
+
+    </form>
+</main>

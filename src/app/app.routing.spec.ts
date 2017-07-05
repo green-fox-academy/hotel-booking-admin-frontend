@@ -5,9 +5,14 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { async, inject, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Http, ConnectionBackend, RequestOptions } from '@angular/http';
-import { AttributesComponent } from './hotelregistration/attributes/attributes.component';
-import { StarratingComponent } from './hotelregistration/starrating/starrating.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+    HttpModule,
+    XHRBackend,
+    ResponseOptions,
+    Response
+} from '@angular/http';
+import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -15,7 +20,15 @@ import { RoutingService } from './routing.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
-import { HotelComponent } from './hotelregistration/hotelregistration.component';
+import { HotelComponent } from './hotels/hotelregistration.component';
+import { SingleHotelComponent } from './hotels/single-hotel/single-hotel.component';
+import { AttributesComponent } from './hotels/attributes/attributes.component';
+import { StarratingComponent } from './hotels/starrating/starrating.component';
+import { GetHotelsService } from './hotels/get-hotels.service'
+import { HotelService } from './hotels/hotel.service'
+import { HttpService } from './httprequest.service';
+import { HotelAttributesService } from './hotels/attributes/hotel-attributes.service'
+
 
 class RequestOption {
     public requestoption: RequestOptions
@@ -30,18 +43,21 @@ class RoutingComponent {
     }
  }
 
-describe('component: RoutingComponent', () => {
+describe('RoutingComponent', () => {
     let location, routing;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [
                 FormsModule,
+                HttpModule,
                 RouterTestingModule.withRoutes([
                     { path: 'login', component: LoginComponent },
                     { path: 'register', component: RegisterComponent },
                     { path: 'hotels', component: HotelComponent },
-                    { path: '', component: HomeComponent, canActivate: [RoutingService] }
+                    { path: '', component: HomeComponent, canActivate: [RoutingService] },
+                    { path: 'hotels/1', component: SingleHotelComponent, canActivate: [RoutingService] },
+                    { path: '**', redirectTo: 'login' }
                 ]),
                 BrowserAnimationsModule
             ],
@@ -54,12 +70,19 @@ describe('component: RoutingComponent', () => {
                 RegisterComponent,
                 HotelComponent,
                 StarratingComponent,
-                AttributesComponent
+                AttributesComponent,
+                SingleHotelComponent
             ],
             providers: [
                 RoutingService,
                 {provide: Http, useClass: RequestOption },
-                ConnectionBackend
+                ConnectionBackend,
+                GetHotelsService,
+                HttpService,
+                { provide: XHRBackend, useClass: MockBackend },
+                GetHotelsService,
+                HotelService,
+                HotelAttributesService
             ]
         });
     });
@@ -74,7 +97,6 @@ describe('component: RoutingComponent', () => {
         fixture.detectChanges();
         routing.navigate(['']).then(() => {
             expect(location.path()).toBe('/');
-            console.log('after expect');
         });
     }));
 
@@ -83,7 +105,6 @@ describe('component: RoutingComponent', () => {
         fixture.detectChanges();
         routing.navigate(['login']).then(() => {
             expect(location.path()).toBe('/login');
-            console.log('after expect');
         });
     }));
 
@@ -92,7 +113,6 @@ describe('component: RoutingComponent', () => {
         fixture.detectChanges();
         routing.navigate(['register']).then(() => {
             expect(location.path()).toBe('/register');
-            console.log('after expect');
         });
     }));
 
@@ -101,7 +121,6 @@ describe('component: RoutingComponent', () => {
         fixture.detectChanges();
         routing.navigate(['hotels']).then(() => {
             expect(location.path()).toBe('/hotels');
-            console.log('after expect');
         });
     }));
 });

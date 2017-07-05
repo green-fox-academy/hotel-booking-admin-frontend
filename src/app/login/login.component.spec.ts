@@ -52,8 +52,11 @@ describe('LoginComponent', () => {
     it('should save JWT to session storage', inject([HttpService, XHRBackend], (HttpService, MockBackend) => {
         const mockResponse = {
             data: {
-                type: 'auth',
+                type: 'user',
                 attributes: {
+                    id: '1',
+                    email: 'john.doe@example.org',
+                    admin: false,
                     token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3RBZG1pbiIsImFkbWluIjp0cnVlfQ.nhC1EDI5xLGM4yZL2VMZyvHcbcWiXM2RVS7Y8Pt0Zuk'
                 }
             }

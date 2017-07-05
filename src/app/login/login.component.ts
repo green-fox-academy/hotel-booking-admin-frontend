@@ -17,7 +17,7 @@ export class LoginComponent {
     token;
     isValid = true;
     loading = false;
-    endpoint = 'https://cake-cup.glitch.me/api/login';
+    endpoint = 'api/login';
 
     constructor (
         private loginservice: HttpService,

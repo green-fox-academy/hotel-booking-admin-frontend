@@ -11,10 +11,15 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { RoutingService } from './routing.service';
-import { HotelComponent } from './hotelregistration/hotelregistration.component';
-import { AttributesComponent } from './hotelregistration/attributes/attributes.component';
-import { StarratingComponent } from './hotelregistration/starrating/starrating.component';
+import { HotelComponent } from './hotels/hotelregistration.component';
+import { AttributesComponent } from './hotels/attributes/attributes.component';
+import { StarratingComponent } from './hotels/starrating/starrating.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SingleHotelComponent } from './hotels/single-hotel/single-hotel.component';
+import { HotelService } from './hotels/hotel.service';
+import { GetHotelsService } from './hotels/get-hotels.service';
+import { HttpService } from './httprequest.service';
+import { HotelAttributesService } from './hotels/attributes/hotel-attributes.service';
 
 @NgModule({
     declarations: [
@@ -25,7 +30,8 @@ import { NavbarComponent } from './navbar/navbar.component';
         HotelComponent,
         AttributesComponent,
         StarratingComponent,
-        NavbarComponent
+        NavbarComponent,
+        SingleHotelComponent
     ],
     imports: [
         BrowserModule,
@@ -35,7 +41,13 @@ import { NavbarComponent } from './navbar/navbar.component';
         JsonpModule,
         BrowserAnimationsModule
     ],
-    providers: [RoutingService],
+    providers: [
+        RoutingService,
+        HotelService,
+        GetHotelsService,
+        HttpService,
+        HotelAttributesService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

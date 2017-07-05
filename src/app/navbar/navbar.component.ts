@@ -1,45 +1,21 @@
 import { Component } from '@angular/core';
-import {
-    trigger,
-    state,
-    style,
-    animate,
-    transition
-} from '@angular/animations';
+
+import { GetHotelsService } from '../hotels/get-hotels.service';
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
-    styleUrls: ['../assets/app.component.scss'],
-    animations: [
-        trigger('activateMenu', [
-            state('inactive', style({
-                transform: 'translateX(100%)'
-            })),
-            state('active', style({
-                transform: 'translateX(0)'
-            })),
-            transition('inactive => active', animate('1s ease-in')),
-            transition('active => inactive', animate('1s ease-out')),
-        ]),
-        trigger('blurBackground', [
-            state('inactive', style({
-                    background: 'rgba(0, 0, 0, 0)'
-            })),
-            state('active', style({
-                background: 'rgba(0, 0, 0, 0.15)'
-            })),
-            transition('inactive => active', animate('1s ease-in')),
-            transition('active => inactive', animate('1s ease-out')),
-        ]),
-    ]
+    styleUrls: ['../assets/app.component.scss']
 })
 export class NavbarComponent {
     isItLogin = true;
-    menuStateOut = true;
-    state = 'inactive';
+    menuIn = false;
+    menuOut = true;
+    blurOn = false;
+    blurOff = true;
 
-    constructor() { }
+    constructor(
+        public gethotelsservice: GetHotelsService) { }
 
     setIsItLogin() {
         this.isItLogin = true
@@ -58,12 +34,17 @@ export class NavbarComponent {
         sessionStorage.clear()
     }
 
-    // toggleMenu() {
-    //     this.menuStateOut = this.menuStateOut !== true;
-    // }
-
     toggleMenu() {
-        this.state = (this.state === 'inactive' ? 'active' : 'inactive');
-        this.menuStateOut = this.menuStateOut !== true;
+        if (this.menuOut) {
+            this.menuIn = true;
+            this.menuOut = false;
+            this.blurOn = true;
+            this.blurOff = false;
+        } else {
+            this.menuIn = false;
+            this.menuOut = true;
+            this.blurOn = false;
+            this.blurOff = true;
+        }
     }
 }

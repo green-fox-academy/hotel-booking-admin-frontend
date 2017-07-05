@@ -13,7 +13,7 @@ import { RoutingService } from './routing.service';
 class Routing {
     public routermodule: RouterModule
   }
-  
+
 describe('RoutingService', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
@@ -21,7 +21,6 @@ describe('RoutingService', () => {
               RoutingService,
               {provide: Router, useClass: Routing}
           ],
-          
       });
     });
 
@@ -50,7 +49,7 @@ describe('Logged in guard should', () => {
         routingService = TestBed.get(RoutingService);
     });
 
-    it('not be able to hit route when user is logged out', () => {
+    it('be able to hit route when user is logged out', () => {
         expect(routingService.canActivate()).toBe(true);
     });
 });

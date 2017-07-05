@@ -1,23 +1,36 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Http,  ConnectionBackend, RequestOptions } from '@angular/http';
+import { HttpModule } from "@angular/http";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { GetHotelsService } from './hotels/get-hotels.service';
+import { HttpService } from './httprequest.service';
+import { HotelService } from './hotels/hotel.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
         imports: [
             RouterTestingModule,
-            BrowserAnimationsModule
+            BrowserAnimationsModule,
+            HttpModule
         ],
       declarations: [
         AppComponent,
         HomeComponent,
         NavbarComponent
       ],
+      providers: [
+        GetHotelsService,
+        HttpService,
+        Http,
+        ConnectionBackend,
+        HotelService
+        ]
     }).compileComponents();
   }));
 

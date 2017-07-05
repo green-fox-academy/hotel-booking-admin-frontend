@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Response, Headers, RequestOptions, Request, RequestMethod } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map';
@@ -8,35 +8,16 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class HttpService {
 
-    constructor(private http: Http) { }
+    constructor( private http: Http ) { }
 
-    httpRequest(UserDetails, endpoint, method): Observable<Comment[]> {
-        const bodyString = UserDetails;
-        const headers = new Headers({ 'Content-Type': 'application/json'});
-        const options = new RequestOptions({headers: headers});
-        let request;
-
-        switch (method) {
-            case 'post': {
-                request = this.http.post(endpoint, bodyString, options);
-                break;
-            }
-            case 'get': {
-                request = this.http.get(endpoint, options);
-                break;
-            }
-            case 'patch': {
-                request = this.http.patch(endpoint, bodyString, options);
-                break;
-            }
-            case 'delete': {
-                request = this.http.delete(endpoint, options);
-                break;
-            }
-        };
-
-        return request
-            .map((res: Response) => res.json())
-            .catch((error: any) =>  Observable.throw(error.json() || 'server error'));
+    httpRequest(bodies, endpoint, reqMethod): Observable<Comment[]> {
+        const serverEndpoint = 'https://two-ferns.glitch.me/';
+        return this.http.request(new Request({
+            method: reqMethod,
+            url: serverEndpoint + endpoint,
+            body: bodies
+        }))
+        .map((res: Response) => res.json())
+        .catch((error: any) => Observable.throw(error.json() || 'server error'));
     }
 }
