@@ -41,7 +41,7 @@ describe('HttpService', () => {
 
     describe('SingleHotel()', () => {
         it('should return an Observable<Comment[]> with chosen hotel details', inject([HttpService, XHRBackend], (HttpService, MockBackend, hotelservice: HotelService) => {
-            console.log(hotelservice.hotel)            
+            console.log(hotelservice)            
             const mockRequest = {
                 type: 'hotels',
                 id: '11',
