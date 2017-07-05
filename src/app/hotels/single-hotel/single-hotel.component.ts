@@ -31,7 +31,7 @@ export class SingleHotelComponent implements OnInit {
         public gethotelservice: GetHotelsService,
         public router: Router,
         public hotelAttributes: HotelAttributesService,
-        public changer: ChangeDataFormatService,
+        public changer: ChangeDataFormatService
     ) { }
 
 
@@ -41,7 +41,9 @@ export class SingleHotelComponent implements OnInit {
         this.saving = true;
         this.messageActive = true;
         const endpoint = 'api/hotels/' + id;
-        const message = this.hotelservice.hotel.hotelWithId.data;
+        const messageFirst = {type: 'hotels', id: this.hotelservice.hotel.hotelWithId.data.id};
+        const attr = { attributes: this.changer.convertHotelAttributesID(this.hotelservice.hotel.hotelWithId.data) }
+        const message = Object.assign(messageFirst, attr)
         this.updateservice.httpRequest(message, endpoint, 'patch')
             .subscribe(
                 response => {

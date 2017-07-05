@@ -49,7 +49,7 @@ describe('Logged in guard should', () => {
         routingService = TestBed.get(RoutingService);
     });
 
-    it('not be able to hit route when user is logged out', () => {
+    it('be able to hit route when user is logged out', () => {
         expect(routingService.canActivate()).toBe(true);
     });
 });
