@@ -19,10 +19,11 @@ export class Hotel {
                 amount: '5000',
                 currency: 'HUF',
                 status: 'pending',
-                stars: ''
+                stars: '',
+                location: ''
         }
     };
 
-    hotelList = [];
+    hotelList: any = [];
     hotelWithId;
 }

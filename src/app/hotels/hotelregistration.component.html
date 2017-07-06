@@ -1,7 +1,8 @@
 <main class="main">
     <div class="title__container">
         <h2>{{title}}</h2>
-        <div class="drop_down" alt="arrow" (click)="dropForm()" [ngClass]="{'up_arrow': showHide}"> </div>
+        <div class="drop_down" alt="arrow" (click)="dropForm()" [ngClass]="{'up_arrow': showHide}"><span class="add-hotel-msg">You can add new hotels here</span></div>
+
     </div>
 
     <form [ngClass]="{'form': true, 'form-in': formIn, 'form-out': formOut}" #form="ngForm">
@@ -31,12 +32,12 @@
 
         </div>
 
-        <hotel-attributes [attributes]="hotelAttributes.data.attributes"></hotel-attributes>
+        <hotel-attributes [attributes]="hotelAttributes.hotelFeatures.attributes"></hotel-attributes>
 
 
         <div class="button-group">
             <button class="send-button" [disabled]="form.invalid" (click)="onRegistration()" (click)="changeShowStatus()">Add</button>
-            <span class="spinner" [hidden]="!loading"></span>
+            <span [ngClass]="{'spinner': loading, 'empty-spinner': !loading}"></span>
         </div>
 
     </form>
@@ -75,6 +76,6 @@
 <div [hidden]="undoHidden">
     <footer class="undo-delete">
         <span>Are you sure you want to delete the hotel?</span>
-        <button (click)="undoDeleteTimeout(id)">Cancel Delete</button>
+        <button (click)="undoDeleteTimeout()">Cancel Delete</button>
     </footer>
 </div>

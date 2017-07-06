@@ -273,10 +273,46 @@ $coolGray: #353637;
     background-size: contain;
     margin: 20px;
     cursor: pointer;
+    position: relative;
 }
 
 .up_arrow {
     background-image: url(downarrow.svg);
+}
+
+.add-hotel-msg {
+    background-color: rgba(#20d1ac, .6);
+    border-radius: 5px;
+    padding: 5px;
+    position: relative;
+    top: 0px;
+    right: -40px;
+    width: 180px;
+    display: none;
+    text-align: center;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.add-hotel-msg::after {
+    content: '';
+    position: absolute;
+}
+
+.drop_down:hover .add-hotel-msg {
+    display: block;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        display: none;
+    }
 }
 
 /* FORMS */

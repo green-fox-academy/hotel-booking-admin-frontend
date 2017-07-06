@@ -63,6 +63,7 @@ export class HotelComponent {
                 response => {
                     this.hotelservice.hotel.hotelWithId = response;
                     this.changer.convertResponse(response);
+                    // console.log(this.changer.convertResponse(response))
                     this.router.navigate(['hotels/1']);
                 },
                 error => {
@@ -88,7 +89,7 @@ export class HotelComponent {
         this.timeout = setTimeout(() => this.deleteHotelId(id), 5000);
     }
 
-    undoDeleteTimeout(id) {
+    undoDeleteTimeout() {
         clearTimeout(this.timeout);
         this.undoHidden = true;
     }

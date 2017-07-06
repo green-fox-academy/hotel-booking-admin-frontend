@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { Data } from './hotelattributes'
+import { HotelFeatures } from './hotelattributes'
 
 @Injectable()
 export class HotelAttributesService {
-    data = new Data;
+    hotelFeatures = new HotelFeatures;
 }
