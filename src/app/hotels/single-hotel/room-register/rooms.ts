@@ -5,7 +5,7 @@ export class Room {
           attributes: {
             price: '',
             currency: '',
-            name: '',
+            room_name: '',
             description: '',
             max_occupancy: ''
         }

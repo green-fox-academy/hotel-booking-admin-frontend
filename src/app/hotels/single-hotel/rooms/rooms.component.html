@@ -1,3 +1,25 @@
 <main class="main">
     <h2 (click)="getRooms()">Rooms</h2>
 </main>
+
+<section [ngClass]="{'allhotels': true}">
+    <div class="hotel" *ngFor="let room of roomservice.room.roomList.data">
+        <div class="hotel_details">
+            <h3>{{room.attributes.room_name}}</h3>
+            <div class="hotel_information">
+                <p>{{room.attributes.description}}</p>
+            </div>
+            <ul>
+                <li>{{room.attributes.currency}}</li>
+                <li>{{room.attributes.price}}</li>
+                <li>{{room.attributes.max_occupancy}}</li>
+            </ul>
+        </div>
+        <!-- <div class="icons">
+            <span (click)="startDeleteTimeOut(hotel.id)" (dblclick)="deleteHotelId(hotel.id)" class="delete-hotel"></span>
+            <div>
+                <span class="hotel-star">{{hotel.attributes.stars}}</span>
+            </div>
+        </div> -->
+    </div>
+</section>
