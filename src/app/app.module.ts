@@ -22,6 +22,7 @@ import { HttpService } from './httprequest.service';
 import { HotelAttributesService } from './hotels/attributes/hotel-attributes.service';
 import { RoomRegisterComponent } from './hotels/single-hotel/room-register/room-register.component';
 import { RoomService } from './hotels/single-hotel/room-register/room-service';
+import { RoomsComponent } from './hotels/single-hotel/rooms/rooms.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import { RoomService } from './hotels/single-hotel/room-register/room-service';
         StarratingComponent,
         NavbarComponent,
         SingleHotelComponent,
-        RoomRegisterComponent
+        RoomRegisterComponent,
+        RoomsComponent
     ],
     imports: [
         BrowserModule,
