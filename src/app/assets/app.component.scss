@@ -356,6 +356,7 @@ $coolGray: #353637;
     margin: auto;
     border: none;
     border-bottom: solid 2px $coolGray;
+    border-radius: 0;
 }
 
 .form-group input, .error-message {
@@ -469,6 +470,11 @@ label {
 /* CHECKBOX */
 
 .form-group-checkbox {
+
+    input {
+        border: none;
+    }
+
     margin-top: 5px;
     @media screen
     and (max-width: 667px)
