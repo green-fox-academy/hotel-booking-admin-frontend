@@ -21,7 +21,7 @@ export class RoomRegisterComponent implements OnInit {
 
   constructor(
     public roomservice: RoomService,
-    private updateservice: HttpService
+    private registerservice: HttpService
     ) { }
 
     registerRoom(id) {
@@ -31,7 +31,7 @@ export class RoomRegisterComponent implements OnInit {
         const attr = { attributes: this.roomservice.room.data.attributes }
         const message = Object.assign(messageFirst, attr)
         const endpoint = 'api/hotels/' + id + '/relationships/rooms';
-        this.updateservice.httpRequest(message, endpoint, 'post')
+        this.registerservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
                     this.loading = false;

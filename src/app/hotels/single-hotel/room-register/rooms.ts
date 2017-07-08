@@ -8,6 +8,8 @@ export class Room {
             name: '',
             description: '',
             max_occupancy: ''
-          }
         }
+    }
+
+    roomList: any = []
     };
