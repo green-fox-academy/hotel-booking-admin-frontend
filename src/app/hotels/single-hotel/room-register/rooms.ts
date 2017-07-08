@@ -1,13 +1,13 @@
 export class Room {
     data = {
         type: 'rooms',
-        id: '1',
+        id: '4',
           attributes: {
-            price: '12',
-            currency: 'EUR',
+            price: '',
+            currency: '',
             name: '',
             description: '',
-            max_occupancy: '20'
+            max_occupancy: ''
           }
         }
     };
