@@ -335,7 +335,7 @@ $coolGray: #353637;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-        top: -670px;
+        top: -680px;
     }
 }
 
@@ -472,7 +472,8 @@ label {
 .form-group-checkbox {
 
     input {
-        border: none;
+        border: solid 2px white;
+        border-radius: 3px;
     }
 
     margin-top: 5px;
