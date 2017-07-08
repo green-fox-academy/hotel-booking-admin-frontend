@@ -24,13 +24,13 @@ export class RoomRegisterComponent implements OnInit {
     private registerservice: HttpService
     ) { }
 
-    registerRoom(id) {
+    registerRoom(hotelId) {
         this.loading = true;
         this.saving = true;
         const messageFirst = { type: 'hotels', id: this.roomservice.room.data.id };
         const attr = { attributes: this.roomservice.room.data.attributes }
         const message = Object.assign(messageFirst, attr)
-        const endpoint = 'api/hotels/' + id + '/relationships/rooms';
+        const endpoint = 'api/hotels/' + hotelId + '/relationships/rooms';
         this.registerservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
