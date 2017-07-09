@@ -2,24 +2,29 @@
     <h2 (click)="getRooms()">Rooms</h2>
 </main>
 
-<section [ngClass]="{'allhotels': true}">
-    <div class="hotel" *ngFor="let room of roomservice.room.roomList.data">
-        <div class="hotel_details">
-            <h3>{{room.attributes.room_name}}</h3>
-            <div class="hotel_information">
-                <p>{{room.attributes.description}}</p>
+<section class="allrooms">
+    <div class="room" *ngFor="let room of roomservice.room.roomList.data">
+        <div class="room_details">
+            <div class="room_title__container">
+                <div class="">
+                    <div class="room_icon"></div>
+                    <h3 class="room_title">{{room.attributes.room_name}}</h3>
+                </div>
+                <span (dblclick)="deleteRoomId(hotelId, room.id)" class="delete-room"></span>
             </div>
-            <ul>
-                <li>{{room.attributes.currency}}</li>
-                <li>{{room.attributes.price}}</li>
-                <li>{{room.attributes.max_occupancy}}</li>
-            </ul>
+            <div class="room_info_container">
+                <div class="room_desc">
+                    <h4>Room description</h4>
+                    <p>{{room.attributes.description}}</p>
+                </div>
+                <ul class="room_info">
+                    <li class="room_info-title">Price and currency</li>
+                    <li><div class="money_empty"></div>{{room.attributes.price}}</li>
+                    <li><div class="money_icon"></div>{{room.attributes.currency}}</li>
+                    <li class="room_info-title">Max occupancy</li>
+                    <li><div class="bag_icon"></div>{{room.attributes.max_occupancy}}</li>
+                </ul>
+            </div>
         </div>
-        <!-- <div class="icons">
-            <span (click)="startDeleteTimeOut(hotel.id)" (dblclick)="deleteHotelId(hotel.id)" class="delete-hotel"></span>
-            <div>
-                <span class="hotel-star">{{hotel.attributes.stars}}</span>
-            </div>
-        </div> -->
     </div>
 </section>
