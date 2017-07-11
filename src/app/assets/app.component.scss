@@ -179,17 +179,38 @@ $coolGray: #353637;
     }
 }
 
-.bun .top {
+.bun-top {
+    transition: .3s ease;
+}
 
+.bun-top-on {
+    transform: rotate(-135deg);
+    position: relative;
+    top: 8px;
+    transition: .3s ease;
 }
 
 .meat {
     margin-bottom: 5px;
     margin-top: 5px;
+    transition: .3s ease;
 }
 
-.bun .bottom {
+.meat-on {
+    transform: translateX(100px);
+    transition: .3s ease;
 
+}
+
+.bun-bottom {
+    transition: .3s ease;
+}
+
+.bun-bottom-on {
+    transform: rotate(135deg);
+    position: relative;
+    bottom: 10px;
+    transition: .3s ease;
 }
 
 .hamburger-menu {

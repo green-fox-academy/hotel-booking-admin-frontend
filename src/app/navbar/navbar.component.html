@@ -8,10 +8,10 @@
         <a routerLink="/hotels" [hidden]="setLoggedOut()" (click)="gethotelsservice.getHotels()">Hotels</a>
 
         <!-- <span (click)="toggleMenu()" class="hamburger-icon"></span> -->
-        <div (click)="toggleMenu()" [ngClass]="{'hamburger-icon': true}">
-            <div class="bun top"></div>
-            <div class="meat"></div>
-            <div class="bun bottom"></div>
+        <div (click)="toggleMenu()" class="hamburger-icon">
+            <div [ngClass]="{'bun-top': true, 'bun-top-on': menuIn, 'bun-top-off': menuOut}"></div>
+            <div [ngClass]="{'meat': true, 'meat-on': menuIn, 'meat-off': menuOut}"></div>
+            <div [ngClass]="{'bun-bottom': true, 'bun-bottom-on': menuIn, 'bun-bottom-off': menuOut}"></div>
         </div>
         <div [ngClass]="{'hamburger-menu': true, 'menu-in': menuIn, 'menu-out': menuOut}">
             <a routerLink="/" (click)="setIsItLogin()">Home</a>
