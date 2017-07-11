@@ -167,14 +167,29 @@ $coolGray: #353637;
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         padding: 5px;
-        // background-image: url(menu.svg);
-        // background-repeat: no-repeat;
-        // background-size: contain;
-        width: 30px;
+        width: 40px;
         height: 30px;
         margin: 5px;
         box-sizing: border-box;
+        div {
+            border: 2px solid white;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
     }
+}
+
+.bun .top {
+
+}
+
+.meat {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.bun .bottom {
+
 }
 
 .hamburger-menu {
