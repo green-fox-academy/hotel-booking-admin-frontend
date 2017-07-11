@@ -55,9 +55,7 @@ export class SingleHotelComponent implements OnInit {
                     this.emptyAutosave = true;
                     this.messageInactive = false;
                 },
-                error => {
-                    console.error(error)
-                }
+                error => console.error(error)
             );
         }
 

@@ -25,9 +25,8 @@ export class RoomsComponent implements OnInit {
                     this.roomservice.room.roomList = response
                     console.log(this.roomservice.room.roomList)
                 },
-                error => {
-                    console.error(error);
-                });
+                error => console.error(error)
+            );
     }
 
     deleteRoomId(hotelId, roomId) {

@@ -38,9 +38,7 @@ export class RoomRegisterComponent implements OnInit {
                     this.saving = false;
                     console.log(response)
                 },
-                error => {
-                    console.error(error)
-                }
+                error => console.error(error)
             );
         }
 
