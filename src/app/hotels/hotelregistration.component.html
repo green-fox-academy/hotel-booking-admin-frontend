@@ -44,12 +44,12 @@
 
 </main>
 
-<section [ngClass]="{'allhotels': true, 'hotels-up': hotelsUp, 'hotels-down': hotelsDown}">
+<section [ngClass]="{'allhotels': true, 'hotels-up': hotelsUp, 'hotels-down': hotelsDown}">         
     <div class="hotel" *ngFor="let hotel of hotelservice.hotel.hotelList.data">
         <div class="hotel_details">
             <img class="hotel-image" src="{{hotel.attributes.main_image_src}}" alt="hotel_image">
             <div class="hotel_information">
-                <h3 (click)="getHotelId(hotel.id)">{{hotel.attributes.name}}</h3>
+                <h3 (click)="getHotelId(hotel.id)" (click)="getRooms(hotelservice.hotel.hotelWithId.data.id)">{{hotel.attributes.name}}</h3>
                 <h4>{{hotel.attributes.location}}</h4>
                 <p> <strong>meal plan:</strong> {{hotel.attributes.meal_plan}}</p>
                 <ul>
