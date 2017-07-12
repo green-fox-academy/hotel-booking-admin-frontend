@@ -16,6 +16,10 @@ import { HotelService } from '../hotel.service';
 import { HotelAttributesService } from '../attributes/hotel-attributes.service';
 import { HttpService } from '../../httprequest.service';
 import { GetHotelsService } from '../get-hotels.service';
+import { RoomRegisterComponent } from './room-register/room-register.component';
+import { RoomsComponent } from './rooms/rooms.component';
+import { RoomService } from './room-register/room-service';
+import { GetroomsService } from './rooms/getrooms.service';
 
 describe('HttpService', () => {
     beforeEach(async(() => {
@@ -27,13 +31,17 @@ describe('HttpService', () => {
                 ],
             providers: [
                 GetHotelsService,
+                RoomService,
+                GetroomsService,
                 HotelAttributesService,
                 HotelService, 
                 HttpService,
                 { provide: XHRBackend, useClass: MockBackend}
                 ],
             declarations: [
-                SingleHotelComponent
+                SingleHotelComponent,
+                RoomRegisterComponent,
+                RoomsComponent
             ]
         })
         .compileComponents();
