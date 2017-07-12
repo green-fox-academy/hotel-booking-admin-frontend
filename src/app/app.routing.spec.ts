@@ -30,6 +30,7 @@ import { HttpService } from './httprequest.service';
 import { HotelAttributesService } from './hotels/attributes/hotel-attributes.service';
 import { RoomRegisterComponent } from './hotels/single-hotel/room-register/room-register.component';
 import { RoomsComponent } from './hotels/single-hotel/rooms/rooms.component';
+import { RoomService } from './hotels/single-hotel/room-register/room-service';
 
 class RequestOption {
     public requestoption: RequestOptions
@@ -86,7 +87,8 @@ describe('RoutingComponent', () => {
                 { provide: XHRBackend, useClass: MockBackend },
                 GetHotelsService,
                 HotelService,
-                HotelAttributesService
+                HotelAttributesService,
+                RoomService
             ]
         });
     });
