@@ -24,6 +24,7 @@ import { RoomRegisterComponent } from './hotels/single-hotel/room-register/room-
 import { RoomService } from './hotels/single-hotel/room-register/room-service';
 import { RoomsComponent } from './hotels/single-hotel/rooms/rooms.component';
 import { GetroomsService } from './hotels/single-hotel/rooms/getrooms.service';
+import { DragAndDropComponent } from './hotels/drag-and-drop/drag-and-drop.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { GetroomsService } from './hotels/single-hotel/rooms/getrooms.service';
         NavbarComponent,
         SingleHotelComponent,
         RoomRegisterComponent,
-        RoomsComponent
+        RoomsComponent,
+        DragAndDropComponent
     ],
     imports: [
         BrowserModule,
