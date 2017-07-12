@@ -27,8 +27,9 @@ import { StarratingComponent } from './hotels/starrating/starrating.component';
 import { GetHotelsService } from './hotels/get-hotels.service'
 import { HotelService } from './hotels/hotel.service'
 import { HttpService } from './httprequest.service';
-import { HotelAttributesService } from './hotels/attributes/hotel-attributes.service'
-
+import { HotelAttributesService } from './hotels/attributes/hotel-attributes.service';
+import { RoomRegisterComponent } from './hotels/single-hotel/room-register/room-register.component';
+import { RoomsComponent } from './hotels/single-hotel/rooms/rooms.component';
 
 class RequestOption {
     public requestoption: RequestOptions
@@ -57,6 +58,7 @@ describe('RoutingComponent', () => {
                     { path: 'hotels', component: HotelComponent },
                     { path: '', component: HomeComponent, canActivate: [RoutingService] },
                     { path: 'hotels/1', component: SingleHotelComponent, canActivate: [RoutingService] },
+                    { path: 'hotels/1/rooms', component: RoomRegisterComponent },
                     { path: '**', redirectTo: 'login' }
                 ]),
                 BrowserAnimationsModule
@@ -71,7 +73,9 @@ describe('RoutingComponent', () => {
                 HotelComponent,
                 StarratingComponent,
                 AttributesComponent,
-                SingleHotelComponent
+                SingleHotelComponent,
+                RoomRegisterComponent,
+                RoomsComponent
             ],
             providers: [
                 RoutingService,
