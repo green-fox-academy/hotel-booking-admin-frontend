@@ -23,6 +23,7 @@ import { HotelAttributesService } from './hotels/attributes/hotel-attributes.ser
 import { RoomRegisterComponent } from './hotels/single-hotel/room-register/room-register.component';
 import { RoomService } from './hotels/single-hotel/room-register/room-service';
 import { RoomsComponent } from './hotels/single-hotel/rooms/rooms.component';
+import { GetroomsService } from './hotels/single-hotel/rooms/getrooms.service';
 
 @NgModule({
     declarations: [
@@ -52,7 +53,8 @@ import { RoomsComponent } from './hotels/single-hotel/rooms/rooms.component';
         GetHotelsService,
         HttpService,
         HotelAttributesService,
-        RoomService
+        RoomService,
+        GetroomsService
     ],
     bootstrap: [AppComponent]
 })

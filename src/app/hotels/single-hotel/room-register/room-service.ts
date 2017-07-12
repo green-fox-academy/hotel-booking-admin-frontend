@@ -11,15 +11,4 @@ export class RoomService {
 
     room = new Room;
 
-    getRooms(hotelId) {
-    const endpoint = 'api/hotels/' + hotelId + '/relationships/rooms';
-    this.httpservice.httpRequest('', endpoint, 'get')
-        .subscribe(
-            response => {
-                this.room.roomList = response
-                console.log(this.room.roomList)
-            },
-            error => console.error(error)
-        );
-    }
 }

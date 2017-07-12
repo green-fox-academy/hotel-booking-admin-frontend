@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RoomService } from '../room-register/room-service';
 import { HttpService } from '../../../httprequest.service';
 import { HotelService } from '../../hotel.service';
-
+import { GetroomsService } from '../rooms/getrooms.service';
 
 @Component({
     selector: 'app-rooms',
@@ -16,17 +16,18 @@ export class RoomsComponent implements OnInit {
 
     constructor(
         public roomservice: RoomService,
-        private getroomsservice: HttpService,
-        public hotelservice: HotelService
+        private httpservice: HttpService,
+        public hotelservice: HotelService,
+        public getroomsservice: GetroomsService
     ) { }
 
     deleteRoomId(hotelId, roomId) {
         const endpoint = 'api/hotels/' + hotelId + '/relationships/rooms/' + roomId;
         console.log(endpoint)
-        this.getroomsservice.httpRequest(this.roomservice.room.roomList.data.id, endpoint, 'delete')
+        this.httpservice.httpRequest(this.roomservice.room.roomList.data.id, endpoint, 'delete')
             .subscribe(
                 response => {
-                    this.roomservice.getRooms(hotelId);
+                    this.getroomsservice.getRooms(hotelId);
                     this.undoHidden = true;
                 },
                 error => console.error(error)

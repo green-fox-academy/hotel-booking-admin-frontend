@@ -49,7 +49,7 @@
         <div class="hotel_details">
             <img class="hotel-image" src="{{hotel.attributes.main_image_src}}" alt="hotel_image">
             <div class="hotel_information">
-                <h3 (click)="getHotelId(hotel.id)" (click)="roomservice.getRooms(hotel.id)">{{hotel.attributes.name}}</h3>
+                <h3 (click)="getHotelId(hotel.id)" (click)="getroomsservice.getRooms(hotel.id)">{{hotel.attributes.name}}</h3>
                 <h4>{{hotel.attributes.location}}</h4>
                 <p> <strong>meal plan:</strong> {{hotel.attributes.meal_plan}}</p>
                 <ul>
