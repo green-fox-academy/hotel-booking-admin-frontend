@@ -4,6 +4,8 @@ import { HttpModule } from '@angular/http';
 import { RoomsComponent } from './rooms.component';
 import { RoomService } from '../room-register/room-service';
 import { HotelService } from '../../hotel.service';
+import { HttpService } from '../../../httprequest.service';
+import { GetroomsService } from './getrooms.service'
 
 describe('RoomsComponent', () => {
     let component: RoomsComponent;
@@ -15,7 +17,9 @@ describe('RoomsComponent', () => {
             declarations: [ RoomsComponent ],
             providers: [
                 RoomService,
-                HotelService
+                HotelService,
+                HttpService,
+                GetroomsService
             ]
         })
         .compileComponents();
