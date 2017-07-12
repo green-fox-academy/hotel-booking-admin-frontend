@@ -31,6 +31,7 @@ import { HotelAttributesService } from './hotels/attributes/hotel-attributes.ser
 import { RoomRegisterComponent } from './hotels/single-hotel/room-register/room-register.component';
 import { RoomsComponent } from './hotels/single-hotel/rooms/rooms.component';
 import { RoomService } from './hotels/single-hotel/room-register/room-service';
+import { GetroomsService } from './hotels/single-hotel/rooms/getrooms.service';
 
 class RequestOption {
     public requestoption: RequestOptions
@@ -88,7 +89,8 @@ describe('RoutingComponent', () => {
                 GetHotelsService,
                 HotelService,
                 HotelAttributesService,
-                RoomService
+                RoomService,
+                GetroomsService
             ]
         });
     });
