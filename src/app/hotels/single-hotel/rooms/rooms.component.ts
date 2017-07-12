@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { RoomService } from '../room-register/room-service';
 import { HttpService } from '../../../httprequest.service';
+import { HotelService } from '../../hotel.service';
+
 
 @Component({
     selector: 'app-rooms',
@@ -14,7 +16,8 @@ export class RoomsComponent implements OnInit {
 
     constructor(
         public roomservice: RoomService,
-        private getroomsservice: HttpService
+        private getroomsservice: HttpService,
+        public hotelservice: HotelService
     ) { }
 
     getRooms(hotelId) {

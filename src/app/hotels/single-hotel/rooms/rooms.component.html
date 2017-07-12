@@ -1,5 +1,5 @@
 <main class="main">
-    <h2 (click)="getRooms(hotelId)">Rooms</h2>
+    <h2 (click)="getRooms(hotelservice.hotel.hotelWithId.data.id)">Rooms</h2>
 </main>
 
 <section class="allrooms">
@@ -10,7 +10,7 @@
                     <div class="room_icon"></div>
                     <h3 class="room_title">{{room.attributes.room_name}}</h3>
                 </div>
-                <span (dblclick)="deleteRoomId(hotelId, room.id)" class="delete-room"></span>
+                <span (dblclick)="deleteRoomId(hotelservice.hotel.hotelWithId.data.id, room.id)" class="delete-room"></span>
             </div>
             <div class="room_info_container">
                 <div class="room_desc">
