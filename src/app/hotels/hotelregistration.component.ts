@@ -63,12 +63,9 @@ export class HotelComponent {
                 response => {
                     this.hotelservice.hotel.hotelWithId = response;
                     this.changer.convertResponse(response);
-                    // console.log(this.changer.convertResponse(response))
                     this.router.navigate(['hotels/1']);
                 },
-                error => {
-                    console.error(error);
-                });
+                error => console.error(error));
     }
 
     deleteHotelId(id) {
@@ -79,9 +76,7 @@ export class HotelComponent {
                     this.gethotels.getHotels();
                     this.undoHidden = true;
                 },
-                error => {
-                    console.error(error);
-                });
+                error => console.error(error));
     }
 
     startDeleteTimeOut(id) {

@@ -1,13 +1,15 @@
 export class Room {
     data = {
         type: 'rooms',
-        id: '1',
+        id: '4',
           attributes: {
-            price: '12',
-            currency: 'EUR',
-            name: '',
+            price: '',
+            currency: '',
+            room_name: '',
             description: '',
-            max_occupancy: '20'
-          }
+            max_occupancy: ''
         }
+    }
+
+    roomList: any = []
     };
