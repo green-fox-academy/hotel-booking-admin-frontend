@@ -11,7 +11,7 @@ import { AttributesComponent } from './attributes/attributes.component';
 import { StarratingComponent } from './starrating/starrating.component';
 import { GetHotelsService } from './get-hotels.service';
 import { HotelAttributesService } from '../hotels/attributes/hotel-attributes.service'
-
+import { RoomService } from './single-hotel/room-register/room-service';
 
 describe('HotelComponent', () => {
     beforeEach(async(() => {
@@ -31,8 +31,9 @@ describe('HotelComponent', () => {
                 HttpService,
                 HotelService,
                 GetHotelsService,
-                HotelAttributesService
-                ]
+                HotelAttributesService,
+                RoomService
+            ]
             }).compileComponents();
         }));
 

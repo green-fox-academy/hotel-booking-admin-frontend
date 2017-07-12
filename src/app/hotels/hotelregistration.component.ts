@@ -7,7 +7,8 @@ import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 import { GetHotelsService } from './get-hotels.service';
 import { HotelAttributesService } from './attributes/hotel-attributes.service'
-import { ChangeDataFormatService } from './change-data-format.service'
+import { ChangeDataFormatService } from './change-data-format.service';
+import { RoomService } from './single-hotel/room-register/room-service';
 
 import 'rxjs/add/operator/map';
 
@@ -37,7 +38,8 @@ export class HotelComponent {
         public gethotels: GetHotelsService,
         public router: Router,
         public hotelAttributes: HotelAttributesService,
-        public changer: ChangeDataFormatService
+        public changer: ChangeDataFormatService,
+        public roomservice: RoomService
     ) { }
 
     onRegistration() {
