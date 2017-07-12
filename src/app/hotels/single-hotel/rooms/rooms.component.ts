@@ -23,7 +23,6 @@ export class RoomsComponent implements OnInit {
 
     deleteRoomId(hotelId, roomId) {
         const endpoint = 'api/hotels/' + hotelId + '/relationships/rooms/' + roomId;
-        console.log(endpoint)
         this.httpservice.httpRequest(this.roomservice.room.roomList.data.id, endpoint, 'delete')
             .subscribe(
                 response => {

@@ -17,7 +17,6 @@ export class GetroomsService {
           .subscribe(
               response => {
                   this.roomservice.room.roomList = response
-                  console.log(this.roomservice.room.roomList)
               },
               error => console.error(error)
           );
