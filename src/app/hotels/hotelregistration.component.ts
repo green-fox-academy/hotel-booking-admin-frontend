@@ -70,18 +70,6 @@ export class HotelComponent {
                 error => console.error(error));
     }
 
-    getRooms(hotelId) {
-        const endpoint = 'api/hotels/' + hotelId + '/relationships/rooms';
-        this.httpservice.httpRequest('', endpoint, 'get')
-            .subscribe(
-                response => {
-                    this.roomservice.room.roomList = response
-                    console.log(this.roomservice.room.roomList)
-                },
-                error => console.error(error)
-            );
-    }
-
     deleteHotelId(id) {
         const endpoint = 'api/hotels/' + id;
         this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'delete')
