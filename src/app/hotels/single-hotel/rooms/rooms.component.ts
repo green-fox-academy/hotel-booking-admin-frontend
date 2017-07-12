@@ -26,7 +26,6 @@ export class RoomsComponent implements OnInit {
             .subscribe(
                 response => {
                     this.roomservice.room.roomList = response
-                    console.log(this.roomservice.room.roomList)
                 },
                 error => console.error(error)
             );
@@ -38,6 +37,7 @@ export class RoomsComponent implements OnInit {
         this.getroomsservice.httpRequest(this.roomservice.room.roomList.data.id, endpoint, 'delete')
             .subscribe(
                 response => {
+                    console.log(response);
                     this.getRooms(hotelId);
                     this.undoHidden = true;
                 },
