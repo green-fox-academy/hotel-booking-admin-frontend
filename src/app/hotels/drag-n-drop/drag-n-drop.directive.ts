@@ -28,6 +28,8 @@ export class DragNDropDirective {
         evt.preventDefault();
         evt.stopPropagation();
         this.background = '#eee';
+        evt.dataTransfer.effectAllowed = 'copy'
+        console.log(evt.dataTransfer.effectAllowed = 'copy')
         let files = evt.dataTransfer.files;
         let valid_files: Array<File> = [];
         let invalid_files: Array<File> = [];
@@ -36,6 +38,7 @@ export class DragNDropDirective {
                 let ext = files[i].name.split('.')[files[i].name.split('.').length - 1];
                 if (this.allowed_extensions.lastIndexOf(ext) !== -1) {
                     valid_files.push(files[i]);
+                    console.log(files);
                 } else {
                     invalid_files.push(files[i]);
                 }

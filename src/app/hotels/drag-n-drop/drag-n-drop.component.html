@@ -3,7 +3,9 @@
         <div class="dropzone" appDragNDrop (filesChangeEmiter)="onFilesChange($event)" (filesInvalidEmiter)="onFilesInvalids($event)" [allowed_extensions]="['png', 'jpg', 'bmp']">
             <span class="dropzon-title">Drop image here</span>
         </div>
-        <div class="image-preview"></div>
+        <div class="image-preview" *ngFor="let file of fileList">
+            <img src="{{file.name}}"/>
+        </div>
     </div>
 
     <div class="dropzone-list">
