@@ -1,0 +1,13 @@
+<div class="dropzone" appDragNDrop (filesChangeEmiter)="onFilesChange($event)">
+    <div class="text-wrapper">
+        <div class="dropzon-title">Drop image here</div>
+    </div>
+</div>
+
+<div class="dropzone-list">
+    <ul>
+        <li *ngFor="let file of fileList">
+            {{ file.name }}
+        </li>
+    </ul>
+</div>

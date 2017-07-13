@@ -34,6 +34,8 @@
 
         <hotel-attributes [attributes]="hotelAttributes.hotelFeatures.attributes"></hotel-attributes>
 
+        <app-drag-n-drop></app-drag-n-drop>
+
         <div class="button-group">
             <button class="send-button" [disabled]="form.invalid" (click)="onRegistration()" (click)="changeShowStatus()">Add</button>
             <span [ngClass]="{'spinner': loading, 'empty-spinner': !loading}"></span>

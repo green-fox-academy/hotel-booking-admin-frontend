@@ -436,6 +436,22 @@ label {
     font-size: 1.1rem;
 }
 
+/* DnD */
+
+.dropzone-list > ul {
+  width: 30%;
+  list-style: none;
+}
+.dropzone-list > ul > li:before {
+  content : '+';
+  color: #6def9a;
+}
+.dropzone-list > ul > li {
+  border: 1px solid black;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
 /* SEND-BUTTON */
 
 .button-group {
