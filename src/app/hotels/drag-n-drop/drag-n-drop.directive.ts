@@ -11,8 +11,6 @@ export class DragNDropDirective {
 
     constructor() { }
 
-    private fileList: any = [];
-
     @HostListener('drop', ['$event']) public onDrop(evt){
     evt.preventDefault();
     evt.stopPropagation();
@@ -22,9 +20,4 @@ export class DragNDropDirective {
         this.filesChangeEmiter.emit(files);
         }
     }
-
-    onFilesChange(fileList: FileList) {
-        this.fileList  = fileList;
-    }
-
 }
