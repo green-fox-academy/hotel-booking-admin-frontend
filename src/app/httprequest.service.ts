@@ -12,6 +12,7 @@ export class HttpService {
 
     httpRequest(bodies, endpoint, reqMethod): Observable<Comment[]> {
         const serverEndpoint = 'https://two-ferns.glitch.me/';
+        // const serverEndpoint = 'https://hotel-booking-backend.herokuapp.com/'
         return this.http.request(new Request({
             method: reqMethod,
             url: serverEndpoint + endpoint,

@@ -1,14 +1,17 @@
-<div class="dropzone" appDragNDrop (filesChangeEmiter)="onFilesChange($event)" (filesInvalidEmiter)="onFilesInvalids($event)" [allowed_extensions]="['png', 'jpg', 'bmp']">
-    <div class="text-wrapper">
-        <div class="dropzon-title">Drop image here</div>
+<main class="main">
+    <div class="container__dropzone">
+        <div class="dropzone" appDragNDrop (filesChangeEmiter)="onFilesChange($event)" (filesInvalidEmiter)="onFilesInvalids($event)" [allowed_extensions]="['png', 'jpg', 'bmp']">
+            <span class="dropzon-title">Drop image here</span>
+        </div>
+        <div class="image-preview"></div>
     </div>
-</div>
 
-<div class="dropzone-list">
-    <ul class="dropzone-list-valid">
-        <li *ngFor="let file of fileList">{{ file.name }}</li>
-    </ul>
-    <ul class="dropzone-list-invalid">
-        <li *ngFor="let file of invalidFiles">{{ file.name }}</li>
-    </ul>
-</div>
+    <div class="dropzone-list">
+        <ul class="dropzone-list-valid">
+            <li *ngFor="let file of fileList">{{ file.name }}</li>
+        </ul>
+        <ul class="dropzone-list-invalid">
+            <li *ngFor="let file of invalidFiles">{{ file.name }}</li>
+        </ul>
+    </div>
+</main>
