@@ -40,8 +40,8 @@ import { DragNDropComponent } from './hotels/drag-n-drop/drag-n-drop.component';
         SingleHotelComponent,
         RoomRegisterComponent,
         RoomsComponent,
-        DragNDropDirective,
-        DragNDropComponent
+        DragNDropComponent,
+        DragNDropDirective
     ],
     imports: [
         BrowserModule,
