@@ -13,6 +13,7 @@ import { GetHotelsService } from './get-hotels.service';
 import { HotelAttributesService } from '../hotels/attributes/hotel-attributes.service'
 import { RoomService } from './single-hotel/room-register/room-service';
 import { GetroomsService } from './single-hotel/rooms/getrooms.service';
+import { DragNDropComponent } from './drag-n-drop/drag-n-drop.component';
 
 describe('HotelComponent', () => {
     beforeEach(async(() => {
@@ -26,7 +27,8 @@ describe('HotelComponent', () => {
             declarations: [
                 HotelComponent,
                 AttributesComponent,
-                StarratingComponent
+                StarratingComponent,
+                DragNDropComponent
             ],
             providers: [
                 HttpService,

@@ -32,6 +32,7 @@ import { RoomRegisterComponent } from './hotels/single-hotel/room-register/room-
 import { RoomsComponent } from './hotels/single-hotel/rooms/rooms.component';
 import { RoomService } from './hotels/single-hotel/room-register/room-service';
 import { GetroomsService } from './hotels/single-hotel/rooms/getrooms.service';
+import { DragNDropComponent } from './hotels/drag-n-drop/drag-n-drop.component';
 
 class RequestOption {
     public requestoption: RequestOptions
@@ -77,7 +78,8 @@ describe('RoutingComponent', () => {
                 AttributesComponent,
                 SingleHotelComponent,
                 RoomRegisterComponent,
-                RoomsComponent
+                RoomsComponent,
+                DragNDropComponent
             ],
             providers: [
                 RoutingService,

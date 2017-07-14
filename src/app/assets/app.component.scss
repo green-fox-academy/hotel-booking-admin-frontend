@@ -775,6 +775,8 @@ input[type="file"] {
 .hotel-image {
     display: flex;
     align-content: center;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .hotel_information {
