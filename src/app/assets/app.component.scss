@@ -470,20 +470,24 @@ input[type="file"] {
 }
 
 .image-preview {
-    border: 1px solid $coolGray;
+    // border: 1px solid $coolGray;
     margin: 5px;
     width: 15vw;
     max-width: 200px;
     height: 15vw;
     max-height: 200px;
     box-sizing: border-box;
+    border-radius: 3px;
+    background-image: url(picture.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .display-img{
+    border-radius: 3px;
+    width: 15vw;
     max-width: 200px;
     max-height: 200px;
-    width: 15vw;
-    height: 15vw;
 }
 
 .text-wrapper {
