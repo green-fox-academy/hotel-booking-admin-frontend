@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { Router } from '@angular/router';
+import {DomSanitizer} from '@angular/platform-browser';
 
 import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
@@ -34,6 +35,7 @@ export class HotelComponent {
     timeout;
 
     constructor (
+        public _DomSanitizer: DomSanitizer,
         public httpservice: HttpService,
         public hotelservice: HotelService,
         public gethotels: GetHotelsService,
