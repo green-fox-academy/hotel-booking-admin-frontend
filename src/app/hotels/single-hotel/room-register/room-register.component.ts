@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { RoomService } from './room-service';
 import { HttpService } from '../../../httprequest.service';
+import { GetroomsService } from '../rooms/getrooms.service';
 
 @Component({
     selector: 'app-room-register',
@@ -21,7 +22,8 @@ export class RoomRegisterComponent implements OnInit {
 
   constructor(
     public roomservice: RoomService,
-    private registerservice: HttpService
+    private registerservice: HttpService,
+    public getroomsservice: GetroomsService
     ) { }
 
     registerRoom(hotelId) {
@@ -36,7 +38,7 @@ export class RoomRegisterComponent implements OnInit {
                 response => {
                     this.loading = false;
                     this.saving = false;
-                    console.log(response)
+                    this.getroomsservice.getRooms(hotelId);
                 },
                 error => console.error(error)
             );
