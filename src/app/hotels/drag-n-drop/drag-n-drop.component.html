@@ -1,19 +1,28 @@
 <main class="main">
+    <form #f="ngForm" enctype="multipart/form-data" novalidate>
     <div class="container__dropzone">
-        <div class="dropzone" appDragNDrop (filesChangeEmiter)="onFilesChange($event)" (filesInvalidEmiter)="onFilesInvalids($event)" [allowed_extensions]="['png', 'jpg', 'bmp']">
-            <span class="dropzon-title">Drop image here</span>
+        <div class="dropzone">
+            <input class="dropzone" type="file" multiple [name]="uploadFieldName" (change)="onfilesChange($event.target.name, $event.target.files)" [disabled]="currentStatus === STATUS_SAVING" #photos>
+            <!--<input type="file" multiple [name]="uploadFieldName" class="dropzone" appDragNDrop (filesChangeEmiter)="onfilesChange($event.target.name, $event.target.files)" (filesInvalidEmiter)="onFilesInvalids($event)" [allowed_extensions]="['png', 'jpg', 'bmp']" [disabled]="currentStatus === STATUS_SAVING" #photos>-->
+            <span class="dropzon-title" *ngIf="currentStatus === STATUS_INITIAL">Drop your image here or click to browse</span>
+            <span class="dropzon-title" *ngIf="currentStatus === STATUS_SAVING"> Uploading {{ photos.files.length }} files... </span>
         </div>
         <div class="image-preview">
-            <!-- <img src="{{file.name}}"/> -->
+            <ul class="dropzone-list-invalid">
+            <li *ngFor="let item of uploadedFiles">
+                <img class="display-img" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.url)" [alt]="item.originalName">
+            </li>
+            </ul>
         </div>
     </div>
 
-    <div class="dropzone-list">
-        <ul class="dropzone-list-valid">
-            <li *ngFor="let file of fileList">{{ file.name }}</li>
-        </ul>
-        <ul class="dropzone-list-invalid">
-            <li *ngFor="let file of invalidFiles">{{ file.name }}</li>
-        </ul>
-    </div>
+        <div class="dropzone-list">
+            <ul class="dropzone-list-valid">
+                <li *ngFor="let item of uploadedFiles">{{ item.originalName }}</li>
+            </ul>
+            <ul class="dropzone-list-invalid" *ngIf="currentStatus === STATUS_FAILED">
+                <li>{{ item.originalName }}</li>
+            </ul>
+        </div>
+    </form>
 </main>

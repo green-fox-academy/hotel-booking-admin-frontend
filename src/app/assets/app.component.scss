@@ -450,6 +450,16 @@ label {
     }
 }
 
+.dropzone:hover {
+    background: lightblue; /* when mouse over to the drop zone, change color */
+}
+
+input[type="file"] {
+    opacity: 0;
+    height: 200px;
+    flex: 1 1 70%;
+}
+
 .dropzone {
     background-color: #eee;
     flex: 1 1 70%;
@@ -467,6 +477,13 @@ label {
     height: 15vw;
     max-height: 200px;
     box-sizing: border-box;
+}
+
+.display-img{
+    max-width: 200px;
+    max-height: 200px;
+    width: 15vw;
+    height: 15vw;
 }
 
 .text-wrapper {
