@@ -118,6 +118,11 @@ $coolGray: #353637;
 /* SINGLE HOTEL PAGE
     AUTOSAVE */
 
+.container__autosave {
+    position: fixed;
+    right: 10px;
+}
+
 .empty-field {
     color: white;
     padding: 5px;
@@ -149,7 +154,7 @@ $coolGray: #353637;
 }
 
 .autosave-message-fade {
-    color: rgba(#353637, 0.4);
+    color: rgba(#353637, 0);
     font-size: 1rem;
     padding: 5px;
     width: 200px;
