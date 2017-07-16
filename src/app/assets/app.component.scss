@@ -191,11 +191,10 @@ $coolGray: #353637;
     and (-webkit-min-device-pixel-ratio: 2) {
         padding: 5px;
         width: 40px;
-        height: 30px;
         margin: 5px;
         box-sizing: border-box;
         div {
-            border: 2px solid white;
+            border: 1px solid white;
             border-radius: 5px;
             box-sizing: border-box;
         }
@@ -214,8 +213,8 @@ $coolGray: #353637;
 }
 
 .meat {
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: 7px;
+    margin-top: 7px;
     transition: .2s ease-in;
 }
 
@@ -238,10 +237,12 @@ $coolGray: #353637;
 
 .hamburger-menu {
     position: absolute;
-    top: 60px;
+    top: 59px;
     right:0px;
     width: 70%;
+    height: 800px;
     z-index: 10;
+    background-color: $coolGray;
 }
 
 .menu-in {
@@ -260,20 +261,19 @@ $coolGray: #353637;
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         height: 50px;
+        width: 80%;
+        margin: 0 10%;
+        border-bottom: .5px solid #afafaf;
         display: inline-block;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
         border-radius: 0;
-        padding: 25px;
+        padding: 20px, 0;
         justify-content: center;
         background-color: $coolGray;
         box-sizing: border-box;
     }
-}
-
-.hamburger-menu a:nth-of-type(odd) {
-    background-color: #4f4f4f;
 }
 
 .hamburger-menu a:hover {
@@ -282,10 +282,11 @@ $coolGray: #353637;
     and (-webkit-min-device-pixel-ratio: 2) {
         box-shadow: none;
         transform: none;
-        border: 1px solid $coolGray;
-        transition: none;
-        background-color: white;
-        color: $coolGray;
+        border: none;
+        border-bottom: .5px solid #afafaf;
+        // transition: none;
+        // background-color: white;
+        // color: $coolGray;
     }
 }
 
