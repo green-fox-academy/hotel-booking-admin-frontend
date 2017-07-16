@@ -448,16 +448,10 @@ label {
     and (-webkit-min-device-pixel-ratio: 2) {
         display: none;
     }
-}
 
-.dropzone:hover {
-    background: lightblue; /* when mouse over to the drop zone, change color */
-}
-
-input[type="file"] {
-    opacity: 0;
-    height: 200px;
-    flex: 1 1 70%;
+    input {
+        display: none;
+    }
 }
 
 .dropzone {
@@ -465,12 +459,20 @@ input[type="file"] {
     flex: 1 1 70%;
     height: 200px;
     margin: 5px;
+    padding: 5px;
     box-sizing: border-box;
     border-radius: 3px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dropzone:hover {
+    background: lightblue;
 }
 
 .image-preview {
-    // border: 1px solid $coolGray;
     margin: 5px;
     width: 15vw;
     max-width: 200px;
@@ -613,7 +615,7 @@ input[type="file"] {
 
     input {
         display: inline;
-        width: auto;
+        max-width: 4vw;
         margin-right: 20px;
         @media screen
         and (max-width: 667px)
