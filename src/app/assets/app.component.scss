@@ -446,7 +446,7 @@ label {
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-        display: none;
+        flex-direction: column;
     }
 
     input {
@@ -455,8 +455,8 @@ label {
 }
 
 .dropzone {
-    background-color: #eee;
-    flex: 1 1 70%;
+    background-color: #DEDDE0;
+    flex: 1 1 65%;
     height: 200px;
     margin: 5px;
     padding: 5px;
@@ -466,6 +466,11 @@ label {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        height: 50px;
+    }
 }
 
 .dropzone:hover {
@@ -474,15 +479,21 @@ label {
 
 .image-preview {
     margin: 5px;
-    width: 15vw;
     max-width: 200px;
-    height: 15vw;
     max-height: 200px;
     box-sizing: border-box;
     border-radius: 3px;
     background-image: url(picture.svg);
     background-repeat: no-repeat;
     background-position: center;
+    flex: 1 1 25%;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        margin: auto;
+        width: 45vw;
+        height: 45vw;
+    }
 }
 
 .display-img{
