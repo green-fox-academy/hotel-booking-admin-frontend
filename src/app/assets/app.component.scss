@@ -450,7 +450,8 @@ label {
     }
 
     input {
-        display: none;
+        // display: none;
+        opacity: 0;
     }
 }
 
@@ -473,6 +474,16 @@ label {
     }
 }
 
+.dropzone-title {
+    position: relative;
+    top: -85px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        top: -20px;
+    }
+}
+
 .dropzone:hover {
     background: lightblue;
 }
@@ -485,7 +496,6 @@ label {
     border-radius: 3px;
     background-image: url(picture.svg);
     background-repeat: no-repeat;
-    background-position: center;
     flex: 1 1 25%;
     @media screen
     and (max-width: 667px)
