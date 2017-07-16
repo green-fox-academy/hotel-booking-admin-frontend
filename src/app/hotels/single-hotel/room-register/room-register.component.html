@@ -3,6 +3,11 @@
 
     <h3>Add new room</h3>
 
+    <section class="container__autosave--rooms">
+        <p [ngClass]="{'autosave': saving, 'empty-field': emptyAutosave}" >Autosave...</p>
+        <p [ngClass]="{'autosave-message': messageActive, 'autosave-message-fade': messageInactive, 'empty-field': emptyMessage}">Relax, autosave is working!</p>
+    </section>
+
     <form class="form" #form="ngForm">
         <div class="container__form-group">
             <div class="form-group">

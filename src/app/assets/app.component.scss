@@ -119,8 +119,25 @@ $coolGray: #353637;
     AUTOSAVE */
 
 .container__autosave {
-    position: fixed;
+    position: absolute;
     right: 10px;
+    top: 155px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        position: inherit;
+    }
+}
+
+.container__autosave--rooms {
+    position: absolute;
+    right: 10px;
+    top: 785px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        position: inherit;
+    }
 }
 
 .empty-field {

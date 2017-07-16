@@ -28,7 +28,10 @@ export class RoomRegisterComponent implements OnInit {
 
     registerRoom(hotelId) {
         this.loading = true;
+        this.emptyAutosave = false;
+        this.emptyMessage = false
         this.saving = true;
+        this.messageActive = true;
         const messageFirst = { type: 'hotels', id: this.roomservice.room.data.id };
         const attr = { attributes: this.roomservice.room.data.attributes }
         const message = Object.assign(messageFirst, attr)
@@ -36,9 +39,12 @@ export class RoomRegisterComponent implements OnInit {
         this.registerservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
+                    this.getroomsservice.getRooms(hotelId);
+                    this.fadeOutMessageTimer();
                     this.loading = false;
                     this.saving = false;
-                    this.getroomsservice.getRooms(hotelId);
+                    this.emptyAutosave = true;
+                    this.messageInactive = false;
                 },
                 error => console.error(error)
             );
@@ -54,6 +60,7 @@ export class RoomRegisterComponent implements OnInit {
     }
 
     fadeOutMessage() {
+        console.log('alma')
         this.messageActive = false;
         this.messageInactive = true;
     }
