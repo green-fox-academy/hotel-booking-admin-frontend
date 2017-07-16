@@ -597,6 +597,7 @@ label {
 
     input {
         border-radius: 4px;
+        min-width: 15px;
     }
 
     input.ng-valid {
@@ -625,10 +626,11 @@ label {
     }
 
     input {
+        cursor: pointer;
         display: inline;
         width: 15px;
         height: 15px;
-        margin-right: 20px;
+        margin-right: 10px;
         @media screen
         and (max-width: 667px)
         and (-webkit-min-device-pixel-ratio: 2) {
@@ -637,6 +639,7 @@ label {
     }
 
     label {
+        cursor: pointer;
         margin-right: 20px;
     }
 }
