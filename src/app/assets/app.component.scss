@@ -240,7 +240,6 @@ $coolGray: #353637;
     top: 59px;
     right:0px;
     width: 70%;
-    height: 800px;
     z-index: 10;
     background-color: $coolGray;
 }
@@ -274,6 +273,10 @@ $coolGray: #353637;
         background-color: $coolGray;
         box-sizing: border-box;
     }
+}
+
+.hamburger-menu a:last-child {
+    margin-bottom: 800px;
 }
 
 .hamburger-menu a:hover {
