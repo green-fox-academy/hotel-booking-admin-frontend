@@ -37,7 +37,7 @@ export class DragNDropComponent implements OnInit {
         .from(Array(fileList.length).keys())
         .map(x => {
         formData.append(fieldName, fileList[x], fileList[x].name);
-        console.log(fileList[0])
+        // console.log(fileList)
         });
 
     // save it
@@ -58,8 +58,8 @@ export class DragNDropComponent implements OnInit {
         .delay(1500) // DEV ONLY: delay 1.5s to see the changes
         .subscribe(x => {
         this.uploadedFiles = [].concat(x);
-        console.log(this.uploadedFiles)
         this.currentStatus = this.STATUS_SUCCESS;
+        console.log(this.uploadedFiles)
         }, err => {
         this.uploadError = err;
         this.currentStatus = this.STATUS_FAILED;

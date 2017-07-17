@@ -38,7 +38,6 @@ export class DragNDropDirective {
                 let ext = files[i].name.split('.')[files[i].name.split('.').length - 1];
                 if (this.allowed_extensions.lastIndexOf(ext) !== -1) {
                     valid_files.push(files[i]);
-                    console.log(files);
                 } else {
                     invalid_files.push(files[i]);
                 }

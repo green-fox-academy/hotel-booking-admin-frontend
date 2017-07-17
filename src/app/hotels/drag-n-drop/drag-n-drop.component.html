@@ -2,16 +2,16 @@
     <form #f="ngForm" enctype="multipart/form-data" novalidate>
     <div class="container__dropzone">
         <div class="dropzone">
-            <input class="dropzone" type="file" multiple [name]="uploadFieldName" (change)="onfilesChange($event.target.name, $event.target.files)" [disabled]="currentStatus === STATUS_SAVING" #photos>
+            <input id="img_upload" class="dropzone" type="file" multiple [name]="uploadFieldName" value="semmi" (change)="onfilesChange($event.target.name, $event.target.files)" [disabled]="currentStatus === STATUS_SAVING" #photos/>
             <!--<input type="file" multiple [name]="uploadFieldName" class="dropzone" appDragNDrop (filesChangeEmiter)="onfilesChange($event.target.name, $event.target.files)" (filesInvalidEmiter)="onFilesInvalids($event)" [allowed_extensions]="['png', 'jpg', 'bmp']" [disabled]="currentStatus === STATUS_SAVING" #photos>-->
-            <span class="dropzon-title" *ngIf="currentStatus === STATUS_INITIAL">Drop your image here or click to browse</span>
-            <span class="dropzon-title" *ngIf="currentStatus === STATUS_SAVING"> Uploading {{ photos.files.length }} files... </span>
+            <label for="img_upload" class="dropzone-title" *ngIf="currentStatus === STATUS_INITIAL">Drop your image here or click to browse</label>
+            <label for="img_upload" class="dropzone-title" *ngIf="currentStatus === STATUS_SAVING"> Uploading {{ photos.files.length }} files... </label>
         </div>
         <div class="image-preview">
             <ul class="dropzone-list-invalid">
-            <li *ngFor="let item of uploadedFiles">
-                <img class="display-img" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.url)" [alt]="item.originalName">
-            </li>
+                <li *ngFor="let item of uploadedFiles">
+                    <img class="display-img" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.url)" [alt]="item.originalName">
+                </li>
             </ul>
         </div>
     </div>

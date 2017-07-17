@@ -3,8 +3,10 @@
         Modify
     </h2>
 
-    <p [ngClass]="{'autosave': saving, 'empty-field': emptyAutosave}" >Autosave...</p>
-    <p [ngClass]="{'autosave-message': messageActive, 'autosave-message-fade': messageInactive, 'empty-field': emptyMessage}">Relax, autosave is working!</p>
+    <section class="container__autosave">
+        <p [ngClass]="{'autosave': saving, 'empty-field': emptyAutosave}" >Autosave...</p>
+        <p [ngClass]="{'autosave-message': messageActive, 'autosave-message-fade': messageInactive, 'empty-field': emptyMessage}">Relax, autosave is working!</p>
+    </section>
 
     <form class="form" #form="ngForm">
 
@@ -41,8 +43,8 @@
 
             <div class="form-group-checkbox" *ngFor="let attribute of hotelAttributes.hotelFeatures.attributes, let i = index">
 
-                <input (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)" type="checkbox" name="{{attribute.key}}" [(ngModel)]="attribute.value" #{{attribute.key}}="ngModel">
-                <label for="">{{attribute.key}}</label>
+                <input id="{{attribute.key}}"  (click)="updateHotel(hotelservice.hotel.hotelWithId.data.id)" type="checkbox" name="{{attribute.key}}" [(ngModel)]="attribute.value" #{{attribute.key}}="ngModel">
+                <label for="{{attribute.key}}">{{attribute.key}}</label>
 
             </div>
 

@@ -66,6 +66,7 @@ $coolGray: #353637;
     font-weight: bold;
     border-radius: 4px;
     transition: .5s;
+    border: .5px solid $coolGray;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
@@ -118,6 +119,28 @@ $coolGray: #353637;
 /* SINGLE HOTEL PAGE
     AUTOSAVE */
 
+.container__autosave {
+    position: absolute;
+    right: 10px;
+    top: 155px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        position: inherit;
+    }
+}
+
+.container__autosave--rooms {
+    position: absolute;
+    right: 10px;
+    top: 785px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        position: inherit;
+    }
+}
+
 .empty-field {
     color: white;
     padding: 5px;
@@ -149,7 +172,7 @@ $coolGray: #353637;
 }
 
 .autosave-message-fade {
-    color: rgba(#353637, 0.4);
+    color: rgba(#353637, 0);
     font-size: 1rem;
     padding: 5px;
     width: 200px;
@@ -168,11 +191,10 @@ $coolGray: #353637;
     and (-webkit-min-device-pixel-ratio: 2) {
         padding: 5px;
         width: 40px;
-        height: 30px;
         margin: 5px;
         box-sizing: border-box;
         div {
-            border: 2px solid white;
+            border: 1px solid white;
             border-radius: 5px;
             box-sizing: border-box;
         }
@@ -191,8 +213,8 @@ $coolGray: #353637;
 }
 
 .meat {
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: 7px;
+    margin-top: 7px;
     transition: .2s ease-in;
 }
 
@@ -215,10 +237,11 @@ $coolGray: #353637;
 
 .hamburger-menu {
     position: absolute;
-    top: 60px;
+    top: 59px;
     right:0px;
     width: 70%;
     z-index: 10;
+    background-color: $coolGray;
 }
 
 .menu-in {
@@ -237,20 +260,23 @@ $coolGray: #353637;
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         height: 50px;
+        width: 80%;
+        margin: 0 10%;
+        border-bottom: .5px solid #afafaf;
         display: inline-block;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
         border-radius: 0;
-        padding: 25px;
+        padding: 20px, 0;
         justify-content: center;
         background-color: $coolGray;
         box-sizing: border-box;
     }
 }
 
-.hamburger-menu a:nth-of-type(odd) {
-    background-color: #4f4f4f;
+.hamburger-menu a:last-child {
+    margin-bottom: 800px;
 }
 
 .hamburger-menu a:hover {
@@ -259,10 +285,11 @@ $coolGray: #353637;
     and (-webkit-min-device-pixel-ratio: 2) {
         box-shadow: none;
         transform: none;
-        border: 1px solid $coolGray;
-        transition: none;
-        background-color: white;
-        color: $coolGray;
+        border: none;
+        border-bottom: .5px solid #afafaf;
+        // transition: none;
+        // background-color: white;
+        // color: $coolGray;
     }
 }
 
@@ -371,7 +398,7 @@ $coolGray: #353637;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-        top: -680px;
+        top: -900px;
     }
 }
 
@@ -446,55 +473,71 @@ label {
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-        display: none;
+        flex-direction: column;
+    }
+
+    // input {
+    //     // display: none;
+    //     opacity: 0;
+    // }
+}
+
+.dropzone {
+    background-color: #DEDDE0;
+    flex: 1 1 65%;
+    height: 200px;
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        height: 50px;
+    }
+}
+
+.dropzone-title {
+    position: relative;
+    top: -85px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        top: -20px;
     }
 }
 
 .dropzone:hover {
-    background: lightblue; /* when mouse over to the drop zone, change color */
-}
-
-input[type="file"] {
-    opacity: 0;
-    height: 200px;
-    flex: 1 1 70%;
-}
-
-.dropzone {
-    background-color: #eee;
-    flex: 1 1 70%;
-    height: 200px;
-    margin: 5px;
-    box-sizing: border-box;
-    border-radius: 3px;
+    background: lightblue;
 }
 
 .image-preview {
-    border: 1px solid $coolGray;
     margin: 5px;
-    width: 15vw;
-    max-width: 205px;
-    height: 15vw;
-    max-height: 208px;
+    max-width: 200px;
+    max-height: 200px;
     box-sizing: border-box;
+    border-radius: 3px;
+    background-image: url(picture.svg);
+    background-repeat: no-repeat;
+    flex: 1 1 25%;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        margin: auto;
+        width: 45vw;
+        height: 45vw;
+    }
 }
 
 .display-img{
+    border-radius: 3px;
+    width: 15vw;
     max-width: 200px;
     max-height: 200px;
-    width: 15vw;
-    height: 15vw;
-}
-
-.text-wrapper {
-
-}
-
-.centered {
-    font-family: sans-serif;
-    font-size: 1.3em;
-    font-weight: bold;
-    text-align:center;
 }
 
 .dropzone-list > ul {
@@ -591,6 +634,7 @@ input[type="file"] {
 
     input {
         border-radius: 4px;
+        min-width: 15px;
     }
 
     input.ng-valid {
@@ -619,9 +663,11 @@ input[type="file"] {
     }
 
     input {
+        cursor: pointer;
         display: inline;
-        width: auto;
-        margin-right: 20px;
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
         @media screen
         and (max-width: 667px)
         and (-webkit-min-device-pixel-ratio: 2) {
@@ -630,6 +676,7 @@ input[type="file"] {
     }
 
     label {
+        cursor: pointer;
         margin-right: 20px;
     }
 }
@@ -721,7 +768,7 @@ input[type="file"] {
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-        top: -680px;
+        top: -890px;
     }
 }
 
