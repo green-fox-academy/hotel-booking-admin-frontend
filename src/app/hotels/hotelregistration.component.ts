@@ -7,7 +7,9 @@ import { HotelService } from './hotel.service';
 import { AttributesComponent } from './attributes/attributes.component';
 import { GetHotelsService } from './get-hotels.service';
 import { HotelAttributesService } from './attributes/hotel-attributes.service'
-import { ChangeDataFormatService } from './change-data-format.service'
+import { ChangeDataFormatService } from './change-data-format.service';
+import { RoomService } from './single-hotel/room-register/room-service';
+import { GetroomsService } from './single-hotel/rooms/getrooms.service';
 
 import 'rxjs/add/operator/map';
 
@@ -37,7 +39,9 @@ export class HotelComponent {
         public gethotels: GetHotelsService,
         public router: Router,
         public hotelAttributes: HotelAttributesService,
-        public changer: ChangeDataFormatService
+        public changer: ChangeDataFormatService,
+        public roomservice: RoomService,
+        public getroomsservice: GetroomsService
     ) { }
 
     onRegistration() {
@@ -63,12 +67,9 @@ export class HotelComponent {
                 response => {
                     this.hotelservice.hotel.hotelWithId = response;
                     this.changer.convertResponse(response);
-                    // console.log(this.changer.convertResponse(response))
                     this.router.navigate(['hotels/1']);
                 },
-                error => {
-                    console.error(error);
-                });
+                error => console.error(error));
     }
 
     deleteHotelId(id) {
@@ -79,9 +80,7 @@ export class HotelComponent {
                     this.gethotels.getHotels();
                     this.undoHidden = true;
                 },
-                error => {
-                    console.error(error);
-                });
+                error => console.error(error));
     }
 
     startDeleteTimeOut(id) {

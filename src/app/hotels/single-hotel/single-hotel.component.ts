@@ -7,6 +7,7 @@ import { HttpService } from '../../httprequest.service';
 import { GetHotelsService } from '../get-hotels.service';
 import { HotelAttributesService } from '../attributes/hotel-attributes.service'
 import { ChangeDataFormatService } from '../change-data-format.service';
+import { RoomRegisterComponent } from './room-register/room-register.component';
 
 @Component({
     selector: 'app-single-hotel',
@@ -54,9 +55,7 @@ export class SingleHotelComponent implements OnInit {
                     this.emptyAutosave = true;
                     this.messageInactive = false;
                 },
-                error => {
-                    console.error(error)
-                }
+                error => console.error(error)
             );
         }
 

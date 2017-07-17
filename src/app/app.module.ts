@@ -20,6 +20,10 @@ import { HotelService } from './hotels/hotel.service';
 import { GetHotelsService } from './hotels/get-hotels.service';
 import { HttpService } from './httprequest.service';
 import { HotelAttributesService } from './hotels/attributes/hotel-attributes.service';
+import { RoomRegisterComponent } from './hotels/single-hotel/room-register/room-register.component';
+import { RoomService } from './hotels/single-hotel/room-register/room-service';
+import { RoomsComponent } from './hotels/single-hotel/rooms/rooms.component';
+import { GetroomsService } from './hotels/single-hotel/rooms/getrooms.service';
 
 @NgModule({
     declarations: [
@@ -31,7 +35,9 @@ import { HotelAttributesService } from './hotels/attributes/hotel-attributes.ser
         AttributesComponent,
         StarratingComponent,
         NavbarComponent,
-        SingleHotelComponent
+        SingleHotelComponent,
+        RoomRegisterComponent,
+        RoomsComponent
     ],
     imports: [
         BrowserModule,
@@ -46,7 +52,9 @@ import { HotelAttributesService } from './hotels/attributes/hotel-attributes.ser
         HotelService,
         GetHotelsService,
         HttpService,
-        HotelAttributesService
+        HotelAttributesService,
+        RoomService,
+        GetroomsService
     ],
     bootstrap: [AppComponent]
 })
