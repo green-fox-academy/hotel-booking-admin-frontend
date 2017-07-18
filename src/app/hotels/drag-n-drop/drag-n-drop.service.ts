@@ -11,12 +11,12 @@ export class DragNDropService {
         const photos: any[] = formData.getAll('photos');
         const promises = photos.map((x: File) => this.getImage(x)
             .then(img => {
-                console.log(img, '1')
+                console.log('majom')
                 return({
-                id: img,
+                id: img[1].currentSrc,
                 originalName: x.name,
                 fileName: x.name,
-                url: img
+                url: img[1].currentSrc
             })}));
         return Observable.fromPromise(Promise.all(promises));
     }
@@ -28,38 +28,36 @@ export class DragNDropService {
         const readFile = new Promise((resolve, reject) => {
             fReader.onload = () => {
                 resolve(img.src = fReader.result);
-                console.log(img.width, img.height, 'file loaded');
             }
             fReader.readAsDataURL(file);
         })
         
         const readImg = new Promise((resolve, reject) => {
             img.onload = () => {
-                console.log(img, img.width, img.height, 'img loaded');
-                // const imgArr = [img, img.width, img.height]
                 resolve(img)
             }
         })
 
         return Promise.all([readFile, readImg]).then(img => {
-            console.log(img, 'alma')
             this.getBase64Image(img)
         })
     }
 
     private getBase64Image(img) {
-        console.log(img, "3")
+        const canvas = document.createElement('canvas');
         console.log(img[1].width)
         console.log(img[1].height)
-        const canvas = document.createElement('canvas');
+
         canvas.width = img[1].width;
         canvas.height = img[1].height;
 
         const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0);
+        console.log(img)
+        ctx.drawImage(img[1], 0, 0);
+        console.log('alma');
 
         const dataURL = canvas.toDataURL('image/png');
-        console.log(img)
+        console.log(img[1].currentSrc)
         console.log(dataURL)
         return dataURL;
     }

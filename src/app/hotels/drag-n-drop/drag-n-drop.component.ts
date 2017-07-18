@@ -52,6 +52,7 @@ export class DragNDropComponent implements OnInit {
     this.dndservice.upload(formData)
         .take(1)
         .subscribe(x => {
+        console.log('beka')
         this.uploadedFiles = [].concat(x);
         this.currentStatus = this.STATUS_SUCCESS;
         }, err => {
