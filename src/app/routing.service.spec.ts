@@ -14,20 +14,20 @@ class Routing {
     public routermodule: RouterModule
   }
 
-describe('RoutingService', () => {
-    beforeEach(() => {
-      TestBed.configureTestingModule({
-          providers: [
-              RoutingService,
-              {provide: Router, useClass: Routing}
-          ],
-      });
-    });
-
-    it('should be created', inject([RoutingService], (service: RoutingService) => {
-      expect(service).toBeTruthy();
-    }));
-});
+// describe('RoutingService', () => {
+//     beforeEach(() => {
+//       TestBed.configureTestingModule({
+//           providers: [
+//               RoutingService,
+//               {provide: Router, useClass: Routing}
+//           ],
+//       });
+//     });
+//
+//     it('should be created', inject([RoutingService], (service: RoutingService) => {
+//       expect(service).toBeTruthy();
+//     }));
+// });
 
 describe('Logged in guard should', () => {
     let routingService: RoutingService;
