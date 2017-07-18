@@ -31,8 +31,8 @@ describe('RoutingService', () => {
 
 describe('Logged in guard should', () => {
     let routingService: RoutingService;
-    let canActivate : CanActivate;
-    let router = {
+    let canActivate: CanActivate;
+    const router = {
         navigate: jasmine.createSpy('navigate')
     };
 
