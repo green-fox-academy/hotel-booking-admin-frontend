@@ -21,7 +21,7 @@
                 <li *ngFor="let item of uploadedFiles">{{ item.originalName }}</li>
             </ul>
             <ul class="dropzone-list-invalid" *ngIf="currentStatus === STATUS_FAILED">
-                <li>{{ item.originalName }}</li>
+                <!--<li>{{ item.originalName }}</li>-->
             </ul>
         </div>
     </form>

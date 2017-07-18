@@ -21,26 +21,22 @@ export class DragNDropComponent implements OnInit {
 
     constructor(
         public _DomSanitizer: DomSanitizer,
-        private _svc: DragNDropService
+        private dndservice: DragNDropService
     ) {
-    this.reset(); // set initial state
+    this.reset();
     }
 
     onfilesChange(fieldName: string, fileList: FileList) {
-    // handle file changes
     const formData = new FormData();
 
     if (!fileList.length) return;
 
-    // append the files to FormData
     Array
         .from(Array(fileList.length).keys())
         .map(x => {
         formData.append(fieldName, fileList[x], fileList[x].name);
-        // console.log(fileList)
         });
 
-    // save it
     this.save(formData);
     }
 
@@ -53,13 +49,11 @@ export class DragNDropComponent implements OnInit {
     save(formData: FormData) {
     // upload data to the server
     this.currentStatus = this.STATUS_SAVING;
-    this._svc.upload(formData)
+    this.dndservice.upload(formData)
         .take(1)
-        .delay(1500) // DEV ONLY: delay 1.5s to see the changes
         .subscribe(x => {
         this.uploadedFiles = [].concat(x);
         this.currentStatus = this.STATUS_SUCCESS;
-        console.log(this.uploadedFiles)
         }, err => {
         this.uploadError = err;
         this.currentStatus = this.STATUS_FAILED;
