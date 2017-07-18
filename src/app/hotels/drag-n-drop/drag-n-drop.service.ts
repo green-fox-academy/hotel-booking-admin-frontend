@@ -36,28 +36,19 @@ export class DragNDropService {
                 resolve(img)
             }
         })
-
-        return Promise.all([readFile, readImg]).then(img => {
-            this.getBase64Image(img)
-        })
+        return Promise.all([readFile, readImg]).then(img => this.getBase64Image(img))
     }
 
     private getBase64Image(img) {
         const canvas = document.createElement('canvas');
-        console.log(img[1].width)
-        console.log(img[1].height)
 
         canvas.width = img[1].width;
         canvas.height = img[1].height;
 
         const ctx = canvas.getContext('2d');
-        console.log(img)
         ctx.drawImage(img[1], 0, 0);
-        console.log('alma');
 
         const dataURL = canvas.toDataURL('image/png');
-        console.log(img[1].currentSrc)
-        console.log(dataURL)
         return dataURL;
     }
 
