@@ -11,12 +11,11 @@ export class DragNDropService {
         const photos: any[] = formData.getAll('photos');
         const promises = photos.map((x: File) => this.getImage(x)
             .then(img => {
-                console.log('majom')
                 return({
-                id: img[1].currentSrc,
+                id: img,
                 originalName: x.name,
                 fileName: x.name,
-                url: img[1].currentSrc
+                url: img
             })}));
         return Observable.fromPromise(Promise.all(promises));
     }

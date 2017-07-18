@@ -47,7 +47,6 @@ export class DragNDropComponent implements OnInit {
     }
 
     save(formData: FormData) {
-    // upload data to the server
     this.currentStatus = this.STATUS_SAVING;
     this.dndservice.upload(formData)
         .take(1)
