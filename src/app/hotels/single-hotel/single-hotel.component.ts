@@ -45,6 +45,8 @@ export class SingleHotelComponent implements OnInit {
         const messageFirst = {type: 'hotels', id: this.hotelservice.hotel.hotelWithId.data.id};
         const attr = { attributes: this.changer.convertHotelAttributesID(this.hotelservice.hotel.hotelWithId.data) }
         const message = Object.assign(messageFirst, attr)
+        message.id = id
+        console.log(message)
         this.updateservice.httpRequest(message, endpoint, 'patch')
             .subscribe(
                 response => {

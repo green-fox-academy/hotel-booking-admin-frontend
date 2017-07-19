@@ -76,7 +76,7 @@ export class HotelComponent {
 
     deleteHotelId(id) {
         const endpoint = 'api/hotels/' + id;
-        this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'delete')
+        this.httpservice.httpRequest('', endpoint, 'delete')
             .subscribe(
                 response => {
                     this.gethotels.getHotels();

@@ -55,7 +55,7 @@
 
     </form>
     <div class="button-group">
-        <button class="send-button" [disabled]="form.invalid" (click)="registerRoom(roomservice.room.data.id)">Add room</button>
+        <button class="send-button" [disabled]="form.invalid" (click)="registerRoom(hotelservice.hotel.hotelWithId.data.hotel_id)">Add room</button>
         <span [ngClass]="{'spinner': loading, 'empty-spinner': !loading}"></span>
     </div>
 </main>
