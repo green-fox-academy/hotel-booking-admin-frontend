@@ -10,10 +10,10 @@
 
         <div class="image-preview" [ngStyle]="imgUploaded">
             <div *ngFor="let item of uploadedFiles">
-                <img class="display-img" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.url)" [alt]="item.originalName">
+                <img  class="display-img" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.url)" [alt]="item.originalName">
             </div>
         </div>
-
+<!-- [(ngModel)]="hotelservice.hotel.data.attributes.main_image_src" #src="ngModel" -->
     </div>
     </form>
 </main>

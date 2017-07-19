@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { DragNDropService } from './drag-n-drop.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { HotelService } from '../hotel.service';
 
 @Component({
     selector: 'app-drag-n-drop',
@@ -22,7 +24,8 @@ export class DragNDropComponent implements OnInit {
 
     constructor(
         public _DomSanitizer: DomSanitizer,
-        private dndservice: DragNDropService
+        private dndservice: DragNDropService,
+        public hotelservice: HotelService
     ) {
         this.reset();
     }

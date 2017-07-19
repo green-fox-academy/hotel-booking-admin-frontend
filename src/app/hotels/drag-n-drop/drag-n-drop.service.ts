@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
+import { HotelService } from '../hotel.service';
+
 @Injectable()
 export class DragNDropService {
 
-  constructor() {
-  }
+    constructor(
+        public hotelservice: HotelService,
+    ) {}
 
   upload(formData: any) {
         const photos: any[] = formData.getAll('photos');
@@ -30,7 +33,7 @@ export class DragNDropService {
             }
             fReader.readAsDataURL(file);
         })
-        
+
         const readImg = new Promise((resolve, reject) => {
             img.onload = () => {
                 resolve(img)
@@ -41,6 +44,7 @@ export class DragNDropService {
 
     private getBase64Image(img) {
         const canvas = document.createElement('canvas');
+        this.hotelservice.hotel.data.attributes.main_image_src = img[1].src
 
         canvas.width = img[1].width;
         canvas.height = img[1].height;
