@@ -11,11 +11,11 @@ export class HttpService {
     constructor( private http: Http ) { }
 
     httpRequest(bodies, endpoint, reqMethod): Observable<Comment[]> {
-        //const serverEndpoint = 'https://two-ferns.glitch.me/';
+        // const serverEndpoint = 'https://two-ferns.glitch.me/';
         const serverEndpoint = 'https://hotel-booking-backend.herokuapp.com/';
         const header: any = {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         };
         return this.http.request(new Request({
             method: reqMethod,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { DragNDropService } from './drag-n-drop.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -22,7 +23,7 @@ export class DragNDropComponent implements OnInit {
 
     constructor(
         public _DomSanitizer: DomSanitizer,
-        private dndservice: DragNDropService
+        private dndservice: DragNDropService,
     ) {
         this.reset();
     }
