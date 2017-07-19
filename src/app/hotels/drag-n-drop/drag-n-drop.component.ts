@@ -24,41 +24,38 @@ export class DragNDropComponent implements OnInit {
         public _DomSanitizer: DomSanitizer,
         private dndservice: DragNDropService
     ) {
-    this.reset();
+        this.reset();
     }
 
     onfilesChange(fieldName: string, fileList: FileList) {
-    const formData = new FormData();
+        const formData = new FormData();
+        Array
+            .from(Array(fileList.length).keys())
+            .map(x => {
+            formData.append(fieldName, fileList[x], fileList[x].name);
+            });
 
-    if (!fileList.length) return;
-
-    Array
-        .from(Array(fileList.length).keys())
-        .map(x => {
-        formData.append(fieldName, fileList[x], fileList[x].name);
-        });
-
-    this.save(formData);
+        this.save(formData);
     }
 
     reset() {
-    this.currentStatus = this.STATUS_INITIAL;
-    this.uploadedFiles = [];
-    this.uploadError = null;
+        this.currentStatus = this.STATUS_INITIAL;
+        this.uploadedFiles = [];
+        this.uploadError = null;
     }
 
     save(formData: FormData) {
-    this.currentStatus = this.STATUS_SAVING;
-    this.dndservice.upload(formData)
-        .take(1)
-        .subscribe(x => {
-            this.removeBackgroundImg();
-            this.uploadedFiles = [].concat(x);
-            this.currentStatus = this.STATUS_SUCCESS;
-        }, err => {
-            this.uploadError = err;
-            this.currentStatus = this.STATUS_FAILED;
-        })
+        this.currentStatus = this.STATUS_SAVING;
+        this.dndservice.upload(formData)
+            .take(1)
+            .subscribe(x => {
+                this.removeBackgroundImg();
+                this.uploadedFiles = [].concat(x);
+                this.currentStatus = this.STATUS_SUCCESS;
+            }, err => {
+                this.uploadError = err;
+                this.currentStatus = this.STATUS_FAILED;
+            })
     }
 
     removeBackgroundImg() {
