@@ -39,11 +39,9 @@ export class RoomRegisterComponent implements OnInit {
         const attr = { attributes: this.roomservice.room.data.attributes }
         const message = Object.assign(messageFirst, attr)
         const endpoint = 'api/hotels/' + hotelId + '/relationships/rooms';
-        console.log(hotelId)
         this.registerservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
-                    console.log(response)
                     this.getroomsservice.getRooms(hotelId);
                     this.fadeOutMessageTimer();
                     this.loading = false;

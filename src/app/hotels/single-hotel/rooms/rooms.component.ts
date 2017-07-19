@@ -30,8 +30,7 @@ export class RoomsComponent implements OnInit {
                     this.undoHidden = true;
                 },
                 error => console.error(error)
-            );
-                
+            );      
     }
 
     ngOnInit() {
