@@ -782,16 +782,18 @@ label {
 .hotel, .room {
     display: flex;
     justify-content: space-between;
-    flex: 1 1 40%;
+    flex: 1 1 45%;
     box-sizing: border-box;
     margin: 20px;
     border: 1.5px solid $coolGray;
     transition: all 0.4s ease;
+    justify-content: center;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         border-left: none;
         border-right: none;
+        justify-content: center;
     }
 
     img {
@@ -802,12 +804,10 @@ label {
         and (max-width: 667px)
         and (-webkit-min-device-pixel-ratio: 2) {
             width: 255px;
-            position: absolute;
             left: 0;
             right: 0;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 20px;
         }
     }
 }
@@ -834,6 +834,14 @@ label {
 }
 
 .hotel_details-title {
+    margin: auto;
+
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        flex-direction: column;
+    }
+
     h3, h4 {
         text-align: center;
     }
@@ -861,6 +869,11 @@ label {
 .hotel_details-list {
     display: flex;
     flex-direction: row;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        flex-direction: column;
+    }
 }
 
 .hotel-image {
@@ -872,15 +885,6 @@ label {
 
 .hotel_information {
     margin: 5px;
-}
-
-.hotel_information {
-
-    @media screen
-    and (max-width: 667px)
-    and (-webkit-min-device-pixel-ratio: 2) {
-        margin-top: 290px;
-    }
 
     p {
         font-size: 1.1rem;
@@ -929,6 +933,13 @@ label {
 .icons {
     display: flex;
     flex-direction: row-reverse;
+
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        height: 100px;
+        justify-content: space-between;
+    }
 
     .delete-hotel {
         min-width: 40px;

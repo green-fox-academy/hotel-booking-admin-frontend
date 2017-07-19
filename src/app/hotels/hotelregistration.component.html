@@ -59,11 +59,11 @@
                 </div>
             </div>
             <div class="hotel_details-list">
-                <img class="hotel-image" [src]="_DomSanitizer.bypassSecurityTrustUrl(hotel.attributes.main_image_src)" alt="hotel_image">
+                <img class="hotel-image" [src]="_DomSanitizer.bypassSecurityTrustUrl(hotel.attributes.main_image_src)" alt="hotel_image"/>
                 <div class="hotel_information">
-                    <p> <strong>meal plan:</strong> {{hotel.attributes.meal_plan}}</p>
+                    <p><strong>meal plan:</strong>{{hotel.attributes.meal_plan}}</p>
                     <ul>
-                        <li><span [ngClass]="{'marked': hotel.attributes.has_wifi, 'not_marked': !hotel.attributes.has_wifi}"></span>wifi</li>
+                        <li><span [ngClass]="{ 'marked': hotel.attributes.has_wifi, 'not_marked': !hotel.attributes.has_wifi}"></span>wifi</li>
                         <li><span [ngClass]="{ 'marked': hotel.attributes.has_parking, 'not_marked': !hotel.attributes.has_parking }"></span>parking</li>
                         <li><span [ngClass]="{ 'marked': hotel.attributes.has_pets, 'not_marked': !hotel.attributes.has_pets }"></span>pets allowed</li>
                         <li><span [ngClass]="{ 'marked': hotel.attributes.has_restaurant, 'not_marked': !hotel.attributes.has_restaurant }"></span>restaurant</li>
