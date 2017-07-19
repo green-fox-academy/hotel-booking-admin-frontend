@@ -82,7 +82,9 @@ export class HotelComponent {
                     this.gethotels.getHotels();
                     this.undoHidden = true;
                 },
-                error => console.error(error));
+                error => {
+                    console.error(error)
+                });
     }
 
     startDeleteTimeOut(id) {
