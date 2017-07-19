@@ -7,22 +7,13 @@
             <label for="img_upload" class="dropzone-title" *ngIf="currentStatus === STATUS_INITIAL">Drop your image here or click to browse</label>
             <label for="img_upload" class="dropzone-title" *ngIf="currentStatus === STATUS_SAVING"> Uploading {{ photos.files.length }} files... </label>
         </div>
-        <div class="image-preview">
-            <ul class="dropzone-list-invalid">
-                <li *ngFor="let item of uploadedFiles">
-                    <img class="display-img" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.url)" [alt]="item.originalName">
-                </li>
-            </ul>
-        </div>
-    </div>
 
-        <div class="dropzone-list">
-            <ul class="dropzone-list-valid">
-                <li *ngFor="let item of uploadedFiles">{{ item.originalName }}</li>
-            </ul>
-            <ul class="dropzone-list-invalid" *ngIf="currentStatus === STATUS_FAILED">
-                <!--<li>{{ item.originalName }}</li>-->
-            </ul>
+        <div class="image-preview" [ngStyle]="imgUploaded">
+            <div *ngFor="let item of uploadedFiles">
+                <img class="display-img" [src]="_DomSanitizer.bypassSecurityTrustUrl(item.url)" [alt]="item.originalName">
+            </div>
         </div>
+
+    </div>
     </form>
 </main>

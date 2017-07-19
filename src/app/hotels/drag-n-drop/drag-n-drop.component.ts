@@ -13,6 +13,7 @@ export class DragNDropComponent implements OnInit {
     uploadError;
     currentStatus: number;
     uploadFieldName = 'photos';
+    imgUploaded;
 
     readonly STATUS_INITIAL = 0;
     readonly STATUS_SAVING = 1;
@@ -51,12 +52,17 @@ export class DragNDropComponent implements OnInit {
     this.dndservice.upload(formData)
         .take(1)
         .subscribe(x => {
-        this.uploadedFiles = [].concat(x);
-        this.currentStatus = this.STATUS_SUCCESS;
+            this.removeBackgroundImg();
+            this.uploadedFiles = [].concat(x);
+            this.currentStatus = this.STATUS_SUCCESS;
         }, err => {
-        this.uploadError = err;
-        this.currentStatus = this.STATUS_FAILED;
+            this.uploadError = err;
+            this.currentStatus = this.STATUS_FAILED;
         })
+    }
+
+    removeBackgroundImg() {
+        this.imgUploaded = {'background-image': 'none', 'padding': '0'}
     }
 
     ngOnInit() {
