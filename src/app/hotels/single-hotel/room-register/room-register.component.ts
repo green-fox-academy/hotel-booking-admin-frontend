@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { RoomService } from './room-service';
 import { HttpService } from '../../../httprequest.service';
 import { GetroomsService } from '../rooms/getrooms.service';
+import { HotelService } from '../../hotel.service';
+
 
 @Component({
     selector: 'app-room-register',
@@ -23,7 +25,8 @@ export class RoomRegisterComponent implements OnInit {
   constructor(
     public roomservice: RoomService,
     private registerservice: HttpService,
-    public getroomsservice: GetroomsService
+    public getroomsservice: GetroomsService,
+    public hotelservice: HotelService
     ) { }
 
     registerRoom(hotelId) {
@@ -36,9 +39,11 @@ export class RoomRegisterComponent implements OnInit {
         const attr = { attributes: this.roomservice.room.data.attributes }
         const message = Object.assign(messageFirst, attr)
         const endpoint = 'api/hotels/' + hotelId + '/relationships/rooms';
+        console.log(hotelId)
         this.registerservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
+                    console.log(response)
                     this.getroomsservice.getRooms(hotelId);
                     this.fadeOutMessageTimer();
                     this.loading = false;
