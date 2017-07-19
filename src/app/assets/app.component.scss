@@ -782,7 +782,7 @@ label {
 .hotel, .room {
     display: flex;
     justify-content: space-between;
-    flex: 1 1 45%;
+    flex: 1 1 40%;
     box-sizing: border-box;
     margin: 20px;
     border: 1.5px solid $coolGray;
@@ -819,11 +819,48 @@ label {
 
 .hotel_details {
     display: flex;
+    flex-direction: column;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         flex-direction: column;
     }
+}
+
+.hotel_details-title-n-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.hotel_details-title {
+    h3, h4 {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 2rem;
+        margin: 20px 5px 5px 5px;
+        font-weight: bold;
+        cursor: pointer;
+        @media screen
+        and (max-width: 667px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+            font-size: 1.7rem;
+            // margin: 20px auto 5px;
+        }
+    }
+
+    h4 {
+        font-size: 1.4rem;
+        margin: 5px;
+        margin-bottom: 15px;
+    }
+}
+
+.hotel_details-list {
+    display: flex;
+    flex-direction: row;
 }
 
 .hotel-image {
@@ -843,20 +880,6 @@ label {
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         margin-top: 290px;
-    }
-
-    h3 {
-        font-size: 2rem;
-        margin: 5px;
-        margin-top: 10px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    h4 {
-        font-size: 1.4rem;
-        margin: 5px;
-        margin-bottom: 15px;
     }
 
     p {
@@ -905,7 +928,7 @@ label {
 
 .icons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
 
     .delete-hotel {
         min-width: 40px;
