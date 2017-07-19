@@ -60,7 +60,6 @@ export class RoomRegisterComponent implements OnInit {
     }
 
     fadeOutMessage() {
-        console.log('alma')
         this.messageActive = false;
         this.messageInactive = true;
     }

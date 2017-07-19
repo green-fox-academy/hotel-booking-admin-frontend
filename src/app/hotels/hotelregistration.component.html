@@ -50,7 +50,7 @@
         <div class="hotel_details">
             <img class="hotel-image" [src]="_DomSanitizer.bypassSecurityTrustUrl(hotel.attributes.main_image_src)" alt="hotel_image">
             <div class="hotel_information">
-                <h3 (click)="getHotelId(hotel.id)" (click)="getroomsservice.getRooms(hotel.id)">{{hotel.attributes.name}}</h3>
+                <h3 (click)="getHotelId(hotel.hotel_id)" (click)="getroomsservice.getRooms(hotel.hotel_id)">{{hotel.attributes.name}}</h3>
                 <h4>{{hotel.attributes.location}}</h4>
                 <p> <strong>meal plan:</strong> {{hotel.attributes.meal_plan}}</p>
                 <ul>
@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="icons">
-            <span (click)="startDeleteTimeOut(hotel.id)" (dblclick)="deleteHotelId(hotel.id)" class="delete-hotel"></span>
+            <span (click)="startDeleteTimeOut(hotel.hotel_id)" (dblclick)="deleteHotelId(hotel.hotel_id)" class="delete-hotel"></span>
             <div>
                 <span class="hotel-star">{{hotel.attributes.stars}}</span>
             </div>
