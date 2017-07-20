@@ -6,6 +6,7 @@ import { RoomRegisterComponent } from './room-register.component';
 import { RoomService } from './room-service';
 import { HttpService } from '../../../httprequest.service';
 import { GetroomsService } from '../rooms/getrooms.service';
+import { HotelService } from '../../hotel.service';
 
 describe('RoomRegisterComponent', () => {
     let component: RoomRegisterComponent;
@@ -21,7 +22,8 @@ describe('RoomRegisterComponent', () => {
             providers: [
                 RoomService,
                 HttpService,
-                GetroomsService
+                GetroomsService,
+                HotelService
             ]
         })
         .compileComponents();

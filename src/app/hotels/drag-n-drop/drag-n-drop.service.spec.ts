@@ -1,11 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { DragNDropService } from './drag-n-drop.service';
+import { HotelService } from '../hotel.service';
 
 describe('DragNDropService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DragNDropService]
+      providers: [DragNDropService, HotelService]
     });
   });
 
