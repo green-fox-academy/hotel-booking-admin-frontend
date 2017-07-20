@@ -831,6 +831,11 @@ label {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        flex-direction: column;
+    }
 }
 
 .hotel_details-title {
@@ -891,9 +896,10 @@ label {
         margin: 5px;
         margin-bottom: 15px;
         font-weight: bold;
-        strong {
-            font-weight: bold;
-        }
+    }
+
+    strong {
+        font-weight: bold;
     }
 
     ul {
@@ -938,7 +944,7 @@ label {
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         height: 100px;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     .delete-hotel {
@@ -955,8 +961,12 @@ label {
         and (-webkit-min-device-pixel-ratio: 2) {
             align-self: flex-end;
             min-width: 45px;
-            margin-top: 300px;
+            margin-right: 0;
         }
+    }
+
+    .hotel-star {
+        margin: 15px 0;
     }
 }
 
