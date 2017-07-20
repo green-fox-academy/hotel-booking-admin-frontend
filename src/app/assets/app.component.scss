@@ -1123,25 +1123,35 @@ label {
             font-size: 1.3rem;
         }
 
+        div {
+            width: 30px;
+            height: 30px;
+            margin-right: 20px;
+        }
+
         .money_icon {
             background-image: url(notes.svg);
             background-position: center;
             background-repeat: no-repeat;
-            width: 30px;
-            height: 30px;
+            // width: 30px;
+            // height: 30px;
         }
 
         .money_empty {
-            width: 30px;
-            height: 30px;
+            // width: 30px;
+            // height: 30px;
         }
 
         .bag_icon {
             background-image: url(suitcase.svg);
             background-position: center;
             background-repeat: no-repeat;
-            width: 30px;
-            height: 30px;
+            // width: 30px;
+            // height: 30px;
+        }
+
+        li:nth-child(odd) {
+            justify-content: flex-start;
         }
     }
 }
