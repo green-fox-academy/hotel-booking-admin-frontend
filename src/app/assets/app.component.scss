@@ -784,7 +784,7 @@ label {
     justify-content: space-between;
     flex: 1 1 45%;
     box-sizing: border-box;
-    margin: 20px;
+    margin: 10px;
     border: 1.5px solid $coolGray;
     transition: all 0.4s ease;
     justify-content: center;
@@ -797,9 +797,7 @@ label {
     }
 
     img {
-        margin: 10px;
-        margin-top: auto;
-        margin-bottom: auto;
+        margin: auto 15px;
         @media screen
         and (max-width: 667px)
         and (-webkit-min-device-pixel-ratio: 2) {
@@ -820,6 +818,7 @@ label {
 .hotel_details {
     display: flex;
     flex-direction: column;
+    width: 100%;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
