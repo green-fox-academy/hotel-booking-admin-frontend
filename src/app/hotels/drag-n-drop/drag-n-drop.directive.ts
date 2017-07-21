@@ -1,5 +1,4 @@
 import { Directive, EventEmitter, Output, HostListener, HostBinding, Input } from '@angular/core';
-// import { forEach } from '@angular/router/src/utils/collection';
 
 @Directive({
     selector: '[appDragNDrop]'
