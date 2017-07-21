@@ -28,9 +28,11 @@ export class RoomsComponent implements OnInit {
                 response => {
                     this.getroomsservice.getRooms(hotelId);
                     this.undoHidden = true;
+                    console.log(hotelId)
+                    console.log('alma')
                 },
                 error => console.error(error)
-            );      
+            );
     }
 
     ngOnInit() {
