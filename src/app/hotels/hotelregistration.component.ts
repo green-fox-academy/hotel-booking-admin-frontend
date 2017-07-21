@@ -53,6 +53,7 @@ export class HotelComponent {
         this.httpservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
+                    this.resetForm();
                     this.loading = false;
                     this.gethotels.getHotels();
                 },
@@ -114,5 +115,10 @@ export class HotelComponent {
             this.hotelsUp = false;
             this.hotelsDown = true;
         }
+    }
+
+    resetForm() {
+        const form = document.querySelector('form')
+        form.reset()
     }
 }

@@ -48,6 +48,7 @@ export class RoomRegisterComponent implements OnInit {
                     this.saving = false;
                     this.emptyAutosave = true;
                     this.messageInactive = false;
+                    this.resetForm();
                 },
                 error => console.error(error)
             );
@@ -65,6 +66,11 @@ export class RoomRegisterComponent implements OnInit {
     fadeOutMessage() {
         this.messageActive = false;
         this.messageInactive = true;
+    }
+
+    resetForm() {
+        const form = document.querySelector('form')
+        form.reset()
     }
 
     ngOnInit() {
