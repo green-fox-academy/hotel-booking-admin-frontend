@@ -781,7 +781,6 @@ label {
 
 .hotel, .room {
     display: flex;
-    justify-content: space-between;
     flex: 1 1 45%;
     box-sizing: border-box;
     margin: 10px;
@@ -1062,7 +1061,6 @@ label {
 /* ROOMS */
 
 .room {
-    flex-direction: column;
     font-size: 1.1rem;
 }
 
