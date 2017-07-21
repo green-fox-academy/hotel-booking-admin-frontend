@@ -66,6 +66,7 @@ $coolGray: #353637;
     font-weight: bold;
     border-radius: 4px;
     transition: .5s;
+    border: .5px solid $coolGray;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
@@ -118,6 +119,28 @@ $coolGray: #353637;
 /* SINGLE HOTEL PAGE
     AUTOSAVE */
 
+.container__autosave {
+    position: absolute;
+    right: 10px;
+    top: 155px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        position: inherit;
+    }
+}
+
+.container__autosave--rooms {
+    position: absolute;
+    right: 10px;
+    top: 785px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        position: inherit;
+    }
+}
+
 .empty-field {
     color: white;
     padding: 5px;
@@ -149,7 +172,7 @@ $coolGray: #353637;
 }
 
 .autosave-message-fade {
-    color: rgba(#353637, 0.4);
+    color: rgba(#353637, 0);
     font-size: 1rem;
     padding: 5px;
     width: 200px;
@@ -168,11 +191,10 @@ $coolGray: #353637;
     and (-webkit-min-device-pixel-ratio: 2) {
         padding: 5px;
         width: 40px;
-        height: 30px;
         margin: 5px;
         box-sizing: border-box;
         div {
-            border: 2px solid white;
+            border: 1px solid white;
             border-radius: 5px;
             box-sizing: border-box;
         }
@@ -191,8 +213,8 @@ $coolGray: #353637;
 }
 
 .meat {
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: 7px;
+    margin-top: 7px;
     transition: .2s ease-in;
 }
 
@@ -215,10 +237,11 @@ $coolGray: #353637;
 
 .hamburger-menu {
     position: absolute;
-    top: 60px;
+    top: 59px;
     right:0px;
     width: 70%;
     z-index: 10;
+    background-color: $coolGray;
 }
 
 .menu-in {
@@ -237,20 +260,23 @@ $coolGray: #353637;
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         height: 50px;
+        width: 80%;
+        margin: 0 10%;
+        border-bottom: .5px solid #afafaf;
         display: inline-block;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
         border-radius: 0;
-        padding: 25px;
+        padding: 20px, 0;
         justify-content: center;
         background-color: $coolGray;
         box-sizing: border-box;
     }
 }
 
-.hamburger-menu a:nth-of-type(odd) {
-    background-color: #4f4f4f;
+.hamburger-menu a:last-child {
+    margin-bottom: 800px;
 }
 
 .hamburger-menu a:hover {
@@ -259,10 +285,11 @@ $coolGray: #353637;
     and (-webkit-min-device-pixel-ratio: 2) {
         box-shadow: none;
         transform: none;
-        border: 1px solid $coolGray;
-        transition: none;
-        background-color: white;
-        color: $coolGray;
+        border: none;
+        border-bottom: .5px solid #afafaf;
+        // transition: none;
+        // background-color: white;
+        // color: $coolGray;
     }
 }
 
@@ -366,12 +393,12 @@ $coolGray: #353637;
 
 .form-out {
     position: relative;
-    top: -550px;
+    top: -850px;
     transition: .6s ease-in;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-        top: -680px;
+        top: -900px;
     }
 }
 
@@ -434,6 +461,111 @@ $coolGray: #353637;
 
 label {
     font-size: 1.1rem;
+}
+
+/* DnD */
+
+.container__dropzone {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: auto;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        flex-direction: column;
+    }
+
+    input {
+        // display: none;
+        opacity: 0;
+    }
+}
+
+.dropzone {
+    background-color: #DEDDE0;
+    flex: 1 1 65%;
+    height: 200px;
+    margin: 0 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        height: 50px;
+    }
+}
+
+.dropzone-title {
+    position: relative;
+    top: -85px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        top: -20px;
+    }
+}
+
+.dropzone:hover {
+    background: lightblue;
+}
+
+.image-preview {
+    padding: 5px;
+    box-sizing: border-box;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 3px;
+    background-image: url(picture.svg);
+    background-repeat: no-repeat;
+    flex: 1 1 25%;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        margin: 5px auto;
+        width: 45vw;
+        height: 45vw;
+    }
+}
+
+.display-img{
+    box-sizing: border-box;
+    border-radius: 3px;
+    width: 20vw;
+    max-width: 200px;
+    max-height: 200px;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        margin: auto;
+        width: 45vw;
+    }
+}
+
+.dropzone-list > ul {
+    width: 30%;
+    list-style: none;
+}
+
+.dropzone-list > ul.dropzone-list-valid > li:before {
+    content : '+';
+    color: #6def9a;
+}
+
+.dropzone-list > ul.dropzone-list-invalid > li:before {
+    content : '-';
+    color: #ef000f;
+}
+
+.dropzone-list > ul > li {
+    border: 1px solid black;
+    padding-bottom: 5px;
+    padding-left: 10px;
 }
 
 /* SEND-BUTTON */
@@ -509,6 +641,7 @@ label {
 
     input {
         border-radius: 4px;
+        min-width: 15px;
     }
 
     input.ng-valid {
@@ -537,9 +670,11 @@ label {
     }
 
     input {
+        cursor: pointer;
         display: inline;
-        width: auto;
-        margin-right: 20px;
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
         @media screen
         and (max-width: 667px)
         and (-webkit-min-device-pixel-ratio: 2) {
@@ -548,6 +683,7 @@ label {
     }
 
     label {
+        cursor: pointer;
         margin-right: 20px;
     }
 }
@@ -634,12 +770,12 @@ label {
 
 .hotels-down {
     position: relative;
-    top: -600px;
+    top: -800px;
     transition: .6s ease-in;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
-        top: -680px;
+        top: -890px;
     }
 }
 
@@ -648,30 +784,28 @@ label {
     justify-content: space-between;
     flex: 1 1 45%;
     box-sizing: border-box;
-    margin: 20px;
+    margin: 10px;
     border: 1.5px solid $coolGray;
     transition: all 0.4s ease;
+    justify-content: center;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         border-left: none;
         border-right: none;
+        justify-content: center;
     }
 
     img {
-        margin: 10px;
-        margin-top: auto;
-        margin-bottom: auto;
+        margin: auto 15px;
         @media screen
         and (max-width: 667px)
         and (-webkit-min-device-pixel-ratio: 2) {
             width: 255px;
-            position: absolute;
             left: 0;
             right: 0;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 20px;
         }
     }
 }
@@ -683,6 +817,62 @@ label {
 
 .hotel_details {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        flex-direction: column;
+    }
+}
+
+.hotel_details-title-n-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        flex-direction: column;
+    }
+}
+
+.hotel_details-title {
+    margin: auto;
+
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        flex-direction: column;
+    }
+
+    h3, h4 {
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 2rem;
+        margin: 20px 5px 5px 5px;
+        font-weight: bold;
+        cursor: pointer;
+        @media screen
+        and (max-width: 667px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+            font-size: 1.7rem;
+            // margin: 20px auto 5px;
+        }
+    }
+
+    h4 {
+        font-size: 1.4rem;
+        margin: 5px;
+        margin-bottom: 15px;
+    }
+}
+
+.hotel_details-list {
+    display: flex;
+    flex-direction: row;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
@@ -693,42 +883,22 @@ label {
 .hotel-image {
     display: flex;
     align-content: center;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .hotel_information {
     margin: 5px;
-}
-
-.hotel_information {
-
-    @media screen
-    and (max-width: 667px)
-    and (-webkit-min-device-pixel-ratio: 2) {
-        margin-top: 290px;
-    }
-
-    h3 {
-        font-size: 2rem;
-        margin: 5px;
-        margin-top: 10px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    h4 {
-        font-size: 1.4rem;
-        margin: 5px;
-        margin-bottom: 15px;
-    }
 
     p {
         font-size: 1.1rem;
         margin: 5px;
         margin-bottom: 15px;
         font-weight: bold;
-        strong {
-            font-weight: bold;
-        }
+    }
+
+    strong {
+        font-weight: bold;
     }
 
     ul {
@@ -767,7 +937,14 @@ label {
 
 .icons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+
+    @media screen
+    and (max-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        height: 100px;
+        justify-content: space-around;
+    }
 
     .delete-hotel {
         min-width: 40px;
@@ -783,8 +960,12 @@ label {
         and (-webkit-min-device-pixel-ratio: 2) {
             align-self: flex-end;
             min-width: 45px;
-            margin-top: 300px;
+            margin-right: 0;
         }
+    }
+
+    .hotel-star {
+        margin: 15px 0;
     }
 }
 
@@ -941,25 +1122,35 @@ label {
             font-size: 1.3rem;
         }
 
+        div {
+            width: 30px;
+            height: 30px;
+            margin-right: 20px;
+        }
+
         .money_icon {
             background-image: url(notes.svg);
             background-position: center;
             background-repeat: no-repeat;
-            width: 30px;
-            height: 30px;
+            // width: 30px;
+            // height: 30px;
         }
 
         .money_empty {
-            width: 30px;
-            height: 30px;
+            // width: 30px;
+            // height: 30px;
         }
 
         .bag_icon {
             background-image: url(suitcase.svg);
             background-position: center;
             background-repeat: no-repeat;
-            width: 30px;
-            height: 30px;
+            // width: 30px;
+            // height: 30px;
+        }
+
+        li:nth-child(odd) {
+            justify-content: flex-start;
         }
     }
 }

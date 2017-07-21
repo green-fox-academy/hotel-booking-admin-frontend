@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { RoomService } from './room-service';
 import { HttpService } from '../../../httprequest.service';
+import { GetroomsService } from '../rooms/getrooms.service';
+import { HotelService } from '../../hotel.service';
+
 
 @Component({
     selector: 'app-room-register',
@@ -21,12 +24,17 @@ export class RoomRegisterComponent implements OnInit {
 
   constructor(
     public roomservice: RoomService,
-    private registerservice: HttpService
+    private registerservice: HttpService,
+    public getroomsservice: GetroomsService,
+    public hotelservice: HotelService
     ) { }
 
     registerRoom(hotelId) {
         this.loading = true;
+        this.emptyAutosave = false;
+        this.emptyMessage = false
         this.saving = true;
+        this.messageActive = true;
         const messageFirst = { type: 'hotels', id: this.roomservice.room.data.id };
         const attr = { attributes: this.roomservice.room.data.attributes }
         const message = Object.assign(messageFirst, attr)
@@ -34,9 +42,13 @@ export class RoomRegisterComponent implements OnInit {
         this.registerservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
+                    this.getroomsservice.getRooms(hotelId);
+                    this.fadeOutMessageTimer();
                     this.loading = false;
                     this.saving = false;
-                    console.log(response)
+                    this.emptyAutosave = true;
+                    this.messageInactive = false;
+                    this.resetForm();
                 },
                 error => console.error(error)
             );
@@ -54,6 +66,11 @@ export class RoomRegisterComponent implements OnInit {
     fadeOutMessage() {
         this.messageActive = false;
         this.messageInactive = true;
+    }
+
+    resetForm() {
+        const form = document.querySelector('form')
+        form.reset()
     }
 
     ngOnInit() {

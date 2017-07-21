@@ -3,25 +3,30 @@
 
     <h3>Add new room</h3>
 
+    <section class="container__autosave--rooms">
+        <p [ngClass]="{'autosave': saving, 'empty-field': emptyAutosave}" >Autosave...</p>
+        <p [ngClass]="{'autosave-message': messageActive, 'autosave-message-fade': messageInactive, 'empty-field': emptyMessage}">Relax, autosave is working!</p>
+    </section>
+
     <form class="form" #form="ngForm">
         <div class="container__form-group">
             <div class="form-group">
                 <label for="">Room name</label>
                 <input type="text" class="form-control" name="name" placeholder="Room name"
-                required [(ngModel)]="roomservice.room.data.attributes.room_name" #name="ngModel" (keypress)="autoSave(roomservice.room.data.id)" (blur)="autoSave(roomservice.room.data.id)">
+                required [(ngModel)]="roomservice.room.data.attributes.room_name" #name="ngModel">
             </div>
 
             <div class="form-group">
                 <label for="">Desciptrion</label>
                 <textarea spellcheck="true" type="text" class="form-control" name="desciptrion" rows="10" cols="30"
-                [(ngModel)]="roomservice.room.data.attributes.description" #location="ngModel" (keypress)="autoSave(roomservice.room.data.id)" (blur)="autoSave(roomservice.room.data.id)"></textarea>
+                [(ngModel)]="roomservice.room.data.attributes.description" #location="ngModel"></textarea>
             </div>
         </div>
 
         <div class="container__form-group">
             <div class="form-group">
                 <label for="">Currency</label>
-                <select class="currencies" name="currencies" [(ngModel)]="roomservice.room.data.attributes.currency"  #meal1="ngModel" (clickgi)="autoSave(roomservice.room.data.id)">
+                <select class="currencies" name="currencies" [(ngModel)]="roomservice.room.data.attributes.currency"  #meal1="ngModel">
                     <option value="US dollar">USD</option>
                     <option value="pound">GBP</option>
                     <option value="australian dollar">AUD</option>
@@ -38,19 +43,19 @@
             <div class="form-group">
                 <label for="">Price</label>
                 <input type="number" min="1" class="form-control number" name="price"
-                [(ngModel)]="roomservice.room.data.attributes.price" #location="ngModel" (keypress)="autoSave(roomservice.room.data.id)" (blur)="autoSave(roomservice.room.data.id)">
+                [(ngModel)]="roomservice.room.data.attributes.price" #location="ngModel">
             </div>
 
             <div class="form-group">
                 <label for="">Max Occupancy</label>
                 <input type="number" min="1" class="form-control number" name="occupancy"
-                [(ngModel)]="roomservice.room.data.attributes.max_occupancy" #location="ngModel" (keypress)="autoSave(roomservice.room.data.id)" (blur)="autoSave(roomservice.room.data.id)">
+                [(ngModel)]="roomservice.room.data.attributes.max_occupancy" #location="ngModel">
             </div>
         </div>
 
     </form>
     <div class="button-group">
-        <button class="send-button" [disabled]="form.invalid" (click)="registerRoom(roomservice.room.data.id)">Add room</button>
+        <button class="send-button" [disabled]="form.invalid" (click)="registerRoom(hotelservice.hotel.hotelWithId.data.hotel_id)">Add room</button>
         <span [ngClass]="{'spinner': loading, 'empty-spinner': !loading}"></span>
     </div>
 </main>

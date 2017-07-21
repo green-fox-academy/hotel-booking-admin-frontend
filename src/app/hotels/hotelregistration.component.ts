@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { Router } from '@angular/router';
+import {DomSanitizer} from '@angular/platform-browser';
 
 import { HttpService } from '../httprequest.service';
 import { HotelService } from './hotel.service';
@@ -34,6 +35,7 @@ export class HotelComponent {
     timeout;
 
     constructor (
+        public _DomSanitizer: DomSanitizer,
         public httpservice: HttpService,
         public hotelservice: HotelService,
         public gethotels: GetHotelsService,
@@ -51,6 +53,7 @@ export class HotelComponent {
         this.httpservice.httpRequest(message, endpoint, 'post')
             .subscribe(
                 response => {
+                    this.resetForm();
                     this.loading = false;
                     this.gethotels.getHotels();
                 },
@@ -74,13 +77,15 @@ export class HotelComponent {
 
     deleteHotelId(id) {
         const endpoint = 'api/hotels/' + id;
-        this.httpservice.httpRequest(this.hotelservice.hotel, endpoint, 'delete')
+        this.httpservice.httpRequest('', endpoint, 'delete')
             .subscribe(
                 response => {
                     this.gethotels.getHotels();
                     this.undoHidden = true;
                 },
-                error => console.error(error));
+                error => {
+                    console.error(error)
+                });
     }
 
     startDeleteTimeOut(id) {
@@ -110,5 +115,10 @@ export class HotelComponent {
             this.hotelsUp = false;
             this.hotelsDown = true;
         }
+    }
+
+    resetForm() {
+        const form = document.querySelector('form')
+        form.reset()
     }
 }

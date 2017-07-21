@@ -24,6 +24,9 @@ import { RoomRegisterComponent } from './hotels/single-hotel/room-register/room-
 import { RoomService } from './hotels/single-hotel/room-register/room-service';
 import { RoomsComponent } from './hotels/single-hotel/rooms/rooms.component';
 import { GetroomsService } from './hotels/single-hotel/rooms/getrooms.service';
+import { DragNDropDirective } from './hotels/drag-n-drop/drag-n-drop.directive';
+import { DragNDropComponent } from './hotels/drag-n-drop/drag-n-drop.component';
+import { DragNDropService } from './hotels/drag-n-drop/drag-n-drop.service';
 
 @NgModule({
     declarations: [
@@ -37,7 +40,9 @@ import { GetroomsService } from './hotels/single-hotel/rooms/getrooms.service';
         NavbarComponent,
         SingleHotelComponent,
         RoomRegisterComponent,
-        RoomsComponent
+        RoomsComponent,
+        DragNDropComponent,
+        DragNDropDirective
     ],
     imports: [
         BrowserModule,
@@ -54,7 +59,8 @@ import { GetroomsService } from './hotels/single-hotel/rooms/getrooms.service';
         HttpService,
         HotelAttributesService,
         RoomService,
-        GetroomsService
+        GetroomsService,
+        DragNDropService
     ],
     bootstrap: [AppComponent]
 })
