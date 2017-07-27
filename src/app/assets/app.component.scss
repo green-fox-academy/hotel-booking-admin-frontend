@@ -787,12 +787,14 @@ label {
     border: 1.5px solid $coolGray;
     transition: all 0.4s ease;
     justify-content: center;
+    // max-width: 50%;
     @media screen
     and (max-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
         border-left: none;
         border-right: none;
         justify-content: center;
+        // max-width: none;
     }
 
     img {
