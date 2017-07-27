@@ -749,9 +749,8 @@ label {
 /* HOTEL LISTING */
 
 .allhotels, .allrooms {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 25px;
     @media screen
     and (max-width: 667px)
