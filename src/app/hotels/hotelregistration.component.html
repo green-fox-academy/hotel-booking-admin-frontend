@@ -53,10 +53,10 @@
                     <h3 (click)="getHotelId(hotel.hotel_id)" (click)="getroomsservice.getRooms(hotel.hotel_id)">{{hotel.attributes.name}}</h3>
                     <h4>{{hotel.attributes.location}}</h4>
                 </div>
-                <div class="icons">
+                <!-- <div class="icons"> -->
                     <span (click)="startDeleteTimeOut(hotel.hotel_id)" (dblclick)="deleteHotelId(hotel.hotel_id)" class="delete-hotel"></span>
                     <span class="hotel-star">{{hotel.attributes.stars}}</span>
-                </div>
+                <!-- </div> -->
             <!-- </div> -->
             <!-- <div class="hotel_details-list"> -->
                 <img class="hotel-image" [src]="_DomSanitizer.bypassSecurityTrustUrl(hotel.attributes.main_image_src)" alt="hotel_image"/>
