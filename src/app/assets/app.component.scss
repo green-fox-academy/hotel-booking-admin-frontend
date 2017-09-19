@@ -752,8 +752,9 @@ label {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 25px;
+    grid-gap: 10px;
     @media screen
-    and (max-width: 1065px) {
+    and (max-width: 1200px) {
         grid-template-columns: 1fr;
     }
     @media screen
@@ -786,7 +787,6 @@ label {
     display: flex;
     flex: 1 1 45%;
     box-sizing: border-box;
-    margin: 10px;
     border: 1.5px solid $coolGray;
     transition: all 0.4s ease;
     justify-content: center;
